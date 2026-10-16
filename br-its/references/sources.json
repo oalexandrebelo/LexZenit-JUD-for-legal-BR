@@ -1,0 +1,120 @@
+[
+  {
+    "id": "CTB",
+    "title": "Código de Trânsito — Lei 9.503/1997",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "METRO",
+    "title": "Metrologia — Lei 9.933/1999",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l9933.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "SINMETRO",
+    "title": "SINMETRO — Lei 5.966/1973",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l5966.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S10",
+    "title": "ONVIF — Profile S",
+    "url": "https://www.onvif.org/profiles/profile-s/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Descontinuação; último prazo de submissão de conformidade de produto: 31/03/2027.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S11",
+    "title": "ONVIF — Profile M",
+    "url": "https://www.onvif.org/profiles/profile-m/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Metadados e eventos analíticos; selecionar funcionalidades conforme caso de uso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S12",
+    "title": "NTCIP — Document numbers and status",
+    "url": "https://www.ntcip.org/document-numbers-and-status/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Escopos distintos: 1202 controladores; 1203 painéis; identificar edição e funções.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S13",
+    "title": "Inmetro — Regulamentação de comprimento e grandezas associadas",
+    "url": "https://www.gov.br/inmetro/pt-br/assuntos/metrologia-legal/legislacao-metrologica-em-vigor/regulamentacao-tecnica-metrologica/assunto/comprimento-e-grandezas-associadas",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Página oficial inclui a Portaria 158/2022; conferir alterações e a documentação específica do instrumento.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S14",
+    "title": "CONTRAN — Resolução 798/2020",
+    "url": "https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7982020.pdf",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Art. 4º: aprovação de modelo e verificações são exigências distintas; este PDF não substitui análise de alterações posteriores.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S26",
+    "title": "MJSP — Portaria 218/2021, Córtex",
+    "url": "https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/operacoes-integradas/cortex/publicacoes/port_218_se_secao_1.pdf",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Fonte histórica sobre adesão e permissões; NÃO atesta disponibilidade operacional atual.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S01",
+    "title": "Lei nº 14.133/2021 — texto oficial",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Regime, arts. 15, 30, 41, 59, 67, 125, 164 e 165. Verificar redação e eficácia na data dos fatos.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S09",
+    "title": "LGPD — texto oficial",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Arts. 4º, 5º e regime de tratamento; pseudonimização não comprova conformidade integral.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

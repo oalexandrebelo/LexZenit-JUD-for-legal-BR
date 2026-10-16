@@ -1,0 +1,503 @@
+{
+  "version": "0.1.0",
+  "status": "design_contract_not_deployed_to_neo4j",
+  "namespace": "legal-br",
+  "nodes": [
+    {
+      "type": "Authority",
+      "required_attributes": [
+        "authority_id",
+        "name",
+        "competence_scope",
+        "jurisdiction_id",
+        "effective_period"
+      ]
+    },
+    {
+      "type": "Jurisdiction",
+      "required_attributes": [
+        "jurisdiction_id",
+        "level",
+        "territory_code",
+        "parent_id"
+      ]
+    },
+    {
+      "type": "LegalRegime",
+      "required_attributes": [
+        "regime_id",
+        "material_scope",
+        "procedural_scope",
+        "temporal_conditions"
+      ]
+    },
+    {
+      "type": "NormativeInstrument",
+      "required_attributes": [
+        "instrument_id",
+        "authority_id",
+        "number",
+        "year",
+        "kind",
+        "official_source_id"
+      ]
+    },
+    {
+      "type": "ProvisionVersion",
+      "required_attributes": [
+        "provision_id",
+        "instrument_id",
+        "locator",
+        "text_hash",
+        "valid_period",
+        "recorded_at"
+      ]
+    },
+    {
+      "type": "JudicialDecision",
+      "required_attributes": [
+        "decision_id",
+        "court_id",
+        "case_identifier",
+        "decision_date",
+        "publication_date",
+        "document_version_id"
+      ]
+    },
+    {
+      "type": "LegalHolding",
+      "required_attributes": [
+        "holding_id",
+        "decision_id",
+        "text",
+        "binding_scope",
+        "modulation",
+        "review_status"
+      ]
+    },
+    {
+      "type": "TechnicalStandard",
+      "required_attributes": [
+        "standard_id",
+        "publisher",
+        "edition",
+        "subject",
+        "rights_policy",
+        "incorporation_reference"
+      ]
+    },
+    {
+      "type": "Matter",
+      "required_attributes": [
+        "matter_id",
+        "tenant_id",
+        "authorized_purpose",
+        "domains",
+        "jurisdictions",
+        "access_policy"
+      ]
+    },
+    {
+      "type": "DocumentVersion",
+      "required_attributes": [
+        "document_version_id",
+        "matter_id",
+        "source_id",
+        "original_hash",
+        "observed_at",
+        "recorded_at",
+        "rights_policy"
+      ]
+    },
+    {
+      "type": "TextSegment",
+      "required_attributes": [
+        "segment_id",
+        "document_version_id",
+        "offsets",
+        "page_or_line_locator",
+        "text_hash",
+        "extraction_version"
+      ]
+    },
+    {
+      "type": "Assertion",
+      "required_attributes": [
+        "assertion_id",
+        "matter_id",
+        "subject_id",
+        "predicate",
+        "object_id_or_value",
+        "status",
+        "valid_period",
+        "recorded_at"
+      ]
+    },
+    {
+      "type": "AssertionEvidence",
+      "required_attributes": [
+        "assertion_id",
+        "segment_id",
+        "exact_quote",
+        "support_type",
+        "review_status"
+      ]
+    },
+    {
+      "type": "Review",
+      "required_attributes": [
+        "review_id",
+        "assertion_id",
+        "reviewer_id",
+        "identity_assurance",
+        "decision",
+        "reason",
+        "recorded_at"
+      ]
+    },
+    {
+      "type": "Organization",
+      "required_attributes": [
+        "organization_id",
+        "authorized_identifiers",
+        "jurisdiction_id",
+        "role_in_matter"
+      ]
+    },
+    {
+      "type": "PersonReference",
+      "required_attributes": [
+        "pseudonymous_id",
+        "matter_id",
+        "role",
+        "restricted_resolution_reference"
+      ]
+    },
+    {
+      "type": "Procedure",
+      "required_attributes": [
+        "procedure_id",
+        "matter_id",
+        "authority_id",
+        "regime_id",
+        "stage",
+        "date_basis"
+      ]
+    },
+    {
+      "type": "ProceduralEvent",
+      "required_attributes": [
+        "event_id",
+        "procedure_id",
+        "type",
+        "event_time",
+        "notification_evidence"
+      ]
+    },
+    {
+      "type": "DeadlineAssessment",
+      "required_attributes": [
+        "assessment_id",
+        "event_id",
+        "rule_version",
+        "calendar_version",
+        "timezone",
+        "calculation",
+        "review_status"
+      ]
+    },
+    {
+      "type": "Obligation",
+      "required_attributes": [
+        "obligation_id",
+        "subject_id",
+        "action",
+        "conditions",
+        "exceptions",
+        "legal_basis",
+        "valid_period"
+      ]
+    },
+    {
+      "type": "ContractVersion",
+      "required_attributes": [
+        "contract_id",
+        "document_version_id",
+        "parties",
+        "object",
+        "regime",
+        "effective_period"
+      ]
+    },
+    {
+      "type": "ProcurementItem",
+      "required_attributes": [
+        "item_id",
+        "procedure_id",
+        "quantity",
+        "unit",
+        "specification",
+        "price_basis"
+      ]
+    },
+    {
+      "type": "DeviceModel",
+      "required_attributes": [
+        "device_model_id",
+        "manufacturer",
+        "model",
+        "purpose",
+        "approval_evidence"
+      ]
+    },
+    {
+      "type": "InstrumentInstance",
+      "required_attributes": [
+        "instance_id",
+        "device_model_id",
+        "authorized_identifier",
+        "verification_evidence"
+      ]
+    },
+    {
+      "type": "Calculation",
+      "required_attributes": [
+        "calculation_id",
+        "algorithm_version",
+        "inputs",
+        "units",
+        "rounding_policy",
+        "output",
+        "evidence_ids"
+      ]
+    },
+    {
+      "type": "DeliverableVersion",
+      "required_attributes": [
+        "deliverable_id",
+        "matter_id",
+        "hash",
+        "evidence_snapshot",
+        "rule_versions",
+        "status"
+      ]
+    },
+    {
+      "type": "Approval",
+      "required_attributes": [
+        "approval_id",
+        "deliverable_id",
+        "approved_hash",
+        "operation",
+        "reviewer_id",
+        "identity_assurance",
+        "expires_at"
+      ]
+    },
+    {
+      "type": "SourceSnapshot",
+      "required_attributes": [
+        "snapshot_id",
+        "source_id",
+        "content_hash",
+        "observed_at",
+        "retrieval_status",
+        "access_rights"
+      ]
+    },
+    {
+      "type": "AuditEvent",
+      "required_attributes": [
+        "event_id",
+        "matter_id",
+        "action",
+        "payload_hash",
+        "previous_hash",
+        "recorded_at",
+        "external_anchor"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "type": "issued_by",
+      "from": "NormativeInstrument",
+      "to": "Authority",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "has_provision",
+      "from": "NormativeInstrument",
+      "to": "ProvisionVersion",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "amends",
+      "from": "ProvisionVersion",
+      "to": "ProvisionVersion",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "revokes",
+      "from": "ProvisionVersion",
+      "to": "ProvisionVersion",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "interprets",
+      "from": "LegalHolding",
+      "to": "ProvisionVersion",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "has_holding",
+      "from": "JudicialDecision",
+      "to": "LegalHolding",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "distinguishes",
+      "from": "LegalHolding",
+      "to": "LegalHolding",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "overrules",
+      "from": "LegalHolding",
+      "to": "LegalHolding",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "incorporates_standard",
+      "from": "ProvisionVersion",
+      "to": "TechnicalStandard",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "governed_by",
+      "from": "Procedure",
+      "to": "LegalRegime",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "in_jurisdiction",
+      "from": "Authority",
+      "to": "Jurisdiction",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "part_of",
+      "from": "TextSegment",
+      "to": "DocumentVersion",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "evidences",
+      "from": "TextSegment",
+      "to": "Assertion",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "reviews",
+      "from": "Review",
+      "to": "Assertion",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "imposes",
+      "from": "ProvisionVersion",
+      "to": "Obligation",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "has_event",
+      "from": "Procedure",
+      "to": "ProceduralEvent",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "derives_deadline",
+      "from": "ProceduralEvent",
+      "to": "DeadlineAssessment",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "contains_item",
+      "from": "Procedure",
+      "to": "ProcurementItem",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "instantiates",
+      "from": "InstrumentInstance",
+      "to": "DeviceModel",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "uses_calculation",
+      "from": "DeliverableVersion",
+      "to": "Calculation",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    },
+    {
+      "type": "approved_version",
+      "from": "Approval",
+      "to": "DeliverableVersion",
+      "requires_evidence": true,
+      "requires_review_before_legal_retrieval": true
+    }
+  ],
+  "assertion_states": [
+    "proposed",
+    "reviewed",
+    "rejected",
+    "superseded"
+  ],
+  "legal_requirement_states": [
+    "satisfeito_no_escopo",
+    "nao_conformidade_evidenciada",
+    "inconclusivo",
+    "nao_aplicavel_justificado",
+    "erro"
+  ],
+  "jurisdiction_levels": [
+    "country",
+    "federal",
+    "state",
+    "federal_district",
+    "municipality",
+    "supranational"
+  ],
+  "invariants": [
+    "Private graph identities and foreign keys include tenant and matter.",
+    "An edge is an assertion, never automatic legal truth.",
+    "Valid time, observed time and recorded time are separate.",
+    "Unknown legal validity is not an unbounded approved interval.",
+    "A judicial holding is not interchangeable with a case number or ementa.",
+    "Technical standards require edition, rights and an applicable incorporation analysis.",
+    "People identifiers are matter-scoped and pseudonymous in retrieval views.",
+    "External action approval binds exact deliverable hash, operation and authenticated reviewer.",
+    "Projection checkpoints expose eventual consistency and do not replace the transaction log.",
+    "The current SQLite runtime implements only a subset of this ontology."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "br-data-ai",
+  "version": "0.1.0",
+  "description": "Dados pessoais, IA, cibersegurança e produtos digitais: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+  "author": {
+    "name": "AB — Alexandre Belo"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "brasil",
+    "juridico",
+    "lexguard",
+    "pt-BR"
+  ]
+}

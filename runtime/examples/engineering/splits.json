@@ -1,0 +1,32 @@
+[
+  {
+    "id": "synthetic-1",
+    "matter_id": "case-1",
+    "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "split": "train",
+    "available_on": "2025-12-01",
+    "labels": [
+      "consumer"
+    ]
+  },
+  {
+    "id": "synthetic-2",
+    "matter_id": "case-2",
+    "content_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "split": "dev",
+    "available_on": "2026-01-02",
+    "labels": [
+      "consumer"
+    ]
+  },
+  {
+    "id": "synthetic-3",
+    "matter_id": "case-3",
+    "content_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "split": "test",
+    "available_on": "2026-03-01",
+    "labels": [
+      "consumer"
+    ]
+  }
+]

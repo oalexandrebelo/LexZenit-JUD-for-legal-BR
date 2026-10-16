@@ -1,0 +1,2 @@
+Exemplo sintético: Pessoa Sintética Alfa, CPF 000.000.000-00, e-mail teste@example.invalid e telefone (11) 00000-0000.
+O nome não é detectado automaticamente por regex; adicionar span autorizado ou revisão. Não representa pessoa real.

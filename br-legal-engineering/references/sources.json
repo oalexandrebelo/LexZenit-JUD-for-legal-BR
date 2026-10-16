@@ -1,0 +1,72 @@
+[
+  {
+    "id": "REF_EYECITE",
+    "title": "Free Law Project · eyecite",
+    "url": "https://github.com/freelawproject/eyecite",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-14",
+    "scope": "Separação de extração, agregação de referências e anotação de citações. Não transplantar gramática americana nem afirmar autenticação de precedente por parsing.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "REF_LEXML",
+    "title": "LexML Brasil · Parser de documentos normativos",
+    "url": "https://github.com/lexml/lexml-parser-projeto-lei",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-14",
+    "scope": "Estrutura sintática de documentos normativos e identificadores de dispositivos, em vez de janelas arbitrárias. Não copia o código GPL, não executa o parser Scala/Java, não valida XSD completo, não converte PDF ou texto livre em LexML.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "REF_LENER",
+    "title": "LeNER-Br · Pedro H. Luz de Araujo e colaboradores",
+    "url": "https://github.com/peluz/lener-br",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-14",
+    "scope": "NER jurídico em português e anotação BIO de entidades. Corpus NER não é detector completo de PII; nenhum modelo, corpus ou checkpoint foi embarcado; não há garantia de anonimização ou conformidade LGPD.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "REF_ECLI",
+    "title": "European Case Law Identifier · Portal Europeu da Justiça",
+    "url": "https://eur-lex.europa.eu/content/help/eurlex-content/ecli.html",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-14",
+    "scope": "Identificador de decisão com cinco componentes e metadados harmonizados. ECLI não é uma ontologia completa, não cria força vinculante e não comprova adoção de ECLI pelo Brasil.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "REF_CAIL",
+    "title": "THUNLP / CAIL2018 · Xiao et al.",
+    "url": "https://github.com/china-ai-law-challenge/CAIL2018",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-14",
+    "scope": "Definição explícita de tarefas de classificação jurídica e avaliação por tarefa. Não transferir tipos penais, teses, penas, rótulos ou pesos chineses. Split temporal e gate de abstenção são decisões adicionais desta engenharia, não alegação sobre todo CAIL.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "REF_REACTFLOW",
+    "title": "xyflow · React Flow",
+    "url": "https://reactflow.dev/learn",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-14",
+    "scope": "Visualização de nós e arestas, navegação espacial e inspeção de contratos. A interface não executa skills, não autentica revisores e não representa observabilidade ao vivo.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "REF_CNJ_NUMBER",
+    "title": "CNJ · Resolução 65/2008",
+    "url": "https://atos.cnj.jus.br/atos/detalhar/119",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-14",
+    "scope": "Numeração processual unificada e dígito verificador módulo 97. Dígito válido não comprova processo existente, decisão específica, competência ou tese.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "CF",
+    "title": "Constituição da República de 1988",
+    "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "PAFED",
+    "title": "Processo administrativo federal — Lei 9.784/1999",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l9784.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "SERVIDOR",
+    "title": "Servidores federais — Lei 8.112/1990",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8112cons.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "LRF",
+    "title": "Responsabilidade fiscal — LC 101/2000",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "FINPUBLIC",
+    "title": "Direito financeiro — Lei 4.320/1964",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l4320.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "LAI",
+    "title": "Acesso à informação — Lei 12.527/2011",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S01",
+    "title": "Lei nº 14.133/2021 — texto oficial",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Regime, arts. 15, 30, 41, 59, 67, 125, 164 e 165. Verificar redação e eficácia na data dos fatos.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

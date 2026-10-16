@@ -1,0 +1,15 @@
+{
+  "reactflow_nodes": 0,
+  "detail": {
+    "name": "Error",
+    "message": "timeout"
+  },
+  "mode": "React Flow indisponível; grafo local preservado.",
+  "errors": [],
+  "failed_requests": [
+    {
+      "url": "https://cdn.jsdelivr.net/npm/@xyflow/react@12.8.5/dist/style.css",
+      "failure": "net::ERR_NAME_NOT_RESOLVED"
+    }
+  ]
+}

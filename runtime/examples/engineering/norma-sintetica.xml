@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LexML xmlns="http://www.lexml.gov.br/1.0"><ProjetoNorma><Norma><Articulacao id="articulacao">
+<Artigo id="art1"><Rotulo>Art. 1º</Rotulo><Caput id="art1_cpt"><p>Regra inteiramente sintética: a entrega exige validação prévia.</p></Caput><Paragrafo id="art1_par1"><Rotulo>§ 1º</Rotulo><p>Exceção sintética: a documentação de teste segue procedimento separado.</p></Paragrafo></Artigo>
+<Artigo id="art2"><Rotulo>Art. 2º</Rotulo><Caput id="art2_cpt"><p>Este arquivo não possui eficácia jurídica.</p></Caput></Artigo>
+</Articulacao></Norma></ProjetoNorma></LexML>

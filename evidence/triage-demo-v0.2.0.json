@@ -1,0 +1,10 @@
+{
+  "proposed_route": null,
+  "abstained": true,
+  "reason": "ambiguous_routes",
+  "top_score": 0.72,
+  "margin": 0.020000000000000018,
+  "calibration_verified": false,
+  "distribution_assertion_verified": false,
+  "automatic_legal_decision": false
+}

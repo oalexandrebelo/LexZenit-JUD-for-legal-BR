@@ -1,0 +1,12 @@
+{
+  "split_valid": true,
+  "counts": {
+    "train": 1,
+    "dev": 1,
+    "test": 1
+  },
+  "training_cutoff": "2025-12-31",
+  "unseen_holdout_labels": [],
+  "labels_adjudicated": false,
+  "legal_corpus_quality_verified": false
+}

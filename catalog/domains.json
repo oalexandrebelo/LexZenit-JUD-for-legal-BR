@@ -1,0 +1,838 @@
+[
+  {
+    "id": "br-legal-core",
+    "title": "Fundação jurídica, fontes e evidências",
+    "organs": [
+      "STF",
+      "STJ",
+      "CNJ",
+      "tribunal e órgão competentes"
+    ],
+    "source_ids": [
+      "CF",
+      "S08",
+      "S09",
+      "DATAJUD",
+      "CNJ",
+      "OAB"
+    ],
+    "skills": 19,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-procurement",
+    "title": "Licitações, contratos públicos, concessões e estatais",
+    "organs": [
+      "TCU",
+      "TCEs",
+      "TCMs",
+      "CGU",
+      "PNCP",
+      "ente contratante"
+    ],
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S16",
+      "ESTATAIS",
+      "CONCESSAO",
+      "RDC",
+      "PPP",
+      "PREGAO2019"
+    ],
+    "skills": 17,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-its",
+    "title": "ITS, fiscalização eletrônica e cidades inteligentes",
+    "organs": [
+      "CONTRAN",
+      "SENATRAN",
+      "INMETRO",
+      "IPEMs",
+      "DETRANs",
+      "órgãos executivos de trânsito"
+    ],
+    "source_ids": [
+      "CTB",
+      "METRO",
+      "SINMETRO",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S26",
+      "S01"
+    ],
+    "skills": 22,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-consumer",
+    "title": "Consumidor, comércio eletrônico e superendividamento",
+    "organs": [
+      "Senacon",
+      "PROCONs",
+      "Judiciário"
+    ],
+    "source_ids": [
+      "CDC",
+      "SUPER",
+      "SAC",
+      "ECOM",
+      "SENACON"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-real-estate",
+    "title": "Imobiliário, notarial e registral",
+    "organs": [
+      "CNJ",
+      "corregedorias",
+      "registro de imóveis",
+      "município"
+    ],
+    "source_ids": [
+      "LRP",
+      "LOCACAO",
+      "FIDUCIA",
+      "GARANTIAS",
+      "DISTRATO",
+      "INCORPORACAO",
+      "CNJ"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-corporate",
+    "title": "Societário, registro empresarial e M&A",
+    "organs": [
+      "DREI",
+      "Juntas Comerciais",
+      "CVM",
+      "CADE"
+    ],
+    "source_ids": [
+      "CC",
+      "SA",
+      "STARTUPS",
+      "LIBERDADE",
+      "DREI",
+      "CVM"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-insolvency",
+    "title": "Recuperação judicial, extrajudicial e falência",
+    "organs": [
+      "Juízo recuperacional",
+      "administrador judicial",
+      "credores"
+    ],
+    "source_ids": [
+      "RJ",
+      "RJREF",
+      "CC",
+      "S08"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-competition",
+    "title": "Concorrência, concentrações e concorrência desleal",
+    "organs": [
+      "CADE",
+      "Judiciário",
+      "Ministério Público"
+    ],
+    "source_ids": [
+      "CADELEI",
+      "CADE",
+      "LPI"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-integrity",
+    "title": "Integridade, anticorrupção, improbidade e acesso à informação",
+    "organs": [
+      "CGU",
+      "AGU",
+      "MPF",
+      "Ministérios Públicos",
+      "controladorias"
+    ],
+    "source_ids": [
+      "ANTICORR",
+      "ANTICORRDEC",
+      "LIA",
+      "LIAREF",
+      "CONFLITO",
+      "LAI",
+      "CGU"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-employment",
+    "title": "Trabalho, relações coletivas e saúde ocupacional",
+    "organs": [
+      "MTE",
+      "MPT",
+      "TST",
+      "TRTs",
+      "sindicatos"
+    ],
+    "source_ids": [
+      "CLT",
+      "CLTREF",
+      "RURAL",
+      "TEMP",
+      "FGTS",
+      "MTE",
+      "TST"
+    ],
+    "skills": 4,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-social-security",
+    "title": "Previdenciário, assistencial e complementar",
+    "organs": [
+      "INSS",
+      "CRPS",
+      "PREVIC",
+      "SUSEP",
+      "Judiciário"
+    ],
+    "source_ids": [
+      "BENEF",
+      "CUSTEIO",
+      "EC103",
+      "LOAS",
+      "INSS",
+      "CRPS",
+      "PREVIC"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-telecom",
+    "title": "Telecomunicações e serviços digitais de conectividade",
+    "organs": [
+      "ANATEL",
+      "PROCONs",
+      "CADE"
+    ],
+    "source_ids": [
+      "LGT",
+      "ANATEL",
+      "CDC",
+      "S09"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-health",
+    "title": "Saúde, vigilância sanitária e saúde suplementar",
+    "organs": [
+      "ANVISA",
+      "ANS",
+      "SUS",
+      "conselhos profissionais"
+    ],
+    "source_ids": [
+      "ANVISA",
+      "ANS",
+      "SUS",
+      "PLANOS",
+      "S09",
+      "CDC"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-energy",
+    "title": "Energia elétrica, mercado e infraestrutura",
+    "organs": [
+      "ANEEL",
+      "ONS",
+      "CCEE",
+      "agentes estaduais"
+    ],
+    "source_ids": [
+      "ANEEL",
+      "CONCESSAO",
+      "CDC",
+      "S01"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-oil-gas",
+    "title": "Petróleo, gás, combustíveis e biocombustíveis",
+    "organs": [
+      "ANP",
+      "órgãos estaduais",
+      "ambientais"
+    ],
+    "source_ids": [
+      "ANP",
+      "PNMA",
+      "LICAMB",
+      "CONCESSAO",
+      "CDC"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-transport",
+    "title": "Transportes terrestres, aquaviários e aviação",
+    "organs": [
+      "ANTT",
+      "ANTAQ",
+      "ANAC",
+      "autoridades portuárias",
+      "Marinha"
+    ],
+    "source_ids": [
+      "ANTT",
+      "ANTAQ",
+      "ANAC",
+      "CTB",
+      "PORTOS",
+      "CBA",
+      "CONCESSAO"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-tax",
+    "title": "Tributário, fiscal e reforma do consumo",
+    "organs": [
+      "RFB",
+      "PGFN",
+      "CARF",
+      "SEFAZs",
+      "municípios",
+      "Comitê Gestor IBS"
+    ],
+    "source_ids": [
+      "CTN",
+      "EC132",
+      "LC214",
+      "LC227",
+      "LEF",
+      "TRANSACAO",
+      "PAF",
+      "CARFVOTO",
+      "RFB",
+      "PGFN",
+      "CARF"
+    ],
+    "skills": 4,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-finance",
+    "title": "Financeiro, pagamentos, capitais e ativos virtuais",
+    "organs": [
+      "BCB",
+      "CVM",
+      "COAF",
+      "CMN"
+    ],
+    "source_ids": [
+      "SFN",
+      "MERCADO",
+      "CRIPTO",
+      "PLD",
+      "BCB",
+      "CVM",
+      "COAF"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-insurance",
+    "title": "Seguros, resseguros e previdência complementar",
+    "organs": [
+      "SUSEP",
+      "CNSP",
+      "PREVIC"
+    ],
+    "source_ids": [
+      "SEGUROS",
+      "SUSEP",
+      "PREVIC",
+      "CC",
+      "CDC"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-environment",
+    "title": "Ambiental, clima, biodiversidade e patrimônio",
+    "organs": [
+      "IBAMA",
+      "ICMBio",
+      "órgãos estaduais e municipais",
+      "IPHAN"
+    ],
+    "source_ids": [
+      "PNMA",
+      "FLORESTAL",
+      "CRIMEAMB",
+      "LICAMB",
+      "IBAMA",
+      "ICMBIO",
+      "IPHAN"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-agribusiness",
+    "title": "Agronegócio, terra, crédito rural e insumos",
+    "organs": [
+      "MAPA",
+      "INCRA",
+      "ANVISA",
+      "IBAMA",
+      "órgãos locais"
+    ],
+    "source_ids": [
+      "TERRA",
+      "CPR",
+      "AGRO",
+      "AGROTOX",
+      "RURAL",
+      "MAPA",
+      "INCRA",
+      "ANVISA",
+      "IBAMA"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-mining",
+    "title": "Minerário, títulos, barragens e CFEM",
+    "organs": [
+      "ANM",
+      "órgãos ambientais",
+      "entes arrecadadores"
+    ],
+    "source_ids": [
+      "MINERACAO",
+      "ANM",
+      "PNMA",
+      "LICAMB"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-criminal",
+    "title": "Penal, processo penal e execução penal",
+    "organs": [
+      "Judiciário",
+      "Ministério Público",
+      "defesa",
+      "SENAPPEN"
+    ],
+    "source_ids": [
+      "CP",
+      "CPP",
+      "LEP",
+      "DROGAS",
+      "HEDIONDOS",
+      "MARIA",
+      "ANTICRIME",
+      "ORCRIM"
+    ],
+    "skills": 4,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-constitutional",
+    "title": "Constitucional, direitos humanos e tutela coletiva",
+    "organs": [
+      "STF",
+      "Judiciário",
+      "Ministério Público",
+      "Defensoria"
+    ],
+    "source_ids": [
+      "CF",
+      "ACP",
+      "S08",
+      "STF"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-public-law",
+    "title": "Administrativo, servidores e finanças públicas",
+    "organs": [
+      "Administração",
+      "TCU",
+      "TCEs",
+      "TCMs",
+      "Judiciário"
+    ],
+    "source_ids": [
+      "CF",
+      "PAFED",
+      "SERVIDOR",
+      "LRF",
+      "FINPUBLIC",
+      "LAI",
+      "S01"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-family",
+    "title": "Família, sucessões e capacidade civil",
+    "organs": [
+      "Varas de família",
+      "notariado",
+      "Ministério Público"
+    ],
+    "source_ids": [
+      "CC",
+      "S08",
+      "LRP",
+      "ECA",
+      "MARIA",
+      "CNJ"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-vulnerable",
+    "title": "Infância, pessoa idosa, inclusão e violência",
+    "organs": [
+      "Sistema de garantia de direitos",
+      "Defensoria",
+      "MP",
+      "conselhos competentes"
+    ],
+    "source_ids": [
+      "ECA",
+      "ECADIG",
+      "PCD",
+      "IDOSO",
+      "MARIA",
+      "LOAS"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-electoral",
+    "title": "Eleitoral e organização político-partidária",
+    "organs": [
+      "TSE",
+      "TREs",
+      "Ministério Público Eleitoral"
+    ],
+    "source_ids": [
+      "CF",
+      "ELEICOES",
+      "INELEG",
+      "TSE"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-ip",
+    "title": "Propriedade intelectual, software e conteúdo",
+    "organs": [
+      "INPI",
+      "Judiciário",
+      "ANCINE"
+    ],
+    "source_ids": [
+      "LPI",
+      "LDA",
+      "SOFTWARE",
+      "INPI",
+      "ANCINE"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-data-ai",
+    "title": "Dados pessoais, IA, cibersegurança e produtos digitais",
+    "organs": [
+      "ANPD",
+      "CNJ",
+      "órgãos setoriais",
+      "Judiciário"
+    ],
+    "source_ids": [
+      "S09",
+      "MCI",
+      "ECADIG",
+      "ANPD",
+      "CNJ615",
+      "CNJ674",
+      "CDC"
+    ],
+    "skills": 5,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-urban-infrastructure",
+    "title": "Urbanístico, habitação, saneamento e recursos hídricos",
+    "organs": [
+      "Municípios",
+      "ANA",
+      "agências locais",
+      "órgãos ambientais"
+    ],
+    "source_ids": [
+      "URBANO",
+      "SANEAMENTO",
+      "AGUAS",
+      "ANA",
+      "LRP",
+      "LICAMB"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-international",
+    "title": "Internacional, migração e comércio exterior",
+    "organs": [
+      "STJ",
+      "MRE",
+      "RFB",
+      "autoridades migratórias"
+    ],
+    "source_ids": [
+      "CF",
+      "MIGRACAO",
+      "S08",
+      "STJ",
+      "RFB"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-military",
+    "title": "Militar, disciplina e processo penal militar",
+    "organs": [
+      "STM",
+      "Justiças militares",
+      "autoridades disciplinares"
+    ],
+    "source_ids": [
+      "CF",
+      "CPM",
+      "CPPM",
+      "STM"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-education",
+    "title": "Educação, pesquisa e prática jurídica supervisionada",
+    "organs": [
+      "MEC",
+      "conselhos de educação",
+      "OAB",
+      "instituições"
+    ],
+    "source_ids": [
+      "CF",
+      "LDB",
+      "ECA",
+      "PCD",
+      "OAB"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-sports-media",
+    "title": "Desportivo, audiovisual, cultura e apostas",
+    "organs": [
+      "Ministério do Esporte",
+      "ANCINE",
+      "SPA/MF",
+      "entidades competentes"
+    ],
+    "source_ids": [
+      "ESPORTE",
+      "APOSTAS",
+      "ANCINE",
+      "LDA",
+      "ECA"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-dispute-resolution",
+    "title": "Processo civil, execução, arbitragem e mediação",
+    "organs": [
+      "Judiciário",
+      "instituições arbitrais",
+      "mediadores"
+    ],
+    "source_ids": [
+      "S08",
+      "ARBITRAGEM",
+      "MEDIACAO",
+      "JEC",
+      "ACP"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-legal-ops",
+    "title": "Operações jurídicas, ética e governança da suíte",
+    "organs": [
+      "OAB",
+      "responsável profissional",
+      "segurança da informação"
+    ],
+    "source_ids": [
+      "OAB",
+      "S09",
+      "LAI",
+      "CLAUDEPLUGIN",
+      "UPSTREAM"
+    ],
+    "skills": 3,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  },
+  {
+    "id": "br-contracts",
+    "title": "Contratos civis, empresariais e tecnologia",
+    "organs": [
+      "Judiciário",
+      "partes",
+      "órgãos setoriais"
+    ],
+    "source_ids": [
+      "CC",
+      "CDC",
+      "S08",
+      "LPI",
+      "SOFTWARE"
+    ],
+    "skills": 4,
+    "federal_corpus_ingested": false,
+    "state_corpus_ingested": false,
+    "municipal_corpus_ingested": false
+  }
+]

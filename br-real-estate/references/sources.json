@@ -1,0 +1,72 @@
+[
+  {
+    "id": "LRP",
+    "title": "Registros Públicos — Lei 6.015/1973",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "LOCACAO",
+    "title": "Locação — Lei 8.245/1991",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8245.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "FIDUCIA",
+    "title": "Alienação fiduciária imobiliária — Lei 9.514/1997",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l9514.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "GARANTIAS",
+    "title": "Marco das Garantias — Lei 14.711/2023",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "DISTRATO",
+    "title": "Distrato imobiliário — Lei 13.786/2018",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13786.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "INCORPORACAO",
+    "title": "Incorporação — Lei 4.591/1964",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l4591.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CNJ",
+    "title": "CNJ — atos normativos",
+    "url": "https://atos.cnj.jus.br/",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

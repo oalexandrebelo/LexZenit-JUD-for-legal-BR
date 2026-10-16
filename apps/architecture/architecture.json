@@ -1,0 +1,1099 @@
+{
+  "schema_version": "1.0",
+  "product": "Claude para Jurídico",
+  "repository": "claude-for-legal-br",
+  "version": "0.2.0",
+  "reviewed_on": "2026-10-14",
+  "is_live_system": false,
+  "contains_private_matter_data": false,
+  "statuses": {
+    "implemented": "Código local testado",
+    "optional": "Adaptador opcional",
+    "pending": "Não implementado",
+    "human": "Etapa humana externa",
+    "reference": "Referência conceitual",
+    "unverified": "Referência não confirmada"
+  },
+  "nodes": [
+    {
+      "id": "input",
+      "title": "Entrada autorizada",
+      "subtitle": "Original e escopo do caso",
+      "status": "implemented",
+      "file": "runtime/legal_br/engine.py",
+      "reference_ids": [],
+      "inputs": "TXT / MD / XML UTF-8. Até 10 MiB.",
+      "outputs": "Bytes sem transformação implícita.",
+      "failure": "Formato, tamanho, symlink ou encoding inválido: rejeitar.",
+      "note": "CLI local. Não há autenticação institucional embutida."
+    },
+    {
+      "id": "evidence",
+      "title": "Cofre de evidências",
+      "subtitle": "Hash · versão · localizador",
+      "status": "implemented",
+      "file": "runtime/legal_br/store.py",
+      "reference_ids": [],
+      "inputs": "Texto, origem e identidade declarada.",
+      "outputs": "Original, SHA-256, chunks e trilha local.",
+      "failure": "Hash divergente ou caso incompatível bloqueiam leitura.",
+      "note": "SQLite de caso único; não é armazenamento WORM ou SaaS multi-tenant."
+    },
+    {
+      "id": "xml",
+      "title": "Estrutura LexML",
+      "subtitle": "Artigo → parágrafo → inciso",
+      "status": "implemented",
+      "file": "runtime/legal_br/lexml.py",
+      "reference_ids": [
+        "REF_LEXML"
+      ],
+      "inputs": "Subconjunto LexML XML UTF-8.",
+      "outputs": "Árvore, XPath, IDs, hashes e alteração citada.",
+      "failure": "DTD, entidade, namespace e limites violados: bloquear.",
+      "note": "Implementação própria. XSD não validado; conversão de PDF/texto livre ausente."
+    },
+    {
+      "id": "chunks",
+      "title": "Contexto de artigo",
+      "subtitle": "Exceções não são descartadas",
+      "status": "implemented",
+      "file": "runtime/legal_br/lexml.py",
+      "reference_ids": [
+        "REF_LEXML"
+      ],
+      "inputs": "Unidades sintáticas identificadas.",
+      "outputs": "Chunks + required_context_ids + oversized.",
+      "failure": "Dispositivo acima do limite permanece inteiro e sinalizado.",
+      "note": "O consumidor precisa buscar contexto obrigatório; CLI não executa LLM."
+    },
+    {
+      "id": "citations",
+      "title": "Citações brasileiras",
+      "subtitle": "Reconhecer ≠ autenticar",
+      "status": "implemented",
+      "file": "runtime/legal_br/citations.py",
+      "reference_ids": [
+        "REF_EYECITE",
+        "REF_CNJ_NUMBER"
+      ],
+      "inputs": "Texto original e gramáticas nacionais.",
+      "outputs": "Spans exatos, candidatos, checksum e ambiguidades.",
+      "failure": "Ano/autoridade incerta e Id./supra não são resolvidos por palpite.",
+      "note": "Número de processo não é ID único de decisão; sem consulta externa."
+    },
+    {
+      "id": "ecli",
+      "title": "Identidade ECLI",
+      "subtitle": "Sintaxe sem força vinculante",
+      "status": "implemented",
+      "file": "runtime/legal_br/citations.py",
+      "reference_ids": [
+        "REF_ECLI"
+      ],
+      "inputs": "ECLI integral.",
+      "outputs": "País, corte, ano e ordinal.",
+      "failure": "Ponto final ambíguo ou sintaxe fora do subconjunto: sinalizar.",
+      "note": "registry_verified=false; não inventa ECLI brasileiro."
+    },
+    {
+      "id": "ner",
+      "title": "Modelo NER local",
+      "subtitle": "Pesos não embarcados",
+      "status": "pending",
+      "file": null,
+      "reference_ids": [
+        "REF_LENER"
+      ],
+      "inputs": "Modelo licenciado + dados autorizados.",
+      "outputs": "Spans avaliados no domínio BR.",
+      "failure": "Sem checkpoint e validação: não afirmar detecção de pessoas.",
+      "note": "Apenas o adaptador BIO está implementado. Não existe inferência NER nesta release."
+    },
+    {
+      "id": "bio",
+      "title": "Alinhamento BIO",
+      "subtitle": "Tokens e spans verificáveis",
+      "status": "implemented",
+      "file": "runtime/legal_br/privacy.py",
+      "reference_ids": [
+        "REF_LENER"
+      ],
+      "inputs": "Texto e sequência de tokens/rótulos BIO.",
+      "outputs": "Entidades alinhadas ao original.",
+      "failure": "Token faltante, I- inválido ou cauda omitida: rejeitar.",
+      "note": "Compatibilidade de formato não significa acurácia de modelo."
+    },
+    {
+      "id": "detectors",
+      "title": "Identificadores diretos",
+      "subtitle": "CPF · e-mail · telefone",
+      "status": "implemented",
+      "file": "runtime/legal_br/privacy.py",
+      "reference_ids": [
+        "REF_LENER"
+      ],
+      "inputs": "Texto autorizado; spans adicionais opcionais.",
+      "outputs": "Candidatos PII, inclusive CPF inválido.",
+      "failure": "Ausência de achado nunca comprova ausência de PII.",
+      "note": "Não cobre todo RG, endereço, saúde, nomes ou identificação indireta."
+    },
+    {
+      "id": "union",
+      "title": "União de spans",
+      "subtitle": "Sobreposição sem vazamento",
+      "status": "implemented",
+      "file": "runtime/legal_br/privacy.py",
+      "reference_ids": [
+        "REF_LENER"
+      ],
+      "inputs": "Spans válidos e intervalos sobrepostos.",
+      "outputs": "Intervalos seguros e rotulados para substituição.",
+      "failure": "Limites inválidos bloqueiam; sobreposição é unida.",
+      "note": "Entidades jurídicas não pessoais são preservadas conforme política."
+    },
+    {
+      "id": "hmac",
+      "title": "Pseudônimos por caso",
+      "subtitle": "HMAC · tenant · matter",
+      "status": "implemented",
+      "file": "runtime/legal_br/privacy.py",
+      "reference_ids": [],
+      "inputs": "Chave local secreta ≥32 bytes, tenant/caso e spans.",
+      "outputs": "Texto derivado + mapa de offsets; sem chave/mapa reverso.",
+      "failure": "Chave fraca, escopo ausente ou arquivo permissivo: bloquear.",
+      "note": "Chave não é persistida pelo módulo; pseudônimos ainda são dados protegidos."
+    },
+    {
+      "id": "privacy-review",
+      "title": "Revisão de privacidade",
+      "subtitle": "Egress não autorizado",
+      "status": "human",
+      "file": null,
+      "reference_ids": [
+        "REF_LENER"
+      ],
+      "inputs": "Cópia pseudonimizada e original restrito.",
+      "outputs": "Revisão do risco residual por responsável autorizado.",
+      "failure": "Nomes/atributos indiretos omitidos pelo detector exigem exame.",
+      "note": "egress_authorized=false em toda saída; nenhum upload está implementado."
+    },
+    {
+      "id": "official",
+      "title": "Validação em fonte oficial",
+      "subtitle": "Conector não implementado",
+      "status": "pending",
+      "file": null,
+      "reference_ids": [
+        "REF_ECLI",
+        "REF_CNJ_NUMBER"
+      ],
+      "inputs": "Candidato e jurisdição/data.",
+      "outputs": "Existência, vigência e suporte com prova.",
+      "failure": "API indisponível é pendência, não inexistência nem conformidade.",
+      "note": "Skills podem orientar pesquisa autorizada; o CLI novo não acessa rede."
+    },
+    {
+      "id": "temporal",
+      "title": "Filtro temporal",
+      "subtitle": "Eficácia × conhecimento",
+      "status": "implemented",
+      "file": "runtime/legal_br/store.py",
+      "reference_ids": [],
+      "inputs": "Atestações, effective_on e known_at.",
+      "outputs": "Documentos elegíveis no snapshot.",
+      "failure": "Norma sem atestação não passa por padrão.",
+      "note": "Temporalidade declarada por documento, não motor de revogação tácita."
+    },
+    {
+      "id": "graph",
+      "title": "Grafo de evidências",
+      "subtitle": "Arestas revistas e limitadas",
+      "status": "implemented",
+      "file": "runtime/legal_br/store.py",
+      "reference_ids": [
+        "REF_ECLI"
+      ],
+      "inputs": "Documentos, relação, citação e revisão declarada.",
+      "outputs": "Busca lexical + expansão limitada de arestas elegíveis.",
+      "failure": "Prova inelegível e ciclo não liberam suporte; truncamento visível.",
+      "note": "Ontologia não se confunde com cadastro ECLI. Neo4j é projeção futura."
+    },
+    {
+      "id": "taxonomy",
+      "title": "Taxonomia brasileira",
+      "subtitle": "Rótulos sob curadoria",
+      "status": "human",
+      "file": null,
+      "reference_ids": [
+        "REF_CAIL"
+      ],
+      "inputs": "Especialistas, casos autorizados e objetivo da tarefa.",
+      "outputs": "Rótulos adjudicados e política de exclusão.",
+      "failure": "Rótulo chinês ou tese estrangeira não vira regra brasileira.",
+      "note": "Não há corpus BR treinado incluído."
+    },
+    {
+      "id": "split",
+      "title": "Partições sem vazamento",
+      "subtitle": "Caso · hash · corte temporal",
+      "status": "implemented",
+      "file": "runtime/legal_br/evaluation.py",
+      "reference_ids": [
+        "REF_CAIL"
+      ],
+      "inputs": "Train/dev/test com matter_id, hash, available_on.",
+      "outputs": "Relatório de integridade e rótulos não vistos.",
+      "failure": "Mesmo caso ou conteúdo entre partições: rejeitar.",
+      "note": "Deduplicação semântica e identidade verdadeira do caso requerem curadoria."
+    },
+    {
+      "id": "classifier",
+      "title": "Classificador BR",
+      "subtitle": "Não treinado nesta versão",
+      "status": "pending",
+      "file": null,
+      "reference_ids": [
+        "REF_CAIL"
+      ],
+      "inputs": "Corpus autorizado, taxonomia e partições válidas.",
+      "outputs": "Scores e versão de modelo avaliados.",
+      "failure": "Scores fabricados ou vazamento invalidam experimento.",
+      "note": "Não implementado: inferência/treino. Nenhuma taxa de acerto jurídico declarada."
+    },
+    {
+      "id": "triage",
+      "title": "Triagem com abstenção",
+      "subtitle": "Score não é probabilidade",
+      "status": "implemented",
+      "file": "runtime/legal_br/evaluation.py",
+      "reference_ids": [
+        "REF_CAIL"
+      ],
+      "inputs": "Scores reais, limiar, margem e declaração de domínio.",
+      "outputs": "Candidato ou abstenção com motivo.",
+      "failure": "Empate, baixa margem, OOD declarado ou valor não finito: abster/bloquear.",
+      "note": "OOD e scores são entradas do chamador, não prova de calibração."
+    },
+    {
+      "id": "metrics",
+      "title": "Avaliação multilabel",
+      "subtitle": "F1 · cobertura · seletividade",
+      "status": "implemented",
+      "file": "runtime/legal_br/evaluation.py",
+      "reference_ids": [
+        "REF_CAIL"
+      ],
+      "inputs": "Ground truth, predições e abstenções.",
+      "outputs": "Micro/macro F1, por rótulo, cobertura e acerto seletivo.",
+      "failure": "Abstenções não desaparecem do denominador completo.",
+      "note": "Dados sintéticos validam matemática, não benchmark de Direito brasileiro."
+    },
+    {
+      "id": "gate",
+      "title": "Controle de liberação",
+      "subtitle": "Risco, prova e cobertura",
+      "status": "implemented",
+      "file": "runtime/lexguard_core/verdict.py",
+      "reference_ids": [],
+      "inputs": "Resultados tipados e cobertura declarada.",
+      "outputs": "Bloqueio/revisão; não protocolo automático.",
+      "failure": "Erro ou lacuna crítica não é compensada por média.",
+      "note": "Gate local herdado; não autentica responsável institucional."
+    },
+    {
+      "id": "human",
+      "title": "Revisão profissional",
+      "subtitle": "Versão exata e responsabilidade",
+      "status": "human",
+      "file": null,
+      "reference_ids": [],
+      "inputs": "Evidências, conclusão, objeções e minuta identificada.",
+      "outputs": "Decisão humana independente e documentada.",
+      "failure": "Mudança no documento exige nova revisão.",
+      "note": "Assinatura, identidade e OAB não são autenticadas pelo runtime."
+    },
+    {
+      "id": "external",
+      "title": "Ato externo",
+      "subtitle": "Fora do escopo executável",
+      "status": "pending",
+      "file": null,
+      "reference_ids": [],
+      "inputs": "Autorização autenticada, versão e mecanismo de reconciliação.",
+      "outputs": "Protocolo/recibo somente em serviço futuro separado.",
+      "failure": "Resposta perdida exige reconciliar, não repetir cegamente.",
+      "note": "Nenhum envio de peça, assinatura ou pagamento é implementado."
+    },
+    {
+      "id": "REF_EYECITE",
+      "title": "Free Law Project · eyecite",
+      "subtitle": "EUA · P0",
+      "status": "reference",
+      "file": "research/references.json",
+      "reference_ids": [
+        "REF_EYECITE"
+      ],
+      "inputs": "Separação de extração, agregação de referências e anotação de citações.",
+      "outputs": "Gramática BR original com offsets; adaptador opcional para a API real get_citations nos EUA.",
+      "failure": "Não transplantar gramática americana nem afirmar autenticação de precedente por parsing.",
+      "note": "BSD-2-Clause"
+    },
+    {
+      "id": "REF_LEXML",
+      "title": "LexML Brasil · Parser de documentos normativos",
+      "subtitle": "BR · P0",
+      "status": "reference",
+      "file": "research/references.json",
+      "reference_ids": [
+        "REF_LEXML"
+      ],
+      "inputs": "Estrutura sintática de documentos normativos e identificadores de dispositivos, em vez de janelas arbitrárias.",
+      "outputs": "Leitor XML original de subconjunto LexML; famílias de artigo, exceções e alterações citadas preservadas.",
+      "failure": "Não copia o código GPL, não executa o parser Scala/Java, não valida XSD completo, não converte PDF ou texto livre em LexML.",
+      "note": "GPL-2.0 (identificação do repositório)"
+    },
+    {
+      "id": "REF_LENER",
+      "title": "LeNER-Br · Pedro H. Luz de Araujo e colaboradores",
+      "subtitle": "BR · P0",
+      "status": "reference",
+      "file": "research/references.json",
+      "reference_ids": [
+        "REF_LENER"
+      ],
+      "inputs": "NER jurídico em português e anotação BIO de entidades.",
+      "outputs": "Adaptador BIO estrito para spans e pseudonimização local por tenant/caso, com detectores adicionais de CPF, e-mail e telefone.",
+      "failure": "Corpus NER não é detector completo de PII; nenhum modelo, corpus ou checkpoint foi embarcado; não há garantia de anonimização ou conformidade LGPD.",
+      "note": "MIT no repositório consultado; ativos específicos requerem conferência"
+    },
+    {
+      "id": "REF_ECLI",
+      "title": "European Case Law Identifier · Portal Europeu da Justiça",
+      "subtitle": "EU · P1",
+      "status": "reference",
+      "file": "research/references.json",
+      "reference_ids": [
+        "REF_ECLI"
+      ],
+      "inputs": "Identificador de decisão com cinco componentes e metadados harmonizados.",
+      "outputs": "Parser sintático original e separação entre identificador, processo, decisão, tese e relação revisada.",
+      "failure": "ECLI não é uma ontologia completa, não cria força vinculante e não comprova adoção de ECLI pelo Brasil.",
+      "note": "Padrão público consultado; nenhum código terceiro redistribuído"
+    },
+    {
+      "id": "REF_OPEN_ECLI_UNCONFIRMED",
+      "title": "Open-ECLI-Utils · nome informado pelo usuário",
+      "subtitle": "EU · Pendente",
+      "status": "unverified",
+      "file": "research/references.json",
+      "reference_ids": [
+        "REF_OPEN_ECLI_UNCONFIRMED"
+      ],
+      "inputs": "Hipótese de biblioteca de utilidades ECLI apresentada pelo usuário.",
+      "outputs": "Nenhuma dependência ou cópia. Substituição de referência somente pelo padrão ECLI oficial, explicitamente declarada.",
+      "failure": "Não inventar repositório, licença, autor, versão ou API. Falha de localização não demonstra inexistência.",
+      "note": "Não identificada"
+    },
+    {
+      "id": "REF_CAIL",
+      "title": "THUNLP / CAIL2018 · Xiao et al.",
+      "subtitle": "Ásia · P1",
+      "status": "reference",
+      "file": "research/references.json",
+      "reference_ids": [
+        "REF_CAIL"
+      ],
+      "inputs": "Definição explícita de tarefas de classificação jurídica e avaliação por tarefa.",
+      "outputs": "Harness brasileiro de avaliação multilabel, integridade de partições por caso/hash/tempo e triagem com abstenção.",
+      "failure": "Não transferir tipos penais, teses, penas, rótulos ou pesos chineses. Split temporal e gate de abstenção são decisões adicionais desta engenharia, não alegação sobre todo CAIL.",
+      "note": "MIT no repositório CAIL2018; dados/checkpoints exigem revisão específica"
+    },
+    {
+      "id": "REF_REACTFLOW",
+      "title": "xyflow · React Flow",
+      "subtitle": "Global · P0",
+      "status": "reference",
+      "file": "research/references.json",
+      "reference_ids": [
+        "REF_REACTFLOW"
+      ],
+      "inputs": "Visualização de nós e arestas, navegação espacial e inspeção de contratos.",
+      "outputs": "Documentação interativa em React Flow 12.8.5 com quatro vistas; alternativa local sem dependências para consulta offline.",
+      "failure": "A interface não executa skills, não autentica revisores e não representa observabilidade ao vivo.",
+      "note": "MIT"
+    },
+    {
+      "id": "REF_CNJ_NUMBER",
+      "title": "CNJ · Resolução 65/2008",
+      "subtitle": "BR · P0",
+      "status": "reference",
+      "file": "research/references.json",
+      "reference_ids": [
+        "REF_CNJ_NUMBER"
+      ],
+      "inputs": "Numeração processual unificada e dígito verificador módulo 97.",
+      "outputs": "Verificação matemática do número formatado, sem consulta processual.",
+      "failure": "Dígito válido não comprova processo existente, decisão específica, competência ou tese.",
+      "note": "Ato oficial; código de verificação original"
+    }
+  ],
+  "views": [
+    {
+      "id": "pipeline",
+      "title": "01 · Pipeline de evidências",
+      "description": "Mapa de integração proposta entre módulos existentes. As conexões não são um executor end-to-end: cada comando continua explícito.",
+      "nodes": [
+        {
+          "id": "input",
+          "x": 40,
+          "y": 80
+        },
+        {
+          "id": "evidence",
+          "x": 345,
+          "y": 80
+        },
+        {
+          "id": "xml",
+          "x": 40,
+          "y": 300
+        },
+        {
+          "id": "chunks",
+          "x": 345,
+          "y": 300
+        },
+        {
+          "id": "citations",
+          "x": 650,
+          "y": 80
+        },
+        {
+          "id": "detectors",
+          "x": 650,
+          "y": 300
+        },
+        {
+          "id": "official",
+          "x": 955,
+          "y": 80
+        },
+        {
+          "id": "hmac",
+          "x": 955,
+          "y": 300
+        },
+        {
+          "id": "privacy-review",
+          "x": 1260,
+          "y": 300
+        },
+        {
+          "id": "temporal",
+          "x": 650,
+          "y": 520
+        },
+        {
+          "id": "graph",
+          "x": 955,
+          "y": 520
+        },
+        {
+          "id": "gate",
+          "x": 1260,
+          "y": 520
+        },
+        {
+          "id": "human",
+          "x": 1565,
+          "y": 520
+        },
+        {
+          "id": "external",
+          "x": 1565,
+          "y": 740
+        }
+      ],
+      "edges": [
+        {
+          "id": "pipeline:input:evidence",
+          "source": "input",
+          "target": "evidence",
+          "kind": "data",
+          "label": "texto"
+        },
+        {
+          "id": "pipeline:input:xml",
+          "source": "input",
+          "target": "xml",
+          "kind": "data",
+          "label": "XML"
+        },
+        {
+          "id": "pipeline:xml:chunks",
+          "source": "xml",
+          "target": "chunks",
+          "kind": "data",
+          "label": "unidades"
+        },
+        {
+          "id": "pipeline:evidence:citations",
+          "source": "evidence",
+          "target": "citations",
+          "kind": "data",
+          "label": "texto"
+        },
+        {
+          "id": "pipeline:evidence:detectors",
+          "source": "evidence",
+          "target": "detectors",
+          "kind": "data",
+          "label": "texto"
+        },
+        {
+          "id": "pipeline:chunks:citations",
+          "source": "chunks",
+          "target": "citations",
+          "kind": "data",
+          "label": "contexto"
+        },
+        {
+          "id": "pipeline:citations:official",
+          "source": "citations",
+          "target": "official",
+          "kind": "planned",
+          "label": "autenticar"
+        },
+        {
+          "id": "pipeline:detectors:hmac",
+          "source": "detectors",
+          "target": "hmac",
+          "kind": "data",
+          "label": "spans"
+        },
+        {
+          "id": "pipeline:hmac:privacy-review",
+          "source": "hmac",
+          "target": "privacy-review",
+          "kind": "review",
+          "label": "risco residual"
+        },
+        {
+          "id": "pipeline:evidence:temporal",
+          "source": "evidence",
+          "target": "temporal",
+          "kind": "data",
+          "label": "snapshot"
+        },
+        {
+          "id": "pipeline:temporal:graph",
+          "source": "temporal",
+          "target": "graph",
+          "kind": "data",
+          "label": "elegibilidade"
+        },
+        {
+          "id": "pipeline:official:graph",
+          "source": "official",
+          "target": "graph",
+          "kind": "planned",
+          "label": "prova futura"
+        },
+        {
+          "id": "pipeline:graph:gate",
+          "source": "graph",
+          "target": "gate",
+          "kind": "data",
+          "label": "evidências"
+        },
+        {
+          "id": "pipeline:gate:human",
+          "source": "gate",
+          "target": "human",
+          "kind": "review",
+          "label": "minuta"
+        },
+        {
+          "id": "pipeline:human:external",
+          "source": "human",
+          "target": "external",
+          "kind": "planned",
+          "label": "fora do runtime"
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "02 · Referências e conceitos",
+      "description": "Linhas representam origem conceitual, não dependência obrigatória ou transferência de normas estrangeiras.",
+      "nodes": [
+        {
+          "id": "REF_EYECITE",
+          "x": 30,
+          "y": 50
+        },
+        {
+          "id": "citations",
+          "x": 430,
+          "y": 50
+        },
+        {
+          "id": "REF_LEXML",
+          "x": 30,
+          "y": 245
+        },
+        {
+          "id": "xml",
+          "x": 430,
+          "y": 245
+        },
+        {
+          "id": "REF_LENER",
+          "x": 30,
+          "y": 440
+        },
+        {
+          "id": "bio",
+          "x": 430,
+          "y": 440
+        },
+        {
+          "id": "REF_ECLI",
+          "x": 860,
+          "y": 50
+        },
+        {
+          "id": "ecli",
+          "x": 1260,
+          "y": 50
+        },
+        {
+          "id": "REF_CAIL",
+          "x": 860,
+          "y": 245
+        },
+        {
+          "id": "metrics",
+          "x": 1260,
+          "y": 245
+        },
+        {
+          "id": "REF_OPEN_ECLI_UNCONFIRMED",
+          "x": 860,
+          "y": 440
+        },
+        {
+          "id": "REF_REACTFLOW",
+          "x": 1260,
+          "y": 440
+        },
+        {
+          "id": "REF_CNJ_NUMBER",
+          "x": 30,
+          "y": 635
+        }
+      ],
+      "edges": [
+        {
+          "id": "references:REF_EYECITE:citations",
+          "source": "REF_EYECITE",
+          "target": "citations",
+          "kind": "concept",
+          "label": "conceito + adaptador"
+        },
+        {
+          "id": "references:REF_LEXML:xml",
+          "source": "REF_LEXML",
+          "target": "xml",
+          "kind": "concept",
+          "label": "estrutura / original"
+        },
+        {
+          "id": "references:REF_LENER:bio",
+          "source": "REF_LENER",
+          "target": "bio",
+          "kind": "concept",
+          "label": "BIO / sem pesos"
+        },
+        {
+          "id": "references:REF_ECLI:ecli",
+          "source": "REF_ECLI",
+          "target": "ecli",
+          "kind": "concept",
+          "label": "padrão oficial"
+        },
+        {
+          "id": "references:REF_CAIL:metrics",
+          "source": "REF_CAIL",
+          "target": "metrics",
+          "kind": "concept",
+          "label": "avaliação por tarefa"
+        },
+        {
+          "id": "references:REF_CNJ_NUMBER:citations",
+          "source": "REF_CNJ_NUMBER",
+          "target": "citations",
+          "kind": "concept",
+          "label": "checksum"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": "03 · Fronteira de privacidade",
+      "description": "Tudo começa localmente. Nenhum detector, revisão declarada ou pseudônimo torna um upload automaticamente lícito.",
+      "nodes": [
+        {
+          "id": "input",
+          "x": 40,
+          "y": 150
+        },
+        {
+          "id": "ner",
+          "x": 40,
+          "y": 375
+        },
+        {
+          "id": "bio",
+          "x": 365,
+          "y": 375
+        },
+        {
+          "id": "detectors",
+          "x": 365,
+          "y": 150
+        },
+        {
+          "id": "union",
+          "x": 690,
+          "y": 150
+        },
+        {
+          "id": "hmac",
+          "x": 1015,
+          "y": 150
+        },
+        {
+          "id": "privacy-review",
+          "x": 1340,
+          "y": 150
+        }
+      ],
+      "edges": [
+        {
+          "id": "privacy:input:detectors",
+          "source": "input",
+          "target": "detectors",
+          "kind": "data",
+          "label": "regex local"
+        },
+        {
+          "id": "privacy:input:ner",
+          "source": "input",
+          "target": "ner",
+          "kind": "planned",
+          "label": "modelo ausente"
+        },
+        {
+          "id": "privacy:ner:bio",
+          "source": "ner",
+          "target": "bio",
+          "kind": "planned",
+          "label": "BIO futuro"
+        },
+        {
+          "id": "privacy:bio:union",
+          "source": "bio",
+          "target": "union",
+          "kind": "data",
+          "label": "spans fornecidos"
+        },
+        {
+          "id": "privacy:detectors:union",
+          "source": "detectors",
+          "target": "union",
+          "kind": "data",
+          "label": "candidatos"
+        },
+        {
+          "id": "privacy:union:hmac",
+          "source": "union",
+          "target": "hmac",
+          "kind": "data",
+          "label": "intervalos unidos"
+        },
+        {
+          "id": "privacy:hmac:privacy-review",
+          "source": "hmac",
+          "target": "privacy-review",
+          "kind": "review",
+          "label": "egress bloqueado"
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "title": "04 · Triagem e avaliação",
+      "description": "O código verifica a matemática e a integridade experimental; não prediz resultados judiciais nem importa rótulos da China.",
+      "nodes": [
+        {
+          "id": "taxonomy",
+          "x": 40,
+          "y": 80
+        },
+        {
+          "id": "split",
+          "x": 360,
+          "y": 80
+        },
+        {
+          "id": "classifier",
+          "x": 680,
+          "y": 80
+        },
+        {
+          "id": "triage",
+          "x": 1000,
+          "y": 80
+        },
+        {
+          "id": "metrics",
+          "x": 1000,
+          "y": 325
+        },
+        {
+          "id": "human",
+          "x": 1320,
+          "y": 80
+        },
+        {
+          "id": "REF_CAIL",
+          "x": 360,
+          "y": 325
+        }
+      ],
+      "edges": [
+        {
+          "id": "evaluation:taxonomy:split",
+          "source": "taxonomy",
+          "target": "split",
+          "kind": "review",
+          "label": "rótulos BR"
+        },
+        {
+          "id": "evaluation:split:classifier",
+          "source": "split",
+          "target": "classifier",
+          "kind": "planned",
+          "label": "treino futuro"
+        },
+        {
+          "id": "evaluation:classifier:triage",
+          "source": "classifier",
+          "target": "triage",
+          "kind": "planned",
+          "label": "scores reais"
+        },
+        {
+          "id": "evaluation:triage:human",
+          "source": "triage",
+          "target": "human",
+          "kind": "review",
+          "label": "candidato / abster"
+        },
+        {
+          "id": "evaluation:triage:metrics",
+          "source": "triage",
+          "target": "metrics",
+          "kind": "data",
+          "label": "cobertura"
+        },
+        {
+          "id": "evaluation:REF_CAIL:split",
+          "source": "REF_CAIL",
+          "target": "split",
+          "kind": "concept",
+          "label": "tarefas; split próprio"
+        },
+        {
+          "id": "evaluation:REF_CAIL:metrics",
+          "source": "REF_CAIL",
+          "target": "metrics",
+          "kind": "concept",
+          "label": "avaliação"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "REF_EYECITE",
+      "name": "Free Law Project · eyecite",
+      "region": "EUA",
+      "url": "https://github.com/freelawproject/eyecite",
+      "paper": "https://joss.theoj.org/papers/10.21105/joss.03617",
+      "license": "BSD-2-Clause",
+      "license_url": "https://github.com/freelawproject/eyecite/blob/main/LICENSE",
+      "license_blob_sha": "2457716e7d6dbab49d9b716c35a0e18b288a92c4",
+      "verified": "primary_project_and_license",
+      "concept": "Separação de extração, agregação de referências e anotação de citações.",
+      "adoption": "Gramática BR original com offsets; adaptador opcional para a API real get_citations nos EUA.",
+      "implementation": "runtime/legal_br/citations.py",
+      "status": "implemented_original_optional_external_adapter",
+      "not_adopted": "Não transplantar gramática americana nem afirmar autenticação de precedente por parsing.",
+      "vendored_code": false,
+      "bundled_data_or_weights": false,
+      "priority": "P0",
+      "validation": "Gramática BR testada; eyecite não instalado nem executado nesta sessão.",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "id": "REF_LEXML",
+      "name": "LexML Brasil · Parser de documentos normativos",
+      "region": "BR",
+      "url": "https://github.com/lexml/lexml-parser-projeto-lei",
+      "paper": null,
+      "license": "GPL-2.0 (identificação do repositório)",
+      "license_url": "https://github.com/lexml/lexml-parser-projeto-lei/blob/master/LICENSE",
+      "license_blob_sha": null,
+      "verified": "primary_project",
+      "concept": "Estrutura sintática de documentos normativos e identificadores de dispositivos, em vez de janelas arbitrárias.",
+      "adoption": "Leitor XML original de subconjunto LexML; famílias de artigo, exceções e alterações citadas preservadas.",
+      "implementation": "runtime/legal_br/lexml.py",
+      "status": "implemented_original_subset",
+      "not_adopted": "Não copia o código GPL, não executa o parser Scala/Java, não valida XSD completo, não converte PDF ou texto livre em LexML.",
+      "vendored_code": false,
+      "bundled_data_or_weights": false,
+      "priority": "P0",
+      "validation": "Testes de estrutura, preservação, duplicidade, limites e rejeição de DTD/entidades.",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "id": "REF_LENER",
+      "name": "LeNER-Br · Pedro H. Luz de Araujo e colaboradores",
+      "region": "BR",
+      "url": "https://github.com/peluz/lener-br",
+      "paper": "https://teodecampos.github.io/LeNER-Br/",
+      "license": "MIT no repositório consultado; ativos específicos requerem conferência",
+      "license_url": "https://github.com/peluz/lener-br/blob/master/LICENSE",
+      "license_blob_sha": "fd4671c6f144524791b975a7ff29d0b59be09893",
+      "verified": "primary_project_and_license",
+      "concept": "NER jurídico em português e anotação BIO de entidades.",
+      "adoption": "Adaptador BIO estrito para spans e pseudonimização local por tenant/caso, com detectores adicionais de CPF, e-mail e telefone.",
+      "implementation": "runtime/legal_br/privacy.py",
+      "status": "implemented_adapter_without_ner_weights",
+      "not_adopted": "Corpus NER não é detector completo de PII; nenhum modelo, corpus ou checkpoint foi embarcado; não há garantia de anonimização ou conformidade LGPD.",
+      "vendored_code": false,
+      "bundled_data_or_weights": false,
+      "priority": "P0",
+      "validation": "Alinhamento BIO, sobreposição, escopo criptográfico e não exposição da chave testados.",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "id": "REF_ECLI",
+      "name": "European Case Law Identifier · Portal Europeu da Justiça",
+      "region": "EU",
+      "url": "https://eur-lex.europa.eu/content/help/eurlex-content/ecli.html",
+      "paper": null,
+      "license": "Padrão público consultado; nenhum código terceiro redistribuído",
+      "license_url": null,
+      "license_blob_sha": null,
+      "verified": "primary_standard",
+      "concept": "Identificador de decisão com cinco componentes e metadados harmonizados.",
+      "adoption": "Parser sintático original e separação entre identificador, processo, decisão, tese e relação revisada.",
+      "implementation": "runtime/legal_br/citations.py",
+      "status": "implemented_syntax_only",
+      "not_adopted": "ECLI não é uma ontologia completa, não cria força vinculante e não comprova adoção de ECLI pelo Brasil.",
+      "vendored_code": false,
+      "bundled_data_or_weights": false,
+      "priority": "P1",
+      "validation": "Sintaxe testada; registro nacional, existência e força jurídica permanecem não verificados.",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "id": "REF_OPEN_ECLI_UNCONFIRMED",
+      "name": "Open-ECLI-Utils · nome informado pelo usuário",
+      "region": "EU",
+      "url": null,
+      "paper": null,
+      "license": "Não identificada",
+      "license_url": null,
+      "license_blob_sha": null,
+      "verified": "not_identified_by_exact_name_search",
+      "concept": "Hipótese de biblioteca de utilidades ECLI apresentada pelo usuário.",
+      "adoption": "Nenhuma dependência ou cópia. Substituição de referência somente pelo padrão ECLI oficial, explicitamente declarada.",
+      "implementation": null,
+      "status": "unverified_reference",
+      "not_adopted": "Não inventar repositório, licença, autor, versão ou API. Falha de localização não demonstra inexistência.",
+      "vendored_code": false,
+      "bundled_data_or_weights": false,
+      "priority": "Pendente",
+      "validation": "Busca pública e busca de repositórios não identificaram correspondência exata confiável.",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "id": "REF_CAIL",
+      "name": "THUNLP / CAIL2018 · Xiao et al.",
+      "region": "Ásia",
+      "url": "https://github.com/china-ai-law-challenge/CAIL2018",
+      "paper": "https://arxiv.org/abs/1807.02478",
+      "license": "MIT no repositório CAIL2018; dados/checkpoints exigem revisão específica",
+      "license_url": "https://github.com/china-ai-law-challenge/CAIL2018/blob/master/LICENSE",
+      "license_blob_sha": "968c114bb4e6b605b2e984833d89a3895d1ed2b7",
+      "verified": "primary_project_paper_and_license",
+      "concept": "Definição explícita de tarefas de classificação jurídica e avaliação por tarefa.",
+      "adoption": "Harness brasileiro de avaliação multilabel, integridade de partições por caso/hash/tempo e triagem com abstenção.",
+      "implementation": "runtime/legal_br/evaluation.py",
+      "status": "implemented_evaluation_not_trained_model",
+      "not_adopted": "Não transferir tipos penais, teses, penas, rótulos ou pesos chineses. Split temporal e gate de abstenção são decisões adicionais desta engenharia, não alegação sobre todo CAIL.",
+      "vendored_code": false,
+      "bundled_data_or_weights": false,
+      "priority": "P1",
+      "validation": "Cálculos e validação de datasets sintéticos testados; nenhum treinamento ou benchmark jurídico executado.",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "id": "REF_REACTFLOW",
+      "name": "xyflow · React Flow",
+      "region": "Global",
+      "url": "https://reactflow.dev/learn",
+      "paper": null,
+      "license": "MIT",
+      "license_url": "https://github.com/xyflow/xyflow/blob/main/LICENSE",
+      "license_blob_sha": null,
+      "verified": "primary_documentation",
+      "concept": "Visualização de nós e arestas, navegação espacial e inspeção de contratos.",
+      "adoption": "Documentação interativa em React Flow 12.8.5 com quatro vistas; alternativa local sem dependências para consulta offline.",
+      "implementation": "apps/architecture/reactflow.mjs",
+      "status": "implemented_source_external_library_not_executed_here",
+      "not_adopted": "A interface não executa skills, não autentica revisores e não representa observabilidade ao vivo.",
+      "vendored_code": false,
+      "bundled_data_or_weights": false,
+      "priority": "P0",
+      "validation": "Grafo e JavaScript testáveis offline; dependências React Flow por CDN requerem conexão e não foram homologadas neste ambiente.",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "id": "REF_CNJ_NUMBER",
+      "name": "CNJ · Resolução 65/2008",
+      "region": "BR",
+      "url": "https://atos.cnj.jus.br/atos/detalhar/119",
+      "paper": null,
+      "license": "Ato oficial; código de verificação original",
+      "license_url": null,
+      "license_blob_sha": null,
+      "verified": "primary_normative_source",
+      "concept": "Numeração processual unificada e dígito verificador módulo 97.",
+      "adoption": "Verificação matemática do número formatado, sem consulta processual.",
+      "implementation": "runtime/legal_br/citations.py",
+      "status": "implemented_syntax_and_checksum",
+      "not_adopted": "Dígito válido não comprova processo existente, decisão específica, competência ou tese.",
+      "vendored_code": false,
+      "bundled_data_or_weights": false,
+      "priority": "P0",
+      "validation": "Números sintéticos de teste, inclusive dígitos inválidos.",
+      "checked_on": "2026-10-14"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "br-agribusiness",
+  "version": "0.1.0",
+  "description": "Agronegócio, terra, crédito rural e insumos: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+  "author": {
+    "name": "AB — Alexandre Belo"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "brasil",
+    "juridico",
+    "lexguard",
+    "pt-BR"
+  ]
+}

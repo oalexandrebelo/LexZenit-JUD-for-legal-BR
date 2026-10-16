@@ -1,0 +1,23 @@
+Claude for Legal BR / legal-br
+Brazilian layer authored for AB — Alexandre Belo, 2026.
+Licensed under Apache License 2.0.
+
+Reference upstream: anthropics/claude-for-legal, copyright 2026 Anthropic PBC.
+Pinned upstream commit and scope: upstream.lock.json.
+This archive is the standalone Brazilian layer, not a byte-for-byte clone of the upstream.
+The assembly script clones that exact commit and preserves upstream history, license,
+original files and original marketplace under an explicitly separate surface.
+No affiliation, endorsement or official Brazilian edition is claimed.
+Claude is a name associated with Anthropic. The internal marketplace is named legal-br.
+
+LexGuard V2 material supplied in this conversation is incorporated selectively:
+53 workflow contracts and the local Python core/tests. Original provenance appears
+in catalog/skills.json and docs/PROVENANCE.md. Prior test counts are not reused as
+new evidence; the suite is rerun in this delivery.
+No ABNT standards text, customer files, credentials or private litigation records
+are included. Source metadata does not confer reproduction rights.
+
+
+Adições originais 0.2.0: parser BR, leitor XML LexML de subconjunto, pseudonimização e avaliação.
+Referências conceituais, sem cópia de código, datasets ou pesos: Free Law Project/eyecite (BSD-2-Clause), LexML (parser identificado como GPL-2.0), LeNER-Br (MIT no repositório consultado), THUNLP/CAIL2018 (MIT no repositório consultado) e ECLI (padrão oficial).
+A biblioteca React Flow/xyflow (MIT) e React (MIT) são dependências opcionais do renderer; suas atribuições devem acompanhar uma distribuição que as incorpore. O pacote atual não contém esses bundles. Licenças dos dados/checkpoints devem ser verificadas separadamente.

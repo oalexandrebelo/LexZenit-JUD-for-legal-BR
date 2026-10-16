@@ -1,0 +1,26 @@
+{
+  "labels": [
+    "consumer",
+    "procurement"
+  ],
+  "rows": [
+    {
+      "id": "synthetic-1",
+      "gold": [
+        "consumer"
+      ],
+      "predicted": [
+        "consumer"
+      ],
+      "abstained": false
+    },
+    {
+      "id": "synthetic-2",
+      "gold": [
+        "procurement"
+      ],
+      "predicted": [],
+      "abstained": true
+    }
+  ]
+}

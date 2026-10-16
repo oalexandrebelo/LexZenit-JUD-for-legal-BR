@@ -1,0 +1,9 @@
+{
+  "scores": {
+    "consumer": 0.72,
+    "procurement": 0.7
+  },
+  "threshold": 0.7,
+  "minimum_margin": 0.1,
+  "in_distribution": true
+}

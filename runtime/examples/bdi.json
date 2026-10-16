@@ -1,0 +1,9 @@
+{
+  "administration": "0.04",
+  "risk": "0.01",
+  "insurance": "0.005",
+  "guarantee": "0.005",
+  "finance": "0.01",
+  "profit": "0.08",
+  "taxes_on_sales": "0.05"
+}

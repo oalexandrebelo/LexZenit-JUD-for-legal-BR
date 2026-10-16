@@ -1,0 +1,181 @@
+{
+  "cutoff": "2026-10-13",
+  "classification_note": "Identified public primary page/reference, not exhaustive legal verification or a running connector.",
+  "identified": [
+    {
+      "id": "CDC",
+      "title": "Código de Defesa do Consumidor — Lei 8.078/1990",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "CONCESSAO",
+      "title": "Concessão e permissão — Lei 8.987/1995",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8987compilada.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "RDC",
+      "title": "RDC — Lei 12.462/2011; recorte histórico",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12462.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "EC132",
+      "title": "Reforma tributária — EC 132/2023",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "LC214",
+      "title": "IBS, CBS e IS — LC 214/2025",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "LC227",
+      "title": "Comitê Gestor e regras IBS — LC 227/2026",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp227.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "TRANSACAO",
+      "title": "Transação de créditos públicos — Lei 13.988/2020",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/lei/l13988.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "SEGUROS",
+      "title": "Contrato de seguro — Lei 15.040/2024",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/l15040.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "LICAMB",
+      "title": "Licenciamento ambiental — Lei 15.190/2025",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15190.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "AGROTOX",
+      "title": "Agrotóxicos — Lei 14.785/2023",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14785.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "ECADIG",
+      "title": "Estatuto Digital da Criança e do Adolescente — Lei 15.211/2025",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15211.htm",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "ANEEL",
+      "title": "ANEEL",
+      "url": "https://www.gov.br/aneel/pt-br",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "DATAJUD",
+      "title": "CNJ — API pública de metadados",
+      "url": "https://datajud-wiki.cnj.jus.br/api-publica/",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Metadados; não equivale a inteiro teor ou validação de tese.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "CNJ615",
+      "title": "Resolução CNJ 615/2025",
+      "url": "https://atos.cnj.jus.br/atos/detalhar/6001",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Governança de IA no Judiciário; conferir alterações e alcance institucional.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "CNJ674",
+      "title": "Resolução CNJ 674 — alteração do art. 15 da Resolução 615",
+      "url": "https://atos.cnj.jus.br/atos/detalhar/6836",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Página identificada; não presumir texto originário da Resolução 615 ainda inalterado.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "CLAUDEPLUGIN",
+      "title": "Referência técnica de plugins Claude Code",
+      "url": "https://docs.claude.com/en/docs/claude-code/plugins-reference",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Estrutura de plugins; validar com a versão local do CLI antes de distribuir.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    },
+    {
+      "id": "UPSTREAM",
+      "title": "Claude for Legal — repositório de referência",
+      "url": "https://github.com/anthropics/claude-for-legal",
+      "discovery": "official_page_identified_this_session",
+      "observed_on": "2026-10-13",
+      "scope": "Apache-2.0; versão fixada em upstream.lock.json; sem afiliação.",
+      "full_text_bundled": false,
+      "connector_implemented": false
+    }
+  ],
+  "counts": {
+    "identified": 17,
+    "inherited_not_rechecked": 28,
+    "seeds_requiring_verification": 137
+  }
+}

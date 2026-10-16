@@ -1,0 +1,34 @@
+{
+  "synthetic": true,
+  "ingestion": {
+    "document_id": "b3705469-0ed3-4f98-8b85-1b4595c1ae43",
+    "sha256": "068a05a48053e17cd93cdc0241c3d5f2d2b339d6d1d7aa23a7a28559c6d1d23d",
+    "deduplicated": false,
+    "chunks": 1,
+    "source_status": "unverified",
+    "legal_validity": "unknown"
+  },
+  "before_review_results": 0,
+  "after_review_results": 1,
+  "quote": {
+    "chunk_id": "e34a16d163159f1bb0aa278c1b357d0a809ab3c45a1033ec31a90b8be25b9a95",
+    "quote_start_offset": 41,
+    "quote_end_offset": 60,
+    "document_id": "b3705469-0ed3-4f98-8b85-1b4595c1ae43",
+    "document_sha256": "068a05a48053e17cd93cdc0241c3d5f2d2b339d6d1d7aa23a7a28559c6d1d23d",
+    "start_line": 2,
+    "end_line": 2,
+    "quotation": "garantia a conferir",
+    "semantic_support_verified": false
+  },
+  "integrity": {
+    "events": 2,
+    "documents": 1,
+    "chunks": 1,
+    "head": "2e5cfcc4df05ad12740be55f95d16a652ef9d25964fde10379d5fb0f4fe9d0a3",
+    "externally_anchored": false,
+    "signature_verified": false,
+    "limitation": "Not WORM, not authenticated reviewers, not a full database tamper proof."
+  },
+  "generation_performed": false
+}

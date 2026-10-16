@@ -1,0 +1,151 @@
+[
+  {
+    "id": "S01",
+    "title": "Lei nº 14.133/2021 — texto oficial",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Regime, arts. 15, 30, 41, 59, 67, 125, 164 e 165. Verificar redação e eficácia na data dos fatos.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S02",
+    "title": "TCU — Aceitabilidade e desclassificação",
+    "url": "https://licitacoesecontratos.tcu.gov.br/5-4-1-aceitabilidade-e-desclassificacao-2/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Limiares, diligência, escopo de engenharia e histórico de interpretações.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S03",
+    "title": "TCU — Garantia adicional",
+    "url": "https://licitacoesecontratos.tcu.gov.br/5-4-4-garantia-adicional-2/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "O quadro numérico usa 85% do orçamento menos proposta; não ocultar a discussão sobre a base de cálculo.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S04",
+    "title": "TCU — Impugnação e pedidos de esclarecimento",
+    "url": "https://licitacoesecontratos.tcu.gov.br/5-1-1-impugnacao-e-pedidos-de-esclarecimento/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Prazo legal não é contagem regressiva constante.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S05",
+    "title": "TCU — Alterações unilaterais",
+    "url": "https://licitacoesecontratos.tcu.gov.br/6-2-1-unilateral-2/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Limites e enquadramento das alterações contratuais.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S06",
+    "title": "TCU — Orçamento detalhado",
+    "url": "https://licitacoesecontratos.tcu.gov.br/4-4-3-6-orcamento-detalhado-do-custo-global-da-obra/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Quantidades, custos unitários e composição do orçamento.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S16",
+    "title": "PNCP — Portal oficial",
+    "url": "https://www.gov.br/pncp/pt-br",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Descoberta institucional; conectores e credenciais não homologados por esta entrega.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "ESTATAIS",
+    "title": "Estatais — Lei 13.303/2016",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2016/lei/l13303.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CONCESSAO",
+    "title": "Concessão e permissão — Lei 8.987/1995",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8987compilada.htm",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-13",
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "RDC",
+    "title": "RDC — Lei 12.462/2011; recorte histórico",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12462.htm",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-13",
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "PPP",
+    "title": "Parcerias público-privadas — Lei 11.079/2004",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11079.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "PREGAO2019",
+    "title": "Decreto 10.024/2019 — identificar regime",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d10024.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S27",
+    "title": "TCU — Cartilha de Engenharia de Custos de Obras Públicas",
+    "url": "https://portal.tcu.gov.br/uploads/cartilha_engenharia_custos_obras_publicas_perguntas_respostas_eb964dd641.pdf",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Seção 6.2.11, página 90 do PDF: diligência e presunção relativa; referência atual consultada em 12/10/2026.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S07",
+    "title": "Receita Federal — Orçamento e BDI de contratação de 2025",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/licitacoes-e-contratos/licitacoes/rfb/unidades-federativas-uf/sp/srrf08-uasg-170133/2025/conc-srrf08-no-90005-2025-uasg-170133-elaboracao-de-projetos-de-seguranca-eletronica/04-apendice-ao-tr-orcamento.pdf",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Páginas 4 e 5: quartis como referências e fórmula de BDI; não importar alíquotas desse contrato para outro.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

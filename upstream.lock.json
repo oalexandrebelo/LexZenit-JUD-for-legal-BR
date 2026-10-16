@@ -1,0 +1,15 @@
+{
+  "repository": "anthropics/claude-for-legal",
+  "url": "https://github.com/anthropics/claude-for-legal.git",
+  "commit": "4a6c651889c97cc9140580363c73e0eb17379c2b",
+  "tree": "19d28f03edbc916e85ce68733993170952071b0d",
+  "observed_on": "2026-10-13",
+  "license": "Apache-2.0",
+  "mode": "standalone-br-overlay; upstream not vendored in this archive",
+  "upstream_plugins": 12,
+  "vendor_plugins": 1,
+  "managed_agent_cookbooks": 5,
+  "publication_status": "not_published",
+  "target_owner": "oalexandrebelo",
+  "target_repository": "claude-for-legal-br"
+}

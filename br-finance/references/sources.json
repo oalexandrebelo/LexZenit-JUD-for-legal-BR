@@ -1,0 +1,72 @@
+[
+  {
+    "id": "SFN",
+    "title": "Sistema financeiro — Lei 4.595/1964",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l4595.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "MERCADO",
+    "title": "Valores mobiliários — Lei 6.385/1976",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l6385.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CRIPTO",
+    "title": "Ativos virtuais — Lei 14.478/2022",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "PLD",
+    "title": "Lavagem de dinheiro — Lei 9.613/1998",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l9613.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "BCB",
+    "title": "Banco Central do Brasil",
+    "url": "https://www.bcb.gov.br/",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CVM",
+    "title": "CVM",
+    "url": "https://www.gov.br/cvm/pt-br",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "COAF",
+    "title": "COAF",
+    "url": "https://www.gov.br/coaf/pt-br",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

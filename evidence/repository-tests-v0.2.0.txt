@@ -1,0 +1,18 @@
+test_archive_upstream_workflows_and_cla (test_repository.AssemblyTests.test_archive_upstream_workflows_and_cla) ... ok
+test_assembly_does_not_set_origin_or_commit_br (test_repository.AssemblyTests.test_assembly_does_not_set_origin_or_commit_br) ... ok
+test_real_clone_preserves_history_and_source (test_repository.AssemblyTests.test_real_clone_preserves_history_and_source) ... ok
+test_refuses_existing_destination (test_repository.AssemblyTests.test_refuses_existing_destination) ... ok
+test_refuses_nested_destination (test_repository.AssemblyTests.test_refuses_nested_destination) ... ok
+test_refuses_overlay_symlinks (test_repository.AssemblyTests.test_refuses_overlay_symlinks) ... ok
+test_refuses_unpinned_commit (test_repository.AssemblyTests.test_refuses_unpinned_commit) ... ok
+test_vendor_preserved_marketplace_replaced (test_repository.AssemblyTests.test_vendor_preserved_marketplace_replaced) ... ok
+test_marketplace_and_all_contracts (test_repository.RepositoryTests.test_marketplace_and_all_contracts) ... ok
+test_no_remote_runtime_dependency (test_repository.RepositoryTests.test_no_remote_runtime_dependency) ... ok
+test_read_only_tool_scope (test_repository.RepositoryTests.test_read_only_tool_scope) ... ok
+test_shell_script_syntax (test_repository.RepositoryTests.test_shell_script_syntax) ... ok
+test_sources_provenance_not_fabricated_connectors (test_repository.RepositoryTests.test_sources_provenance_not_fabricated_connectors) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.308s
+
+OK

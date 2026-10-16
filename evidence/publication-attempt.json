@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-14",
+  "target": "oalexandrebelo/claude-for-legal-br",
+  "authorized_by_user": true,
+  "published": false,
+  "remote_commit": null,
+  "observations": [
+    {
+      "tool": "GitHub.get_repo",
+      "result": "404 Not Found; destination absent or inaccessible to the active connector"
+    },
+    {
+      "tool": "GitHub tool discovery",
+      "result": "File/tree/commit/branch writes available; no repository-create or fork action found"
+    },
+    {
+      "tool": "Remote Desktop Commander",
+      "result": "No registered device online"
+    },
+    {
+      "tool": "TinyFish.list_profiles",
+      "result": "No GitHub authenticated site in available browser profile"
+    },
+    {
+      "tool": "Plugin Management search",
+      "result": "Existing GitHub integration found; no separate repository-creation capability established"
+    }
+  ],
+  "no_secrets_requested": true,
+  "no_other_repository_mutated": true,
+  "no_background_publication_scheduled": true
+}

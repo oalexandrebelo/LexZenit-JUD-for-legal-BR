@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "parser": "legal-br-lexml-subset",
+  "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+  "namespace": "http://www.lexml.gov.br/1.0",
+  "nodes": [
+    {
+      "id": "articulacao",
+      "type": "Articulacao",
+      "label": "",
+      "parent_id": null,
+      "ancestor_ids": [],
+      "own_text": "",
+      "xpath": "/LexML[1]/ProjetoNorma[1]/Norma[1]/Articulacao[1]",
+      "source_xml_id": "articulacao",
+      "quoted_amendment": false,
+      "order": 4,
+      "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+      "unit_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "legal_effect_verified": false
+    },
+    {
+      "id": "art1",
+      "type": "Artigo",
+      "label": "Art. 1º",
+      "parent_id": "articulacao",
+      "ancestor_ids": [
+        "articulacao"
+      ],
+      "own_text": "Art. 1º",
+      "xpath": "/LexML[1]/ProjetoNorma[1]/Norma[1]/Articulacao[1]/Artigo[1]",
+      "source_xml_id": "art1",
+      "quoted_amendment": false,
+      "order": 5,
+      "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+      "unit_sha256": "8b3f8a84c6a31a3e7920eacbdf4c0c8ab6eb44f05b20c52507246769410301fe",
+      "legal_effect_verified": false
+    },
+    {
+      "id": "art1_cpt",
+      "type": "Caput",
+      "label": "",
+      "parent_id": "art1",
+      "ancestor_ids": [
+        "articulacao",
+        "art1"
+      ],
+      "own_text": "Regra inteiramente sintética: a entrega exige validação prévia.",
+      "xpath": "/LexML[1]/ProjetoNorma[1]/Norma[1]/Articulacao[1]/Artigo[1]/Caput[1]",
+      "source_xml_id": "art1_cpt",
+      "quoted_amendment": false,
+      "order": 7,
+      "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+      "unit_sha256": "825364d6be1bb543f1fcf090de50d46dc7aaf16df594ddcabb684a2fd03ce48f",
+      "legal_effect_verified": false
+    },
+    {
+      "id": "art1_par1",
+      "type": "Paragrafo",
+      "label": "§ 1º",
+      "parent_id": "art1",
+      "ancestor_ids": [
+        "articulacao",
+        "art1"
+      ],
+      "own_text": "§ 1º\nExceção sintética: a documentação de teste segue procedimento separado.",
+      "xpath": "/LexML[1]/ProjetoNorma[1]/Norma[1]/Articulacao[1]/Artigo[1]/Paragrafo[1]",
+      "source_xml_id": "art1_par1",
+      "quoted_amendment": false,
+      "order": 9,
+      "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+      "unit_sha256": "9235ce4a5eb1717cd76c2645c3b3c2007058a7c6ca5f69fe9147facbdb4a2ddd",
+      "legal_effect_verified": false
+    },
+    {
+      "id": "art2",
+      "type": "Artigo",
+      "label": "Art. 2º",
+      "parent_id": "articulacao",
+      "ancestor_ids": [
+        "articulacao"
+      ],
+      "own_text": "Art. 2º",
+      "xpath": "/LexML[1]/ProjetoNorma[1]/Norma[1]/Articulacao[1]/Artigo[2]",
+      "source_xml_id": "art2",
+      "quoted_amendment": false,
+      "order": 12,
+      "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+      "unit_sha256": "eb88ae73457f31a426a4be03b1051a6d7b26f00ca78b782d96aa1ec03625432b",
+      "legal_effect_verified": false
+    },
+    {
+      "id": "art2_cpt",
+      "type": "Caput",
+      "label": "",
+      "parent_id": "art2",
+      "ancestor_ids": [
+        "articulacao",
+        "art2"
+      ],
+      "own_text": "Este arquivo não possui eficácia jurídica.",
+      "xpath": "/LexML[1]/ProjetoNorma[1]/Norma[1]/Articulacao[1]/Artigo[2]/Caput[1]",
+      "source_xml_id": "art2_cpt",
+      "quoted_amendment": false,
+      "order": 14,
+      "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+      "unit_sha256": "eaeab51f40d661ca9caee6035919390122af15fad9f865013460bd5b7d1af705",
+      "legal_effect_verified": false
+    }
+  ],
+  "warnings": [],
+  "xsd_validated": false,
+  "source_authenticity_verified": false,
+  "external_resource_fetches": 0,
+  "chunks": [
+    {
+      "chunk_id": "art1:part:1",
+      "article_id": "art1",
+      "text": "Art. 1º\n\nRegra inteiramente sintética: a entrega exige validação prévia.\n\n§ 1º\nExceção sintética: a documentação de teste segue procedimento separado.",
+      "unit_ids": [
+        "art1",
+        "art1_cpt",
+        "art1_par1"
+      ],
+      "required_context_ids": [],
+      "ancestor_ids": [
+        "articulacao"
+      ],
+      "quoted_amendment": false,
+      "oversized": false,
+      "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+      "text_sha256": "9859a08e1e3de93aa780fa25bd15f8d7186787fb8b455af3e075a2ef76473539",
+      "part": 1,
+      "parts": 1
+    },
+    {
+      "chunk_id": "art2:part:1",
+      "article_id": "art2",
+      "text": "Art. 2º\n\nEste arquivo não possui eficácia jurídica.",
+      "unit_ids": [
+        "art2",
+        "art2_cpt"
+      ],
+      "required_context_ids": [],
+      "ancestor_ids": [
+        "articulacao"
+      ],
+      "quoted_amendment": false,
+      "oversized": false,
+      "source_sha256": "72e0cc8f0b655af20def31db93bd48e6b797472c07e017eb6c8f86a75e2d9280",
+      "text_sha256": "8a035e4083bb1282485efc88198035445f7f1b115a33e570f8e7e6abd8688e9a",
+      "part": 1,
+      "parts": 1
+    }
+  ]
+}

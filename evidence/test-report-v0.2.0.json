@@ -1,0 +1,105 @@
+{
+  "version": "0.2.0",
+  "executed_on": "2026-10-14",
+  "environment": {
+    "python": "3.13.5",
+    "sqlite": "3.46.1",
+    "platform": "Linux",
+    "node": "v22.16.0",
+    "chromium": "Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)"
+  },
+  "suites": [
+    {
+      "suite": "runtime",
+      "tests": 200,
+      "passed": 200,
+      "failed": 0,
+      "seconds": 7.334,
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "evidence/runtime-tests-v0.2.0.txt"
+    },
+    {
+      "suite": "repository",
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "seconds": 0.96,
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "evidence/repository-tests-v0.2.0.txt"
+    },
+    {
+      "suite": "graph",
+      "tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "seconds": 0.094,
+      "command": [
+        "--test",
+        "graph.test.mjs"
+      ],
+      "log": "evidence/graph-tests-v0.2.0.txt"
+    },
+    {
+      "suite": "browser_offline",
+      "tests": 10,
+      "passed": 10,
+      "failed": 0,
+      "seconds": 3.448,
+      "command": [
+        "browser_tests.py"
+      ],
+      "log": "evidence/browser_offline-tests-v0.2.0.txt"
+    }
+  ],
+  "not_executed": [
+    "official_claude_installation",
+    "semantic_evaluation_of_skills",
+    "legal_ner_training_or_benchmark",
+    "legal_classifier_training",
+    "upstream_full_clone",
+    "github_remote_publication",
+    "github_remote_ci",
+    "postgresql_neo4j_deployment",
+    "institutional_authentication",
+    "judicial_or_administrative_filing"
+  ],
+  "optional_build": {
+    "completed": false,
+    "reason": "esbuild not installed; npm dependency resolution unavailable"
+  },
+  "reactflow_browser": {
+    "completed": false,
+    "reason": "CDN activation timed out; CSS request returned ERR_NAME_NOT_RESOLVED"
+  },
+  "native_browser": {
+    "completed": true,
+    "live_reactflow_test": false,
+    "external_requests_before_activation": 0
+  },
+  "total_passed": 235,
+  "catalog_validation": {
+    "structural_validation": "passed",
+    "plugins": 39,
+    "skills": 176,
+    "source_records": 189,
+    "semantic_case_specifications": 176,
+    "official_claude_cli_validation": false,
+    "semantic_evaluation": false
+  },
+  "javascript_syntax": "passed",
+  "previous_workflows_byte_identical": 169
+}

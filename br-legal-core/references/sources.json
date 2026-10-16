@@ -1,0 +1,130 @@
+[
+  {
+    "id": "CF",
+    "title": "Constituição da República de 1988",
+    "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S08",
+    "title": "Código de Processo Civil — texto oficial",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Arts. 489 e 927; distinguir fundamentação de decisões e revisão de peças.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S09",
+    "title": "LGPD — texto oficial",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Arts. 4º, 5º e regime de tratamento; pseudonimização não comprova conformidade integral.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "DATAJUD",
+    "title": "CNJ — API pública de metadados",
+    "url": "https://datajud-wiki.cnj.jus.br/api-publica/",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-13",
+    "scope": "Metadados; não equivale a inteiro teor ou validação de tese.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CNJ",
+    "title": "CNJ — atos normativos",
+    "url": "https://atos.cnj.jus.br/",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "OAB",
+    "title": "Estatuto da Advocacia — Lei 8.906/1994",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8906.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S15",
+    "title": "STJ Dados Abertos — API Pública DataJud",
+    "url": "https://dadosabertos.web.stj.jus.br/dataset/api-publica-datajud",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Catálogo descreve metadados processuais; não é prova universal de inteiro teor ou de superação de tese.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S17",
+    "title": "LexML Brasil",
+    "url": "https://www.lexml.gov.br/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Referência institucional de identificação normativa; não equivale a validar vigência de todos os atos.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S25",
+    "title": "OWASP — LLM Prompt Injection Prevention",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Separação de instruções e dados, privilégio mínimo e controles de execução.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S04",
+    "title": "TCU — Impugnação e pedidos de esclarecimento",
+    "url": "https://licitacoesecontratos.tcu.gov.br/5-1-1-impugnacao-e-pedidos-de-esclarecimento/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Prazo legal não é contagem regressiva constante.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S22",
+    "title": "Pydantic — Models",
+    "url": "https://pydantic.dev/docs/validation/latest/concepts/models/",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Validação estrutural e imutabilidade superficial; não valida verdade jurídica.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S01",
+    "title": "Lei nº 14.133/2021 — texto oficial",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Regime, arts. 15, 30, 41, 59, 67, 125, 164 e 165. Verificar redação e eficácia na data dos fatos.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

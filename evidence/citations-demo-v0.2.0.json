@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "engine": "legal-br-original",
+  "source_sha256": "cba06486eda71365366600cd075bb64926b71227285ab3eb1b52ccc51abc5026",
+  "coordinate_system": "unicode_codepoints_original_text",
+  "warnings": [],
+  "citations": [
+    {
+      "citation_id": "b86d73a26474d34301683cf219005122a4c4c410b7b91b2ae4d149773a17667b",
+      "kind": "normative_reference",
+      "surface": "Lei 14.133/21",
+      "start": 74,
+      "end": 87,
+      "parts": {
+        "kind": "Lei",
+        "number": "14133",
+        "year": "21",
+        "authority": null
+      },
+      "syntax_status": "ambiguous_year",
+      "canonical_identifier": null,
+      "existence_verified": false,
+      "semantic_support_verified": false
+    },
+    {
+      "citation_id": "fc558b715cb2ad9366261bad4a329bcc6319b375a5df74f72b2b937e0bb4feae",
+      "kind": "provision_reference",
+      "surface": "art. 59, § 4º",
+      "start": 89,
+      "end": 102,
+      "parts": {
+        "number": "59",
+        "suffix": null,
+        "paragraph": "4"
+      },
+      "syntax_status": "parent_instrument_unresolved",
+      "canonical_identifier": null,
+      "existence_verified": false,
+      "semantic_support_verified": false
+    },
+    {
+      "citation_id": "287ce657bcd8a3ddadb11fa03a8fa3674f5454a1c24471766367446026af8c4a",
+      "kind": "court_case_reference",
+      "surface": "STF RE 123.456",
+      "start": 105,
+      "end": 119,
+      "parts": {
+        "court": "STF",
+        "class": "RE",
+        "number": "123456",
+        "suffix": null
+      },
+      "syntax_status": "decision_identity_unresolved",
+      "canonical_identifier": null,
+      "existence_verified": false,
+      "semantic_support_verified": false
+    },
+    {
+      "citation_id": "e50ad2e9fd8f07b42310ebbbafd8f00a6a27cabc6d986d186d1f3077d2edc11f",
+      "kind": "short_reference",
+      "surface": "Id.",
+      "start": 121,
+      "end": 124,
+      "parts": {
+        "candidate_antecedents": [
+          "b86d73a26474d34301683cf219005122a4c4c410b7b91b2ae4d149773a17667b",
+          "287ce657bcd8a3ddadb11fa03a8fa3674f5454a1c24471766367446026af8c4a"
+        ],
+        "candidate_set_truncated": false
+      },
+      "syntax_status": "requires_resolution",
+      "canonical_identifier": null,
+      "existence_verified": false,
+      "semantic_support_verified": false
+    },
+    {
+      "citation_id": "67421d2953a25819c45b7d24ac9d4d7f0f2b9935b7b71ba1ad152b12df98927b",
+      "kind": "sumula_reference",
+      "surface": "Súmula Vinculante 56",
+      "start": 127,
+      "end": 147,
+      "parts": {
+        "binding": true,
+        "number": "56",
+        "court": null
+      },
+      "syntax_status": "recognized",
+      "canonical_identifier": null,
+      "existence_verified": false,
+      "semantic_support_verified": false
+    },
+    {
+      "citation_id": "f46ae5f3a4968702951e5c283f6793b8664224ee5e8b2fa7f47d288cbe64a153",
+      "kind": "ecli",
+      "surface": "ECLI:EU:C:2020:559",
+      "start": 150,
+      "end": 168,
+      "parts": {
+        "identifier": "ECLI:EU:C:2020:559",
+        "original_identifier": "ECLI:EU:C:2020:559",
+        "country": "EU",
+        "court": "C",
+        "year": 2020,
+        "ordinal": "559",
+        "syntax_valid": true,
+        "registry_verified": false,
+        "existence_verified": false,
+        "binding_effect_verified": false
+      },
+      "syntax_status": "syntax_valid",
+      "canonical_identifier": "ECLI:EU:C:2020:559",
+      "existence_verified": false,
+      "semantic_support_verified": false
+    }
+  ],
+  "external_lookup_performed": false,
+  "legal_conclusion": null
+}

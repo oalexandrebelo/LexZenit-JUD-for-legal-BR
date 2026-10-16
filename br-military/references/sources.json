@@ -1,0 +1,42 @@
+[
+  {
+    "id": "CF",
+    "title": "Constituição da República de 1988",
+    "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CPM",
+    "title": "Código Penal Militar — Decreto-Lei 1.001/1969",
+    "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del1001.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CPPM",
+    "title": "Processo Penal Militar — Decreto-Lei 1.002/1969",
+    "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del1002.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "STM",
+    "title": "STM",
+    "url": "https://www.stm.jus.br/",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

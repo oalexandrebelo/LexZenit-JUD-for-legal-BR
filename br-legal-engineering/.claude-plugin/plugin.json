@@ -1,0 +1,16 @@
+{
+  "name": "br-legal-engineering",
+  "version": "0.2.0",
+  "description": "Engenharia jurídica brasileira: citações rastreáveis, estrutura LexML, privacidade local, avaliação de triagem e arquitetura interativa com fronteiras verificáveis.",
+  "author": {
+    "name": "AB — Alexandre Belo"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "brasil",
+    "juridico",
+    "evidencias",
+    "privacidade",
+    "reactflow"
+  ]
+}

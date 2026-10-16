@@ -1,0 +1,29 @@
+{
+  "examples": 2,
+  "abstentions": 1,
+  "coverage": 0.5,
+  "selective_exact_match": 1.0,
+  "micro_f1": 0.6666666666666666,
+  "macro_f1": 0.5,
+  "per_label": {
+    "consumer": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "procurement": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "abstention_counts_as_false_negative": true,
+  "source_labels_verified": false,
+  "legal_accuracy_established": false
+}

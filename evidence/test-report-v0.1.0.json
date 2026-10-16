@@ -1,0 +1,44 @@
+{
+  "build_label": "0.1.0",
+  "research_cutoff": "2026-10-13",
+  "python": "3.13.5",
+  "platform": "Linux",
+  "sqlite": "3.46.1",
+  "dependencies": {
+    "pydantic": "2.13.5",
+    "pydantic-core": "2.46.5",
+    "annotated-types": "0.8.0",
+    "typing-extensions": "4.16.0",
+    "typing-inspection": "0.4.4"
+  },
+  "suites": [
+    {
+      "name": "runtime",
+      "tests": 119,
+      "returncode": 0,
+      "seconds": 2.243
+    },
+    {
+      "name": "repository_and_local_git",
+      "tests": 13,
+      "returncode": 0,
+      "seconds": 0.277
+    }
+  ],
+  "official_claude_cli_executed": false,
+  "semantic_llm_evaluations_executed": false,
+  "upstream_full_clone_executed": false,
+  "github_repository_created": false,
+  "github_push_executed": false,
+  "live_legal_connector_tested": false,
+  "gpu_benchmark_executed": false,
+  "postgres_provisioned": false,
+  "neo4j_provisioned": false,
+  "ci_configured_but_not_run_remotely": true,
+  "ci_action_pins": {
+    "actions/checkout": "11d5960a326750d5838078e36cf38b85af677262",
+    "actions/setup-python": "a26af69be951a213d495a4c3e4e4022e16d87065"
+  },
+  "note": "All input documents in tests are synthetic. Local Git fixtures test composition, not the live Anthropic clone.",
+  "total_tests": 132
+}

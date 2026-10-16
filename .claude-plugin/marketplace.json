@@ -1,0 +1,321 @@
+{
+  "name": "legal-br",
+  "owner": {
+    "name": "AB — Alexandre Belo"
+  },
+  "plugins": [
+    {
+      "name": "br-agribusiness",
+      "source": "./br-agribusiness",
+      "description": "Agronegócio, terra, crédito rural e insumos: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-competition",
+      "source": "./br-competition",
+      "description": "Concorrência, concentrações e concorrência desleal: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-constitutional",
+      "source": "./br-constitutional",
+      "description": "Constitucional, direitos humanos e tutela coletiva: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-consumer",
+      "source": "./br-consumer",
+      "description": "Consumidor, comércio eletrônico e superendividamento: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-contracts",
+      "source": "./br-contracts",
+      "description": "Contratos civis, empresariais e tecnologia: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-corporate",
+      "source": "./br-corporate",
+      "description": "Societário, registro empresarial e M&A: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-criminal",
+      "source": "./br-criminal",
+      "description": "Penal, processo penal e execução penal: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-data-ai",
+      "source": "./br-data-ai",
+      "description": "Dados pessoais, IA, cibersegurança e produtos digitais: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-dispute-resolution",
+      "source": "./br-dispute-resolution",
+      "description": "Processo civil, execução, arbitragem e mediação: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-education",
+      "source": "./br-education",
+      "description": "Educação, pesquisa e prática jurídica supervisionada: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-electoral",
+      "source": "./br-electoral",
+      "description": "Eleitoral e organização político-partidária: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-employment",
+      "source": "./br-employment",
+      "description": "Trabalho, relações coletivas e saúde ocupacional: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-energy",
+      "source": "./br-energy",
+      "description": "Energia elétrica, mercado e infraestrutura: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-environment",
+      "source": "./br-environment",
+      "description": "Ambiental, clima, biodiversidade e patrimônio: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-family",
+      "source": "./br-family",
+      "description": "Família, sucessões e capacidade civil: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-finance",
+      "source": "./br-finance",
+      "description": "Financeiro, pagamentos, capitais e ativos virtuais: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-health",
+      "source": "./br-health",
+      "description": "Saúde, vigilância sanitária e saúde suplementar: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-insolvency",
+      "source": "./br-insolvency",
+      "description": "Recuperação judicial, extrajudicial e falência: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-insurance",
+      "source": "./br-insurance",
+      "description": "Seguros, resseguros e previdência complementar: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-integrity",
+      "source": "./br-integrity",
+      "description": "Integridade, anticorrupção, improbidade e acesso à informação: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-international",
+      "source": "./br-international",
+      "description": "Internacional, migração e comércio exterior: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-ip",
+      "source": "./br-ip",
+      "description": "Propriedade intelectual, software e conteúdo: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-its",
+      "source": "./br-its",
+      "description": "ITS, fiscalização eletrônica e cidades inteligentes: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-legal-core",
+      "source": "./br-legal-core",
+      "description": "Fundação jurídica, fontes e evidências: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-legal-engineering",
+      "displayName": "Engenharia Jurídica BR",
+      "source": "./br-legal-engineering",
+      "description": "Engenharia jurídica brasileira: citações rastreáveis, estrutura LexML, privacidade local, avaliação de triagem e arquitetura interativa com fronteiras verificáveis.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-legal-ops",
+      "source": "./br-legal-ops",
+      "description": "Operações jurídicas, ética e governança da suíte: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-military",
+      "source": "./br-military",
+      "description": "Militar, disciplina e processo penal militar: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-mining",
+      "source": "./br-mining",
+      "description": "Minerário, títulos, barragens e CFEM: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-oil-gas",
+      "source": "./br-oil-gas",
+      "description": "Petróleo, gás, combustíveis e biocombustíveis: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-procurement",
+      "source": "./br-procurement",
+      "description": "Licitações, contratos públicos, concessões e estatais: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-public-law",
+      "source": "./br-public-law",
+      "description": "Administrativo, servidores e finanças públicas: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-real-estate",
+      "source": "./br-real-estate",
+      "description": "Imobiliário, notarial e registral: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-social-security",
+      "source": "./br-social-security",
+      "description": "Previdenciário, assistencial e complementar: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-sports-media",
+      "source": "./br-sports-media",
+      "description": "Desportivo, audiovisual, cultura e apostas: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-tax",
+      "source": "./br-tax",
+      "description": "Tributário, fiscal e reforma do consumo: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-telecom",
+      "source": "./br-telecom",
+      "description": "Telecomunicações e serviços digitais de conectividade: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-transport",
+      "source": "./br-transport",
+      "description": "Transportes terrestres, aquaviários e aviação: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-urban-infrastructure",
+      "source": "./br-urban-infrastructure",
+      "description": "Urbanístico, habitação, saneamento e recursos hídricos: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    },
+    {
+      "name": "br-vulnerable",
+      "source": "./br-vulnerable",
+      "description": "Infância, pessoa idosa, inclusão e violência: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo"
+      }
+    }
+  ]
+}

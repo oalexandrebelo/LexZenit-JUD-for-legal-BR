@@ -1,0 +1,43 @@
+[
+  {
+    "id": "LGT",
+    "title": "Telecomunicações — Lei 9.472/1997",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l9472.htm",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "ANATEL",
+    "title": "ANATEL",
+    "url": "https://www.gov.br/anatel/pt-br",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CDC",
+    "title": "Código de Defesa do Consumidor — Lei 8.078/1990",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-13",
+    "scope": "Referência inicial; conferir texto, alterações, competência e eficácia na data do caso.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "S09",
+    "title": "LGPD — texto oficial",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm",
+    "discovery": "inherited_lexguard_v2_not_rechecked",
+    "observed_on": null,
+    "prior_reported_consultation": "2026-10-12",
+    "scope": "Arts. 4º, 5º e regime de tratamento; pseudonimização não comprova conformidade integral.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  }
+]

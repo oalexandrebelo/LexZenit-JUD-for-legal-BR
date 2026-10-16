@@ -1,0 +1,15 @@
+test_all_four_views_use_their_own_nodes (__main__.OfflineDocumentationTests.test_all_four_views_use_their_own_nodes) ... ok
+test_cdn_failure_does_not_destroy_local_documentation (__main__.OfflineDocumentationTests.test_cdn_failure_does_not_destroy_local_documentation) ... ok
+test_export_contains_the_real_graph (__main__.OfflineDocumentationTests.test_export_contains_the_real_graph) ... ok
+test_keyboard_selection_and_accessible_list (__main__.OfflineDocumentationTests.test_keyboard_selection_and_accessible_list) ... ok
+test_mobile_defaults_to_readable_list_without_horizontal_overflow (__main__.OfflineDocumentationTests.test_mobile_defaults_to_readable_list_without_horizontal_overflow) ... ok
+test_no_network_before_explicit_activation (__main__.OfflineDocumentationTests.test_no_network_before_explicit_activation) ... ok
+test_pipeline_and_contract_inspection (__main__.OfflineDocumentationTests.test_pipeline_and_contract_inspection) ... ok
+test_search_never_mutates_the_canonical_graph (__main__.OfflineDocumentationTests.test_search_never_mutates_the_canonical_graph) ... ok
+test_status_filter_exposes_pending_components (__main__.OfflineDocumentationTests.test_status_filter_exposes_pending_components) ... ok
+test_unverified_reference_is_visible_by_its_original_name (__main__.OfflineDocumentationTests.test_unverified_reference_is_visible_by_its_original_name) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.726s
+
+OK

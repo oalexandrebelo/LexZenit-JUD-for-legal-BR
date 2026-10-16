@@ -1,0 +1,1 @@
+Uma IA citou um precedente. Ele existe? A skill jurídica da LexZenit para o Claude reconhece a citação, marca o que não conseguiu verificar, pseudonimiza localmente e para na revisão humana. 39 plugins, 176 workflows de Direito brasileiro, 235 testes.

@@ -1,0 +1,15 @@
+{
+  "name": "br-insurance",
+  "version": "0.1.0",
+  "description": "Seguros, resseguros e previdência complementar: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",
+  "author": {
+    "name": "AB — Alexandre Belo"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "brasil",
+    "juridico",
+    "lexguard",
+    "pt-BR"
+  ]
+}
