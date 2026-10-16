@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LexZenit Project Review</title>
+<meta name="description" content="LexZenit Project Review: revisor jurídico de projetos de IA e startups em três níveis, Brasil (União e 27 UFs), país N2 e mundo, com catálogo de 210 normas versionadas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400..900;1,400&family=Source+Code+Pro:wght@400;600&display=swap">
+<style>
+/* Layout: shell de documentação no padrão Spectrum 2 — cabeçalho fixo, navegação lateral, coluna de conteúdo e índice "Nesta página".
+   Tokens: valores do Spectrum 2 (adobe/spectrum-design-data, Apache-2.0). Fonte de corpo: Source Sans 3, fallback oficial do Spectrum. */
+:root{
+  --gray-25:#ffffff;--gray-50:#f8f8f8;--gray-75:#f3f3f3;--gray-100:#e9e9e9;--gray-200:#e1e1e1;--gray-300:#dadada;--gray-400:#c6c6c6;
+  --gray-500:#8f8f8f;--gray-600:#717171;--gray-700:#505050;--gray-800:#292929;--gray-900:#131313;
+  --bg-base:var(--gray-25);--bg-layer-1:var(--gray-50);--bg-layer-2:#ffffff;
+  --accent:#3b63fb;--accent-hover:#274dea;--accent-content:#3b63fb;--accent-subtle:#e5f0fe;--focus:#4b75ff;--on-accent:#ffffff;
+  --negative-visual:#f03823;--negative-subtle:#ffebe8;
+  --positive-visual:#079355;--positive-subtle:#d7f7e1;
+  --notice-visual:#d45b00;--notice-subtle:#ffeccf;
+  --info-visual:#4b75ff;--purple-visual:#a65ce7;--purple-subtle:#f4ebfc;
+  --orbit:#065cfb;
+  --shadow-elevated:0 2px 8px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --shadow-emphasized:0 6px 16px rgba(0,0,0,.12);
+  --font:"Source Sans 3","Adobe Clean","Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --code:"Source Code Pro",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --fs-75:12px;--fs-100:14px;--fs-200:16px;--fs-300:18px;--fs-400:20px;--fs-500:22px;--fs-600:25px;--fs-700:28px;--fs-800:32px;--fs-900:36px;--fs-1000:40px;--fs-1100:45px;--fs-1200:51px;--fs-1300:58px;
+  --r-s:4px;--r-m:8px;--r-l:10px;--r-xl:16px;--r-full:999px;
+  --h-100:32px;--h-200:40px;--h-300:48px;
+  --sp-75:4px;--sp-100:8px;--sp-200:12px;--sp-300:16px;--sp-400:24px;--sp-500:32px;--sp-600:40px;--sp-700:48px;--sp-800:64px;--sp-900:80px;
+  --ease:cubic-bezier(.45,0,.4,1);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --gray-25:#111111;--gray-50:#1b1b1b;--gray-75:#222222;--gray-100:#2c2c2c;--gray-200:#323232;--gray-300:#393939;--gray-400:#444444;
+  --gray-500:#6d6d6d;--gray-600:#8a8a8a;--gray-700:#afafaf;--gray-800:#dbdbdb;--gray-900:#f2f2f2;
+  --bg-base:var(--gray-25);--bg-layer-1:var(--gray-50);--bg-layer-2:#222222;
+  --accent:#4069fd;--accent-hover:#345bf8;--accent-content:#5681ff;--accent-subtle:#0c2175;--focus:#4069fd;--on-accent:#ffffff;
+  --negative-visual:#fc432e;--negative-subtle:#571107;--positive-visual:#099d59;--positive-subtle:#003326;
+  --notice-visual:#e06400;--notice-subtle:#501b00;--info-visual:#4069fd;--purple-visual:#ad69e9;--purple-subtle:#40007a;
+  --shadow-elevated:0 2px 8px rgba(0,0,0,.5),0 1px 2px rgba(0,0,0,.4);--shadow-emphasized:0 6px 16px rgba(0,0,0,.55);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --gray-25:#111111;--gray-50:#1b1b1b;--gray-75:#222222;--gray-100:#2c2c2c;--gray-200:#323232;--gray-300:#393939;--gray-400:#444444;
+  --gray-500:#6d6d6d;--gray-600:#8a8a8a;--gray-700:#afafaf;--gray-800:#dbdbdb;--gray-900:#f2f2f2;
+  --bg-base:var(--gray-25);--bg-layer-1:var(--gray-50);--bg-layer-2:#222222;
+  --accent:#4069fd;--accent-hover:#345bf8;--accent-content:#5681ff;--accent-subtle:#0c2175;--focus:#4069fd;--on-accent:#ffffff;
+  --negative-visual:#fc432e;--negative-subtle:#571107;--positive-visual:#099d59;--positive-subtle:#003326;
+  --notice-visual:#e06400;--notice-subtle:#501b00;--info-visual:#4069fd;--purple-visual:#ad69e9;--purple-subtle:#40007a;
+  --shadow-elevated:0 2px 8px rgba(0,0,0,.5),0 1px 2px rgba(0,0,0,.4);--shadow-emphasized:0 6px 16px rgba(0,0,0,.55);
+  color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{background:var(--bg-base);color:var(--gray-800);font-family:var(--font);font-size:var(--fs-200);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg-base)}
+a{color:var(--accent-content);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:var(--r-s)}
+code,kbd{font-family:var(--code);font-size:.875em}
+h1,h2,h3,h4{color:var(--gray-900);font-weight:800;margin:0;text-wrap:balance;letter-spacing:-.005em}
+p{margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg.i{width:18px;height:18px;flex:0 0 auto}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ── page change: blur ─────────────────────────────────────────── */
+@view-transition{navigation:auto}
+@keyframes lz-blur-out{to{filter:blur(22px) saturate(.9);opacity:0;transform:scale(1.015)}}
+@keyframes lz-blur-in{from{filter:blur(22px) saturate(.9);opacity:0;transform:scale(.99)}}
+::view-transition-old(root){animation:lz-blur-out .38s var(--ease) both}
+::view-transition-new(root){animation:lz-blur-in .52s var(--ease) both}
+@keyframes lz-unblur{from{filter:blur(18px);opacity:.35}to{filter:none;opacity:1}}
+html:not(.vt) .app{animation:lz-unblur .55s var(--ease) both}
+html.leaving .app{animation:lz-blur-out .34s var(--ease) both}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  html:not(.vt) .app,html.leaving .app{animation:none}
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:.01s}
+  .btn,.action,.card{transition:none!important}
+}
+
+/* ── controls (Spectrum 2) ─────────────────────────────────────── */
+.btn{--persp:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--h-100);padding:0 14px;border-radius:var(--r-full);border:2px solid transparent;
+  font:700 var(--fs-100)/1 var(--font);color:var(--gray-900);background:var(--gray-100);cursor:pointer;text-decoration:none;white-space:nowrap;
+  transition:background-color .13s var(--ease),border-color .13s var(--ease),transform .15s var(--ease)}
+.btn:hover{text-decoration:none;background:var(--gray-200)}
+.btn--accent{background:var(--accent);color:var(--on-accent)}
+.btn--accent:hover{background:var(--accent-hover)}
+.btn--outline{background:transparent;border-color:var(--gray-300)}
+.btn--outline:hover{background:var(--gray-75);border-color:var(--gray-400)}
+.btn--l{min-height:var(--h-200);padding:0 18px;font-size:var(--fs-200)}
+.btn:active,.btn.is-pressed,.action:active,.action.is-pressed{transform:perspective(var(--persp)) translate3d(0,0,-2px)}
+.action{--persp:40px;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:var(--h-100);min-width:var(--h-100);padding:0 8px;border-radius:var(--r-m);border:0;
+  background:transparent;color:var(--gray-800);font:600 var(--fs-100)/1 var(--font);cursor:pointer;transition:background-color .13s var(--ease),transform .15s var(--ease)}
+.action:hover{background:var(--gray-100)}
+.action[aria-pressed="true"]{background:var(--gray-200);color:var(--gray-900)}
+.action--labelled{padding:0 12px}
+.seg{display:inline-flex;gap:2px;padding:2px;border-radius:var(--r-m)}
+.search{position:relative;display:flex;align-items:center;min-width:0}
+.search svg{position:absolute;left:12px;color:var(--gray-700);pointer-events:none}
+.search input{width:100%;min-width:0;height:var(--h-100);padding:0 14px 0 38px;border-radius:var(--r-full);border:2px solid var(--gray-300);background:var(--bg-base);
+  color:var(--gray-900);font:400 var(--fs-100) var(--font);transition:border-color .13s}
+.search input::placeholder{color:var(--gray-600)}
+.search input:hover{border-color:var(--gray-400)}
+.search input:focus{outline:none;border-color:var(--gray-800)}
+.search input:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.picker{position:relative;display:inline-flex;min-width:0}
+.picker select{appearance:none;-webkit-appearance:none;height:var(--h-100);padding:0 36px 0 12px;border-radius:var(--r-m);border:2px solid var(--gray-300);
+  background:var(--bg-base);color:var(--gray-900);font:400 var(--fs-100) var(--font);cursor:pointer;min-width:0;max-width:100%}
+.picker select:hover{border-color:var(--gray-400)}
+.picker::after{content:"";position:absolute;right:14px;top:50%;width:7px;height:7px;border:solid var(--gray-800);border-width:0 2px 2px 0;transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field__label{font-size:var(--fs-100);color:var(--gray-700);font-weight:600}
+.switch{display:inline-flex;align-items:center;gap:10px;font-size:var(--fs-100);color:var(--gray-800);cursor:pointer}
+.switch input{appearance:none;-webkit-appearance:none;width:26px;height:14px;margin:0;border-radius:var(--r-full);border:2px solid var(--gray-600);position:relative;cursor:pointer;flex:0 0 auto;transition:background-color .13s,border-color .13s}
+.switch input::after{content:"";position:absolute;top:1px;left:1px;width:8px;height:8px;border-radius:50%;background:var(--gray-600);transition:transform .15s var(--ease),background-color .13s}
+.switch input:checked{background:var(--accent);border-color:var(--accent)}
+.switch input:checked::after{transform:translateX(12px);background:var(--on-accent)}
+.check{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-100);cursor:pointer;min-height:28px}
+.check input{width:16px;height:16px;margin:0;accent-color:var(--accent)}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-100);color:var(--gray-800);white-space:nowrap}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dot,var(--gray-500));flex:0 0 auto}
+.s-pos{--dot:var(--positive-visual)} .s-neg{--dot:var(--negative-visual)} .s-notice{--dot:var(--notice-visual)} .s-info{--dot:var(--info-visual)} .s-purple{--dot:var(--purple-visual)} .s-gray{--dot:var(--gray-500)}
+.badge{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:0 9px;border-radius:var(--r-m);font-size:var(--fs-75);font-weight:700;color:var(--gray-900);background:var(--gray-100);white-space:nowrap}
+.b-pos{background:var(--positive-subtle)} .b-notice{background:var(--notice-subtle)} .b-info{background:var(--accent-subtle)} .b-purple{background:var(--purple-subtle)} .b-neg{background:var(--negative-subtle)}
+.detail{font-size:var(--fs-100);font-weight:600;color:var(--gray-700);letter-spacing:.01em}
+
+/* ── shell ─────────────────────────────────────────────────────── */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg-base);border-bottom:1px solid var(--gray-200)}
+.topbar__inner{display:flex;align-items:center;gap:var(--sp-300);min-height:64px;max-width:1520px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;color:var(--gray-900);text-decoration:none;flex:0 0 auto}
+.brand:hover{text-decoration:none}
+.brand svg{height:22px;width:auto;display:block}
+.brand__sep{width:1px;height:22px;background:var(--gray-300)}
+.brand__name{font-size:var(--fs-300);font-weight:800;letter-spacing:-.005em}
+.topbar .search{flex:1 1 320px;max-width:420px;margin-left:auto}
+.topbar__actions{display:flex;align-items:center;gap:var(--sp-100)}
+.menu-btn{display:none}
+.shell{display:grid;grid-template-columns:240px minmax(0,1fr) 200px;gap:var(--sp-600);max-width:1520px;margin:0 auto;align-items:start}
+.sidenav{position:sticky;top:calc(64px + env(safe-area-inset-top,0px));max-height:calc(100vh - 64px - env(safe-area-inset-top,0px));overflow:auto;padding-block:var(--sp-500);display:flex;flex-direction:column;gap:var(--sp-400)}
+.sidenav__group{display:flex;flex-direction:column;gap:2px}
+.sidenav__head{font-size:var(--fs-100);font-weight:700;color:var(--gray-900);padding:0 12px 6px}
+.sidenav a{display:flex;align-items:center;min-height:32px;padding:4px 12px;border-radius:var(--r-m);color:var(--gray-800);font-size:var(--fs-100);text-decoration:none;transition:background-color .13s}
+.sidenav a:hover{background:var(--gray-75)}
+.sidenav a[aria-current="true"]{background:var(--gray-100);color:var(--gray-900);font-weight:700}
+.sidenav__ext svg{margin-left:auto;width:14px;height:14px;color:var(--gray-600)}
+.sidenav__mobile{display:none}
+.content{min-width:0;padding-block:var(--sp-500) var(--sp-900);display:flex;flex-direction:column;gap:var(--sp-900);container-type:inline-size}
+.toc{position:sticky;top:calc(64px + env(safe-area-inset-top,0px));padding-block:var(--sp-500);display:flex;flex-direction:column;gap:var(--sp-100)}
+.toc__head{font-size:var(--fs-100);font-weight:700;color:var(--gray-900)}
+.toc a{display:block;padding:4px 0 4px 12px;border-left:2px solid var(--gray-200);color:var(--gray-700);font-size:var(--fs-100);text-decoration:none}
+.toc a:hover{color:var(--gray-900)}
+.toc a.is-active{border-left-color:var(--gray-900);color:var(--gray-900);font-weight:700}
+
+/* ── sections ──────────────────────────────────────────────────── */
+.banner{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-200);padding:10px 16px;border-radius:var(--r-l);background:var(--accent-subtle);color:var(--gray-900);font-size:var(--fs-100)}
+.banner b{font-weight:800}
+.banner a{font-weight:700;margin-left:auto;display:inline-flex;align-items:center;gap:4px}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:var(--sp-600);align-items:center;padding-top:var(--sp-300)}
+.hero h1{font-size:clamp(40px,3.4vw + 1rem,var(--fs-1300));line-height:1.08;font-weight:900;letter-spacing:-.015em}
+.hero__lede{font-size:var(--fs-400);line-height:1.5;color:var(--gray-800);margin-top:var(--sp-400);max-width:34em}
+.hero__cta{display:flex;flex-wrap:wrap;gap:var(--sp-200);margin-top:var(--sp-500)}
+.hero__copy{min-width:0}
+.section{display:flex;flex-direction:column;gap:var(--sp-500)}
+.section__head{display:flex;flex-direction:column;gap:var(--sp-200);max-width:46em}
+.section__head h2{font-size:clamp(28px,1.4vw + 1.1rem,var(--fs-900));line-height:1.15}
+.section__head p{font-size:var(--fs-300);line-height:1.55;color:var(--gray-800)}
+
+.report{background:var(--bg-layer-2);border:1px solid var(--gray-200);border-radius:var(--r-xl);box-shadow:var(--shadow-emphasized);overflow:hidden;min-width:0;margin:0}
+.report__bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--gray-200);background:var(--bg-layer-1)}
+.report__file{font-family:var(--code);font-size:var(--fs-75);color:var(--gray-700);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.report__mark{margin-left:auto}
+.report__body{padding:16px;display:flex;flex-direction:column;gap:14px}
+.report__title{font-size:var(--fs-300);font-weight:800;color:var(--gray-900)}
+.sumwrap{overflow-x:auto}
+@container (max-width:820px){.hero{grid-template-columns:minmax(0,1fr)}.report{max-width:560px}}
+.sum{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.sum th,.sum td{padding:7px 7px;text-align:right;border-bottom:1px solid var(--gray-200);white-space:nowrap}
+.sum th:first-child,.sum td:first-child{text-align:left}
+.sum thead th{font-weight:700;color:var(--gray-700);font-size:var(--fs-75)}
+.sum td.hit{color:var(--gray-900);font-weight:800}
+.finds{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.finds li{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:10px 12px;border-radius:var(--r-m);background:var(--bg-layer-1)}
+.finds b{font-size:var(--fs-100);color:var(--gray-900);font-weight:700}
+.finds small{font-size:var(--fs-75);color:var(--gray-700)}
+.report__foot{font-size:var(--fs-75);color:var(--gray-600)}
+
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-300)}
+.card{display:flex;flex-direction:column;gap:var(--sp-200);padding:var(--sp-400);border-radius:var(--r-xl);background:var(--bg-layer-1);border:1px solid var(--gray-200);min-width:0;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background-color .2s}
+.card:hover{background:var(--bg-layer-2);box-shadow:var(--shadow-elevated);transform:translateY(-2px)}
+.card__kicker{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card__level{font-family:var(--code);font-weight:600;font-size:var(--fs-100);color:var(--gray-900)}
+.card h3{font-size:var(--fs-500);line-height:1.25}
+.card p{font-size:var(--fs-200);color:var(--gray-800)}
+.card__meta{margin-top:auto;padding-top:var(--sp-200);border-top:1px solid var(--gray-200);display:flex;gap:var(--sp-300);font-size:var(--fs-100);color:var(--gray-700);font-variant-numeric:tabular-nums}
+.card__meta b{color:var(--gray-900);font-size:var(--fs-300);font-weight:800;margin-right:4px}
+
+.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-300)}
+.steps li{counter-increment:s;display:flex;flex-direction:column;gap:var(--sp-100);padding-top:var(--sp-300);border-top:2px solid var(--gray-900);min-width:0}
+.steps li::before{content:counter(s);font-family:var(--code);font-size:var(--fs-100);font-weight:600;color:var(--gray-700)}
+.steps h3{font-size:var(--fs-400);line-height:1.25}
+.steps p{font-size:var(--fs-100);color:var(--gray-800);line-height:1.55}
+
+.states{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-200) var(--sp-500)}
+.state{display:flex;flex-direction:column;gap:4px;padding:var(--sp-300) 0;border-bottom:1px solid var(--gray-200)}
+.state .status{font-size:var(--fs-200);font-weight:700;color:var(--gray-900)}
+.state p{font-size:var(--fs-100);color:var(--gray-800);padding-left:16px}
+.alert{display:flex;flex-direction:column;gap:var(--sp-100);padding:var(--sp-400);border-radius:var(--r-l);border:2px solid var(--alert,var(--info-visual));background:var(--bg-base)}
+.alert__head{display:flex;align-items:center;gap:var(--sp-100);font-weight:800;color:var(--gray-900);font-size:var(--fs-200)}
+.alert__head svg{color:var(--alert,var(--info-visual))}
+.alert p,.alert li{font-size:var(--fs-100);color:var(--gray-800)}
+.alert ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
+.alert--notice{--alert:var(--notice-visual)}
+
+.play{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;background:var(--bg-layer-1)}
+.play__stage{display:flex;flex-direction:column;justify-content:center;gap:var(--sp-200);padding:var(--sp-600);background:var(--bg-layer-2);border-right:1px solid var(--gray-200);min-width:0}
+.play__country{font-size:clamp(36px,3vw + 1rem,var(--fs-1200));font-weight:900;line-height:1.05;color:var(--gray-900);letter-spacing:-.015em}
+.play__code{font-family:var(--code);font-size:var(--fs-200);color:var(--gray-700)}
+.play__why{font-size:var(--fs-200);color:var(--gray-800);max-width:32em}
+.play__panel{display:flex;flex-direction:column;gap:var(--sp-400);padding:var(--sp-500);min-width:0}
+.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 12px}
+.play__row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-300)}
+
+.tabs{display:flex;gap:var(--sp-400);border-bottom:2px solid var(--gray-200);overflow-x:auto;scrollbar-width:none}
+.tab{position:relative;background:none;border:0;padding:0 0 12px;margin:0;font:600 var(--fs-200) var(--font);color:var(--gray-700);cursor:pointer;white-space:nowrap}
+.tab:hover{color:var(--gray-900)}
+.tab[aria-selected="true"]{color:var(--gray-900);font-weight:800}
+.tab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--gray-900)}
+.tab small{font-family:var(--code);font-size:var(--fs-75);color:var(--gray-600);font-weight:400;margin-left:6px}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-300)}
+.toolbar .search{flex:1 1 260px;max-width:380px}
+.ufgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
+.uf{--persp:40px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:8px 10px;border-radius:var(--r-m);border:1px solid var(--gray-200);background:var(--bg-base);cursor:pointer;font:inherit;color:var(--gray-900);text-align:left;transition:background-color .13s,border-color .13s,transform .15s var(--ease)}
+.uf:hover{background:var(--gray-75);border-color:var(--gray-300)}
+.uf:active{transform:perspective(var(--persp)) translate3d(0,0,-2px)}
+.uf b{font-weight:800;font-size:var(--fs-200)}
+.uf span{font-family:var(--code);font-size:var(--fs-75);color:var(--gray-700);font-variant-numeric:tabular-nums}
+.uf[aria-pressed="true"]{background:var(--gray-900);border-color:var(--gray-900);color:var(--bg-base)}
+.uf[aria-pressed="true"] span{color:var(--bg-base);opacity:.8}
+.uf.is-empty b{color:var(--gray-600)}
+.ufinfo{display:flex;flex-wrap:wrap;gap:var(--sp-200) var(--sp-400);align-items:center;font-size:var(--fs-100);color:var(--gray-800)}
+.ufinfo h3{font-size:var(--fs-500)}
+.tablewrap{overflow:auto;max-height:680px;border:1px solid var(--gray-200);border-radius:var(--r-l);background:var(--bg-base);overscroll-behavior:contain}
+.table{width:100%;border-collapse:collapse;font-size:var(--fs-100);min-width:720px}
+.table th{position:sticky;top:0;text-align:left;font-weight:700;color:var(--gray-700);padding:12px 16px;border-bottom:1px solid var(--gray-300);background:var(--bg-base);white-space:nowrap}
+.table td{padding:12px 16px;border-bottom:1px solid var(--gray-200);vertical-align:top;color:var(--gray-800)}
+.table tr:last-child td{border-bottom:0}
+.table tbody tr:hover td{background:var(--gray-75)}
+.table td.n{max-width:440px}
+.table td.n b{display:block;color:var(--gray-900);font-weight:700}
+.table td.n small{display:block;color:var(--gray-700);font-size:var(--fs-75);margin-top:2px}
+.table td code{font-size:var(--fs-75);color:var(--gray-700)}
+.table .src{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.table .src a{font-size:var(--fs-75);font-weight:700}
+.empty{padding:var(--sp-500);text-align:center;color:var(--gray-700)}
+.count{font-size:var(--fs-100);color:var(--gray-700);font-variant-numeric:tabular-nums}
+
+.docs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-200)}
+.doc{display:flex;flex-direction:column;gap:6px;padding:var(--sp-300);border-radius:var(--r-l);border:1px solid var(--gray-200);background:var(--bg-base);min-width:0}
+.doc b{color:var(--gray-900);font-size:var(--fs-200);line-height:1.3}
+.doc p{font-size:var(--fs-100);color:var(--gray-800)}
+.doc code{margin-top:auto;color:var(--gray-700);font-size:var(--fs-75)}
+
+.install{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-300)}
+.panel{display:flex;flex-direction:column;gap:var(--sp-200);padding:var(--sp-400);border-radius:var(--r-xl);border:1px solid var(--gray-200);background:var(--bg-layer-1);min-width:0}
+.panel h3{font-size:var(--fs-500)}
+.panel p{font-size:var(--fs-100);color:var(--gray-800)}
+.code{position:relative;min-width:0}
+.code pre{margin:0;padding:14px 16px;padding-right:96px;border-radius:var(--r-m);background:var(--bg-base);border:1px solid var(--gray-200);font:400 var(--fs-75)/1.7 var(--code);color:var(--gray-900);overflow-x:auto;white-space:pre}
+.code .action{position:absolute;top:6px;right:6px;background:var(--bg-layer-1)}
+.code .action:hover{background:var(--gray-100)}
+
+.footer{border-top:1px solid var(--gray-200);background:var(--bg-layer-1)}
+.footer__inner{max-width:1520px;margin:0 auto;padding-block:var(--sp-700);display:grid;grid-template-columns:minmax(0,1.3fr) repeat(2,minmax(0,1fr));gap:var(--sp-500)}
+.footer__brand{display:flex;flex-direction:column;gap:var(--sp-300)}
+.footer__logos{display:flex;align-items:center;gap:var(--sp-400)}
+.footer__logos a{color:var(--gray-900);display:block}
+.footer__logos svg{display:block;width:auto}
+.footer p,.footer li{font-size:var(--fs-100);color:var(--gray-700)}
+.footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.footer h4{font-size:var(--fs-100);font-weight:700;margin-bottom:var(--sp-200)}
+.footer__credit{grid-column:1/-1;padding-top:var(--sp-400);border-top:1px solid var(--gray-200);font-size:var(--fs-75)!important}
+
+@media (max-width:1240px){.shell{grid-template-columns:220px minmax(0,1fr)}.toc{display:none}}
+@media (max-width:1060px){.hero{grid-template-columns:minmax(0,1fr)}.cards{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.docs{grid-template-columns:repeat(2,minmax(0,1fr))}.play{grid-template-columns:minmax(0,1fr)}.play__stage{border-right:0;border-bottom:1px solid var(--gray-200)}}
+@media (max-width:860px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .sidenav{display:none;position:fixed;inset:calc(64px + env(safe-area-inset-top,0px)) 0 0 0;max-height:none;z-index:45;background:var(--bg-base);padding:var(--sp-300) max(16px,env(safe-area-inset-right,0px)) calc(var(--sp-500) + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));border-top:1px solid var(--gray-200)}
+  .sidenav.is-open{display:flex}
+  .sidenav__mobile{display:flex;flex-direction:column;gap:var(--sp-200)}
+  .menu-btn{display:inline-flex}
+  .topbar .search,.topbar__actions .hide-s{display:none}
+  .topbar__actions{margin-left:auto}
+  .install,.states{grid-template-columns:minmax(0,1fr)}
+  .footer__inner{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){.steps,.docs,.checks,.play__row{grid-template-columns:minmax(0,1fr)}.checks{grid-template-columns:repeat(2,minmax(0,1fr))}.play__stage,.play__panel{padding:var(--sp-400)}.brand__name{font-size:var(--fs-200)}.banner a{margin-left:0}}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lz-lockup" viewBox="0 0 1829 345"><g fill="currentColor"><g><path d="M256.575 90.5011C272.957 90.0373 291.943 90.6208 308.529 90.6134L419.821 90.4154C430.242 90.377 440.659 90.4383 451.08 90.5991C457.012 90.718 466.681 91.2178 472.339 90.7359C468.259 94.1755 458.971 104.256 454.76 108.481L407.99 156.02L295.905 268.673C287.283 277.436 278.407 285.987 269.846 294.84C252.033 295.412 234.458 295.824 216.645 297.201C179.323 300.19 142.226 305.51 105.57 313.134C89.4998 316.744 73.5125 320.717 57.6205 325.046C45.9431 328.149 34.356 331.579 22.8724 335.336C15.1704 337.786 7.30619 340.044 0 343.519C49.4161 300.451 121.053 275.035 185.027 264.553C200.512 262.013 216.347 260.502 231.947 258.771C246.514 244.928 260.337 229.962 274.682 215.878C276.375 214.216 278.149 212.64 279.83 210.953L308.636 181.748C320.32 170.042 332.417 158.717 343.762 146.638C347.704 142.439 351.882 139.057 355.704 134.468C346.555 134.673 336.367 134.443 327.07 134.477L251.939 134.483C244.36 134.494 236.78 134.442 229.2 134.328C224.777 134.235 216.997 133.775 212.892 134.313C215.815 131.692 219.723 127.136 222.724 124.102L245.561 101.188C247.675 99.0507 254.417 91.9022 256.575 90.5011Z"/><path d="M123 57.2L180.5 0V249.6L123.6 261.6Z"/><path d="M331.251 259.122C336.793 259.031 358.941 262.474 365.175 263.466C410.866 270.744 465.79 287.558 506.327 310.418C523.701 320.313 540.088 331.898 555.258 345C546.269 340.536 537.407 338.127 527.869 335.081C462.107 312.357 389.39 300.466 320.181 296.25C312.403 295.779 303.863 294.927 296.137 295.167C297.576 293.832 298.92 292.398 300.253 290.955C310.3 280.06 321.065 269.88 331.251 259.122Z"/></g><g transform="translate(603 85)">><path d="M544.692 8.11606C588.496 7.21837 632.673 8.46548 676.513 7.95502C691.334 7.78276 706.689 7.78207 721.479 8.40527C717.41 13.0485 711.122 22.0415 707.144 27.2897C697.887 39.5303 688.553 51.7058 679.132 63.8169L582.189 189.829C624.291 190.225 666.395 190.28 708.496 189.992C708.657 200.123 708.51 210.612 708.503 220.771L691.437 220.804L507.455 220.712C538.372 180.38 569.548 140.248 600.981 100.318C616.297 80.8268 635.225 58.5239 649.368 39.0268C611.849 37.3379 569.072 39.3251 530.739 38.5598L544.692 8.11606Z"/><path d="M804.335 64.9345C857.402 61.6105 901.975 99.5851 893.417 154.776C846.576 154.876 798.292 154.06 751.619 154.967C760.505 201.421 816.548 213.004 850.161 184.196C852.031 181.715 880.07 182.87 885.203 182.94C869.741 207.911 846.513 218.499 816.345 221.754C741.871 229.789 689.82 155.423 739.329 93.6591C754.483 74.7537 779.532 66.4119 804.335 64.9345ZM751.507 133.59C772.193 133.969 792.886 134.08 813.572 133.923L863.572 133.787C859.601 103.392 833.53 84.0422 803.362 87.9901C776.373 90.5859 756.962 106.831 751.507 133.59Z"/><path d="M241.457 65.6253C246.818 65.4285 252.186 65.577 257.529 66.0713C307.618 70.9176 336.539 104.467 331.694 154.826L189.702 154.842C197.938 199.788 254.219 213.137 286.952 185.935C287.178 185.681 287.41 185.433 287.648 185.19C291.799 181.021 316.657 182.8 323.507 182.898C298.838 224.474 237.871 231.99 197.538 210.609C155.137 188.133 145.848 130.946 176.765 95.0187C193.582 75.4761 216.362 67.6097 241.457 65.6253ZM189.978 133.979L253.415 134.009C269.022 133.995 286.072 134.282 301.556 133.844C300.801 126.936 300.159 122.921 297.184 116.457C287.893 96.2721 261.229 84.8556 239.649 88.6641C214.087 92.1498 194.745 108.212 189.978 133.979Z"/><path d="M0.0634449 0.0469956C13.0692 -0.0447341 26.0755 -0.00202043 39.0804 0.173736C39.9468 17.7746 39.3808 39.6273 39.4266 57.6518L39.4435 189.906L153.686 190.004C153.91 199.969 153.884 209.937 153.606 219.9C151.366 221.5 15.8137 220.778 0 220.738L0.0634449 0.0469956Z"/><path d="M984.103 66.272C1004.69 64.3198 1027.88 71.1806 1042.62 86.0037C1048.93 92.2882 1053.4 100.176 1055.55 108.815C1058.24 119.638 1057.37 143.326 1057.35 155.702L1057.24 220.787L1025.66 220.681C1024.99 211.551 1025.27 200.173 1025.28 190.852L1025.27 148.159C1025.31 139.274 1026.29 125.251 1024.43 117.106C1018.68 91.9941 990.917 88.9768 970.7 93.4947C964.25 95.045 958.326 98.2709 953.522 102.846C940.42 115.475 943.858 137.833 943.893 154.937C944.005 176.883 943.977 198.828 943.809 220.773L912.192 220.734C912.08 213.787 912.08 206.693 912.157 199.741C912.682 155.469 911.393 110.904 912.339 66.6662C921.793 66.1978 933.963 66.5703 943.62 66.6011C943.809 72.8205 943.886 79.042 943.851 85.2642C955.147 72.9318 967.822 68.2046 984.103 66.272Z"/><path d="M328.166 67.5603C342.154 67.365 356.145 67.3328 370.135 67.4644C386.018 84.6787 402.399 101.572 417.706 119.264C434.293 101.97 453.127 84.2712 470.248 67.435C484.473 67.2543 498.701 67.33 512.924 67.6619C503.368 76.5358 490.543 89.969 480.982 99.4668L421.837 157.889C400.694 178.079 379.145 200.032 358.646 220.914C344.171 220.553 329.028 220.703 314.502 220.63C341.148 193.504 369.01 167.189 395.52 140.112C372.833 116.148 350.38 91.9632 328.166 67.5603Z"/><path d="M1149.63 26.1333C1160.36 26.0269 1171.1 26.0185 1181.83 26.1074C1181.94 39.5293 1181.95 52.9512 1181.88 66.3739C1195.24 67.0615 1212.05 66.5433 1225.77 66.7226C1225.5 75.6715 1226.25 82.7487 1225.49 92.1471C1211.03 92.5448 1196.64 91.7627 1181.99 92.5918L1181.86 143.34C1181.86 153.849 1180.35 173.254 1185.85 182.353C1195.07 197.61 1211.72 190.558 1224.62 193.192C1226.06 194.801 1225.68 195.834 1225.93 198.409C1226.09 205.561 1225.93 213.557 1225.92 220.767C1204.29 220.746 1179.91 222.036 1163.28 205.33C1157.35 199.279 1153.18 191.733 1151.2 183.496C1148.65 173.027 1149.5 153.596 1149.55 142.036L1149.6 92.3264L1127.65 92.0596C1127.59 83.6233 1127.58 75.1869 1127.6 66.7506C1134.75 66.6113 1142.06 66.6127 1149.23 66.5468C1149.92 53.3756 1149.28 39.4901 1149.63 26.1333Z"/><path d="M1080.71 66.7104C1091.27 66.5522 1101.85 66.6138 1112.41 66.8953C1113.11 84.674 1112.64 105.079 1112.63 123.093L1112.55 220.788L1080.57 220.764L1080.71 66.7104Z"/><path d="M446.333 149.901C448.631 150.849 494.471 201.448 500.608 208.117C497.068 212.279 493.573 216.556 490.08 220.765L469.418 220.647C454.918 206.448 438.206 187.035 423.878 171.79C431.004 164.644 438.838 156.486 446.333 149.901Z"/><path d="M1094.3 9.46654C1105.36 7.95125 1115.54 15.6467 1117.11 26.6844C1118.68 37.7213 1111.03 47.9496 1100 49.5678C1088.9 51.1965 1078.58 43.4863 1077.01 32.3765C1075.43 21.2661 1083.19 10.9916 1094.3 9.46654Z"/></g></g></symbol>
+  <symbol id="ab-mono" viewBox="40 40 905 520"><g fill="currentColor" fill-rule="evenodd"><path d="M217.5 50 254.502 127.998 143.672 413.418C148.837 413.639 154.307 413.733 159.98 413.75L262.5 140.996L359.297 390.137C386.529 384.864 413.668 379.119 440.703 372.93L349.502 139.502C331.002 93.002 323.504 65.502 341.504 57.002V50H217.5ZM449.609 395.723C422.098 401.747 394.645 407.16 367.725 411.846L380.996 445.996C403.996 507.496 396.002 539.004 359.502 541.504V550H570V542.002H569.004V540.996C519.004 537.996 497.5 518.496 480 473.496L449.609 395.723ZM136.689 431.191C115.74 483.755 85.559 532.719 47.5 542.002V550H187.002V540.996C135.628 524.033 134.709 484.404 153.359 431.904C147.607 431.763 142.032 431.532 136.689 431.191Z"/>
+    <path d="M438.496 50V58.496C476.496 64.996 487.002 83.998 487.002 130.498V361.875C514.458 355.027 541.797 347.708 569.004 339.912V294.004H617.998C645.807 294.004 667.486 297.208 684.463 303.867C690.147 301.976 695.843 300.077 701.455 298.174C701.858 297.547 702.588 296.946 704.004 296.504C764.504 276.504 794.502 227.996 794.502 168.496C794.502 84.496 743.498 50 642.998 50H438.496ZM569.004 62.002H614.502C681.002 62.002 702.998 85.998 702.998 170.498C702.998 254.498 678.996 282.002 605.996 282.002H569.004V62.002ZM738.477 309.434C729.062 313.063 719.629 316.514 710.166 319.961C731.253 340.341 738.496 373.471 738.496 422.5C738.496 509.5 719.002 537.998 639.502 537.998H569.004V365.762C542.141 373.365 514.67 380.519 487.002 387.119V440C487.002 486.5 511.004 517.502 569.004 542.002V550H678.496C780.996 550 837.998 514.002 837.998 424.502C837.998 361.268 803.866 328.531 738.477 309.434Z"/></g><g fill="#065CFB"><path d="M192 283.5C122.5 317.75 68 356.7 70.5 389.25C73 422.75 175 428 331.5 399.75C442.85 379.55 552.75 351.7 660.3 316.35C765 282.05 863.9 248.55 906.55 191.7L920.8 200C876.9 255.65 741.55 306.8 633.75 341.75C500.5 385 338 419 217.25 425.95C133.6 431.7 73.7 424.75 58.9 400.3C33.25 357.85 120.1 315.1 192 283.5Z"/>
+    <path d="M814 129.65C852.5 130.5 884.5 134.5 907.5 145.25L900.3 155.4C878 140.15 847 133.05 814 129.65Z"/>
+    <circle cx="930" cy="169" r="22.25"/></g></symbol>
+  <symbol id="i-search" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m13 13 4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 20 20"><path d="M8 4H4.75A.75.75 0 0 0 4 4.75v10.5c0 .41.34.75.75.75h10.5c.41 0 .75-.34.75-.75V12M11 4h5v5M16 4l-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 20 20"><rect x="7" y="7" width="9" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M13 4.75A.75.75 0 0 0 12.25 4H4.75a.75.75 0 0 0-.75.75v7.5c0 .41.34.75.75.75" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 20 20"><circle cx="10" cy="10" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5v1.75M10 15.75v1.75M2.5 10h1.75M15.75 10h1.75M4.7 4.7l1.25 1.25M14.05 14.05l1.25 1.25M4.7 15.3l1.25-1.25M14.05 5.95l1.25-1.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 20 20"><path d="M16 12.2A6.5 6.5 0 0 1 7.8 4a6.5 6.5 0 1 0 8.2 8.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 17h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 20 20"><path d="M3.5 6h13M3.5 10h13M3.5 14h13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-info" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9v4.5M10 6.5v.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 20 20"><path d="M10 3.5 2.75 16h14.5L10 3.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 8.5v3.5M10 14v.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M4 10h11M11 5.5 15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="app">
+<header class="topbar">
+  <div class="topbar__inner gutter">
+    <a class="brand" href="#inicio" aria-label="LexZenit Project Review, início">
+      <svg viewBox="0 0 1829 345" aria-hidden="true"><use href="#lz-lockup"/></svg>
+      <span class="brand__sep" aria-hidden="true"></span>
+      <span class="brand__name">Project Review</span>
+    </a>
+    <form class="search" role="search" id="top-search-form">
+      <label class="sr-only" for="top-search">Buscar normas no catálogo</label>
+      <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+      <input id="top-search" type="search" placeholder="Buscar norma, UF ou tema (ex.: LGPD, GO, deepfake)" autocomplete="off">
+    </form>
+    <div class="topbar__actions">
+      <div class="seg hide-s" role="group" aria-label="Tema">
+        <button class="action" type="button" data-theme-set="system" aria-pressed="true" title="Tema do sistema"><svg class="i" aria-hidden="true"><use href="#i-auto"/></svg><span class="sr-only">Sistema</span></button>
+        <button class="action" type="button" data-theme-set="light" aria-pressed="false" title="Tema claro"><svg class="i" aria-hidden="true"><use href="#i-sun"/></svg><span class="sr-only">Claro</span></button>
+        <button class="action" type="button" data-theme-set="dark" aria-pressed="false" title="Tema escuro"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg><span class="sr-only">Escuro</span></button>
+      </div>
+      <a class="btn btn--outline hide-s" href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR">GitHub</a>
+      <a class="btn btn--accent hide-s" href="#instalar">Instalar</a>
+      <button class="action menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="sidenav"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="shell gutter">
+  <nav class="sidenav" id="sidenav" aria-label="Seções">
+    <div class="sidenav__mobile">
+      <form class="search" role="search" id="nav-search-form">
+        <label class="sr-only" for="nav-search">Buscar normas</label>
+        <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+        <input id="nav-search" type="search" placeholder="Buscar norma, UF ou tema" autocomplete="off">
+      </form>
+      <div class="seg" role="group" aria-label="Tema">
+        <button class="action action--labelled" type="button" data-theme-set="system" aria-pressed="true">Sistema</button>
+        <button class="action action--labelled" type="button" data-theme-set="light" aria-pressed="false">Claro</button>
+        <button class="action action--labelled" type="button" data-theme-set="dark" aria-pressed="false">Escuro</button>
+      </div>
+    </div>
+    <div class="sidenav__group">
+      <p class="sidenav__head">Visão geral</p>
+      <a href="#inicio" data-nav>Início</a>
+      <a href="#niveis" data-nav>Três níveis</a>
+      <a href="#como-funciona" data-nav>Como funciona</a>
+    </div>
+    <div class="sidenav__group">
+      <p class="sidenav__head">Usar</p>
+      <a href="#estados" data-nav>Estados do relatório</a>
+      <a href="#n2" data-nav>Escolha do N2</a>
+      <a href="#catalogo" data-nav>Catálogo de normas</a>
+      <a href="#minutas" data-nav>Minutas</a>
+    </div>
+    <div class="sidenav__group">
+      <p class="sidenav__head">Começar</p>
+      <a href="#instalar" data-nav>Instalar</a>
+      <a href="#referencias" data-nav>Referências</a>
+      <a href="#limites" data-nav>Limites</a>
+    </div>
+    <div class="sidenav__group">
+      <p class="sidenav__head">LexZenit</p>
+      <a class="sidenav__ext" href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/" data-blur>Skill jurídica <svg class="i" aria-hidden="true"><use href="#i-ext"/></svg></a>
+      <a class="sidenav__ext" href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR">Repositório <svg class="i" aria-hidden="true"><use href="#i-ext"/></svg></a>
+    </div>
+  </nav>
+
+  <main class="content" id="main">
+    <p class="banner"><span><b>Novo na 0.3.0.</b> Revisor de projetos com 210 normas, 27 UFs mapeadas e servidor MCP local.</span><a href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR/blob/main/CHANGELOG.md">O que mudou <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+
+    <section class="hero" id="inicio" aria-labelledby="t-inicio" data-section>
+      <div class="hero__copy">
+        <p class="detail">LexZenit · Project Review</p>
+        <h1 id="t-inicio">O que o seu projeto precisa cumprir, do Brasil ao mundo.</h1>
+        <p class="hero__lede">O revisor lê o repositório de um projeto de IA, SaaS ou startup, pergunta o que o código não diz e aponta, norma por norma, o que falta no Brasil, no país que mais pesa para o seu mercado e no mundo.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--l" href="#como-funciona">Primeira parada: como funciona</a>
+          <a class="btn btn--outline btn--l" href="#catalogo">Explorar o catálogo</a>
+        </div>
+      </div>
+      <figure class="report" aria-label="Exemplo de relatório gerado pelo revisor">
+        <div class="report__bar">
+          <span class="report__file">revisao.md · app-ia-b2c (projeto sintético)</span>
+          <span class="badge b-notice report__mark">Minuta</span>
+        </div>
+        <div class="report__body">
+          <p class="report__title">Resumo por nível</p>
+          <div class="sumwrap"><table class="sum">
+            <thead><tr><th scope="col">Nível</th><th scope="col" title="Não conformidades evidenciadas">Não conform.</th><th scope="col">Lacunas</th><th scope="col">Perguntas</th></tr></thead>
+            <tbody>
+              <tr><td>N1 · Brasil</td><td class="hit">13</td><td>7</td><td>17</td></tr>
+              <tr><td>N2 · EUA</td><td>0</td><td>5</td><td>10</td></tr>
+              <tr><td>N3 · mundo</td><td>0</td><td>11</td><td>5</td></tr>
+            </tbody>
+          </table></div>
+          <ul class="finds">
+            <li><span class="status s-neg">Não conformidade</span><b>Informar finalidade, controlador e direitos ao titular</b><small>LGPD, art. 9º · fonte oficial conferida · minuta: politica-privacidade</small></li>
+            <li><span class="status s-neg">Não conformidade</span><b>Arrependimento de 7 dias com devolução imediata</b><small>CDC, art. 49 · pagamento detectado em src/lib/checkout.ts:4</small></li>
+            <li><span class="status s-notice">Prontidão</span><b>Informar que a pessoa interage com IA</b><small>AI Act, art. 50(1) · UE não declarada como mercado</small></li>
+          </ul>
+          <p class="report__foot">Saída real do motor sobre um projeto falso, sede em GO, MVP B2C. Revisão profissional obrigatória.</p>
+        </div>
+      </figure>
+    </section>
+
+    <section class="section" id="niveis" aria-labelledby="t-niveis" data-section>
+      <header class="section__head">
+        <h2 id="t-niveis">Um revisor, três níveis</h2>
+        <p>Cada norma do catálogo tem nível, jurisdição, vigência e fonte. O revisor só aplica uma jurisdição quando ela alcança o projeto; o resto fica como prontidão, sem virar cobrança.</p>
+      </header>
+      <div class="cards">
+        <article class="card">
+          <div class="card__kicker"><span class="card__level">N1</span><span class="status s-pos">Sempre aplicável</span></div>
+          <h3>Brasil: União e as 27 UFs</h3>
+          <p>LGPD, CDC, Marco Civil, ECA Digital, comércio eletrônico, Lei do Software e Marco das Startups. Nos estados, leis de IA, inovação, consumo e LGPD estadual, com alerta quando a lei invade competência da União.</p>
+          <div class="card__meta"><span><b data-count="N1">171</b>normas</span><span><b data-count="UF">25</b>UFs com norma</span></div>
+        </article>
+        <article class="card">
+          <div class="card__kicker"><span class="card__level">N2</span><span class="status s-info">EUA por padrão</span></div>
+          <h3>O país que mais pesa</h3>
+          <p>FTC, COPPA, TAKE IT DOWN, Califórnia, Colorado e Texas. Se o mercado principal for outro país, ele vira o N2: Reino Unido, Canadá, México, Argentina, Chile, Colômbia ou a UE.</p>
+          <div class="card__meta"><span><b data-count="N2">26</b>normas</span><span><b>7</b>países</span></div>
+        </article>
+        <article class="card">
+          <div class="card__kicker"><span class="card__level">N3</span><span class="status s-notice">Prontidão global</span></div>
+          <h3>O que alcança de fora</h3>
+          <p>AI Act com o calendário do Reg. 2026/1744, RGPD e a adequação do Brasil, DSA, Cyber Resilience Act, princípios da OCDE e ISO/IEC 42001, 42005 e 27001. China e Coreia só com o país no alvo.</p>
+          <div class="card__meta"><span><b data-count="N3">13</b>normas</span><span><b>3</b>padrões ISO</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona" aria-labelledby="t-como" data-section>
+      <header class="section__head">
+        <h2 id="t-como">Como funciona</h2>
+        <p>Quatro passos, sempre na mesma ordem, sem rede e sem executar o código do projeto.</p>
+      </header>
+      <ol class="steps">
+        <li><h3>Lê o código</h3><p>Dependências, caminhos e cada linha procuram sinais: dados pessoais, CPF, IA generativa, pagamento, analytics, upload. O relatório guarda <code>arquivo:linha</code>, nunca o texto lido.</p></li>
+        <li><h3>Pergunta o resto</h3><p>UF de sede e de atuação, países-alvo, mercado principal, sócios, captação, menores e venda ao governo. O que ficar sem resposta continua desconhecido, sem palpite.</p></li>
+        <li><h3>Cruza com o catálogo</h3><p>Gatilhos em lógica de três valores escolhem as normas; a regra do N2 escolhe o país. Projeto de lei vai ao radar; sandbox e compras de inovação, às oportunidades.</p></li>
+        <li><h3>Entrega relatório e minutas</h3><p>Relatório N1, N2 e N3 com estado, severidade, fonte e evidência, mais as minutas brasileiras que fecham cada lacuna.</p></li>
+      </ol>
+    </section>
+
+    <section class="section" id="estados" aria-labelledby="t-estados" data-section>
+      <header class="section__head">
+        <h2 id="t-estados">Estados do relatório</h2>
+        <p>Cada obrigação recebe um destes estados. O motor nunca declara uma obrigação cumprida: achar o documento não prova que ele cumpre a norma.</p>
+      </header>
+      <div class="states">
+        <div class="state"><span class="status s-neg">Não conformidade evidenciada</span><p>Norma vigente, fonte oficial conferida, artigo identificado, jurisdição aplicável, gatilho forte e nenhuma evidência no escopo.</p></div>
+        <div class="state"><span class="status s-notice">Inconclusivo</span><p>Fonte secundária, prontidão, vedação, alerta de competência, documento a revisar ou resposta pendente.</p></div>
+        <div class="state"><span class="status s-pos">Não aplicável</span><p>Gatilho ausente ou UF e país fora do alcance, sempre com o motivo escrito.</p></div>
+        <div class="state"><span class="status s-purple">Radar regulatório</span><p>Projeto de lei e tratado fora de vigor, como o PL 2.338/2023. Não gera obrigação hoje.</p></div>
+      </div>
+      <div class="alert" role="note">
+        <p class="alert__head"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg>Documento fora do repositório</p>
+        <p>Política publicada no site, contrato assinado ou registro em cartório não aparecem no código. Declare cada um em <code>respostas.evidencias</code> para o revisor considerar.</p>
+      </div>
+    </section>
+
+    <section class="section" id="n2" aria-labelledby="t-n2" data-section>
+      <header class="section__head">
+        <h2 id="t-n2">Escolha do N2</h2>
+        <p>A mesma regra do motor, aplicada em ordem: país fixado, mercado principal, EUA entre os alvos, primeiro país estrangeiro, indício de público na UE ou no Reino Unido e, por fim, EUA. Mude os campos e veja a decisão.</p>
+      </header>
+      <div class="play">
+        <div class="play__stage" aria-live="polite">
+          <p class="detail">País N2 do projeto</p>
+          <p class="play__country" id="n2-country">Estados Unidos</p>
+          <p class="play__code"><span id="n2-code">US</span> · regra <span id="n2-rule">padrao</span></p>
+          <p class="play__why" id="n2-why">Nenhum país-alvo declarado: EUA por padrão.</p>
+          <p><span class="badge b-pos" id="n2-pack">Pacote de normas no catálogo</span></p>
+        </div>
+        <form class="play__panel" id="n2-form" aria-label="Respostas para a escolha do N2">
+          <fieldset class="field" style="border:0;margin:0;padding:0">
+            <legend class="field__label">Países-alvo fora do Brasil</legend>
+            <div class="checks" id="n2-alvos"></div>
+          </fieldset>
+          <div class="play__row">
+            <label class="field"><span class="field__label">Mercado principal</span><span class="picker"><select id="n2-principal"></select></span></label>
+            <label class="field"><span class="field__label">Fixar o N2</span><span class="picker"><select id="n2-fixo"></select></span></label>
+          </div>
+          <div class="field">
+            <span class="field__label">Indícios no código</span>
+            <label class="switch"><input type="checkbox" role="switch" id="n2-ue">Moeda ou idioma da UE (EUR, pt-PT, de-DE)</label>
+            <label class="switch"><input type="checkbox" role="switch" id="n2-gb">Libra ou en-GB</label>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="catalogo" aria-labelledby="t-cat" data-section>
+      <header class="section__head">
+        <h2 id="t-cat">Catálogo de normas</h2>
+        <p>As 210 normas que o motor aplica, com status, fonte e estado de verificação. Clique numa UF para ver o que vale lá.</p>
+      </header>
+      <div class="tabs" role="tablist" aria-label="Nível">
+        <button class="tab" role="tab" id="tab-tudo" aria-selected="true" aria-controls="cat-panel" data-tab="tudo">Tudo<small data-tabcount="tudo"></small></button>
+        <button class="tab" role="tab" id="tab-uniao" aria-selected="false" aria-controls="cat-panel" data-tab="uniao" tabindex="-1">União<small data-tabcount="uniao"></small></button>
+        <button class="tab" role="tab" id="tab-ufs" aria-selected="false" aria-controls="cat-panel" data-tab="ufs" tabindex="-1">Estados<small data-tabcount="ufs"></small></button>
+        <button class="tab" role="tab" id="tab-n2" aria-selected="false" aria-controls="cat-panel" data-tab="n2" tabindex="-1">N2 · países<small data-tabcount="n2"></small></button>
+        <button class="tab" role="tab" id="tab-n3" aria-selected="false" aria-controls="cat-panel" data-tab="n3" tabindex="-1">N3 · mundo<small data-tabcount="n3"></small></button>
+      </div>
+      <div id="cat-panel" role="tabpanel" aria-labelledby="tab-tudo" class="section" style="gap:var(--sp-400)">
+        <div class="toolbar">
+          <form class="search" role="search" id="cat-search-form">
+            <label class="sr-only" for="cat-search">Filtrar normas</label>
+            <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="cat-search" type="search" placeholder="Filtrar por nome, citação ou UF" autocomplete="off">
+          </form>
+          <label class="switch"><input type="checkbox" role="switch" id="cat-oficial">Só fonte oficial conferida</label>
+          <span class="count" id="cat-count" aria-live="polite"></span>
+        </div>
+        <div id="uf-block" hidden>
+          <div class="ufgrid" id="uf-grid" role="group" aria-label="Unidades da Federação"></div>
+          <div class="ufinfo" id="uf-info" style="margin-top:var(--sp-300)"></div>
+        </div>
+        <div class="tablewrap">
+          <table class="table">
+            <thead><tr><th scope="col">Norma</th><th scope="col">Jurisdição</th><th scope="col">Status</th><th scope="col">Fonte</th><th scope="col">Papel</th></tr></thead>
+            <tbody id="cat-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="minutas" aria-labelledby="t-min" data-section>
+      <header class="section__head">
+        <h2 id="t-min">Minutas</h2>
+        <p>Quinze modelos brasileiros com base legal e campos <code>{{campo}}</code>. O relatório indica qual minuta fecha cada lacuna; o motor preenche só o que você informar.</p>
+      </header>
+      <div class="docs" id="docs"></div>
+    </section>
+
+    <section class="section" id="instalar" aria-labelledby="t-inst" data-section>
+      <header class="section__head">
+        <h2 id="t-inst">Instalar</h2>
+        <p>Tudo sai do repositório público. O plugin é somente leitura; o motor e o servidor MCP rodam na sua máquina e você decide quando ligar.</p>
+      </header>
+      <div class="install">
+        <div class="panel">
+          <p class="detail">No Claude Code</p>
+          <h3>Plugin ab-lexzenit-project-review</h3>
+          <div class="code"><pre id="code-plugin">/plugin marketplace add oalexandrebelo/LexZenit-JUD-for-legal-BR
+/plugin install ab-lexzenit-project-review@legal-br
+/ab-lexzenit-project-review:revisar-projeto</pre><button class="action action--labelled" type="button" data-copy="code-plugin"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>Copiar</button></div>
+          <p>Seis workflows: revisar projeto, mapa por UF, escolher N2, classificar risco de IA, kit de documentos e atualizar o catálogo.</p>
+        </div>
+        <div class="panel">
+          <p class="detail">Motor local e MCP · Python 3.11+</p>
+          <h3>Sem dependências externas</h3>
+          <div class="code"><pre id="code-cli">git clone https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR.git
+cd LexZenit-JUD-for-legal-BR/runtime
+python -m lz_revisor revisar ../../meu-projeto \
+  --respostas respostas.json --saida revisao/ \
+  --sarif revisao.sarif --falhar-em alta
+claude mcp add lz-revisor -e PYTHONPATH="$PWD" -- \
+  python3 -m lz_revisor mcp --raiz ../../meu-projeto</pre><button class="action action--labelled" type="button" data-copy="code-cli"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>Copiar</button></div>
+          <p>A saída nunca sobrescreve arquivo existente. <code>--sarif</code> e <code>--falhar-em</code> levam o revisor para o CI; <code>--data</code> revisa na data dos fatos. O MCP lê só a pasta de <code>--raiz</code>, não escreve e não acessa a rede.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="referencias" aria-labelledby="t-ref" data-section>
+      <header class="section__head">
+        <h2 id="t-ref">Referências</h2>
+        <p>Antes de publicar, avaliamos 150 projetos em três frentes. Nenhum junta repositório, questionário, normas por UF, N2, N3 e minutas brasileiras. Estes são os mais próximos e o que aproveitamos deles, sem copiar código nem texto.</p>
+      </header>
+      <div class="tablewrap" style="max-height:none">
+        <table class="table">
+          <thead><tr><th scope="col">Projeto</th><th scope="col">O que faz</th><th scope="col">Licença</th><th scope="col">O que aproveitamos</th></tr></thead>
+          <tbody>
+            <tr><td class="n"><b><a href="https://github.com/kuzivaai/getregula" rel="noopener noreferrer">Regula ↗</a></b></td><td>Aplicabilidade de regras de IA na UE, Coreia e Colorado a partir do código</td><td><span class="badge">Apache-2.0 / EUPL</span></td><td>Proveniência das respostas e "desconhecido nunca vira não"</td></tr>
+            <tr><td class="n"><b><a href="https://github.com/goul4rt/lgpd-skills" rel="noopener noreferrer">lgpd-skills ↗</a></b></td><td>Skills que geram ROPA, RIPD e política só para LGPD</td><td><span class="badge">MIT</span></td><td>Reconhecer <code>.lgpd/ROPA.md</code> e RIPD como evidência</td></tr>
+            <tr><td class="n"><b><a href="https://github.com/pablorivast/GDPRLint" rel="noopener noreferrer">GDPRLint ↗</a></b></td><td>Dado pessoal por linha com saída SARIF</td><td><span class="badge">Apache-2.0</span></td><td>SARIF 2.1.0 e falha de CI por severidade</td></tr>
+            <tr><td class="n"><b><a href="https://github.com/saasvista/aibom-scanner" rel="noopener noreferrer">aibom-scanner ↗</a></b></td><td>Inventário de IA só com biblioteca padrão</td><td><span class="badge">Apache-2.0</span></td><td>Códigos de saída para integração contínua</td></tr>
+            <tr><td class="n"><b><a href="https://github.com/data-privacy-stack/presidio" rel="noopener noreferrer">Presidio ↗</a></b></td><td>Reconhecedores de dados pessoais, sem cobertura do Brasil</td><td><span class="badge">MIT</span></td><td>Modelo de validação: CPF e CNPJ alfanumérico por dígito verificador</td></tr>
+            <tr><td class="n"><b><a href="https://www.lexml.gov.br/" rel="noopener noreferrer">LexML ↗</a> · <a href="https://dadosabertos.camara.leg.br/" rel="noopener noreferrer">Câmara ↗</a></b></td><td>Identificadores de normas e dados abertos de tramitação</td><td><span class="badge b-pos">Dados públicos</span></td><td>URN LEX nas leis federais e radar automático de projetos de lei</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="count">Lista completa, com o que não adotamos e por quê: <a href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR/blob/main/docs/REFERENCIAS-REVISOR.md">REFERENCIAS-REVISOR.md</a>.</p>
+    </section>
+
+    <section class="section" id="limites" aria-labelledby="t-lim" data-section>
+      <header class="section__head">
+        <h2 id="t-lim">Limites</h2>
+        <p>Escritos antes das promessas, valem para todo relatório.</p>
+      </header>
+      <div class="alert alert--notice" role="note">
+        <p class="alert__head"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg>Minuta para revisão profissional, nunca parecer</p>
+        <ul>
+          <li><span data-count="oficial">106</span> das <span data-count="total">210</span> normas foram conferidas em fonte oficial; as demais estão como fonte secundária ou não localizada e nunca geram não conformidade.</li>
+          <li>Normas municipais e setoriais ainda não foram mapeadas. Acre e Espírito Santo não têm norma estadual localizada; ausência no catálogo não prova ausência de lei.</li>
+          <li>Vedações, como as práticas proibidas do AI Act, não se provam por documento e ficam inconclusivas até alguém confirmar.</li>
+          <li>Leis mudam. O catálogo tem data de corte em 16/10/2026; confira a vigência na data dos fatos.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <aside class="toc" aria-label="Nesta página">
+    <p class="toc__head">Nesta página</p>
+    <a href="#inicio">Início</a>
+    <a href="#niveis">Três níveis</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#estados">Estados do relatório</a>
+    <a href="#n2">Escolha do N2</a>
+    <a href="#catalogo">Catálogo de normas</a>
+    <a href="#minutas">Minutas</a>
+    <a href="#instalar">Instalar</a>
+    <a href="#referencias">Referências</a>
+    <a href="#limites">Limites</a>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner gutter">
+    <div class="footer__brand">
+      <div class="footer__logos">
+        <a href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/" data-blur aria-label="LexZenit, skill jurídica"><svg viewBox="0 0 1829 345" style="height:26px" aria-hidden="true"><use href="#lz-lockup"/></svg></a>
+        <a href="https://www.alexandrebelo.com.br" aria-label="AB — Alexandre Belo, alexandrebelo.com.br"><svg viewBox="40 40 905 520" style="height:44px" aria-hidden="true"><use href="#ab-mono"/></svg></a>
+      </div>
+      <p>LexZenit é uma solução da AB ED&amp;IA Soluções em Tecnologia Ltda., CNPJ 57.531.384/0001-96.</p>
+    </div>
+    <div>
+      <h4>Produto</h4>
+      <ul>
+        <li><a href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/" data-blur>LexZenit · skill jurídica</a></li>
+        <li><a href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR">Repositório no GitHub</a></li>
+        <li><a href="https://www.alexandrebelo.com.br">alexandrebelo.com.br</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Versão</h4>
+      <ul>
+        <li>claude-for-legal-br 0.3.0</li>
+        <li>Catálogo com corte em 16/10/2026</li>
+        <li>Apache-2.0</li>
+      </ul>
+    </div>
+    <p class="footer__credit">Visual baseado no Spectrum 2, sistema de design de código aberto da Adobe (tokens de adobe/spectrum-design-data, Apache-2.0). Tipografia Source Sans 3 e Source Code Pro (SIL OFL). A LexZenit não é afiliada à Adobe nem à Anthropic.</p>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var DATA = {"ufs":[{"uf":"AC","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"nao_localizado","normas_no_catalogo":0,"conferidas_oficial":0},{"uf":"AL","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":5,"conferidas_oficial":1},{"uf":"AP","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":3,"conferidas_oficial":0},{"uf":"AM","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":6,"conferidas_oficial":0},{"uf":"BA","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":5,"conferidas_oficial":3},{"uf":"CE","tem_lei_ia":"sim","tem_marco_inovacao":"nao_localizado","normas_no_catalogo":9,"conferidas_oficial":6},{"uf":"DF","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":5,"conferidas_oficial":3},{"uf":"ES","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"nao_localizado","normas_no_catalogo":0,"conferidas_oficial":0},{"uf":"GO","tem_lei_ia":"sim","tem_marco_inovacao":"sim","normas_no_catalogo":6,"conferidas_oficial":4},{"uf":"MA","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":4,"conferidas_oficial":0},{"uf":"MT","tem_lei_ia":"sim","tem_marco_inovacao":"sim","normas_no_catalogo":22,"conferidas_oficial":21},{"uf":"MS","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":4,"conferidas_oficial":1},{"uf":"MG","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"parcial","normas_no_catalogo":3,"conferidas_oficial":0},{"uf":"PA","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"parcial","normas_no_catalogo":3,"conferidas_oficial":1},{"uf":"PB","tem_lei_ia":"sim","tem_marco_inovacao":"sim","normas_no_catalogo":6,"conferidas_oficial":3},{"uf":"PR","tem_lei_ia":"sim","tem_marco_inovacao":"sim (fonte secundária)","normas_no_catalogo":8,"conferidas_oficial":2},{"uf":"PE","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"parcial","normas_no_catalogo":8,"conferidas_oficial":2},{"uf":"PI","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"parcial","normas_no_catalogo":3,"conferidas_oficial":1},{"uf":"RJ","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"nao_localizado","normas_no_catalogo":9,"conferidas_oficial":0},{"uf":"RN","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":5,"conferidas_oficial":2},{"uf":"RS","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"nao_localizado","normas_no_catalogo":2,"conferidas_oficial":1},{"uf":"RO","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":4,"conferidas_oficial":3},{"uf":"RR","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"nao_localizado","normas_no_catalogo":5,"conferidas_oficial":3},{"uf":"SC","tem_lei_ia":"sim","tem_marco_inovacao":"parcial","normas_no_catalogo":4,"conferidas_oficial":3},{"uf":"SP","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":13,"conferidas_oficial":11},{"uf":"SE","tem_lei_ia":"nao_localizado","tem_marco_inovacao":"sim","normas_no_catalogo":4,"conferidas_oficial":3},{"uf":"TO","tem_lei_ia":"sim","tem_marco_inovacao":"nao_localizado","normas_no_catalogo":6,"conferidas_oficial":5}],"normas":[{"id":"BR-LGPD","n":"N1","j":"BR","nome":"Lei Geral de Proteção de Dados Pessoais (LGPD)","cit":"Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm","ob":12,"al":0},{"id":"BR-ANPD-REGULAMENTOS","n":"N1","j":"BR","nome":"Regulamentos do Conselho Diretor da ANPD (pequeno porte, incidentes, encarregado, transferência)","cit":"Res. CD/ANPD 2/2022, 15/2024, 18/2024 e 19/2024","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":3,"al":0},{"id":"BR-CDC","n":"N1","j":"BR","nome":"Código de Defesa do Consumidor","cit":"Lei 8.078, de 11/09/1990 (texto compilado)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm","ob":3,"al":0},{"id":"BR-DEC-7962","n":"N1","j":"BR","nome":"Decreto do Comércio Eletrônico","cit":"Decreto 7.962, de 15/03/2013","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm","ob":3,"al":0},{"id":"BR-MCI","n":"N1","j":"BR","nome":"Marco Civil da Internet","cit":"Lei 12.965, de 23/04/2014","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm","ob":3,"al":0},{"id":"BR-STF-T987-533","n":"N1","j":"BR","nome":"STF — responsabilidade de provedores por conteúdo de terceiros (Temas 987 e 533)","cit":"RE 1.037.396 e RE 1.057.258, julgados em jun/2025","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.barbieriadvogados.com/regulamentacao-inteligencia-artificial-brasil/","ob":3,"al":0},{"id":"BR-ECA-DIGITAL","n":"N1","j":"BR","nome":"Estatuto Digital da Criança e do Adolescente (ECA Digital)","cit":"Lei 15.211, de 17/09/2025; vigência em 17/03/2026 (art. 41-A, incluído pela Lei 15.352/2026)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15211.htm","ob":6,"al":0},{"id":"BR-LBI-ART63","n":"N1","j":"BR","nome":"Lei Brasileira de Inclusão — acessibilidade de sítios","cit":"Lei 13.146, de 06/07/2015, art. 63","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm","ob":1,"al":0},{"id":"BR-LEI-SOFTWARE","n":"N1","j":"BR","nome":"Lei do Software — titularidade do programa","cit":"Lei 9.609, de 19/02/1998, art. 4º","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/leis/l9609.htm","ob":2,"al":0},{"id":"BR-LC182","n":"N1","j":"BR","nome":"Marco Legal das Startups — regimes de incentivo","cit":"Lei Complementar 182, de 01/06/2021","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp182.htm","ob":4,"al":0},{"id":"BR-LC182-APORTE","n":"N1","j":"BR","nome":"Marco Legal das Startups — formalização do aporte","cit":"Lei Complementar 182/2021, arts. 5º e 8º","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp182.htm","ob":2,"al":0},{"id":"BR-ESTATUTO-OAB","n":"N1","j":"BR","nome":"Estatuto da Advocacia — atividade privativa","cit":"Lei 8.906, de 04/07/1994, arts. 1º e 4º","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/leis/l8906.htm","ob":1,"al":0},{"id":"BR-TSE-IA-ELEICOES","n":"N1","j":"BR","nome":"TSE — IA na propaganda eleitoral","cit":"Res. TSE 23.610/2019, alterada em 2024 e em 2026 (número não conferido)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.tse.jus.br/comunicacao/noticias/2026/Marco/tse-aprova-calendario-eleitoral-e-regulamenta-uso-de-ia-nas-eleicoes-2026","ob":2,"al":0},{"id":"BR-CNJ-615","n":"N1","j":"BR","nome":"CNJ — IA no Poder Judiciário","cit":"Resolução CNJ 615/2025","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.barbieriadvogados.com/regulamentacao-inteligencia-artificial-brasil/","ob":1,"al":0},{"id":"BR-ANVISA-SAMD","n":"N1","j":"BR","nome":"ANVISA — software como dispositivo médico","cit":"RDC ANVISA 657/2022 (não conferida)","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":1,"al":0},{"id":"BR-SFN-REGULACAO","n":"N1","j":"BR","nome":"Regulação do Sistema Financeiro para fintechs","cit":"Lei 12.865/2013 (arranjos de pagamento) e Res. CMN 4.893/2021 (segurança cibernética e nuvem), não conferidas","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":2,"al":0},{"id":"BR-PL-2338-2023","n":"N1","j":"BR","nome":"Marco legal da Inteligência Artificial (PL 2.338/2023)","cit":"PL 2.338/2023 — aprovado no Senado em 10/12/2024; na Câmara, Comissão Especial, aguardando parecer do relator","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2487262","ob":0,"al":0},{"id":"BR-PL-3967-2025","n":"N1","j":"BR","nome":"Identificação obrigatória de conteúdo gerado por IA (PL 3.967/2025)","cit":"PL 3.967/2025 — altera o Marco Civil; apensado ao PL 2.338/2023","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2543191","ob":0,"al":0},{"id":"BR-PL-6237-2025","n":"N1","j":"BR","nome":"Sistema Nacional de IA (PL 6.237/2025)","cit":"PL 6.237/2025 — do Executivo; apensado ao PL 2.338/2023 (fonte secundária)","st":"em_tramitacao","v":"fonte_secundaria","r":"obrigacao","u":"https://www.planalto.gov.br/ccivil_03/projetos/ato_2023_2026/2025/pl/pl-6237.htm","ob":0,"al":0},{"id":"BR-AL-CONS-001","n":"N1","j":"BR-AL","nome":"Cadastro estadual de bloqueio de ligações e SMS de telemarketing (PROCON/AL)","cit":"Lei nº 8.538, de 10/11/2021 (DOE de 16/11/2021)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.normasbrasil.com.br/norma/lei-8538-2021-al_422899.html","ob":1,"al":0},{"id":"BR-AL-INO-001","n":"N1","j":"BR-AL","nome":"Lei estadual de incentivo à pesquisa científica e tecnológica e à inovação no ambiente produtivo","cit":"Lei nº 7.117, de 12/11/2009 (DOE de 13/11/2009)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.fapeal.br/wp-content/uploads/2015/05/leiNo7117-de12_11_09-2.pdf","ob":4,"al":0},{"id":"BR-AL-INO-002","n":"N1","j":"BR-AL","nome":"Política Estadual de Ciência, Tecnologia e Inovação de Alagoas","cit":"Lei nº 8.956/2023 (data de sanção não confirmada)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.imprensaoficial.al.gov.br/storage/files/diary/2023/02/doeal-2023-02-10-completo-ijgbhssnnfagnfmyxzpacoqvo-lv2ejuf-dmfktaoy60g95mvzkya.pdf","ob":1,"al":0},{"id":"BR-AL-INO-003","n":"N1","j":"BR-AL","nome":"Decreto que regulamenta mecanismos de estímulo à inovação (bônus tecnológico, encomenda tecnológica, CPSI e sandbox regulatório)","cit":"Decreto nº 95.265, de 24/01/2024 (DOE-AL de 25/01/2024, segundo a fonte)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.legisweb.com.br/legislacao/?id=455178","ob":5,"al":0},{"id":"BR-AL-LGPD-001","n":"N1","j":"BR-AL","nome":"Decreto de aplicação da LGPD no Poder Executivo estadual","cit":"Decreto nº 91.229, de 18/05/2023 (DOE-AL de 19/05/2023, ed. nº 2072)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://diario.imprensaoficial.al.gov.br/apinova/api/editions/viewPdf/28449","ob":1,"al":0},{"id":"BR-AM-CON-001","n":"N1","j":"BR-AM","nome":"Cadastro estadual para bloqueio de ligações de telemarketing (Amazonas)","cit":"Lei nº 3.633, de 29/06/2011 (DOE na mesma data)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":0},{"id":"BR-AM-CON-002","n":"N1","j":"BR-AM","nome":"Proíbe chamadas de venda/adesão por robôs ou softwares em volume acima da capacidade humana (Amazonas)","cit":"Lei nº 6.765/2024 (data exata não informada)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":1},{"id":"BR-AM-CON-003","n":"N1","j":"BR-AM","nome":"Informação em tempo real sobre queda de velocidade de internet/telefonia móvel (Amazonas)","cit":"Lei nº 5.779/2022 (data exata não informada)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":1},{"id":"BR-AM-CON-004","n":"N1","j":"BR-AM","nome":"Proíbe cobrança de serviços de valor adicionado (SVA) na fatura sem autorização do cliente (Amazonas)","cit":"Número não informado; projeto do dep. Serafim Corrêa aprovado pela Aleam em 09/05/2019 (data inferida de matéria de 13/05/2019)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":1},{"id":"BR-AM-INO-001","n":"N1","j":"BR-AM","nome":"Incentivo ao modelo de negócio Scale Up (Amazonas)","cit":"Lei nº 6.827, de 27/03/2024 (DOE na mesma data)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":4,"al":0},{"id":"BR-AM-INO-002","n":"N1","j":"BR-AM","nome":"Lei estadual de inovação tecnológica do Amazonas (2006)","cit":"Número não localizado; sancionada em 17/11/2006 pelo governador Eduardo Braga (data inferida da matéria de 23/11/2006)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":1,"al":0},{"id":"BR-AP-INO-001","n":"N1","j":"BR-AP","nome":"Lei estadual de incentivo ao Sistema de Ciência, Tecnologia e Inovação (Amapá)","cit":"Lei nº 2.333, de 25/04/2018 (DOE na mesma data)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":3,"al":0},{"id":"BR-AP-INO-002","n":"N1","j":"BR-AP","nome":"Política Estadual de Incentivo às Startups de Turismo Digital (Amapá)","cit":"Lei nº 3.237, de 04/06/2025 (DOE na mesma data)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":4,"al":0},{"id":"BR-AP-INO-003","n":"N1","j":"BR-AP","nome":"Política Estadual de Incentivo às Startups do Agronegócio (Amapá)","cit":"Lei nº 3.305, de 24/09/2025 (DOE na mesma data)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":2,"al":0},{"id":"BR-BA-IA-001","n":"N1","j":"BR-BA","nome":"PL de governança, uso responsável e fiscalização de sistemas de IA na administração pública estadual","cit":"Projeto de lei sem número informado, do dep. Euclides Fernandes (PT), publicado no DOE da Alba em 05/05/2026","st":"em_tramitacao","v":"fonte_secundaria","r":"obrigacao","u":"https://atarde.com.br/bahia/bahia-pode-proibir-decisoes-feitas-por-ia-em-orgaos-publicos-1387931","ob":0,"al":0},{"id":"BR-BA-INO-001","n":"N1","j":"BR-BA","nome":"Lei estadual de incentivo à inovação e à pesquisa científica e tecnológica (marco estadual de CT&I)","cit":"Lei nº 14.315, de 17/06/2021","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.fapesb.ba.gov.br/wp-content/uploads/2019/08/Decreto_n_22.327_2023-Regulamenta-a-Lei-14.315-de-junho-de-2021.pdf","ob":1,"al":0},{"id":"BR-BA-INO-002","n":"N1","j":"BR-BA","nome":"Decreto que regulamenta a Lei 14.315/2021","cit":"Decreto nº 22.327, de 16/10/2023","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.fapesb.ba.gov.br/wp-content/uploads/2019/08/Decreto_n_22.327_2023-Regulamenta-a-Lei-14.315-de-junho-de-2021.pdf","ob":5,"al":0},{"id":"BR-BA-INO-003","n":"N1","j":"BR-BA","nome":"Edital FAPESB nº 17/2026 - Subvenção à PD&I em sistemas inteligentes para a administração estadual (Rodada 2)","cit":"Edital nº 17/2026, Salvador, 03/07/2026","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.fapesb.ba.gov.br/wp-content/uploads/2019/08/EDITAL-DE-SELECAO-PUBLICA-N-017_2026-Subvencao-Economica-a-PesquisaDesenvolvimento-e-Inovacao-PDI-Solucoes-de-Sistemas-Inteligentes-para-a-Administracao-Estadual-Rodada-2.pdf","ob":5,"al":0},{"id":"BR-BA-LGPD-001","n":"N1","j":"BR-BA","nome":"Decreto que aplica a LGPD e institui a Política Estadual de Proteção de Dados Pessoais (PEPD) no Executivo","cit":"Decreto nº 24.105, de 14/11/2025 (DOE-BA de 15/11/2025)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.ba.gov.br/ouvidoria/sites/site-oge/files/2025-11/DECRETO%20N%C2%BA%2024.105%20DE%2014%20DE%20NOVEMBRO%20DE%202025.pdf","ob":1,"al":0},{"id":"BR-CE-CONS-001","n":"N1","j":"BR-CE","nome":"Cadastro para bloqueio do recebimento de ligações de telemarketing","cit":"Lei nº 15.111, de 02/01/2012 (DOE de 02/02/2012, segundo a fonte)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.normasbrasil.com.br/norma/lei-15111-2012-ce_236858.html","ob":1,"al":0},{"id":"BR-CE-CONS-002","n":"N1","j":"BR-CE","nome":"PL que obriga o cancelamento online de assinaturas contratadas online, sem atendente humano","cit":"PL 584/2025 (numeração inferida do nome do arquivo; documento S/N), dep. Carmelo Neto, 30/06/2025","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www2.al.ce.gov.br/legislativo/tramit2025/pl584_25.pdf","ob":0,"al":0},{"id":"BR-CE-CONS-003","n":"N1","j":"BR-CE","nome":"PL que obriga operadoras de telefonia, dados e TV por assinatura a oferecer cancelamento e troca de plano por aplicativo","cit":"PL 906/2023 (numeração inferida do nome do arquivo; documento S/N), dep. Lia Gomes, 31/08/2023","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www2.al.ce.gov.br/legislativo/tramit2023/pl906_23.pdf","ob":0,"al":0},{"id":"BR-CE-IA-001","n":"N1","j":"BR-CE","nome":"Responsabilidades e diretrizes para sistemas de inteligência artificial no âmbito do Estado do Ceará","cit":"Lei nº 17.611, de 11/08/2021 (DOE de 12/08/2021)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://belt.al.ce.gov.br/index.php/legislacao-do-ceara/organizacao-tematica/ciencia-e-tecnologia-e-educacao-superior/item/download/7377_55d507c97c652e158e9053fe2af093cf","ob":3,"al":1},{"id":"BR-CE-IA-002","n":"N1","j":"BR-CE","nome":"PL que altera a Lei 17.611/2021 (princípios de IA, avaliação de impacto algorítmico para órgãos estaduais)","cit":"PL 635/2025 (numeração inferida do nome do arquivo; documento S/N), dep. Assis Diniz, assinado em 10/07/2025","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www2.al.ce.gov.br/legislativo/tramit2025/pl635_25.pdf","ob":0,"al":1},{"id":"BR-CE-IA-003","n":"N1","j":"BR-CE","nome":"PL da Política Estadual de Fomento à Inovação em Inteligência Artificial no Ceará","cit":"PL 612/2025 (numeração inferida do nome do arquivo; documento S/N), dep. Stuart Castro, 07/07/2025","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www2.al.ce.gov.br/legislativo/tramit2025/pl612_25.pdf","ob":0,"al":0},{"id":"BR-CE-IA-004","n":"N1","j":"BR-CE","nome":"PL que proíbe o uso de IA para conteúdos com crianças e adolescentes em cenas sexuais ou pornográficas e impõe deveres a provedores de IA","cit":"PL 943/2023 (numeração inferida do nome do arquivo; documento S/N), dep. Bruno Pedrosa, 13/09/2023","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www2.al.ce.gov.br/legislativo/tramit2023/pl943_23.pdf","ob":0,"al":0},{"id":"BR-CE-INO-001","n":"N1","j":"BR-CE","nome":"PL que institui o Programa Estadual de Ambientes Regulatórios Experimentais (Sandbox Regulatório)","cit":"PL 389/2026 (numeração inferida do nome do arquivo; documento S/N), dep. Emilia Pessoa (PSDB), 08/06/2026","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www2.al.ce.gov.br/legislativo/tramit2026/pl389_26.pdf","ob":0,"al":0},{"id":"BR-CE-LGPD-001","n":"N1","j":"BR-CE","nome":"Modelo de governança da proteção de dados pessoais no Poder Executivo estadual","cit":"Lei nº 18.699, de 07/03/2024","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.crede10.seduc.ce.gov.br/wp-content/uploads/sites/128/2025/06/Lei-Estadual-LGPD-1.pdf","ob":1,"al":0},{"id":"BR-DF-CON-001","n":"N1","j":"BR-DF","nome":"Meios de cancelamento idênticos aos meios de contratação (Distrito Federal)","cit":"Lei nº 6.058, de 22/12/2017 (DODF de 26/12/2017)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":2,"al":1},{"id":"BR-DF-INO-001","n":"N1","j":"BR-DF","nome":"Estímulos ao desenvolvimento da pesquisa científica e tecnológica e à inovação (Distrito Federal)","cit":"Lei nº 6.140, de 03/05/2018 (DODF de 04/05/2018)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://fap.df.gov.br/documents/d/fap/lei-df-2018-06140-28229-pdf","ob":3,"al":0},{"id":"BR-DF-INO-002","n":"N1","j":"BR-DF","nome":"Plano Diretor de Tecnologias da Cidade Inteligente - PDTCI (Distrito Federal)","cit":"Lei nº 6.692, de 02/10/2020 (sancionada em sexta-feira, 02/10/2020, segundo a matéria)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":1,"al":0},{"id":"BR-DF-LGP-001","n":"N1","j":"BR-DF","nome":"Aplicação da LGPD na Administração Pública direta e indireta do Distrito Federal","cit":"Decreto nº 45.771, de 08/05/2024","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://economia.df.gov.br/documents/d/seec/decreto-45771-de-08_05_2024-pdf","ob":1,"al":0},{"id":"BR-DF-LGP-002","n":"N1","j":"BR-DF","nome":"Aplicação da LGPD na Administração Pública do Distrito Federal (versão anterior)","cit":"Decreto nº 42.036, de 27/04/2021 (DODF nº 78, de 28/04/2021)","st":"revogada","v":"oficial_conferido","r":"obrigacao","u":"https://economia.df.gov.br/documents/d/seec/decreto-42036-de-27_04_2021-pdf","ob":1,"al":0},{"id":"BR-GO-CON-001","n":"N1","j":"BR-GO","nome":"Cadastro para bloqueio do recebimento de ligações de telemarketing (Goiás)","cit":"Lei nº 17.424, de 21/09/2011 (DO/GO de 27/09/2011)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://goias.gov.br/procon/?p=22881","ob":1,"al":0},{"id":"BR-GO-IA-001","n":"N1","j":"BR-GO","nome":"Política Estadual de Fomento à Inovação em Inteligência Artificial (Goiás)","cit":"Lei Complementar nº 205, de 19/05/2025 (Suplemento do DO/GO de 19/05/2025)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/110694/pdf","ob":3,"al":1},{"id":"BR-GO-INO-001","n":"N1","j":"BR-GO","nome":"Política estadual de estímulo ao desenvolvimento regional de startups (Goiás)","cit":"Lei nº 20.472, de 06/05/2019 (DO de 07/05/2019)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/100674/pdf","ob":5,"al":0},{"id":"BR-GO-INO-002","n":"N1","j":"BR-GO","nome":"Marco Legal da Inovação de Goiás","cit":"Número e data da lei NÃO localizados; notícia de 11/11/2022 diz que foi publicada no suplemento do DO/GO de 'terça-feira, 8' (08/11/2022)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":1,"al":0},{"id":"BR-GO-LGP-001","n":"N1","j":"BR-GO","nome":"Aplicação da LGPD na administração direta e indireta do Poder Executivo de Goiás","cit":"Decreto nº 10.092, de 06/06/2022","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://goias.gov.br/controladoria/lgpdd/","ob":1,"al":0},{"id":"BR-GO-LGP-002","n":"N1","j":"BR-GO","nome":"Governança no compartilhamento de dados na administração pública estadual e Comitê de Governança de Dados Estadual (CGDE)","cit":"Decreto nº 10.609, de 18/12/2024","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/110171/pdf","ob":1,"al":0},{"id":"BR-MA-CONS-001","n":"N1","j":"BR-MA","nome":"Cadastro estadual de bloqueio de telemarketing (Procon/MA)","cit":"Lei Estadual nº 9.053/2009 (ano e número confirmados em notícia de O Imparcial, 2019; a data 18/11/2009 vem só do título de um agregador que apareceu ","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://oimparcial.com.br/negocios/2019/07/saiba-como-bloquear-chamadas-ligacoes-de-telemarketing/","ob":1,"al":0},{"id":"BR-MA-INO-001","n":"N1","j":"BR-MA","nome":"'Lei de Inovação do Maranhão'","cit":"Lei Estadual nº 11.733 (data não informada na fonte)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://oimparcial.com.br/noticias/2025/02/maranhao-avanca-na-inovacao-com-investimentos-historicos-e-criacao-do-parque-tecnologico-renato-archer/","ob":1,"al":0},{"id":"BR-MA-INO-002","n":"N1","j":"BR-MA","nome":"Política Estadual de Incentivo às Startups de Turismo Digital","cit":"Lei nº 12.686, de 20/10/2025 (publicada em 20/10/2025)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.legisweb.com.br/legislacao/?id=485262","ob":3,"al":0},{"id":"BR-MA-INO-003","n":"N1","j":"BR-MA","nome":"GovIA Maranhão - chamada da FAPEMA para soluções de IA na administração pública","cit":"Chamada sem número informado; notícia de 23/03/2026; inscrições até 16/04/2026","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://oimparcial.com.br/noticias/2026/03/fapema-lanca-edital-de-r-2-milhoes-para-impulsionar-o-uso-de-inteligencia-artificial-no-governo-do-maranhao/","ob":3,"al":0},{"id":"BR-MG-IA-001","n":"N1","j":"BR-MG","nome":"Resolução OGE nº 10/2025: regras de uso de IA no tratamento de manifestações de ouvidoria","cit":"Resolução da Ouvidoria-Geral do Estado nº 10/2025 (notícia de 29/12; ano inferido pela numeração); uso de IA previsto a partir de 02/2026","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://agenciaminas.mg.gov.br/news/pdf/128641.pdf","ob":1,"al":0},{"id":"BR-MG-INOV-001","n":"N1","j":"BR-MG","nome":"Política estadual 'Minas Inteligente' (apoio às cidades inteligentes)","cit":"Lei 24.839, publicada no DOMG em 28/06/2024 (sanção não informada)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://diariodocomercio.com.br/legislacao/minas-politica-cidades-inteligentes/","ob":1,"al":0},{"id":"BR-MG-LGPD-001","n":"N1","j":"BR-MG","nome":"Aplicação da LGPD na Administração Pública direta e indireta do Executivo de MG","cit":"Decreto 48.237, de 22/07/2021 (DOE-MG 23/07/2021)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.legisweb.com.br/legislacao/?id=417659","ob":1,"al":0},{"id":"BR-MS-CON-001","n":"N1","j":"BR-MS","nome":"Proíbe cobrança de multa por fidelização em contratos de serviços continuados (Mato Grosso do Sul)","cit":"Lei nº 5.597, de 24/11/2020","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":1},{"id":"BR-MS-CON-PL-001","n":"N1","j":"BR-MS","nome":"PL nº 136/2026 - identificação de chamadas de operadoras com código de retorno gratuito (Mato Grosso do Sul)","cit":"Projeto de Lei nº 136/2026, dep. João Henrique; matéria de 20/09/2026","st":"em_tramitacao","v":"fonte_secundaria","r":"obrigacao","u":"","ob":0,"al":1},{"id":"BR-MS-INO-001","n":"N1","j":"BR-MS","nome":"Incentivos à pesquisa, ao desenvolvimento científico e tecnológico e à inovação; SCTI/MS, CCT&I e FUNECTI (Mato Grosso do Sul)","cit":"Lei nº 6.380, de 30/12/2024 (DOE nº 11.709, de 02/01/2025)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.semadesc.ms.gov.br/wp-content/uploads/2025/02/Lei-de-Inovacao.pdf","ob":5,"al":0},{"id":"BR-MS-LGP-001","n":"N1","j":"BR-MS","nome":"Comitê Permanente de Proteção de Dados Pessoais da CGE-MS (Resolução CGE/MS nº 67)","cit":"Resolução CGE/MS nº 67 (DOE nº 10.825; data provável 09/05/2022, inferida do nome do arquivo)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":0},{"id":"BR-MT-CON-001","n":"N1","j":"BR-MT","nome":"Lei sobre contratos de permanência mínima de telefonia em caso de furto ou roubo (Mato Grosso)","cit":"Lei nº 11.141/2020 (data não localizada)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":1},{"id":"BR-MT-CON-PL-001","n":"N1","j":"BR-MT","nome":"PL nº 606/2023 - cancelamento de contrato e troca de plano de telefonia pelo aplicativo (Mato Grosso)","cit":"Projeto de Lei nº 606/2023 (Protocolo 1153/2023), 15/02/2023, dep. Valdir Barranco","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20230214150501143100.pdf","ob":0,"al":1},{"id":"BR-MT-CON-PL-002","n":"N1","j":"BR-MT","nome":"PL nº 1058/2024 - cancelamento e troca de plano de telecom em apps de atendimento (Mato Grosso)","cit":"Projeto de Lei nº 1058/2024 (Protocolo 5407/2024), 22/05/2024, dep. Wilson Santos","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20240517105912130100.pdf","ob":0,"al":1},{"id":"BR-MT-CON-PL-003","n":"N1","j":"BR-MT","nome":"PLs nº 172/2022 e 126/2023 - proteção do consumidor na desativação, cancelamento, transferência e aquisição de linhas de telefonia (Mato Grosso)","cit":"PL 172/2022 (Protocolo 1179/2022, 16/02/2022) e PL 126/2023 (Protocolo 447/2023, 08/02/2023), dep. Thiago Silva","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20220215091240157100.pdf","ob":0,"al":1},{"id":"BR-MT-CON-PL-004","n":"N1","j":"BR-MT","nome":"PL nº 995/2024 - aviso prévio ao consumidor sobre interrupção, cancelamento ou alteração de cobranças em débito em conta (Mato Grosso)","cit":"Projeto de Lei nº 995/2024 (Protocolo 5027/2024), 15/05/2024, dep. Juca do Guaraná","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20240515084745181100.pdf","ob":0,"al":0},{"id":"BR-MT-CON-PL-005","n":"N1","j":"BR-MT","nome":"PL nº 81/2019 - direito de privacidade dos usuários de telefonia contra ofertas de venda (lista de bloqueio de telemarketing) (Mato Grosso)","cit":"Projeto de Lei nº 81/2019 (Protocolo 201/2019), 13/02/2019, dep. Valdir Barranco","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20190212091910143100.pdf","ob":0,"al":1},{"id":"BR-MT-CON-PL-006","n":"N1","j":"BR-MT","nome":"PLs nº 676/2021 e 426/2013 - cláusula de rescisão sem multa por serviço ruim em telefonia e proibição de renovação automática de assinaturas (Mato Gro","cit":"PL 676/2021 (Protocolo 8061/2021, 04/08/2021, dep. Elizeu Nascimento) e PL 426/2013 (Protocolo 6894/2013, 13/11/2013, dep. Dilmar Dal Bosco)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20131106164805621000.pdf","ob":0,"al":0},{"id":"BR-MT-IA-001","n":"N1","j":"BR-MT","nome":"Proíbe aplicativos e programas de IA para criação de deep nudes (Mato Grosso)","cit":"Lei nº 13.257, de 25/03/2026 (DO de 26/03/2026)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/norma-juridica/urn:lex:br;mato.grosso:estadual:lei.ordinaria:2026-03-25;13257/gerar-pdf-redacao","ob":2,"al":1},{"id":"BR-MT-IA-PL-001","n":"N1","j":"BR-MT","nome":"PL nº 367/2024 - princípios e diretrizes para o uso da IA na administração pública estadual (Mato Grosso)","cit":"Projeto de Lei nº 367/2024 (Protocolo 1891/2024; Processo 578/2024), despacho em 07/03/2024, dep. Wilson Santos","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20240306105238130100.pdf","ob":0,"al":0},{"id":"BR-MT-IA-PL-002","n":"N1","j":"BR-MT","nome":"PL nº 924/2025 - ferramentas de IA para educação inclusiva de estudantes neurodivergentes e com deficiência (Mato Grosso)","cit":"Projeto de Lei nº 924/2025 (Protocolo 5735/2025), 28/05/2025, dep. Wilson Santos","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20250527110503130100.pdf","ob":0,"al":0},{"id":"BR-MT-IA-PL-003","n":"N1","j":"BR-MT","nome":"PL nº 1085/2025 - veda IA como substituta de profissionais humanos no atendimento de saúde mental (Mato Grosso)","cit":"Projeto de Lei nº 1085/2025 (Protocolo 6858/2025), 25/06/2025, dep. Elizeu Nascimento","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20250624095413142100.pdf","ob":0,"al":0},{"id":"BR-MT-IA-PL-004","n":"N1","j":"BR-MT","nome":"PL nº 707/2026 - regras para o uso de IA em compras e contratações do Governo de Mato Grosso","cit":"Projeto de Lei nº 707/2026 (Protocolo 5414/2026), despacho em 03/06/2026, dep. Wilson Santos","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20260521092737130100.pdf","ob":0,"al":0},{"id":"BR-MT-IA-PL-005","n":"N1","j":"BR-MT","nome":"PL nº 1513/2023 - regulamenta o uso de IA pelo Governo do Estado de Mato Grosso","cit":"Projeto de Lei nº 1513/2023 (Protocolo 7111/2023), 28/06/2023, dep. Wilson Santos","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20230627144554130100.pdf","ob":0,"al":0},{"id":"BR-MT-IA-PL-006","n":"N1","j":"BR-MT","nome":"PL nº 808/2024 - marco regulatório para ferramentas de IA nas escolas públicas (Mato Grosso)","cit":"Projeto de Lei nº 808/2024 (Protocolo 3755/2024), 24/04/2024, dep. Valdir Barranco","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20240423104229143100.pdf","ob":0,"al":1},{"id":"BR-MT-IA-PL-007","n":"N1","j":"BR-MT","nome":"PL nº 1053/2025 - IA por alunos neurodivergentes e pessoas com deficiência em escolas (Mato Grosso)","cit":"Projeto de Lei nº 1053/2025 (Protocolo 6557/2025), 18/06/2025, dep. Valdir Barranco","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20250521102414143100.pdf","ob":0,"al":0},{"id":"BR-MT-IA-PL-008","n":"N1","j":"BR-MT","nome":"PLs de capacitação e fomento com IA (Mato Grosso): 1587/2023, 1077/2025, 553/2026, 15/2026 e 1803/2025","cit":"PL 1587/2023 (professores), PL 1077/2025 (servidores, PROCAP-IA), PL 553/2026 (jovens 15 a 18 anos), PL 15/2026 (logística do agro com IA), PL 1803/20","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20250624131451143100.pdf","ob":0,"al":0},{"id":"BR-MT-INO-001","n":"N1","j":"BR-MT","nome":"Política Estadual de Estímulo, Incentivo e Promoção ao Desenvolvimento Local de Startups (Mato Grosso)","cit":"Lei nº 10.690/2018 (data não localizada)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20241203183635157100.pdf","ob":1,"al":0},{"id":"BR-MT-INO-PL-001","n":"N1","j":"BR-MT","nome":"PL nº 1088/2025 - empreendedorismo de impacto socioambiental sustentável (Mato Grosso)","cit":"Projeto de Lei nº 1088/2025 (Protocolo 6861/2025), 25/06/2025, dep. Elizeu Nascimento","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20250625091545142100.pdf","ob":0,"al":0},{"id":"BR-MT-INO-PL-002","n":"N1","j":"BR-MT","nome":"PLs de inovação e empreendedorismo (Mato Grosso): 1918/2024, 333/2026 e 112/2024","cit":"PL 1918/2024 (altera Lei 10.690/2018), PL 333/2026 (Programa Mato Grosso Inova Junto, coworking público), PL 112/2024 (cultura empreendedora)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20260318102057183100.pdf","ob":0,"al":0},{"id":"BR-MT-LGP-001","n":"N1","j":"BR-MT","nome":"Política de Segurança da Informação do Poder Executivo de Mato Grosso (PSI-MT)","cit":"Decreto nº 1.428, de 30/04/2025","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://iomat.mt.gov.br/apifront/portal/edicoes/imprimir_materia/1702927/18430?find=1.427","ob":1,"al":0},{"id":"BR-MT-OUT-PL-001","n":"N1","j":"BR-MT","nome":"PL nº 1565/2023 - proíbe IA para produzir, distribuir ou possuir imagens sexuais de crianças e adolescentes (Mato Grosso)","cit":"Projeto de Lei nº 1565/2023 (Protocolo 7457/2023), 05/07/2023, dep. Elizeu Nascimento","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20230628095715142100.pdf","ob":0,"al":1},{"id":"BR-MT-OUT-PL-002","n":"N1","j":"BR-MT","nome":"PL nº 581/2024 - proteção de mulheres contra imagens pornográficas criadas com IA sem consentimento (Mato Grosso)","cit":"Projeto de Lei nº 581/2024 (Protocolo 2858/2024), 27/03/2024, dep. Valdir Barranco","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.mt.gov.br/storage/webdisco/cp/20240325160922143100.pdf","ob":0,"al":1},{"id":"BR-PA-CON-001","n":"N1","j":"BR-PA","nome":"Cadastro estadual para bloqueio de telemarketing por ligação e SMS (Pará)","cit":"Lei nº 9.263, de 23/04/2021 (DOE de 26/04/2021)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":0},{"id":"BR-PA-INO-001","n":"N1","j":"BR-PA","nome":"Emenda Constitucional nº 69/2016 (Constituição do Pará) sobre ciência, tecnologia e inovação","cit":"Emenda Constitucional nº 69, de 08/11/2016 (DOE nº 33.250, de 14/11/2016)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://bancodeleis.alepa.pa.gov.br/arquivos/lei69_2016_61479.pdf","ob":4,"al":0},{"id":"BR-PA-INO-002","n":"N1","j":"BR-PA","nome":"Lei Estadual de Inovação do Pará (PL nº 181/2016)","cit":"PL 181/2016 aprovado em redação final na ALEPA em 25/10/2016; número e data da lei NÃO localizados","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":1,"al":0},{"id":"BR-PB-CONS-001","n":"N1","j":"BR-PB","nome":"Cadastro estadual de bloqueio de ligações de telemarketing","cit":"Lei nº 8.841, de 12/06/2009 (DOE de 14/06/2009)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.normasbrasil.com.br/norma/lei-8841-2009-pb_145413.html","ob":1,"al":0},{"id":"BR-PB-CONS-002","n":"N1","j":"BR-PB","nome":"PL que garante ao consumidor cancelar assinaturas de serviços online de forma rápida e simples (botão de cancelamento)","cit":"PL 1.118/2023, dep. Galego Souza; Parecer CCJ nº 977/2023 de 28/11/2023","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://sapl.al.pb.leg.br/media/sapl/public/documentoacessorio/2023/66015/66015_documentos_acessorios.pdf","ob":0,"al":0},{"id":"BR-PB-IA-001","n":"N1","j":"BR-PB","nome":"Proíbe o uso de IA para produzir e divulgar imagens de crianças e adolescentes em cenas sexuais ou pornográficas","cit":"Lei nº 14.008 (número vindo do nome do arquivo do SAPL e de notícia; no PDF o primeiro dígito está ilegível: '[ilegível].008'). Cabeçalho do PDF: 'de ","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://sapl3.al.pb.leg.br/media/sapl/public/normajuridica/2025/18185/lei_14.008.pdf","ob":1,"al":0},{"id":"BR-PB-IA-002","n":"N1","j":"BR-PB","nome":"PL de princípios e diretrizes para implementação e uso de IA na administração pública estadual da Paraíba","cit":"PL 1.409/2023 (número vindo do Parecer CCJ nº 097/2024), dep. João Gonçalves de Amorim Sobrinho; texto datado de 28/11/2023 com número em branco (mesm","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://sapl3.al.pb.leg.br/media/sapl/public/materialegislativa/2023/113823/113823_texto_integral.pdf","ob":0,"al":0},{"id":"BR-PB-INO-001","n":"N1","j":"BR-PB","nome":"Estímulos ao desenvolvimento científico, à pesquisa, à capacitação científica e tecnológica e à inovação","cit":"Lei nº 12.191, de 12/01/2022 (DOE de 13/01/2022)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.normasbrasil.com.br/norma/lei-12191-2022-pb_426240.html","ob":4,"al":0},{"id":"BR-PB-LGPD-001","n":"N1","j":"BR-PB","nome":"Decreto de implementação da LGPD no Poder Executivo do Estado da Paraíba","cit":"Decreto nº 41.238, de 07/05/2021 (DOE-PB nº 17.362, de 08/05/2021)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://auniao.pb.gov.br/servicos/doe/2021/maio/diario-oficial-08-05-2021.pdf","ob":1,"al":0},{"id":"BR-PE-CONS-001","n":"N1","j":"BR-PE","nome":"Código Estadual de Defesa do Consumidor de Pernambuco","cit":"Lei nº 16.559, de 15/01/2019 (DOE de 16/01/2019)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://coad.com.br/app/webroot/imagensMat/lei16559pe2019.pdf","ob":5,"al":0},{"id":"BR-PE-CONS-002","n":"N1","j":"BR-PE","nome":"Altera o Código Estadual de Defesa do Consumidor (limite da multa de cancelamento, mídias digitais e outros)","cit":"Lei nº 16.757, de 18/12/2019 (DOE de 19/12/2019)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.normasbrasil.com.br/norma/lei-16757-2019-pe_387638.html","ob":3,"al":0},{"id":"BR-PE-CONS-003","n":"N1","j":"BR-PE","nome":"Cadastro Único para Bloqueio de Ligações de Telemarketing (altera o art. 81 do Código)","cit":"Lei nº 16.825, de 25/03/2020 (DOE de 26/03/2020); vigência em 01/01/2021","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.normasbrasil.com.br/norma/lei-16825-2020-pe_391683.html","ob":1,"al":0},{"id":"BR-PE-CONS-004","n":"N1","j":"BR-PE","nome":"Proíbe condicionar a venda à inclusão ou exclusão no cadastro de bloqueio e amplia a identificação do remetente (altera o art. 81 do Código)","cit":"Lei nº 17.787, de 17/05/2022 (DOE de 18/05/2022)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.normasbrasil.com.br/norma/lei-17787-2022-pe_431596.html","ob":1,"al":0},{"id":"BR-PE-INO-001","n":"N1","j":"BR-PE","nome":"Obrigatoriedade de investimento em PD&I por beneficiários de incentivo de ICMS e criação do Fundo INOVAR-PE","cit":"Lei nº 15.063, de 04/09/2013 (DOE de 05/09/2013)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.sefaz.pe.gov.br/Legislacao/Tributaria/Documents/legislacao/Leis_Tributarias/2013/Lei15063_2013.htm","ob":3,"al":0},{"id":"BR-PE-INO-002","n":"N1","j":"BR-PE","nome":"Altera a Lei 15.063/2013 (Fundo INOVAR-PE para MPEs inovadoras)","cit":"Lei nº 16.381, de 11/06/2018 (DOE de 12/06/2018)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.sefaz.pe.gov.br/Legislacao/Tributaria/Documents/legislacao/Leis_Tributarias/2018/Lei16381_2018.htm","ob":2,"al":0},{"id":"BR-PE-LGPD-001","n":"N1","j":"BR-PE","nome":"Política Estadual de Proteção de Dados Pessoais do Poder Executivo Estadual","cit":"Decreto nº 49.265, de 06/08/2020 (DOE de 07/08/2020)","st":"parcialmente_vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.normasbrasil.com.br/norma/decreto-49265-2020-pe_422318.html","ob":1,"al":0},{"id":"BR-PE-LGPD-002","n":"N1","j":"BR-PE","nome":"Altera o Decreto 49.265/2020 (encarregado e controlador)","cit":"Decreto nº 51.745, de 28/10/2021 (DOE de 29/10/2021)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.normasbrasil.com.br/norma/decreto-51745-2021-pe_422307.html","ob":1,"al":0},{"id":"BR-PI-IA-002","n":"N1","j":"BR-PI","nome":"Proposição de princípios e diretrizes para implementação e uso de IA na administração pública estadual do Piauí","cit":"Arquivo 'ind_17.pdf' do SAPL da ALEPI, dep. Dr. Marcus Vinícius Kalume (PT), maio/2024 (número e dia em branco); tipo exato (indicação ou projeto de l","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://sapl.al.pi.leg.br/media/sapl/public/materialegislativa/2024/19626/ind_17.pdf","ob":0,"al":0},{"id":"BR-PI-INO-001","n":"N1","j":"BR-PI","nome":"Fundo de Inovação e Desenvolvimento Econômico do Estado do Piauí (FIDEPI)","cit":"Lei nº 7.430, de 28/12/2020 (DOE de 29/12/2020)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.normasbrasil.com.br/norma/lei-7430-2020-pi_407163.html","ob":5,"al":0},{"id":"BR-PI-INO-002","n":"N1","j":"BR-PI","nome":"Política Estadual de Desenvolvimento das Microempresas e Empresas de Pequeno Porte","cit":"Lei nº 8.771, de 12/08/2025 (DOE de 14/08/2025)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.correiodamanha.com.br/nacional/nordeste/2025/08/216318-piaui-sanciona-lei-para-pequenas-empresas.html","ob":1,"al":0},{"id":"BR-PR-IA-001","n":"N1","j":"BR-PR","nome":"Plano de Diretrizes de Inteligência Artificial na Administração Pública Estadual (PDIA/PR)","cit":"Lei 22.324, de 02/04/2025 (PL 528/2024)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://aen.pr.gov.br/sites/default/arquivos_restritos/files/documento/2025-04/pl528.2024lei22.324_ass.pdf","ob":1,"al":0},{"id":"BR-PR-IA-002","n":"N1","j":"BR-PR","nome":"Regulamento do Conselho Estadual de Inteligência Artificial (COIA)","cit":"Decreto 9.854, de 07/05/2025","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.legisweb.com.br/legislacao/?id=477844","ob":1,"al":0},{"id":"BR-PR-IA-003","n":"N1","j":"BR-PR","nome":"Decreto de reserva de 10% da subfunção de TI da LOA para soluções com IA","cit":"Decreto de número e data não informados (2025)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.parana.pr.gov.br/aen/Noticia/Estado-fecha-2025-com-novas-diretrizes-e-consolida-institucionalizacao-da-IA-no-Estado","ob":1,"al":0},{"id":"BR-PR-INOV-001","n":"N1","j":"BR-PR","nome":"Lei de Inovação do Paraná e regulamento","cit":"Lei 20.541/2021 e Decreto 1.350/2022 (segundo a Justen); Lei 20.541, de 20/04/2021, também aparece no relatório SEIA 2026","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":1,"al":0},{"id":"BR-PR-INOV-002","n":"N1","j":"BR-PR","nome":"Sandbox regulatório estadual","cit":"Lei 20.744/2021 (segundo a Justen)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":1,"al":0},{"id":"BR-PR-INOV-003","n":"N1","j":"BR-PR","nome":"Programas estaduais para startups e inovação aberta (Paraná Anjo Inovador; Hub GovTech Paraná)","cit":"Programas, sem ato normativo identificado","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.seti.pr.gov.br/sites/default/arquivos_restritos/files/documento/2026-04/1_relatorio_gestao_seia_cct_2026_13.04.26.pdf","ob":2,"al":0},{"id":"BR-PR-LGPD-001","n":"N1","j":"BR-PR","nome":"LGPD na administração estadual do Paraná","cit":"Decreto 6.474/2020 (publicado na semana de 17/12/2020; data de assinatura não informada)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.parana.pr.gov.br/Noticia/Esta-em-vigor-decreto-sobre-protecao-de-dados-na-administracao-estadual","ob":1,"al":0},{"id":"BR-PR-LGPD-002","n":"N1","j":"BR-PR","nome":"Lei 23.025/2026: fiscalização do tratamento de dados pessoais sensíveis","cit":"Lei 23.025/2026 (data e ementa não conferidas)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.seti.pr.gov.br/sites/default/arquivos_restritos/files/documento/2026-04/1_relatorio_gestao_seia_cct_2026_13.04.26.pdf","ob":1,"al":1},{"id":"BR-RJ-CONS-001","n":"N1","j":"BR-RJ","nome":"Informação sobre direito de arrependimento em contratação a distância","cit":"Lei 6.322, de 19/09/2012 (DOERJ 20/09/2012)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.contabeis.com.br/legislacao/74650/lei-6322-2012/","ob":1,"al":0},{"id":"BR-RJ-CONS-002","n":"N1","j":"BR-RJ","nome":"Cancelamento e troca de plano por aplicativo (operadoras de telefonia e internet)","cit":"Lei 9.813, sancionada em 26/08/2022 (autoria dep. Anderson Moraes)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.minhaoperadora.com.br/2022/08/operadoras-sao-obrigadas-a-realizar-cancelamentos-por-aplicativo.html","ob":1,"al":0},{"id":"BR-RJ-GOVDIG-001","n":"N1","j":"BR-RJ","nome":"Estratégia de governo digital do RJ","cit":"Decreto 49.326/2024 (data não conferida), citado em artigo da Justen (10/2024)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"","ob":1,"al":0},{"id":"BR-RJ-IA-001","n":"N1","j":"BR-RJ","nome":"Política de Inteligência Artificial Fluminense (PIAF), Fórum de IA Fluminense e Comitê de Ética em IA (CEIA-RJ)","cit":"Decreto 50.523, assinado em 13/10/2026, publicado no DOERJ em 14/10/2026 (segundo a fonte)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":0},{"id":"BR-RJ-IA-002","n":"N1","j":"BR-RJ","nome":"Projeto de lei: uso de IA nos SACs (vedações)","cit":"Projeto de lei sem número informado, dep. Dionísio Lins (PP); data da notícia não conferida","st":"em_tramitacao","v":"fonte_secundaria","r":"obrigacao","u":"https://monitormercantil.com.br/projeto-de-lei-regulamenta-uso-da-ia-nos-sacs/","ob":0,"al":0},{"id":"BR-RJ-LGPD-001","n":"N1","j":"BR-RJ","nome":"LGPD no Poder Executivo do RJ (encarregado central e setoriais)","cit":"Decreto estadual 48.891 (data não conferida), citado na Resolução SEDCON 50, de 09/05/2025","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.rj.gov.br/sedconsumidor/sites/default/files/arquivos%20paginas/SEI_99712571_Resolucao___NI_50.pdf","ob":1,"al":0},{"id":"BR-RJ-OUTRO-001","n":"N1","j":"BR-RJ","nome":"Pacote de Enfrentamento ao Crime Violento (Centro de Monitoramento Eletrônico com IA)","cit":"Lei 10.994 (publicada em 10/10, ano 2025 segundo metadados da página; data exata não conferida)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.tupi.fm/?p=2177602","ob":1,"al":0},{"id":"BR-RJ-OUTRO-002","n":"N1","j":"BR-RJ","nome":"PL 5.272/2021: veda prisão baseada só em reconhecimento por fotografia (inclusive por IA)","cit":"PL 5.272/2021, aprovado pela Alerj em 21/09/2023","st":"em_tramitacao","v":"fonte_secundaria","r":"obrigacao","u":"https://convergenciadigital.com.br/governo/rj-aprova-lei-que-probe-reconhecimento-s-por-foto-e-exige-dados-telefnicos","ob":0,"al":0},{"id":"BR-RJ-OUTRO-003","n":"N1","j":"BR-RJ","nome":"PL 6.560/2025: política contra o 'golpe do falso advogado' e fraudes processuais eletrônicas","cit":"PL 6.560/2025, dep. Renato Miranda (PL); aprovado em 1ª discussão na Alerj em 01/09/2026","st":"em_tramitacao","v":"fonte_secundaria","r":"obrigacao","u":"https://www.correiodamanha.com.br/colunistas/correio-bastidores/2026/09/amp/316838-alerj-aprova-politica-de-prevencao-e-combate-ao-golpe-do-falso-advogado.html","ob":0,"al":0},{"id":"BR-RN-CONS-001","n":"N1","j":"BR-RN","nome":"Sanções para abusos no atendimento ao consumidor por telefonia (telemarketing e SAC)","cit":"Lei nº 10.175, de 21/02/2017","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.al.rn.leg.br/storage/legislacao/2019/05/15/699a2d1c97fc492862a74ac949e98bef.pdf","ob":3,"al":0},{"id":"BR-RN-INO-001","n":"N1","j":"BR-RN","nome":"Política Estadual do Desenvolvimento Científico, Tecnológico e de Inovação do Rio Grande do Norte","cit":"Lei Complementar nº 716, de 30/06/2022 (DORN nº 15.212, de 01/07/2022)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.al.rn.leg.br/storage/legislacao/2022/fuwb1apu99ivp3tbqznl1c2shihdjk.pdf","ob":5,"al":0},{"id":"BR-RN-INO-002","n":"N1","j":"BR-RN","nome":"Altera a LC 716/2022, a LC 257/2003 (FAPERN) e a Lei 6.558/1993 (FUNDESPE)","cit":"Lei Complementar nº 745, de 10/11/2023 (DOE de 11/11/2023)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.normasbrasil.com.br/norma/lei-complementar-745-2023-rn_451804.html","ob":2,"al":0},{"id":"BR-RN-INO-003","n":"N1","j":"BR-RN","nome":"Política estadual de estímulo, incentivo e promoção ao desenvolvimento local de startups","cit":"Lei nº 10.325, de 09/01/2018 (DOE nº 14.087, de 10/01/2018)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.al.rn.leg.br/storage/legislacao/2021/unge7pbw41ft0xzvopvubo23y95fte.pdf","ob":2,"al":0},{"id":"BR-RN-LGPD-001","n":"N1","j":"BR-RN","nome":"Decreto que regulamenta a LGPD no Poder Executivo do RN e institui a política estadual de proteção de dados","cit":"Decreto nº 32.815, de 12/07/2023 (DOE nº 15.465, de 13/07/2023)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://portal.uern.br/acessoainformacao/wp-content/uploads/sites/23/2024/08/Decreto-Estadual-no-32.815_2023-Regulamenta-a-LGPD-no-RN.pdf","ob":1,"al":0},{"id":"BR-RO-CON-001","n":"N1","j":"BR-RO","nome":"Cadastro 'Não Perturbe' (bloqueio de telemarketing) de Rondônia","cit":"Lei nº 4.403, de 31/10/2018","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://rondonia.ro.gov.br/wp-content/uploads/2021/01/diário-28.01.21.pdf","ob":1,"al":0},{"id":"BR-RO-CON-002","n":"N1","j":"BR-RO","nome":"Regulamenta o cadastro 'Não Perturbe' instituído pela Lei nº 4.403/2018","cit":"Decreto nº 25.771, de 28/01/2021","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://rondonia.ro.gov.br/wp-content/uploads/2021/01/diário-28.01.21.pdf","ob":1,"al":0},{"id":"BR-RO-INO-001","n":"N1","j":"BR-RO","nome":"Lei da Inovação de Rondônia (empreendedorismo inovador e social, pesquisa e desenvolvimento)","cit":"Lei Complementar nº 1.343, de 03/06/2026 (DOE nº 112, de 12/06/2026)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://ditel.casacivil.ro.gov.br/COTEL/Livros/Files/LC1343.pdf","ob":5,"al":0},{"id":"BR-RO-LGP-001","n":"N1","j":"BR-RO","nome":"Aplicação da LGPD no Poder Executivo de Rondônia e Comitê Gestor de Privacidade e Proteção de Dados (CGPD)","cit":"Decreto nº 26.451, de 04/10/2021","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://rondonia.ro.gov.br/wp-content/uploads/2021/10/2021-Decreto-26451-LGPD-e-Comite-no-Gov.-Rondonia.pdf","ob":1,"al":0},{"id":"BR-RR-CON-001","n":"N1","j":"BR-RR","nome":"Proteção do consumidor contra práticas abusivas de prestadoras de telecomunicações, incluindo serviços digitais/SVA (Roraima)","cit":"Lei nº 1.340, de 25/09/2019 (DOE de 09/10/2019)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":4,"al":1},{"id":"BR-RR-CON-002","n":"N1","j":"BR-RR","nome":"Cancelamento de contrato e troca de plano de telefonia pelos aplicativos e sites das operadoras (Roraima)","cit":"Lei nº 2.071, de 19/11/2024 (DOE na mesma data)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":2,"al":1},{"id":"BR-RR-CON-PL-001","n":"N1","j":"BR-RR","nome":"PL sobre vedação de práticas abusivas na oferta e contratação de crédito consignado a idosos, aposentados e pensionistas (Roraima)","cit":"Projeto de Lei sem número (dep. Tayla Ribeiro Peres Silva), datado de 10/02/2026","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://transparencia.al.rr.leg.br/materias/18800/texto-original","ob":0,"al":0},{"id":"BR-RR-CON-PL-002","n":"N1","j":"BR-RR","nome":"PL sobre informação ao consumidor acerca do cancelamento virtual de serviços públicos concedidos/permitidos (Roraima)","cit":"Projeto de Lei sem número (dep. Tayla Ribeiro Peres Silva), datado de 12/05/2026","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://transparencia.al.rr.leg.br/materias/19167/texto-original","ob":0,"al":0},{"id":"BR-RR-IA-PL-001","n":"N1","j":"BR-RR","nome":"PL de política de cursos técnicos gratuitos em energias renováveis e TICs (inclui IA) - Roraima","cit":"Projeto de Lei sem número (dep. Isamar Júnior), datado de 24/11/2025","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://transparencia.al.rr.leg.br/materias/18575/texto-original","ob":0,"al":0},{"id":"BR-RS-IA-001","n":"N1","j":"BR-RS","nome":"Estratégia de Governo Digital do RS (usos de IA: GurIA, Copilot, risco de evasão escolar)","cit":"Estratégia lançada em 05/06/2025 pela SPGG; ato normativo não identificado","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://www.estado.rs.gov.br/governo-do-estado-amplia-uso-de-inteligencia-artificial-na-administracao-publica","ob":1,"al":0},{"id":"BR-RS-LGPD-001","n":"N1","j":"BR-RS","nome":"Implementação da LGPD no Poder Executivo gaúcho","cit":"Decreto 55.647, de 14/12/2020 (DOE 16/12/2020)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.pc.rs.gov.br/upload/arquivos/202105/11145733-55647-20.pdf","ob":1,"al":0},{"id":"BR-SC-IA-001","n":"N1","j":"BR-SC","nome":"Princípios e diretrizes para o uso da IA na Administração Pública estadual","cit":"Lei 19.450, de 05/09/2025 (origem: PL 049/2024; autógrafo de 19/08/2025)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://portalelegis.alesc.sc.gov.br/documentos/QYR0M","ob":2,"al":0},{"id":"BR-SC-IA-002","n":"N1","j":"BR-SC","nome":"PL 578/2025: responsabilização administrativa pelo uso de IA para pornografia infantil e violência contra mulheres e idosos","cit":"PL 0578/2025, dep. Adilson Girardi (assinado em 18/08/2025; lido em 19/08/2025)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://portalelegis.alesc.sc.gov.br/documentos/0n6QP","ob":0,"al":1},{"id":"BR-SC-IA-003","n":"N1","j":"BR-SC","nome":"Projeto: Observatório Catarinense de IA Ética e avaliação de impacto algorítmico","cit":"Projeto sem número informado, dep. Thiago Morastoni (assinado em 21/05/2025)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://portalelegis.alesc.sc.gov.br/documentos/GVVbX","ob":0,"al":0},{"id":"BR-SC-IA-004","n":"N1","j":"BR-SC","nome":"Projeto: conteúdo de IA no currículo de letramento digital das escolas públicas","cit":"Projeto sem número informado, dep. Paulinha (assinado em 25/08/2025)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://portalelegis.alesc.sc.gov.br/documentos/wQO1a","ob":0,"al":0},{"id":"BR-SE-IA-001","n":"N1","j":"BR-SE","nome":"PL de governança, uso responsável e contratação de sistemas de IA na administração pública estadual","cit":"Projeto de lei sem número no documento, do dep. Marcelo Oliveira Sobral (nome conforme o documento), 05/01/2026","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://aleselegis.al.se.leg.br/Arquivo/Documents/PL/113695-20260105101634519044522SKB(12911).pdf","ob":0,"al":0},{"id":"BR-SE-IA-002","n":"N1","j":"BR-SE","nome":"PL de campanha de conscientização contra crimes cibernéticos com uso indevido de IA contra crianças e adolescentes (deepfake)","cit":"Projeto de lei sem número, dep. Marcos Oliveira (PL), assinado em 06/02/2024","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://aleselegis.al.se.leg.br/Arquivo/Documents/PL/98903-202402061040095763(12912).pdf","ob":0,"al":0},{"id":"BR-SE-INO-001","n":"N1","j":"BR-SE","nome":"Estímulo ao desenvolvimento científico, à pesquisa, à capacitação científica e tecnológica e à inovação (nova Lei de Inovação de Sergipe)","cit":"Lei nº 9.496, de 22/07/2024 (DOE de 23/07/2024)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.se.gov.br/anexos/uploads/download/filename_novo/10541/ccef7a419d1c18df03fd0cf91b092ff1.pdf","ob":5,"al":0},{"id":"BR-SE-LGPD-001","n":"N1","j":"BR-SE","nome":"Política Estadual de Proteção de Dados Pessoais do Poder Executivo Estadual","cit":"Decreto nº 40.006, de 05/10/2021 (DOE de 06/10/2021; retificação publicada em 07/10/2021 sobre o número do cabeçalho)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://sergipeprevidencia.se.gov.br/wp-content/uploads/2024/07/DECRETO-40.006-2021.pdf","ob":1,"al":0},{"id":"BR-SP-CONS-001","n":"N1","j":"BR-SP","nome":"Consolidação das Leis em Defesa do Consumidor do Estado de São Paulo","cit":"Lei 17.832, de 01/11/2023 (publ. DOE 06/11/2023); alterada pela Lei 18.014, de 05/08/2024","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/repositorio/legislacao/lei/2023/compilacao-lei-17832-01.11.2023.html","ob":5,"al":1},{"id":"BR-SP-CONS-002","n":"N1","j":"BR-SP","nome":"Cadastro 'Não Me Ligue' / bloqueio de telemarketing (norma original)","cit":"Lei 13.226, de 07/10/2008; alterada pela Lei 17.334/2021; REVOGADA pela Lei 17.832/2023; regulamento: Decreto 53.921, de 30/12/2008","st":"revogada","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/repositorio/legislacao/lei/2008/lei-13226-07.10.2008.html","ob":1,"al":0},{"id":"BR-SP-CONS-003","n":"N1","j":"BR-SP","nome":"PL 54/2025: facilitação do cancelamento de serviços pela internet (altera a Lei 17.832/2023)","cit":"PL 54/2025, dep. Guto Zacarias (UNIÃO), protocolado em 05/02/2025 (processo 1544/2025)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/spl/2025/02/Propositura/1000597414_1000740147_Propositura.pdf","ob":0,"al":0},{"id":"BR-SP-IA-001","n":"N1","j":"BR-SP","nome":"Estratégia de Governo Digital 2023-2026","cit":"Decreto 67.799, de 13/07/2023 (publ. 14/07/2023; data de assinatura inferida do nome do arquivo)","st":"vigente","v":"fonte_secundaria","r":"oportunidade","u":"https://ses.sp.bvs.br/wp-content/uploads/2023/07/E_DC-67799_130723.pdf","ob":1,"al":0},{"id":"BR-SP-IA-002","n":"N1","j":"BR-SP","nome":"PL 363/2026: governança e uso responsável de IA na Administração estadual","cit":"PL 363/2026, dep. Edson Giriboni (UNIÃO), protocolado em 23/04/2026 (processo 13808/2026)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/spl/2026/04/Propositura/1000686914_1000856777_Propositura.pdf","ob":0,"al":0},{"id":"BR-SP-IA-003","n":"N1","j":"BR-SP","nome":"PL 1134/2023: proíbe IA para conteúdos que representem crianças e adolescentes (sexual/pornográfico)","cit":"PL 1134/2023, dep. Mauro Bragato (PSDB), protocolado em 01/08/2023 (processo 21432/2023)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/spl/2023/08/Propositura/1000494790_1000631894_Propositura.pdf","ob":0,"al":1},{"id":"BR-SP-IA-004","n":"N1","j":"BR-SP","nome":"PL 257/2024: proíbe IA para criar 'deep nudes' (nudes falsos)","cit":"PL 257/2024, dep. Marta Costa (PSD)","st":"em_tramitacao","v":"fonte_secundaria","r":"obrigacao","u":"https://www.al.sp.gov.br/noticia/?id=509004","ob":0,"al":1},{"id":"BR-SP-IA-005","n":"N1","j":"BR-SP","nome":"PL 270/2024: marco regulatório de ferramentas de IA nas escolas públicas","cit":"PL 270/2024, dep. Professora Bebel (PT), protocolado em 22/04/2024; Parecer 1839/2025 da Comissão de Educação e Cultura","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/spl/2024/04/Propositura/1000548708_1000689147_Propositura.pdf","ob":0,"al":0},{"id":"BR-SP-INOV-001","n":"N1","j":"BR-SP","nome":"Incentivo à inovação tecnológica e pesquisa no Estado de São Paulo (Lei Paulista de Inovação)","cit":"Lei Complementar 1.049, de 19/06/2008; regulamentada pelo Decreto 62.817/2017 (citado no parecer CCJR 744/2026)","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.al.sp.gov.br/repositorio/legislacao/lei.complementar/2008/lei.complementar-1049-19.06.2008.html","ob":3,"al":0},{"id":"BR-SP-INOV-002","n":"N1","j":"BR-SP","nome":"Sistema Paulista de Ambientes de Inovação (SPAI)","cit":"Decreto 60.286, de 25/03/2014, alterado pelo Decreto 68.636, de 20/06/2024","st":"vigente","v":"oficial_conferido","r":"oportunidade","u":"https://www.al.sp.gov.br/repositorio/legislacao/decreto/2024/decreto-68636-20.06.2024.html","ob":2,"al":0},{"id":"BR-SP-INOV-003","n":"N1","j":"BR-SP","nome":"PLC 53/2024: atualização da LC 1.049/2008","cit":"Projeto de Lei Complementar 53/2024, dep. Luiz Claudio Marcolino; Parecer 744/2026 da CCJR, aprovado em 27/05/2026","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/spl/2026/05/Acessorio/1000618123_1000865837_Acessorio.pdf","ob":0,"al":0},{"id":"BR-SP-LGPD-001","n":"N1","j":"BR-SP","nome":"Aplicação da LGPD na Administração Pública estadual paulista","cit":"Decreto 65.347, de 09/12/2020 (retificação no DOE de 10/12/2020)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/repositorio/legislacao/decreto/2020/decreto-65347-09.12.2020.html","ob":1,"al":0},{"id":"BR-SP-OUTRO-001","n":"N1","j":"BR-SP","nome":"PL 1336/2025: Estatuto Estadual de Proteção às Crianças e Adolescentes Vítimas de Crimes em Ambiente Digital","cit":"PL 1336/2025, dep. Rafa Zimbaldi (UNIÃO), protocolado em 03/12/2025 (processo 50234/2025)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://www.al.sp.gov.br/spl/2025/12/Propositura/1000671554_1000841112_Propositura.pdf","ob":0,"al":1},{"id":"BR-TO-CON-001","n":"N1","j":"BR-TO","nome":"Bloqueio de telemarketing: cadastro de até 3 números no Procon Tocantins","cit":"Lei nº 3.377/2018 (dia e mês não informados na fonte; busca listou 'Lei nº 3.377 de 26/07/2018' em agregador, não lida)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":0},{"id":"BR-TO-CON-PL-001","n":"N1","j":"BR-TO","nome":"PL que proíbe telemarketing ativo por robôs, bots e softwares automatizados (Tocantins)","cit":"Projeto de Lei sem número (dep. Eduardo Mantoan), 28/05/2024","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://sapl.al.to.leg.br/media/sapl/public/materialegislativa/2024/10408/pl_telemarketing.pdf","ob":0,"al":0},{"id":"BR-TO-IA-001","n":"N1","j":"BR-TO","nome":"Disciplina optativa de Inteligência Artificial nas escolas públicas do Tocantins","cit":"Lei nº 4.752, de 27/06/2025 (DO nº 6.844, de 27/06/2025)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://al.to.leg.br/arquivo/75840","ob":1,"al":0},{"id":"BR-TO-IA-PL-001","n":"N1","j":"BR-TO","nome":"PL sobre princípios e diretrizes para a IA na Administração Pública Estadual direta e indireta (Tocantins)","cit":"Projeto de Lei sem número (dep. Olyntho Neto), datado de 24/04/2024","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://sapl.al.to.leg.br/media/sapl/public/materialegislativa/2024/10510/pl_ia.pdf","ob":0,"al":0},{"id":"BR-TO-OUT-PL-001","n":"N1","j":"BR-TO","nome":"PL de campanha contra cibercrimes cometidos com uso indevido de IA contra crianças e adolescentes (Tocantins)","cit":"Projeto de Lei sem número (dep. Léo Barbosa), 2024","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://sapl.al.to.leg.br/media/sapl/public/materialegislativa/2024/9992/pl_campanha_de_conscientizacao_contra_crimes_ciberneticos.pdf","ob":0,"al":0},{"id":"BR-TO-OUT-PL-002","n":"N1","j":"BR-TO","nome":"PL da Política de Educação Digital nas Escolas - Cidadania Digital (Tocantins)","cit":"Projeto de Lei sem número (dep. Léo Barbosa), 2024","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://sapl.al.to.leg.br/media/sapl/public/materialegislativa/2024/10472/pl_17_educacao_digital_nas_escolas.pdf","ob":0,"al":0},{"id":"GB-UK-GDPR","n":"N2","j":"GB","nome":"UK GDPR e Data Protection Act 2018 (alterados pelo Data Use and Access Act 2025)","cit":"UK GDPR; DPA 2018; DUAA 2025","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"https://www.legislation.gov.uk/ukpga/2025/18/contents","ob":2,"al":0},{"id":"CA-PIPEDA","n":"N2","j":"CA","nome":"Canadá — PIPEDA","cit":"S.C. 2000, c. 5","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"https://laws-lois.justice.gc.ca/eng/acts/p-8.6/","ob":1,"al":0},{"id":"CA-QC-LEI25","n":"N2","j":"CA-QC","nome":"Quebec — Lei 25 (setor privado)","cit":"CQLR c P-39.1","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"https://www.legisquebec.gouv.qc.ca/en/document/cs/P-39.1","ob":1,"al":0},{"id":"MX-LFPDPPP-2025","n":"N2","j":"MX","nome":"México — Lei Federal de Proteção de Dados em Posse de Particulares (2025)","cit":"LFPDPPP de 2025","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":1,"al":0},{"id":"AR-LEY-25326","n":"N2","j":"AR","nome":"Argentina — Lei 25.326 (Habeas Data)","cit":"Ley 25.326","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"https://www.argentina.gob.ar/normativa/nacional/ley-25326-64790/texto","ob":1,"al":0},{"id":"CL-LEY-21719","n":"N2","j":"CL","nome":"Chile — nova lei de proteção de dados","cit":"Ley 21.719","st":"vigencia_futura","v":"nao_localizado","r":"obrigacao","u":"","ob":1,"al":0},{"id":"CO-LEY-1581","n":"N2","j":"CO","nome":"Colômbia — Lei 1581 de 2012","cit":"Ley 1581 de 2012","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"https://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html","ob":1,"al":0},{"id":"US-FTC-S5","n":"N2","j":"US","nome":"FTC Act, Seção 5 (práticas desleais ou enganosas)","cit":"15 U.S.C. § 45","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section45","ob":2,"al":0},{"id":"US-COPPA","n":"N2","j":"US","nome":"COPPA e Regra COPPA emendada (2025)","cit":"15 U.S.C. §§ 6501–6506; 16 C.F.R. Part 312; 90 FR 16918","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule","ob":2,"al":0},{"id":"US-TAKE-IT-DOWN","n":"N2","j":"US","nome":"TAKE IT DOWN Act (imagens íntimas não consensuais, inclusive geradas por IA)","cit":"Pub. L. 119-12","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.ftc.gov/legal-library/browse/statutes/tools-address-known-exploitation-immobilizing-technological-deepfakes-websites-networks-act-take-it","ob":1,"al":0},{"id":"US-PRIVACIDADE-ESTADUAL","n":"N2","j":"US","nome":"Leis estaduais abrangentes de privacidade (20 estados)","cit":"CA, VA, CO, CT, UT, TX, OR, MT, FL, DE, IA, NE, NH, NJ, TN, MN, MD, IN, KY, RI","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":3,"al":0},{"id":"US-CA-CCPA","n":"N2","j":"US-CA","nome":"California Consumer Privacy Act (CCPA/CPRA)","cit":"Cal. Civ. Code § 1798.100 et seq.; 11 C.C.R. § 7000 et seq.","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://cppa.ca.gov/","ob":3,"al":0},{"id":"US-CA-CPPA-RISCO","n":"N2","j":"US-CA","nome":"Regulamentos da CPPA — avaliação de risco","cit":"11 C.C.R. §§ 7150–7157","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://cppa.ca.gov/regulations/ccpa_updates.html","ob":1,"al":0},{"id":"US-CA-CPPA-ADMT","n":"N2","j":"US-CA","nome":"Regulamentos da CPPA — decisões automatizadas (ADMT)","cit":"11 C.C.R. §§ 7200–7222","st":"vigencia_futura","v":"oficial_conferido","r":"obrigacao","u":"https://cppa.ca.gov/regulations/ccpa_updates.html","ob":1,"al":0},{"id":"US-CO-SB26-189","n":"N2","j":"US-CO","nome":"Colorado — tecnologia de decisão automatizada (SB 26-189)","cit":"Colo. S.B. 26-189; C.R.S. § 6-1-1701 et seq.","st":"vigencia_futura","v":"oficial_conferido","r":"obrigacao","u":"https://coag.gov/ai/","ob":3,"al":0},{"id":"US-CA-SB243","n":"N2","j":"US-CA","nome":"Califórnia — companion chatbots (SB 243)","cit":"Cal. S.B. 243 (2025)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB243","ob":2,"al":0},{"id":"US-CA-AB2013","n":"N2","j":"US-CA","nome":"Califórnia — transparência dos dados de treino (AB 2013)","cit":"Cal. Civ. Code §§ 3110–3111","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB2013","ob":1,"al":0},{"id":"US-CA-SB942","n":"N2","j":"US-CA","nome":"California AI Transparency Act (SB 942)","cit":"Cal. Bus. & Prof. Code § 22757 et seq.","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942","ob":1,"al":0},{"id":"US-TX-TRAIGA","n":"N2","j":"US-TX","nome":"Texas Responsible AI Governance Act (TRAIGA)","cit":"Tex. H.B. 149 (2025)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB149","ob":2,"al":0},{"id":"US-UT-AIPA","n":"N2","j":"US-UT","nome":"Utah AI Policy Act","cit":"Utah S.B. 149 (2024), alterada em 2025","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"","ob":1,"al":0},{"id":"US-IL-BIPA","n":"N2","j":"US-IL","nome":"Illinois Biometric Information Privacy Act (BIPA)","cit":"740 ILCS 14","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":1,"al":0},{"id":"US-NYC-LL144","n":"N2","j":"US-NY","nome":"Cidade de Nova York — ferramentas automatizadas de emprego (Local Law 144)","cit":"N.Y.C. Local Law 144/2021","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page","ob":2,"al":0},{"id":"US-DMCA","n":"N2","j":"US","nome":"DMCA — safe harbor de provedores","cit":"17 U.S.C. § 512","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":1,"al":0},{"id":"US-ADA-WEB","n":"N2","j":"US","nome":"ADA — acessibilidade web","cit":"42 U.S.C. §§ 12181–12189","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":1,"al":0},{"id":"US-HIPAA","n":"N2","j":"US","nome":"HIPAA — dados de saúde","cit":"45 C.F.R. Parts 160, 162 e 164","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":1,"al":0},{"id":"US-STARTUP-SOCIETARIO","n":"N2","j":"US","nome":"Camada societária de startup nos EUA (Delaware, SAFE, 83(b), cessão de PI)","cit":"DGCL; Securities Act § 4(a)(2) e Rule 506; 26 U.S.C. § 83(b)","st":"vigente","v":"nao_localizado","r":"obrigacao","u":"","ob":2,"al":0},{"id":"EU-AI-ACT","n":"N3","j":"EU","nome":"Regulamento de IA da UE (AI Act), com a redação do Reg. 2026/1744","cit":"Reg. (UE) 2024/1689; Reg. (UE) 2026/1744 (Digital Omnibus on AI)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://eur-lex.europa.eu/eli/reg/2024/1689/oj","ob":7,"al":0},{"id":"EU-AI-ACT-ALTO-RISCO","n":"N3","j":"EU","nome":"AI Act — sistemas de alto risco (Anexo III)","cit":"Reg. (UE) 2024/1689, cap. III, com a data do Reg. 2026/1744","st":"vigencia_futura","v":"oficial_conferido","r":"obrigacao","u":"https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng","ob":1,"al":0},{"id":"EU-GDPR","n":"N3","j":"EU","nome":"Regulamento Geral sobre a Proteção de Dados (RGPD/GDPR)","cit":"Reg. (UE) 2016/679","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://eur-lex.europa.eu/eli/reg/2016/679/oj","ob":6,"al":0},{"id":"EU-DSA","n":"N3","j":"EU","nome":"Digital Services Act (DSA)","cit":"Reg. (UE) 2022/2065","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://eur-lex.europa.eu/EN/legal-content/summary/digital-services-act-auditing-very-large-online-platforms-and-search-engines.html","ob":3,"al":0},{"id":"EU-CRA","n":"N3","j":"EU","nome":"Cyber Resilience Act (CRA)","cit":"Reg. (UE) 2024/2847","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R2847","ob":1,"al":0},{"id":"INT-OCDE-IA","n":"N3","j":"INT","nome":"Princípios de IA da OCDE (revisão de 2024)","cit":"Recomendação do Conselho da OCDE sobre IA","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.oecd.org/en/about/news/press-releases/2024/05/oecd-updates-ai-principles-to-stay-abreast-of-rapid-technological-developments.html","ob":1,"al":0},{"id":"INT-COE-CONVENCAO-IA","n":"N3","j":"INT","nome":"Convenção-Quadro do Conselho da Europa sobre IA e Direitos Humanos","cit":"CETS 225 (aberta à assinatura em 05/09/2024)","st":"em_tramitacao","v":"oficial_conferido","r":"obrigacao","u":"https://rm.coe.int/1680afae3c","ob":0,"al":0},{"id":"ISO-42001","n":"N3","j":"ISO","nome":"ISO/IEC 42001:2023 — sistema de gestão de IA","cit":"ISO/IEC 42001:2023","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.iso.org/standard/42001","ob":1,"al":0},{"id":"ISO-42005","n":"N3","j":"ISO","nome":"ISO/IEC 42005:2025 — avaliação de impacto de sistemas de IA","cit":"ISO/IEC 42005:2025","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.iso.org/standard/42005","ob":1,"al":0},{"id":"ISO-27001","n":"N3","j":"ISO","nome":"ISO/IEC 27001:2022 — segurança da informação","cit":"ISO/IEC 27001:2022 (Emenda 1:2024)","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.iso.org/standard/27001","ob":1,"al":0},{"id":"CN-IA-GENERATIVA","n":"N3","j":"CN","nome":"China — Medidas provisórias para serviços de IA generativa","cit":"CAC, 10/07/2023, em vigor desde 15/08/2023","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm","ob":2,"al":0},{"id":"CN-ROTULAGEM","n":"N3","j":"CN","nome":"China — Medidas de rotulagem de conteúdo sintético","cit":"CAC, 07/03/2025, em vigor desde 01/09/2025","st":"vigente","v":"oficial_conferido","r":"obrigacao","u":"https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm","ob":1,"al":0},{"id":"KR-LEI-BASICA-IA","n":"N3","j":"KR","nome":"Coreia do Sul — Lei-Quadro de IA (AI Basic Act)","cit":"Em vigor desde 22/01/2026 (fonte secundária)","st":"vigente","v":"fonte_secundaria","r":"obrigacao","u":"https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&mPid=2&nttSeqNo=1214&sCode=eng","ob":1,"al":0}],"minutas":[{"id":"acordo-fundadores","t":"Memorando de Entendimentos entre Fundadores","uso":"Registrar participação, dedicação, vesting, saída e propriedade intelectual antes ou logo após constituir a empresa"},{"id":"avaliacao-impacto-ia","t":"Avaliação de Risco e Impacto do Sistema de IA","uso":"Classificar o sistema de IA nos regimes aplicáveis e documentar riscos, supervisão humana e monitoramento"},{"id":"aviso-ia","t":"Aviso de uso de inteligência artificial","uso":"Informar que o usuário interage com IA ou recebe conteúdo gerado por IA"},{"id":"cessao-pi","t":"Termo de Cessão de Direitos de Propriedade Intelectual","uso":"Garantir que código, modelos, prompts e conteúdos de fundadores, PJs, freelancers e colaboradores pertençam à empresa"},{"id":"dpa-operador","t":"Acordo de Tratamento de Dados (controlador–operador)","uso":"Contratar fornecedores que tratam dados pessoais em nome da empresa, inclusive APIs de IA e nuvem"},{"id":"inventario-ia","t":"Inventário e Linhagem de Dados de IA","uso":"Rastrear de onde vêm os dados de treino, ajuste e RAG, e o que é enviado a cada modelo"},{"id":"nda-mutuo","t":"Acordo de Confidencialidade Mútuo (NDA)","uso":"Proteger informações trocadas em negociação, parceria ou due diligence"},{"id":"plano-incidentes","t":"Plano de Resposta a Incidentes de Segurança com Dados Pessoais","uso":"Organizar detecção, contenção, avaliação de risco e comunicação de incidentes"},{"id":"politica-cookies","t":"Política de Cookies","uso":"Explicar cookies e tecnologias de rastreamento e registrar consentimento"},{"id":"politica-privacidade","t":"Política de Privacidade","uso":"Informar titulares sobre o tratamento de dados pessoais do produto"},{"id":"politica-uso-aceitavel","t":"Política de Uso Aceitável","uso":"Proibir usos ilícitos ou nocivos do serviço e da IA"},{"id":"registro-operacoes","t":"Registro das Operações de Tratamento","uso":"Inventário obrigatório do tratamento de dados pessoais, base de todos os outros documentos de privacidade"},{"id":"ripd","t":"Relatório de Impacto à Proteção de Dados Pessoais (RIPD)","uso":"Avaliar riscos de tratamentos de alto risco, dados sensíveis, decisões automatizadas e IA"},{"id":"term-sheet-investimento","t":"Term Sheet de Investimento (startup)","uso":"Alinhar termos de investimento-anjo ou seed antes do contrato definitivo"},{"id":"termos-de-uso","t":"Termos de Uso","uso":"Regras de uso do produto digital e da relação de consumo"}],"ue":["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE"],"jur":{"US":"Estados Unidos","EU":"União Europeia","PT":"Portugal (União Europeia)","ES":"Espanha (União Europeia)","DE":"Alemanha (União Europeia)","FR":"França (União Europeia)","IT":"Itália (União Europeia)","NL":"Países Baixos (União Europeia)","GB":"Reino Unido","CA":"Canadá","MX":"México","AR":"Argentina","CL":"Chile","CO":"Colômbia","CN":"China","KR":"Coreia do Sul"}};
+  var root = document.documentElement;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); };
+
+  /* page change with blur (cross-document view transition, with fallback) */
+  window.addEventListener("pagereveal", function(e){ if (e.viewTransition) root.classList.add("vt"); });
+  var vtCross = CSS.supports && CSS.supports("view-transition-name: none") && ("onpagereveal" in window);
+  $$("a[data-blur]").forEach(function(a){
+    a.addEventListener("click", function(ev){
+      var url;
+      try { url = new URL(a.href, location.href); } catch (e) { return; }
+      if (url.origin !== location.origin || vtCross || ev.metaKey || ev.ctrlKey || ev.shiftKey) return;
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      ev.preventDefault();
+      root.classList.add("leaving");
+      setTimeout(function(){ location.href = url.href; }, 320);
+    });
+  });
+  window.addEventListener("pageshow", function(){ root.classList.remove("leaving"); });
+
+  /* theme */
+  function applyTheme(t){
+    if (t === "light" || t === "dark") root.setAttribute("data-theme", t); else root.removeAttribute("data-theme");
+    $$("[data-theme-set]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-theme-set") === (t || "system"))); });
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("lz-pr-theme"); } catch (e) {}
+  applyTheme(saved || "system");
+  $$("[data-theme-set]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var t = b.getAttribute("data-theme-set");
+      applyTheme(t);
+      try { localStorage.setItem("lz-pr-theme", t); } catch (e) {}
+    });
+  });
+
+  /* Spectrum 2 press scaling: perspective grows with the control so wide buttons press less */
+  document.addEventListener("pointerdown", function(e){
+    var el = e.target.closest && e.target.closest(".btn,.action,.uf");
+    if (!el) return;
+    var r = el.getBoundingClientRect();
+    el.style.setProperty("--persp", Math.round(Math.max(r.height * 1.25, r.width / 3, 24)) + "px");
+  }, {passive: true});
+
+  /* mobile menu */
+  var menuBtn = $("#menu-btn"), nav = $("#sidenav");
+  function setMenu(open){ nav.classList.toggle("is-open", open); menuBtn.setAttribute("aria-expanded", String(open)); }
+  menuBtn.addEventListener("click", function(){ setMenu(!nav.classList.contains("is-open")); });
+  nav.addEventListener("click", function(e){ if (e.target.closest("a")) setMenu(false); });
+
+  /* copy */
+  $$("[data-copy]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var pre = document.getElementById(b.getAttribute("data-copy"));
+      var label = b.lastChild;
+      var done = function(t){ label.textContent = t; setTimeout(function(){ label.textContent = "Copiar"; }, 1600); };
+      var select = function(){ var s = getSelection(), rg = document.createRange(); rg.selectNodeContents(pre); s.removeAllRanges(); s.addRange(rg); done("Selecionado"); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(pre.textContent).then(function(){ done("Copiado"); }, select);
+      else select();
+    });
+  });
+
+  /* nav + toc: highlight the section being read */
+  var links = $$("[data-nav]").concat($$(".toc a"));
+  var current = "";
+  function mark(id){
+    if (id === current) return; current = id;
+    links.forEach(function(a){
+      var on = a.getAttribute("href") === "#" + id;
+      if (a.hasAttribute("data-nav")) { if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); }
+      else a.classList.toggle("is-active", on);
+    });
+  }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) mark(en.target.id); });
+    }, {rootMargin: "-30% 0px -60% 0px"});
+    $$("[data-section]").forEach(function(s){ io.observe(s); });
+  }
+  mark("inicio");
+
+  /* counts from the catalog */
+  var N = DATA.normas;
+  var cnt = {
+    N1: N.filter(function(n){ return n.n === "N1"; }).length,
+    N2: N.filter(function(n){ return n.n === "N2"; }).length,
+    N3: N.filter(function(n){ return n.n === "N3"; }).length,
+    UF: DATA.ufs.filter(function(u){ return u.normas_no_catalogo > 0; }).length,
+    oficial: N.filter(function(n){ return n.v === "oficial_conferido"; }).length,
+    total: N.length
+  };
+  $$("[data-count]").forEach(function(el){ var k = el.getAttribute("data-count"); if (cnt[k] != null) el.textContent = cnt[k]; });
+
+  /* N2 playground — same order as engine.escolher_n2 */
+  var UE = DATA.ue, JUR = DATA.jur;
+  var NOMES = {US:"Estados Unidos",EU:"União Europeia",PT:"Portugal",ES:"Espanha",DE:"Alemanha",FR:"França",IT:"Itália",NL:"Países Baixos",GB:"Reino Unido",CA:"Canadá",MX:"México",AR:"Argentina",CL:"Chile",CO:"Colômbia",CN:"China",KR:"Coreia do Sul",JP:"Japão",IN:"Índia"};
+  var OPC = ["US","PT","ES","DE","FR","IT","GB","CA","MX","AR","CL","CO","CN","KR","JP"];
+  var alvosBox = $("#n2-alvos");
+  alvosBox.innerHTML = OPC.map(function(c){ return '<label class="check"><input type="checkbox" value="' + c + '" id="alvo-' + c + '">' + esc(NOMES[c] || c) + '</label>'; }).join("");
+  var opts = '<option value="">Nenhum</option>' + OPC.map(function(c){ return '<option value="' + c + '">' + esc(NOMES[c] || c) + '</option>'; }).join("");
+  $("#n2-principal").innerHTML = opts; $("#n2-fixo").innerHTML = opts;
+  function nome(c){ return NOMES[c] || JUR[c] || c; }
+  function escolher(r){
+    var fix = (r.pais_n2 || "").toUpperCase();
+    if (fix) { var b = UE.indexOf(fix) >= 0 ? "EU" : fix; return {pais: fix, bloco: b, regra: "fixado", motivo: "País N2 fixado no questionário: " + nome(fix) + ".", pacote: !!JUR[b]}; }
+    var alvos = r.paises_alvo.filter(function(p){ return p && p !== "BR"; });
+    var pr = (r.mercado_principal || "").toUpperCase();
+    if (pr && pr !== "BR") { var bp = UE.indexOf(pr) >= 0 ? "EU" : pr; return {pais: pr, bloco: bp, regra: "mercado_principal", motivo: "Mercado estrangeiro principal declarado: " + nome(pr) + ".", pacote: !!JUR[bp]}; }
+    if (alvos.indexOf("US") >= 0) return {pais: "US", bloco: "US", regra: "eua_no_alvo", motivo: "Os EUA estão entre os países-alvo declarados.", pacote: true};
+    if (alvos.length) { var p = alvos[0], bl = UE.indexOf(p) >= 0 ? "EU" : p; return {pais: p, bloco: bl, regra: "primeiro_alvo_estrangeiro", motivo: "Primeiro país estrangeiro declarado: " + nome(p) + "." + (UE.indexOf(p) >= 0 ? " Membro da UE: vale o regime europeu, com a lei nacional anotada." : ""), pacote: !!JUR[bl]}; }
+    if (r.ue) return {pais: "EU", bloco: "EU", regra: "sinal_ue", motivo: "Sem país declarado; o código indica público na União Europeia. Fica em prontidão até constar nos países-alvo.", pacote: true};
+    if (r.gb) return {pais: "GB", bloco: "GB", regra: "sinal_reino_unido", motivo: "Sem país declarado; o código indica público no Reino Unido. Fica em prontidão até constar nos países-alvo.", pacote: true};
+    return {pais: "US", bloco: "US", regra: "padrao", motivo: "Nenhum país-alvo declarado: EUA por padrão, quase padrão internacional para IA e startups.", pacote: true};
+  }
+  function n2render(){
+    var r = {
+      paises_alvo: $$("#n2-alvos input:checked").map(function(i){ return i.value; }),
+      mercado_principal: $("#n2-principal").value, pais_n2: $("#n2-fixo").value,
+      ue: $("#n2-ue").checked, gb: $("#n2-gb").checked
+    };
+    var o = escolher(r);
+    $("#n2-country").textContent = o.bloco === "EU" && o.pais !== "EU" ? nome(o.pais) + " · regime da UE" : nome(o.pais);
+    $("#n2-code").textContent = o.bloco === o.pais ? o.pais : o.pais + " → " + o.bloco;
+    $("#n2-rule").textContent = o.regra;
+    $("#n2-why").textContent = o.motivo;
+    var pk = $("#n2-pack");
+    pk.textContent = o.pacote ? "Pacote de normas no catálogo" : "Sem pacote de normas para este país";
+    pk.className = "badge " + (o.pacote ? "b-pos" : "b-notice");
+  }
+  $("#n2-form").addEventListener("change", n2render);
+  $("#n2-form").addEventListener("submit", function(e){ e.preventDefault(); });
+  n2render();
+
+  /* catalog explorer */
+  var UFN = {AC:"Acre",AL:"Alagoas",AP:"Amapá",AM:"Amazonas",BA:"Bahia",CE:"Ceará",DF:"Distrito Federal",ES:"Espírito Santo",GO:"Goiás",MA:"Maranhão",MT:"Mato Grosso",MS:"Mato Grosso do Sul",MG:"Minas Gerais",PA:"Pará",PB:"Paraíba",PR:"Paraná",PE:"Pernambuco",PI:"Piauí",RJ:"Rio de Janeiro",RN:"Rio Grande do Norte",RS:"Rio Grande do Sul",RO:"Rondônia",RR:"Roraima",SC:"Santa Catarina",SP:"São Paulo",SE:"Sergipe",TO:"Tocantins"};
+  var ST = {vigente:["Vigente","s-pos"],parcialmente_vigente:["Parcialmente vigente","s-notice"],vigencia_futura:["Vigência futura","s-info"],em_tramitacao:["Em tramitação","s-purple"],suspensa:["Suspensa","s-neg"],revogada:["Revogada","s-gray"]};
+  var VF = {oficial_conferido:["Oficial conferida","b-pos"],fonte_secundaria:["Fonte secundária","b-notice"],nao_localizado:["Não localizada",""]};
+  var state = {tab: "tudo", q: "", oficial: false, uf: "GO"};
+  try { var st = sessionStorage.getItem("lz-pr-uf"); if (st && UFN[st]) state.uf = st; } catch (e) {}
+  function jurLabel(j){ if (j === "BR") return "União"; if (j.indexOf("BR-") === 0) return UFN[j.slice(3)] || j; if (j.indexOf("US-") === 0) return "EUA · " + j.slice(3); return NOMES[j] || ({INT:"Internacional",ISO:"ISO/IEC"})[j] || j; }
+  function papel(n){ if (n.st === "revogada") return ["Histórico",""]; if (n.st === "em_tramitacao" || n.st === "suspensa") return ["Radar","b-purple"]; if (n.r === "oportunidade") return ["Oportunidade","b-info"]; return ["Obrigação",""]; }
+  function inTab(n, tab){
+    if (tab === "uniao") return n.j === "BR";
+    if (tab === "ufs") return n.j === "BR-" + state.uf;
+    if (tab === "n2") return n.n === "N2";
+    if (tab === "n3") return n.n === "N3";
+    return true;
+  }
+  function match(n){
+    if (state.oficial && n.v !== "oficial_conferido") return false;
+    if (!state.q) return true;
+    var hay = (n.nome + " " + n.cit + " " + n.id + " " + jurLabel(n.j) + " " + n.j).toLowerCase();
+    return state.q.toLowerCase().split(/\s+/).every(function(w){ return hay.indexOf(w) >= 0; });
+  }
+  function renderTabsCount(){
+    ["tudo","uniao","ufs","n2","n3"].forEach(function(t){
+      var c = N.filter(function(n){ return inTab(n, t) && match(n); }).length;
+      var el = $('[data-tabcount="' + t + '"]'); if (el) el.textContent = c;
+    });
+  }
+  function renderUfs(){
+    $("#uf-grid").innerHTML = DATA.ufs.map(function(u){
+      var c = u.normas_no_catalogo;
+      return '<button type="button" class="uf' + (c ? "" : " is-empty") + '" data-uf="' + u.uf + '" aria-pressed="' + (u.uf === state.uf) + '" title="' + esc(UFN[u.uf]) + '"><b>' + u.uf + '</b><span>' + c + ' norma' + (c === 1 ? "" : "s") + '</span></button>';
+    }).join("");
+    var u = DATA.ufs.filter(function(x){ return x.uf === state.uf; })[0];
+    var ia = u.tem_lei_ia === "sim" ? ["Lei de IA estadual","s-pos"] : ["Lei de IA não localizada","s-gray"];
+    var inov = /^sim/.test(u.tem_marco_inovacao) ? ["Marco de inovação","s-pos"] : (u.tem_marco_inovacao === "parcial" ? ["Inovação parcial","s-notice"] : ["Inovação não localizada","s-gray"]);
+    $("#uf-info").innerHTML = '<h3>' + esc(UFN[u.uf]) + '</h3><span class="status ' + ia[1] + '">' + ia[0] + '</span><span class="status ' + inov[1] + '">' + inov[0] + '</span><span class="count">' + u.conferidas_oficial + ' de ' + u.normas_no_catalogo + ' conferidas em fonte oficial</span>';
+  }
+  function renderTable(){
+    var rows = N.filter(function(n){ return inTab(n, state.tab) && match(n); });
+    $("#cat-count").textContent = rows.length + (rows.length === 1 ? " norma" : " normas");
+    if (!rows.length) {
+      $("#cat-body").innerHTML = '<tr><td colspan="5" class="empty">Nenhuma norma com esse filtro' + (state.tab === "ufs" ? " em " + esc(UFN[state.uf]) : "") + '. Ausência no catálogo não prova ausência de lei.</td></tr>';
+    } else {
+      $("#cat-body").innerHTML = rows.map(function(n){
+        var s = ST[n.st] || [n.st,"s-gray"], v = VF[n.v] || [n.v,""], p = papel(n);
+        var link = n.u ? '<a href="' + esc(n.u) + '" rel="noopener noreferrer">abrir fonte ↗</a>' : "";
+        return '<tr><td class="n"><b>' + esc(n.nome) + '</b><small>' + esc(n.cit) + (n.al ? " · alerta de competência" : "") + '</small></td>' +
+          '<td>' + esc(jurLabel(n.j)) + '<br><code>' + esc(n.n) + '</code></td>' +
+          '<td><span class="status ' + s[1] + '">' + s[0] + '</span></td>' +
+          '<td><div class="src"><span class="badge ' + v[1] + '">' + v[0] + '</span>' + link + '</div></td>' +
+          '<td><span class="badge ' + p[1] + '">' + p[0] + '</span></td></tr>';
+      }).join("");
+    }
+    renderTabsCount();
+  }
+  function setTab(t, focus){
+    state.tab = t;
+    $$(".tab").forEach(function(b){ var on = b.getAttribute("data-tab") === t; b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
+    $("#cat-panel").setAttribute("aria-labelledby", "tab-" + t);
+    $("#uf-block").hidden = t !== "ufs";
+    if (t === "ufs") renderUfs();
+    renderTable();
+  }
+  $$(".tab").forEach(function(b, i, all){
+    b.addEventListener("click", function(){ setTab(b.getAttribute("data-tab")); });
+    b.addEventListener("keydown", function(e){
+      var k = e.key, j = i;
+      if (k === "ArrowRight") j = (i + 1) % all.length; else if (k === "ArrowLeft") j = (i - 1 + all.length) % all.length; else if (k === "Home") j = 0; else if (k === "End") j = all.length - 1; else return;
+      e.preventDefault(); setTab(all[j].getAttribute("data-tab"), true);
+    });
+  });
+  $("#uf-grid").addEventListener("click", function(e){
+    var b = e.target.closest("[data-uf]"); if (!b) return;
+    state.uf = b.getAttribute("data-uf");
+    try { sessionStorage.setItem("lz-pr-uf", state.uf); } catch (er) {}
+    renderUfs(); renderTable();
+  });
+  $("#cat-search").addEventListener("input", function(){ state.q = this.value.trim(); renderTable(); });
+  $("#cat-search-form").addEventListener("submit", function(e){ e.preventDefault(); });
+  $("#cat-oficial").addEventListener("change", function(){ state.oficial = this.checked; renderTable(); });
+  function globalSearch(form, input){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var q = input.value.trim(), up = q.toUpperCase();
+      if (UFN[up]) { state.uf = up; $("#cat-search").value = ""; state.q = ""; setTab("ufs"); }
+      else { $("#cat-search").value = q; state.q = q; setTab("tudo"); }
+      setMenu(false);
+      $("#catalogo").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    });
+  }
+  globalSearch($("#top-search-form"), $("#top-search"));
+  globalSearch($("#nav-search-form"), $("#nav-search"));
+  setTab("tudo");
+
+  /* minutas */
+  $("#docs").innerHTML = DATA.minutas.map(function(m){
+    return '<article class="doc"><b>' + esc(m.t) + '</b><p>' + esc(m.uso) + '</p><code>' + esc(m.id) + '</code></article>';
+  }).join("");
+})();
+</script>
+
+</body>
+</html>

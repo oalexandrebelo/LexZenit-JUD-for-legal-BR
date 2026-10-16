@@ -1,6 +1,6 @@
 <!doctype html><html lang="pt-BR"><head><meta name="color-scheme" content="light dark"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>LexZenit Jurídico</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Skill jurídica da LexZenit para o Claude: 39 plugins e 176 workflows de Direito brasileiro com núcleo local de evidências, citações verificáveis, pseudonimização e revisão humana.">
+<meta name="description" content="Skill jurídica da LexZenit para o Claude: 40 plugins e 182 workflows de Direito brasileiro, revisor jurídico de projetos de IA e startups (N1 Brasil, N2 país, N3 mundo), núcleo local de evidências e revisão humana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -371,6 +371,15 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
 .footer__col{margin:0;font-family:var(--font-label);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--color-muted);display:flex;flex-direction:column;gap:.45rem;line-height:1.5}
 .footer__col a{transition:color 180ms} .footer__col a:hover{color:var(--color-ink)}
 .footer__hash{color:var(--color-rule-2)}
+.footer__ab{display:inline-block;color:var(--color-ink);margin-bottom:.35rem;width:max-content}
+.footer__ab svg{height:40px;width:auto;display:block}
+.levels{list-style:none;margin:0 0 2rem;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1rem}
+@media (min-width:880px){.levels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.levels .limit h3{font-size:1.3rem}
+.states{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 2rem;padding:0;list-style:none}
+.states .chip{--st-tint:var(--color-paper-2)}
+.chip--firm{--st-tint:var(--tint-coral);--st-deep:var(--color-coral-deep)} .chip--inc{--st-tint:var(--tint-pear);--st-deep:var(--color-pear-deep)}
+.chip--na{--st-tint:var(--tint-mint);--st-deep:var(--color-mint-deep)} .chip--radar{--st-tint:var(--tint-lav);--st-deep:var(--color-lav-deep)}
 
 /* micro-celebração */
 .star-burst{position:absolute;width:24px;height:24px;z-index:999;pointer-events:none;
@@ -378,6 +387,13 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
   animation:star-burst 420ms ease-out forwards}
 @keyframes star-burst{0%{transform:scale(0) rotate(0);opacity:1}60%{transform:scale(1.2) rotate(35deg);opacity:.9}100%{transform:scale(1.4) rotate(45deg);opacity:0}}
 
+@view-transition{navigation:auto}
+@keyframes lz-blur-out{to{filter:blur(22px) saturate(.9);opacity:0;transform:scale(1.015)}}
+@keyframes lz-blur-in{from{filter:blur(22px) saturate(.9);opacity:0;transform:scale(.99)}}
+::view-transition-old(root){animation:lz-blur-out .38s cubic-bezier(.45,0,.4,1) both}
+::view-transition-new(root){animation:lz-blur-in .52s cubic-bezier(.45,0,.4,1) both}
+html.leaving body{animation:lz-blur-out .34s cubic-bezier(.45,0,.4,1) both}
+@media (prefers-reduced-motion:reduce){html.leaving body{animation:none}::view-transition-old(root),::view-transition-new(root){animation-duration:.01s}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -402,6 +418,7 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
     <nav class="nav__links" aria-label="Principal">
       <a href="#metodo">Método</a>
       <a href="#numeros">Cobertura</a>
+      <a href="#revisor">Revisor</a>
       <a href="#arquitetura">Arquitetura</a>
       <a href="#limites">Limites</a>
       <a href="#instalar">Instalar</a>
@@ -428,7 +445,7 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
           <span class="process__step"><span class="dot dot--coral"></span><span class="num">04</span> revisão</span>
         </div>
         <h1 class="hero__title">Raciocínio jurídico com <span class="hl hl--mint">lastro</span>, do documento à evidência.</h1>
-        <p class="hero__lede">A skill jurídica da LexZenit dá ao Claude 39 plugins e 176 workflows de Direito brasileiro. Um núcleo local guarda o original, o hash e o localizador de cada trecho, marca o que não conseguiu verificar e para antes de qualquer ato externo.</p>
+        <p class="hero__lede">A skill jurídica da LexZenit dá ao Claude 40 plugins e 182 workflows de Direito brasileiro, incluindo um revisor jurídico de projetos de IA e startups. Um núcleo local guarda o original, o hash e o localizador de cada trecho, marca o que não conseguiu verificar e para antes de qualquer ato externo.</p>
         <div class="hero__cta">
           <a class="btn btn--lg" href="#instalar" data-burst>Instalar a skill</a>
           <a class="btn btn--outline btn--lg" href="#metodo">Ver os quatro estágios <span class="btn__arrow" aria-hidden="true">→</span></a>
@@ -540,19 +557,60 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
   <section class="section band band--mint" id="numeros" aria-labelledby="num-t">
     <div class="wrap">
       <header class="section__head section__head--center">
-        <p class="eyebrow"><span class="dot dot--mint"></span> Cobertura da release 0.2.0</p>
+        <p class="eyebrow"><span class="dot dot--mint"></span> Cobertura da release 0.3.0</p>
         <h2 class="section__title" id="num-t">Amplo no catálogo, estrito no que afirma.</h2>
       </header>
       <dl class="numbers">
-        <div class="bignum"><dt class="bignum__k">plugins, um por área do Direito, mais a camada de engenharia jurídica.</dt><dd class="bignum__v"><span class="count" data-to="39">39</span></dd></div>
-        <div class="bignum"><dt class="bignum__k">workflows com entradas, método, saída e caso negativo descritos em cada SKILL.md.</dt><dd class="bignum__v"><span class="count" data-to="176">176</span></dd></div>
-        <div class="bignum"><dt class="bignum__k">testes automatizados aprovados no relatório desta versão.</dt><dd class="bignum__v"><span class="count" data-to="235">235</span></dd></div>
+        <div class="bignum"><dt class="bignum__k">plugins: um por área do Direito, a engenharia jurídica e o revisor de projetos.</dt><dd class="bignum__v"><span class="count" data-to="40">40</span></dd></div>
+        <div class="bignum"><dt class="bignum__k">workflows com entradas, método, saída e caso negativo descritos em cada SKILL.md.</dt><dd class="bignum__v"><span class="count" data-to="182">182</span></dd></div>
+        <div class="bignum"><dt class="bignum__k">testes automatizados aprovados no relatório desta versão.</dt><dd class="bignum__v"><span class="count" data-to="288">288</span></dd></div>
       </dl>
       <div class="areas">
-        <p class="areas__title">As 39 áreas cobertas</p>
-        <ul class="areas__list" id="areas"><li>Fundação jurídica, fontes e evidências</li><li>Licitações, contratos públicos, concessões e estatais</li><li>ITS, fiscalização eletrônica e cidades inteligentes</li><li>Consumidor, comércio eletrônico e superendividamento</li><li>Imobiliário, notarial e registral</li><li>Societário, registro empresarial e M&amp;A</li><li>Recuperação judicial, extrajudicial e falência</li><li>Concorrência, concentrações e concorrência desleal</li><li>Integridade, anticorrupção, improbidade e acesso à informação</li><li>Trabalho, relações coletivas e saúde ocupacional</li><li>Previdenciário, assistencial e complementar</li><li>Telecomunicações e serviços digitais de conectividade</li><li>Saúde, vigilância sanitária e saúde suplementar</li><li>Energia elétrica, mercado e infraestrutura</li><li>Petróleo, gás, combustíveis e biocombustíveis</li><li>Transportes terrestres, aquaviários e aviação</li><li>Tributário, fiscal e reforma do consumo</li><li>Financeiro, pagamentos, capitais e ativos virtuais</li><li>Seguros, resseguros e previdência complementar</li><li>Ambiental, clima, biodiversidade e patrimônio</li><li>Agronegócio, terra, crédito rural e insumos</li><li>Minerário, títulos, barragens e CFEM</li><li>Penal, processo penal e execução penal</li><li>Constitucional, direitos humanos e tutela coletiva</li><li>Administrativo, servidores e finanças públicas</li><li>Família, sucessões e capacidade civil</li><li>Infância, pessoa idosa, inclusão e violência</li><li>Eleitoral e organização político-partidária</li><li>Propriedade intelectual, software e conteúdo</li><li>Dados pessoais, IA, cibersegurança e produtos digitais</li><li>Urbanístico, habitação, saneamento e recursos hídricos</li><li>Internacional, migração e comércio exterior</li><li>Militar, disciplina e processo penal militar</li><li>Educação, pesquisa e prática jurídica supervisionada</li><li>Desportivo, audiovisual, cultura e apostas</li><li>Processo civil, execução, arbitragem e mediação</li><li>Operações jurídicas, ética e governança da suíte</li><li>Contratos civis, empresariais e tecnologia</li><li class="is-new" title="Novo na 0.2.0">Engenharia de evidências jurídicas · novo</li></ul>
+        <p class="areas__title">As 40 áreas cobertas</p>
+        <ul class="areas__list" id="areas"><li>Fundação jurídica, fontes e evidências</li><li>Licitações, contratos públicos, concessões e estatais</li><li>ITS, fiscalização eletrônica e cidades inteligentes</li><li>Consumidor, comércio eletrônico e superendividamento</li><li>Imobiliário, notarial e registral</li><li>Societário, registro empresarial e M&amp;A</li><li>Recuperação judicial, extrajudicial e falência</li><li>Concorrência, concentrações e concorrência desleal</li><li>Integridade, anticorrupção, improbidade e acesso à informação</li><li>Trabalho, relações coletivas e saúde ocupacional</li><li>Previdenciário, assistencial e complementar</li><li>Telecomunicações e serviços digitais de conectividade</li><li>Saúde, vigilância sanitária e saúde suplementar</li><li>Energia elétrica, mercado e infraestrutura</li><li>Petróleo, gás, combustíveis e biocombustíveis</li><li>Transportes terrestres, aquaviários e aviação</li><li>Tributário, fiscal e reforma do consumo</li><li>Financeiro, pagamentos, capitais e ativos virtuais</li><li>Seguros, resseguros e previdência complementar</li><li>Ambiental, clima, biodiversidade e patrimônio</li><li>Agronegócio, terra, crédito rural e insumos</li><li>Minerário, títulos, barragens e CFEM</li><li>Penal, processo penal e execução penal</li><li>Constitucional, direitos humanos e tutela coletiva</li><li>Administrativo, servidores e finanças públicas</li><li>Família, sucessões e capacidade civil</li><li>Infância, pessoa idosa, inclusão e violência</li><li>Eleitoral e organização político-partidária</li><li>Propriedade intelectual, software e conteúdo</li><li>Dados pessoais, IA, cibersegurança e produtos digitais</li><li>Urbanístico, habitação, saneamento e recursos hídricos</li><li>Internacional, migração e comércio exterior</li><li>Militar, disciplina e processo penal militar</li><li>Educação, pesquisa e prática jurídica supervisionada</li><li>Desportivo, audiovisual, cultura e apostas</li><li>Processo civil, execução, arbitragem e mediação</li><li>Operações jurídicas, ética e governança da suíte</li><li>Contratos civis, empresariais e tecnologia</li><li>Engenharia de evidências jurídicas</li><li class="is-new" title="Novo na 0.3.0">Revisor jurídico de projetos · N1 · N2 · N3 · novo</li></ul>
         <p class="footnote">Workflows são instruções de análise. Nenhum deles passou por avaliação semântica nesta versão, e nenhum corpus federal, estadual ou municipal foi ingerido.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="revisor" aria-labelledby="rev-t">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow"><span class="dot dot--coral"></span> Novo na 0.3.0 · AB LexZenit Project Review</p>
+        <h2 class="section__title" id="rev-t">O que o seu projeto precisa cumprir, em três níveis.</h2>
+        <p class="section__lede">O revisor lê o repositório de um projeto de IA, SaaS ou startup, faz as perguntas que o código não responde e cruza tudo com um catálogo de 210 normas versionadas. Cada lacuna sai com fonte, estado de verificação, evidência e a minuta brasileira que a fecha.</p>
+      </header>
+      <ul class="levels">
+        <li class="limit" data-c="mint"><p class="limit__no">N1 · Brasil</p><h3>União e as 27 UFs</h3><p>LGPD, CDC, Marco Civil, ECA Digital, comércio eletrônico, Lei do Software e Marco das Startups, mais 152 normas estaduais de 25 UFs, com alerta quando a lei estadual invade competência da União.</p></li>
+        <li class="limit" data-c="cyan"><p class="limit__no">N2 · país</p><h3>EUA por padrão, ou o país que pesa</h3><p>FTC, COPPA, TAKE IT DOWN, Califórnia e Colorado; sem usuários declarados, entra como prontidão. Se o mercado principal for outro país, ele vira o N2: Reino Unido, Canadá, México, Argentina, Chile, Colômbia ou a UE.</p></li>
+        <li class="limit" data-c="lav"><p class="limit__no">N3 · mundo</p><h3>O que alcança de fora</h3><p>AI Act com o calendário do Reg. 2026/1744, RGPD e a adequação do Brasil, DSA, Cyber Resilience Act, princípios da OCDE e as normas ISO/IEC 42001, 42005 e 27001.</p></li>
+      </ul>
+      <ul class="states" aria-label="Estados possíveis de cada obrigação">
+        <li class="chip chip--firm"><span class="chip__dot"></span>Não conformidade: só com norma vigente, fonte oficial e artigo</li>
+        <li class="chip chip--inc"><span class="chip__dot"></span>Inconclusivo: fonte secundária, prontidão ou resposta pendente</li>
+        <li class="chip chip--na"><span class="chip__dot"></span>Não aplicável, com o motivo</li>
+        <li class="chip chip--radar"><span class="chip__dot"></span>Radar: projeto de lei não é lei</li>
+      </ul>
+      <div class="plans">
+        <article class="plan plan--feature">
+          <span class="plan__badge">No Claude Code</span>
+          <p class="plan__name">Plugin · ab-lexzenit-project-review</p>
+          <h3 class="plan__title">Seis workflows, somente leitura</h3>
+          <div class="code"><pre id="code-rev">/plugin install ab-lexzenit-project-review@legal-br
+/ab-lexzenit-project-review:revisar-projeto</pre><button class="copy" type="button" data-copy="code-rev">Copiar</button></div>
+          <ul class="plan__list"><li>Mapa por UF, escolha do N2, risco de IA, kit de documentos</li><li>Minuta para revisão profissional, nunca parecer</li></ul>
+        </article>
+        <article class="plan">
+          <p class="plan__name">Motor local e MCP</p>
+          <h3 class="plan__title">Python, sem dependências</h3>
+          <div class="code"><pre id="code-rev-cli">cd LexZenit-JUD-for-legal-BR/runtime
+python -m lz_revisor revisar ../meu-projeto \
+  --respostas respostas.json --saida revisao/</pre><button class="copy" type="button" data-copy="code-rev-cli">Copiar</button></div>
+          <ul class="plan__list"><li>Relatório guarda arquivo e linha, nunca o texto lido</li><li>MCP por stdio, ligado por você, preso à pasta do projeto</li></ul>
+        </article>
+      </div>
+      <div class="hero__cta install__links"><a class="btn btn--lg" href="project-review/" data-blur>Abrir o LexZenit Project Review <span class="btn__arrow" aria-hidden="true">→</span></a></div>
+      <p class="footnote">106 das 210 normas foram conferidas em fonte oficial; as demais aparecem como fonte secundária e nunca geram não conformidade. Normas municipais e setoriais ainda não foram mapeadas.</p>
     </div>
   </section>
 
@@ -692,7 +750,7 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
       <header class="section__head">
         <p class="eyebrow"><span class="dot dot--coral"></span> O que a skill não faz</p>
         <h2 class="section__title" id="lim-t">Limites escritos antes das promessas.</h2>
-        <p class="section__lede">A documentação da release declara cada limite abaixo. Eles valem para todas as 39 áreas.</p>
+        <p class="section__lede">A documentação da release declara cada limite abaixo. Eles valem para todas as 40 áreas.</p>
       </header>
       <ul class="limits">
         <li class="limit" data-c="coral"><p class="limit__no">Não autentica</p><h3>Precedente reconhecido não é precedente confirmado</h3><p>Dígito CNJ válido não prova que o processo existe. A validação em fonte oficial é um conector ainda não implementado.</p></li>
@@ -710,7 +768,7 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
       <header class="section__head section__head--center">
         <p class="eyebrow"><span class="dot dot--pear"></span> Instalar</p>
         <h2 class="section__title" id="ins-t">Tudo sai do GitHub.</h2>
-        <p class="section__lede">Um repositório público com os 39 plugins, o runtime local, os testes e esta documentação.</p>
+        <p class="section__lede">Um repositório público com os 40 plugins, o runtime local, os testes e esta documentação.</p>
       </header>
       <div class="plans">
         <article class="plan plan--feature">
@@ -723,7 +781,7 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
 
 <span class="c"># exemplo de workflow</span>
 /br-legal-engineering:citations-provenance</pre><button class="copy" type="button" data-copy="code-plugin">Copiar</button></div>
-          <ul class="plan__list"><li>Troque <code>br-legal-engineering</code> por qualquer uma das 39 áreas</li><li>Atualize com <code>/plugin marketplace update legal-br</code></li></ul>
+          <ul class="plan__list"><li>Troque <code>br-legal-engineering</code> por qualquer uma das 40 áreas</li><li>Atualize com <code>/plugin marketplace update legal-br</code></li></ul>
         </article>
         <article class="plan">
           <p class="plan__name">CLI local · git clone</p>
@@ -761,8 +819,11 @@ python -m legal_br.engine citations \
     <p class="footer__statement">O raciocínio precisa de lastro.</p>
     <div class="footer__meta">
       <a class="footer__brand" href="#topo" aria-label="LexZenit, voltar ao topo"><svg viewBox="0 0 1829 345" aria-hidden="true"><use href="#lz-lockup"/></svg></a>
-      <p class="footer__col"><span>LexZenit · skill jurídica</span><span>AB ED&amp;IA Soluções em Tecnologia Ltda.</span><span>CNPJ 57.531.384/0001-96</span><span>claude-for-legal-br 0.2.0 · Apache-2.0</span></p>
-      <p class="footer__col"><a href="#metodo">Método</a><a href="#arquitetura">Arquitetura</a><a href="#limites">Limites</a><a href="#instalar">Instalar</a><a href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+      <p class="footer__col"><a class="footer__ab" href="https://www.alexandrebelo.com.br" target="_blank" rel="noopener noreferrer" aria-label="AB — Alexandre Belo, abre alexandrebelo.com.br"><svg viewBox="40 40 905 520" aria-hidden="true"><g fill="currentColor" fill-rule="evenodd"><path d="M217.5 50 254.502 127.998 143.672 413.418C148.837 413.639 154.307 413.733 159.98 413.75L262.5 140.996L359.297 390.137C386.529 384.864 413.668 379.119 440.703 372.93L349.502 139.502C331.002 93.002 323.504 65.502 341.504 57.002V50H217.5ZM449.609 395.723C422.098 401.747 394.645 407.16 367.725 411.846L380.996 445.996C403.996 507.496 396.002 539.004 359.502 541.504V550H570V542.002H569.004V540.996C519.004 537.996 497.5 518.496 480 473.496L449.609 395.723ZM136.689 431.191C115.74 483.755 85.559 532.719 47.5 542.002V550H187.002V540.996C135.628 524.033 134.709 484.404 153.359 431.904C147.607 431.763 142.032 431.532 136.689 431.191Z"/>
+    <path d="M438.496 50V58.496C476.496 64.996 487.002 83.998 487.002 130.498V361.875C514.458 355.027 541.797 347.708 569.004 339.912V294.004H617.998C645.807 294.004 667.486 297.208 684.463 303.867C690.147 301.976 695.843 300.077 701.455 298.174C701.858 297.547 702.588 296.946 704.004 296.504C764.504 276.504 794.502 227.996 794.502 168.496C794.502 84.496 743.498 50 642.998 50H438.496ZM569.004 62.002H614.502C681.002 62.002 702.998 85.998 702.998 170.498C702.998 254.498 678.996 282.002 605.996 282.002H569.004V62.002ZM738.477 309.434C729.062 313.063 719.629 316.514 710.166 319.961C731.253 340.341 738.496 373.471 738.496 422.5C738.496 509.5 719.002 537.998 639.502 537.998H569.004V365.762C542.141 373.365 514.67 380.519 487.002 387.119V440C487.002 486.5 511.004 517.502 569.004 542.002V550H678.496C780.996 550 837.998 514.002 837.998 424.502C837.998 361.268 803.866 328.531 738.477 309.434Z"/></g><g fill="#065CFB"><path d="M192 283.5C122.5 317.75 68 356.7 70.5 389.25C73 422.75 175 428 331.5 399.75C442.85 379.55 552.75 351.7 660.3 316.35C765 282.05 863.9 248.55 906.55 191.7L920.8 200C876.9 255.65 741.55 306.8 633.75 341.75C500.5 385 338 419 217.25 425.95C133.6 431.7 73.7 424.75 58.9 400.3C33.25 357.85 120.1 315.1 192 283.5Z"/>
+    <path d="M814 129.65C852.5 130.5 884.5 134.5 907.5 145.25L900.3 155.4C878 140.15 847 133.05 814 129.65Z"/>
+    <circle cx="930" cy="169" r="22.25"/></g></svg></a><span>LexZenit · skill jurídica</span><span>Uma solução AB ED&amp;IA Soluções em Tecnologia Ltda.</span><span>CNPJ 57.531.384/0001-96</span><a href="https://www.alexandrebelo.com.br" target="_blank" rel="noopener noreferrer">alexandrebelo.com.br ↗</a><span>claude-for-legal-br 0.3.0 · Apache-2.0</span></p>
+      <p class="footer__col"><a href="#metodo">Método</a><a href="#revisor">Revisor de projetos</a><a href="#arquitetura">Arquitetura</a><a href="#limites">Limites</a><a href="#instalar">Instalar</a><a href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR" target="_blank" rel="noopener noreferrer">GitHub</a></p>
       <p class="footer__col">Adaptação independente.<br>Não é produto oficial da Anthropic.<br><span class="footer__hash">evidência · estrutura · privacidade · revisão</span></p>
     </div>
   </div>
@@ -993,6 +1054,22 @@ react/cjs/react-jsx-runtime.production.js:
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(){ if (F) renderFlow(); });
   new MutationObserver(function(){ if (F) renderFlow(); }).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
   window.__LZ = {flow: !!F, nodes: data.nodes.length, views: data.views.length};
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement;
+  var vtCross=window.CSS&&CSS.supports&&CSS.supports('view-transition-name: none')&&('onpagereveal' in window);
+  document.querySelectorAll('a[data-blur]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      var url; try{url=new URL(a.href,location.href);}catch(e){return;}
+      if(url.origin!==location.origin||vtCross||ev.metaKey||ev.ctrlKey||ev.shiftKey)return;
+      if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      ev.preventDefault(); root.classList.add('leaving');
+      setTimeout(function(){location.href=url.href;},320);
+    });
+  });
+  window.addEventListener('pageshow',function(){root.classList.remove('leaving');});
 })();
 </script>
 </body></html>
