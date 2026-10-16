@@ -1,0 +1,874 @@
+{
+ "versao": "0.3.0",
+ "nota": "Sinais são características do projeto que acionam normas. 'dependencias' casa nomes de pacotes nos manifestos; 'codigo' são expressões regulares (sem diferenciar maiúsculas) aplicadas a arquivos de texto; 'arquivos' são padrões de caminho. Detecção automática é indício, não prova: a ausência de detecção não comprova ausência da característica. Sinais sem detector só são conhecidos por resposta do questionário. 'confianca_dependencias' e 'confianca_arquivos' (padrão alta) rebaixam indícios fracos.",
+ "sinais": [
+  {
+   "id": "dados_pessoais",
+   "rotulo": "Trata dados pessoais (conta, e-mail, telefone, endereço, identificadores)",
+   "categoria": "dados",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(e-?mail|telefone|phone_?number|celular|endere[cç]o|address_line|data_?nascimento|birth_?date|date_?of_?birth|full_?name|nome_?completo)\\b",
+     "rotulo": "campo de dado pessoal",
+     "confianca": "media"
+    },
+    {
+     "padrao": "\\b(sign_?up|signup|cadastr[oa]|register_?user|create_?user)\\b",
+     "rotulo": "cadastro de usuário",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "cpf_br",
+   "rotulo": "Coleta CPF ou outro identificador civil brasileiro",
+   "categoria": "dados",
+   "dependencias": [
+    "cpf-cnpj-validator",
+    "validate-docbr",
+    "brazilian-values",
+    "@brazilian-utils/brazilian-utils",
+    "cpf_cnpj"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(cpf|rg_?numero|numero_?rg|cnh)\\b",
+     "rotulo": "campo de identificador civil",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "dados_saude",
+   "rotulo": "Trata dado de saúde (dado pessoal sensível)",
+   "categoria": "dados_sensiveis",
+   "dependencias": [
+    "fhir",
+    "fhir.resources",
+    "hl7",
+    "@medplum/core"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(diagn[oó]stico|prontu[aá]rio|paciente|patient|medical_?record|sintomas?|symptoms?|cid-?10|icd-?10|exame_?laboratorial|prescri[cç][aã]o|prescription|les[aã]o|injur(y|ies)|condi[cç][aã]o_?m[eé]dica|health_?condition)\\b",
+     "rotulo": "termo clínico",
+     "confianca": "media"
+    },
+    {
+     "padrao": "\\b(glicemia|press[aã]o_?arterial|blood_?pressure|frequ[eê]ncia_?card[ií]aca|heart_?rate|healthkit|google_?fit|health_?connect)\\b",
+     "rotulo": "medida fisiológica",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "biometria",
+   "rotulo": "Trata biometria (facial, digital, voz)",
+   "categoria": "dados_sensiveis",
+   "dependencias": [
+    "face-api.js",
+    "@vladmandic/face-api",
+    "face_recognition",
+    "deepface",
+    "@aws-sdk/client-rekognition",
+    "insightface",
+    "react-native-biometrics",
+    "expo-local-authentication"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(biometri[ac]|reconhecimento_?facial|face_?recognition|facial_?recognition|liveness|fingerprint|impress[aã]o_?digital|voiceprint|face_?id)\\b",
+     "rotulo": "biometria",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "dados_criancas",
+   "rotulo": "Público inclui crianças ou adolescentes",
+   "categoria": "dados_sensiveis",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(menores?_?de_?idade|crian[cç]as?|adolescentes?|kids|under_?13|under_?18|age_?gate|parental_?consent|consentimento_?parental|coppa)\\b",
+     "rotulo": "menção a menores",
+     "confianca": "baixa"
+    }
+   ]
+  },
+  {
+   "id": "geolocalizacao",
+   "rotulo": "Coleta localização do usuário",
+   "categoria": "dados",
+   "dependencias": [
+    "expo-location",
+    "react-native-geolocation-service",
+    "@react-native-community/geolocation",
+    "geolocator",
+    "@capacitor/geolocation"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "navigator\\.geolocation|CLLocationManager|FusedLocationProvider|getCurrentPosition",
+     "rotulo": "API de localização",
+     "confianca": "alta"
+    }
+   ]
+  },
+  {
+   "id": "pagamentos",
+   "rotulo": "Recebe pagamentos",
+   "categoria": "comercial",
+   "dependencias": [
+    "stripe",
+    "@stripe/stripe-js",
+    "@stripe/react-stripe-js",
+    "mercadopago",
+    "pagarme",
+    "@pagarme/sdk",
+    "asaas",
+    "iugu",
+    "@paypal/checkout-server-sdk",
+    "@paypal/react-paypal-js",
+    "braintree",
+    "@adyen/api-library",
+    "pagseguro",
+    "sdk-node-apis-efi",
+    "gn-api-sdk-node",
+    "react-native-purchases",
+    "purchases-js",
+    "expo-in-app-purchases",
+    "react-native-iap"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(checkout|pix_?key|chave_?pix|qr_?code_?pix|payment_?intent|cobran[cç]a)\\b",
+     "rotulo": "fluxo de pagamento",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "assinatura_recorrente",
+   "rotulo": "Vende assinatura recorrente",
+   "categoria": "comercial",
+   "dependencias": [
+    "react-native-purchases",
+    "purchases-js"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(subscriptions?|assinaturas?|recorr[eê]ncia|recurring|billing_?cycle|plano_?mensal|monthly_?plan|trial_?period)\\b",
+     "rotulo": "assinatura",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "ia_generativa",
+   "rotulo": "Usa IA generativa (LLM, imagem, voz)",
+   "categoria": "ia",
+   "dependencias": [
+    "openai",
+    "@anthropic-ai/sdk",
+    "anthropic",
+    "@google/generative-ai",
+    "google-generativeai",
+    "@google/genai",
+    "google-genai",
+    "langchain",
+    "@langchain/core",
+    "@langchain/openai",
+    "@langchain/anthropic",
+    "llamaindex",
+    "llama-index",
+    "@ai-sdk/openai",
+    "@ai-sdk/anthropic",
+    "@ai-sdk/google",
+    "cohere-ai",
+    "cohere",
+    "mistralai",
+    "@mistralai/mistralai",
+    "replicate",
+    "together-ai",
+    "groq-sdk",
+    "groq",
+    "ollama",
+    "litellm",
+    "@huggingface/inference",
+    "huggingface_hub",
+    "@aws-sdk/client-bedrock-runtime",
+    "vertexai"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "api\\.openai\\.com|api\\.anthropic\\.com|generativelanguage\\.googleapis\\.com|chat\\.completions\\.create|messages\\.create\\(|generateContent\\(|bedrock-runtime",
+     "rotulo": "chamada a modelo",
+     "confianca": "alta"
+    }
+   ]
+  },
+  {
+   "id": "ia_rag_vetorial",
+   "rotulo": "Usa busca vetorial/RAG sobre documentos",
+   "categoria": "ia",
+   "dependencias": [
+    "@pinecone-database/pinecone",
+    "pinecone-client",
+    "pinecone",
+    "chromadb",
+    "weaviate-client",
+    "weaviate-ts-client",
+    "@qdrant/js-client-rest",
+    "qdrant-client",
+    "pgvector",
+    "faiss-cpu",
+    "faiss-gpu",
+    "pymilvus",
+    "lancedb",
+    "@lancedb/lancedb"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(embeddings?|vector_?store|vectorstore|pgvector|similarity_?search|retriever)\\b",
+     "rotulo": "busca vetorial",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "ia_treino_modelo",
+   "rotulo": "Treina ou ajusta modelo de IA",
+   "categoria": "ia",
+   "dependencias": [
+    "torch",
+    "tensorflow",
+    "keras",
+    "scikit-learn",
+    "sklearn",
+    "xgboost",
+    "lightgbm",
+    "peft",
+    "trl",
+    "accelerate",
+    "@tensorflow/tfjs"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "fine[_-]?tun|Trainer\\(|train_test_split|\\.fit\\(",
+     "rotulo": "treino de modelo",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "ia_conteudo_sintetico",
+   "rotulo": "Gera imagem, áudio, vídeo ou voz sintéticos",
+   "categoria": "ia",
+   "dependencias": [
+    "elevenlabs",
+    "@elevenlabs/elevenlabs-js",
+    "stability-sdk",
+    "diffusers",
+    "runwayml",
+    "@fal-ai/client",
+    "fal-client"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "images\\.generate|text[_-]to[_-]speech|audio\\.speech|dall-?e|stable[_-]?diffusion|voice[_-]?clon|deepfake",
+     "rotulo": "geração sintética",
+     "confianca": "alta"
+    }
+   ]
+  },
+  {
+   "id": "ia_agente",
+   "rotulo": "Agente de IA que executa ações (ferramentas, MCP)",
+   "categoria": "ia",
+   "dependencias": [
+    "@modelcontextprotocol/sdk",
+    "mcp",
+    "fastmcp",
+    "langgraph",
+    "@langchain/langgraph",
+    "crewai",
+    "autogen",
+    "pyautogen",
+    "openai-agents",
+    "@openai/agents",
+    "@anthropic-ai/claude-agent-sdk",
+    "claude-agent-sdk"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "tool_use|tool_choice|function_call|\"tools\"\\s*:",
+     "rotulo": "uso de ferramentas por modelo",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "ia_decisao_automatizada",
+   "rotulo": "Decisão automatizada que afeta interesses de pessoas (crédito, vaga, preço, acesso, perfil)",
+   "categoria": "ia",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(credit_?score|risk_?score|score_?de_?cr[eé]dito|auto_?approve|aprova[cç][aã]o_?autom[aá]tica|eligibility|elegibilidade|candidate_?rank|ranking_?de_?candidatos|fraud_?score)\\b",
+     "rotulo": "decisão ou pontuação automatizada",
+     "confianca": "baixa"
+    }
+   ]
+  },
+  {
+   "id": "chatbot_publico",
+   "rotulo": "Assistente conversacional exposto ao público",
+   "categoria": "ia",
+   "dependencias": [
+    "botpress",
+    "@botpress/client",
+    "rasa",
+    "@chatscope/chat-ui-kit-react",
+    "whatsapp-web.js",
+    "@whiskeysockets/baileys"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(chatbot|assistente_?virtual|virtual_?assistant|chat_?widget|bot_?de_?atendimento)\\b",
+     "rotulo": "chatbot",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "conteudo_usuario",
+   "rotulo": "Hospeda conteúdo de terceiros (upload, post, comentário, avaliação)",
+   "categoria": "plataforma",
+   "dependencias": [
+    "multer",
+    "uploadthing",
+    "@uploadthing/react",
+    "cloudinary",
+    "react-dropzone",
+    "@uppy/core",
+    "busboy",
+    "formidable"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(upload|coment[aá]rios?|comments?|user_?posts?|reviews?|avalia[cç][oõ]es|f[oó]rum|forum|feed)\\b",
+     "rotulo": "conteúdo de usuário",
+     "confianca": "baixa"
+    }
+   ],
+   "confianca_dependencias": "baixa",
+   "nota": "Biblioteca de upload não prova conteúdo público de terceiros: indício fraco."
+  },
+  {
+   "id": "rastreamento_cookies",
+   "rotulo": "Usa cookies, pixels ou analytics de terceiros",
+   "categoria": "dados",
+   "dependencias": [
+    "react-ga4",
+    "react-gtm-module",
+    "@next/third-parties",
+    "posthog-js",
+    "posthog-node",
+    "mixpanel-browser",
+    "mixpanel",
+    "@amplitude/analytics-browser",
+    "@segment/analytics-next",
+    "@vercel/analytics",
+    "react-facebook-pixel",
+    "@hotjar/browser",
+    "@microsoft/clarity",
+    "@firebase/analytics"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "gtag\\(|googletagmanager\\.com|fbq\\(|connect\\.facebook\\.net|static\\.hotjar\\.com|clarity\\.ms|document\\.cookie",
+     "rotulo": "rastreamento",
+     "confianca": "alta"
+    }
+   ]
+  },
+  {
+   "id": "comunicacao_marketing",
+   "rotulo": "Envia e-mail, SMS, WhatsApp ou push de marketing",
+   "categoria": "comercial",
+   "dependencias": [
+    "@sendgrid/mail",
+    "resend",
+    "@mailchimp/mailchimp_marketing",
+    "twilio",
+    "zenvia",
+    "@zenvia/sdk",
+    "onesignal-node",
+    "react-onesignal",
+    "expo-notifications",
+    "@react-native-firebase/messaging",
+    "firebase-admin",
+    "nodemailer",
+    "postmark",
+    "@sendinblue/client",
+    "brevo"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(newsletter|e-?mail_?marketing|push_?notification|whatsapp_?business|disparo_?em_?massa|campanha_?de_?e-?mail)\\b",
+     "rotulo": "comunicação",
+     "confianca": "media"
+    }
+   ],
+   "confianca_dependencias": "baixa",
+   "nota": "SDK de e-mail, push ou SMS também serve a mensagens transacionais: indício fraco de marketing."
+  },
+  {
+   "id": "sac_telefonico",
+   "rotulo": "Mantém atendimento ao consumidor por telefone ou chat com fila de espera",
+   "categoria": "comercial",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "telemarketing_cobranca",
+   "rotulo": "Faz ligações, SMS ou WhatsApp ativos de oferta ou cobrança a consumidores",
+   "categoria": "comercial",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "app_mobile",
+   "rotulo": "Aplicativo publicado em loja (iOS/Android)",
+   "categoria": "plataforma",
+   "dependencias": [
+    "react-native",
+    "expo",
+    "@capacitor/core",
+    "@capacitor/ios",
+    "@capacitor/android",
+    "@ionic/react",
+    "flutter"
+   ],
+   "arquivos": [
+    "capacitor.config.*",
+    "app.json",
+    "eas.json",
+    "pubspec.yaml",
+    "ios/*.xcodeproj/*",
+    "android/app/build.gradle*"
+   ],
+   "codigo": []
+  },
+  {
+   "id": "web_publico",
+   "rotulo": "Site ou aplicação web acessível ao público",
+   "categoria": "plataforma",
+   "dependencias": [
+    "next",
+    "react-dom",
+    "vue",
+    "nuxt",
+    "svelte",
+    "@sveltejs/kit",
+    "astro",
+    "@angular/core",
+    "remix",
+    "@remix-run/react",
+    "vite",
+    "gatsby",
+    "django",
+    "flask",
+    "fastapi",
+    "rails",
+    "laravel/framework"
+   ],
+   "arquivos": [
+    "index.html",
+    "public/index.html"
+   ],
+   "codigo": []
+  },
+  {
+   "id": "hospedagem_exterior",
+   "rotulo": "Dados hospedados ou processados fora do Brasil (nuvem, APIs estrangeiras)",
+   "categoria": "dados",
+   "dependencias": [
+    "@vercel/postgres",
+    "@supabase/supabase-js",
+    "supabase",
+    "firebase",
+    "firebase-admin",
+    "@aws-sdk/client-s3",
+    "boto3",
+    "@google-cloud/storage",
+    "@azure/storage-blob",
+    "@planetscale/database",
+    "@neondatabase/serverless",
+    "mongodb"
+   ],
+   "arquivos": [
+    "vercel.json",
+    "netlify.toml",
+    "serverless.yml",
+    "fly.toml",
+    "render.yaml"
+   ],
+   "codigo": [
+    {
+     "padrao": "\\b(us-east-\\d|us-west-\\d|eu-west-\\d|eu-central-\\d|europe-west\\d|us-central\\d)\\b",
+     "rotulo": "região de nuvem estrangeira",
+     "confianca": "alta"
+    },
+    {
+     "padrao": "api\\.openai\\.com|api\\.anthropic\\.com|generativelanguage\\.googleapis\\.com|api\\.cohere\\.(ai|com)|api\\.mistral\\.ai",
+     "rotulo": "API de IA estrangeira",
+     "confianca": "alta"
+    }
+   ],
+   "confianca_dependencias": "baixa",
+   "confianca_arquivos": "baixa",
+   "nota": "SDK de nuvem ou arquivo de deploy é indício fraco: a região pode ser o Brasil. Região estrangeira explícita ou API estrangeira no código é indício forte."
+  },
+  {
+   "id": "publico_brasil",
+   "rotulo": "Público no Brasil (pt-BR, real)",
+   "categoria": "mercado",
+   "dependencias": [],
+   "arquivos": [
+    "**/pt-BR/**",
+    "**/pt-BR.json",
+    "**/pt_BR*"
+   ],
+   "codigo": [
+    {
+     "padrao": "pt-BR|pt_BR|\\bBRL\\b|R\\$\\s?\\d",
+     "rotulo": "locale ou moeda brasileira",
+     "confianca": "alta"
+    }
+   ]
+  },
+  {
+   "id": "publico_eua",
+   "rotulo": "Público nos EUA (en-US, dólar)",
+   "categoria": "mercado",
+   "dependencias": [],
+   "arquivos": [
+    "**/en-US/**",
+    "**/en-US.json"
+   ],
+   "codigo": [
+    {
+     "padrao": "en-US|en_US|\\bUSD\\b",
+     "rotulo": "locale ou moeda americana",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "publico_ue",
+   "rotulo": "Público na União Europeia (euro, idiomas da UE)",
+   "categoria": "mercado",
+   "dependencias": [],
+   "arquivos": [
+    "**/pt-PT/**",
+    "**/de-DE/**",
+    "**/fr-FR/**",
+    "**/es-ES/**",
+    "**/it-IT/**",
+    "**/nl-NL/**"
+   ],
+   "codigo": [
+    {
+     "padrao": "\\bEUR\\b|€\\s?\\d|\\b(pt-PT|de-DE|fr-FR|es-ES|it-IT|nl-NL)\\b",
+     "rotulo": "locale ou moeda europeia",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "publico_reino_unido",
+   "rotulo": "Público no Reino Unido (libra, en-GB)",
+   "categoria": "mercado",
+   "dependencias": [],
+   "arquivos": [
+    "**/en-GB/**"
+   ],
+   "codigo": [
+    {
+     "padrao": "\\bGBP\\b|£\\s?\\d|en-GB",
+     "rotulo": "locale ou moeda britânica",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "dependencias_terceiros",
+   "rotulo": "Usa bibliotecas de terceiros",
+   "categoria": "pi",
+   "dependencias": [],
+   "arquivos": [
+    "package.json",
+    "requirements*.txt",
+    "pyproject.toml",
+    "Pipfile",
+    "go.mod",
+    "Gemfile",
+    "composer.json",
+    "pubspec.yaml",
+    "Cargo.toml",
+    "build.gradle*",
+    "pom.xml"
+   ],
+   "codigo": []
+  },
+  {
+   "id": "setor_financeiro",
+   "rotulo": "Atua em crédito, pagamentos, investimentos ou seguros",
+   "categoria": "setor",
+   "dependencias": [
+    "belvo",
+    "pluggy-sdk",
+    "@pluggy/pluggy-sdk"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(empr[eé]stimos?|loans?|open_?finance|open_?banking|carteira_?digital|wallet_?balance|investimentos?|corretora|seguro_?de|insurance_?policy)\\b",
+     "rotulo": "termo financeiro",
+     "confianca": "baixa"
+    }
+   ]
+  },
+  {
+   "id": "setor_saude",
+   "rotulo": "Produto de saúde ou bem-estar com finalidade clínica",
+   "categoria": "setor",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(telemedicina|telehealth|teleconsulta|cl[ií]nica|clinic|hospital|crm_?m[eé]dico|nutricionista|crn\\b|anvisa)\\b",
+     "rotulo": "termo de saúde",
+     "confianca": "baixa"
+    }
+   ]
+  },
+  {
+   "id": "setor_juridico",
+   "rotulo": "Produto jurídico (advocacia, processos, contratos)",
+   "categoria": "setor",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(peti[cç][aã]o|processo_?judicial|jurisprud[eê]ncia|advogad[oa]s?|\\bOAB\\b|tribunal|parecer_?jur[ií]dico)\\b",
+     "rotulo": "termo jurídico",
+     "confianca": "baixa"
+    }
+   ]
+  },
+  {
+   "id": "setor_emprego",
+   "rotulo": "Recrutamento, seleção ou gestão de trabalhadores",
+   "categoria": "setor",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(curr[ií]culos?|resum[eé]|candidat[oa]s?|recrutamento|recruit(ing|ment)|hiring|vagas?_?de_?emprego|job_?applicants?)\\b",
+     "rotulo": "termo de RH",
+     "confianca": "baixa"
+    }
+   ]
+  },
+  {
+   "id": "setor_educacao",
+   "rotulo": "Educação (alunos, escolas, cursos)",
+   "categoria": "setor",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(alunos?|students?|escolas?|schools?|matr[ií]cula|enrollment|boletim|gradebook)\\b",
+     "rotulo": "termo educacional",
+     "confianca": "baixa"
+    }
+   ]
+  },
+  {
+   "id": "setor_eleitoral",
+   "rotulo": "Conteúdo ou serviço eleitoral/político",
+   "categoria": "setor",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(elei[cç][aã]o|elei[cç][oõ]es|propaganda_?eleitoral|candidatura|election|campaign_?ad)\\b",
+     "rotulo": "termo eleitoral",
+     "confianca": "baixa"
+    }
+   ]
+  },
+  {
+   "id": "setor_telecom",
+   "rotulo": "Presta serviço de telecomunicações ou internet (operadora, provedor de acesso, SVA)",
+   "categoria": "setor",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "veiculos_placas",
+   "rotulo": "Leitura de placas, imagens de veículos ou trânsito",
+   "categoria": "setor",
+   "dependencias": [
+    "openalpr",
+    "fast-alpr",
+    "easyocr"
+   ],
+   "arquivos": [],
+   "codigo": [
+    {
+     "padrao": "\\b(placa_?veicular|license_?plate|\\bLPR\\b|\\bANPR\\b|renavam|radar_?de_?velocidade)\\b",
+     "rotulo": "termo de trânsito",
+     "confianca": "media"
+    }
+   ]
+  },
+  {
+   "id": "empresa_constituida",
+   "rotulo": "Já existe pessoa jurídica (CNPJ) operando o projeto",
+   "categoria": "societario",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "socios_multiplos",
+   "rotulo": "Há mais de um fundador ou sócio",
+   "categoria": "societario",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "colaboradores_externos",
+   "rotulo": "Pessoas de fora da empresa (freelancers, PJs, open source) contribuem com código ou conteúdo",
+   "categoria": "pi",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "capta_investimento",
+   "rotulo": "Capta ou vai captar investimento (anjo, seed, venture)",
+   "categoria": "societario",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "b2c_consumidor",
+   "rotulo": "Vende ou oferece a consumidor final (pessoa física)",
+   "categoria": "comercial",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "b2b_clientes",
+   "rotulo": "Vende para empresas",
+   "categoria": "comercial",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "vende_governo",
+   "rotulo": "Vende ou pretende vender ao poder público",
+   "categoria": "comercial",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "clientes_enterprise_globais",
+   "rotulo": "Atende ou quer atender empresas grandes ou estrangeiras que exigem certificação e due diligence",
+   "categoria": "mercado",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "codigo_aberto_publicado",
+   "rotulo": "O código é publicado como open source",
+   "categoria": "pi",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "modelo_ia_proprio_distribuido",
+   "rotulo": "Distribui o próprio modelo de IA (pesos ou API de modelo de propósito geral)",
+   "categoria": "ia",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "agente_pequeno_porte",
+   "rotulo": "É microempresa, empresa de pequeno porte ou startup (agente de tratamento de pequeno porte)",
+   "categoria": "societario",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "acesso_provavel_menores",
+   "rotulo": "Produto direcionado a crianças e adolescentes ou de acesso provável por eles",
+   "categoria": "dados_sensiveis",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "conteudo_restrito_18",
+   "rotulo": "Oferece conteúdo, produto ou serviço impróprio ou proibido para menores de 18",
+   "categoria": "dados_sensiveis",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  },
+  {
+   "id": "limiar_privacidade_eua",
+   "rotulo": "Atinge os limiares das leis estaduais de privacidade dos EUA",
+   "categoria": "mercado",
+   "dependencias": [],
+   "arquivos": [],
+   "codigo": []
+  }
+ ]
+}

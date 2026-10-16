@@ -1,13 +1,22 @@
-# Aceitação da release 0.2.0
+# Aceitação da release 0.3.0
 
-**235 testes aprovados:** 200 do runtime Python, 13 de catálogo/montagem Git, 12 do grafo/JavaScript e 10 de navegador para a documentação local e falha de CDN.
+**278 testes aprovados:** 253 do runtime Python (53 novos do revisor `lz_revisor`), 13 de catálogo/montagem Git e 12 do grafo/JavaScript. Os 10 testes de navegador da 0.2.0 não foram reexecutados, porque a documentação visual não mudou.
 
-Relatório: `evidence/test-report-v0.2.0.json`. Os 169 workflows anteriores foram comparados byte a byte com o ZIP anexado e permanecem idênticos. Agora são 39 plugins, 176 workflows e 189 registros de fontes (inventário, não conectores).
+Relatório: `evidence/test-report-v0.3.0.json`. Agora são 40 plugins, 182 workflows e 192 registros de fontes (inventário, não conectores). O catálogo normativo do revisor tem 210 normas; 106 foram conferidas em fonte oficial.
 
-O navegador foi Chromium real. A documentação foi carregada de HTML próprio em memória. Os testes de indisponibilidade bloqueiam rede explicitamente; não substituem React Flow por mocks. O teste de ativação real da CDN também não completou: timeout e erro de resolução de nome. A visualização React Flow, o bundle npm e o CI remoto não foram homologados.
+Verificações no CLI oficial, nesta sessão:
+- `claude plugin validate`: passou para o marketplace e para `br-project-review`. O aviso sobre `CLAUDE.md` é esperado: o arquivo é o modelo de perfil de prática.
+- `claude mcp list`: o servidor `lz-revisor` aparece como conectado, com HOME isolado e `PYTHONPATH` apontando para `runtime/`.
 
-O build opcional foi tentado e bloqueou por ausência do pacote esbuild. Nenhum lockfile ou bundle externo foi fabricado. O renderizador local é imediatamente utilizável sem rede; o código React Flow é entregue para ativação online ou build local em ambiente conectado.
+Um revisor independente, somente leitura, testou o motor com projetos sintéticos. Os achados foram corrigidos e cada um ganhou caso de regressão. A lista está em [ENGINEERING-V03](ENGINEERING-V03.md#revisão-independente).
 
-Python 3.13.5, SQLite 3.46.1, v22.16.0 e Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie). Duração dos testes não é latência de inferência nem benchmark jurídico.
+Ambiente: Python 3.13.16, SQLite 3.45.1, Node v22.22.0, Linux. A duração dos testes não é latência de inferência nem benchmark jurídico.
 
-As 176 especificações semânticas não foram executadas como avaliação de LLM. Nenhum treinamento, corpus nacional completo, pipeline NER integral, conector oficial, autenticação institucional, protocolo jurídico ou publicação no GitHub foi realizado. Evidências anteriores em [ACCEPTANCE-V01.md](ACCEPTANCE-V01.md) e `test-report-v0.1.0.json` são históricas.
+Não foi feito nesta release:
+- Avaliação de LLM das 182 especificações semânticas.
+- Instalação pelo marketplace no cliente Claude.
+- Pesquisa de normas municipais e setoriais.
+- Conferência oficial de 104 normas (fonte secundária ou não localizada; nunca geram não conformidade).
+- Publicação da branch no GitHub.
+
+Evidências anteriores são históricas: [ACCEPTANCE-V02.md](ACCEPTANCE-V02.md), [ACCEPTANCE-V01.md](ACCEPTANCE-V01.md).

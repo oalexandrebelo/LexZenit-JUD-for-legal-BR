@@ -1,0 +1,12 @@
+Validating marketplace manifest: /home/claude/repo/LexZenit-JUD-for-legal-BR/.claude-plugin/marketplace.json
+
+√ Validation passed
+Validating plugin manifest: /home/claude/repo/LexZenit-JUD-for-legal-BR/br-project-review/.claude-plugin/plugin.json
+
+Validating plugin: /home/claude/repo/LexZenit-JUD-for-legal-BR/br-project-review/CLAUDE.md
+
+‼ Found 1 warning:
+
+  > root: CLAUDE.md at the plugin root is not loaded as project context. To ship context with your plugin, use a skill (skills/<name>/SKILL.md) instead.
+
+√ Validation passed with warnings

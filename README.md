@@ -9,7 +9,7 @@
 
 Uma solução **AB ED&IA Soluções em Tecnologia Ltda.** (CNPJ 57.531.384/0001-96).
 
-Raciocínio jurídico com lastro, do documento à evidência. 39 plugins, 176 workflows de Direito brasileiro e um núcleo local que guarda o original, reconhece citações sem autenticá-las por palpite, pseudonimiza e para na revisão humana.
+Raciocínio jurídico com lastro, do documento à evidência. 40 plugins, 182 workflows de Direito brasileiro, um revisor jurídico de projetos (N1 Brasil · N2 país · N3 mundo) e um núcleo local que guarda o original, reconhece citações sem autenticá-las por palpite, pseudonimiza e para na revisão humana.
 
 ![Explicação em 20 segundos: evidência, citações, privacidade e revisão](lexzenit/media/lexzenit-juridico.gif)
 
@@ -22,7 +22,7 @@ No Claude Code:
 /plugin install br-legal-engineering@legal-br
 ```
 
-Troque `br-legal-engineering` por qualquer uma das 39 áreas do marketplace `legal-br`. A instalação pelo marketplace ainda não foi homologada no cliente Claude nesta release.
+Troque `br-legal-engineering` por qualquer uma das 40 áreas do marketplace `legal-br`. A instalação pelo marketplace ainda não foi homologada no cliente Claude nesta release.
 
 CLI local (Python 3.11 ou superior):
 
@@ -41,15 +41,15 @@ python -m legal_br.engine citations --file examples/engineering/citations.txt
 | Vídeo explicativo (GIF e MP4) | [`lexzenit/media/`](lexzenit/media/) |
 | Marca (SVG e PNG, tinta e branco) | [`lexzenit/brand/`](lexzenit/brand/) |
 
-A pasta `lexzenit/` não faz parte do pacote 0.2.0 e não entra em `MANIFEST.sha256`.
+A pasta `lexzenit/` não faz parte do pacote e não entra em `MANIFEST.sha256`.
 
 ---
 
 ## Pacote: Claude para Jurídico
 
-**`claude-for-legal-br` · versão 0.2.0 · adaptação independente para o Brasil.**
+**`claude-for-legal-br` · versão 0.3.0 · adaptação independente para o Brasil.**
 
-39 plugins, 176 workflows e núcleo local de evidências. Esta release adiciona engenharia original de citações, estrutura LexML, pseudonimização e avaliação de triagem, com documentação interativa em React Flow e modo offline. Não é uma edição oficial da Anthropic, não cobre todo o Direito brasileiro de forma homologada e não substitui revisão profissional.
+40 plugins, 182 workflows e núcleo local de evidências. A 0.3.0 adiciona o revisor jurídico de projetos de IA e startups; a 0.2.0 trouxe engenharia de citações, estrutura LexML, pseudonimização e avaliação de triagem, com documentação interativa em React Flow e modo offline. Não é uma edição oficial da Anthropic, não cobre todo o Direito brasileiro de forma homologada e não substitui revisão profissional.
 
 ![Prévia do grafo local; React Flow é ativado no HTML](evidence/architecture-native-desktop.png)
 
@@ -57,7 +57,32 @@ A pasta `lexzenit/` não faz parte do pacote 0.2.0 e não entra em `MANIFEST.sha
 
 Abra **[a arquitetura interativa](apps/architecture/index.html)**; leia o **[estudo de oportunidades](research/OPORTUNIDADES.md)** e os **[contratos da versão](docs/ENGINEERING-V02.md)**. A arquitetura distingue código implementado, integração opcional, etapa humana e capacidade pendente.
 
-A camada preserva os 38 plugins e 169 workflows da 0.1.0, acrescentando `br-legal-engineering` com sete workflows. O [catálogo completo](docs/COVERAGE.md) é verificável no JSON `catalog/skills.json`. Workflows são instruções para análise, não 176 modelos ou integrações externas prontas.
+A camada preserva os 38 plugins e 169 workflows da 0.1.0, acrescentando `br-legal-engineering` (sete workflows, 0.2.0) e `br-project-review` (seis workflows, 0.3.0). O [catálogo completo](docs/COVERAGE.md) é verificável no JSON `catalog/skills.json`. Workflows são instruções para análise, não 182 modelos ou integrações externas prontas.
+
+## Revisor jurídico de projetos (N1 · N2 · N3)
+
+Mapeia o que um projeto de IA, SaaS ou startup precisa cumprir e o que já tem. **N1:** União e as 27 UFs, com alerta de competência constitucional. **N2:** EUA por padrão, ou o país soberano mais coerente com o mercado real. **N3:** UE extraterritorial, tratados e padrões globais. Contratos e limites em [ENGINEERING-V03](docs/ENGINEERING-V03.md).
+
+```text
+/plugin install br-project-review@legal-br
+/br-project-review:revisar-projeto
+```
+
+Motor local, a partir de `runtime/`:
+
+```bash
+python -m lz_revisor revisar /caminho/do/projeto --respostas respostas.json --saida revisao/
+python -m lz_revisor perguntas /caminho/do/projeto
+python -m lz_revisor normas --uf GO
+```
+
+Servidor MCP opcional, habilitado pelo operador a partir de `runtime/` (somente leitura, restrito às pastas de `--raiz`):
+
+```bash
+claude mcp add lz-revisor -e PYTHONPATH="$PWD" -- python3 -m lz_revisor mcp --raiz /caminho/dos/projetos
+```
+
+Catálogo de 210 normas: 106 conferidas em fonte oficial, as demais marcadas como fonte secundária ou não localizada. Só norma vigente, com fonte oficial conferida e gatilho forte, gera não conformidade. Projeto de lei fica no radar; sandbox e compras de inovação ficam em oportunidades. Documento localizado não prova conformidade. Normas municipais e setoriais não foram mapeadas, e Acre e Espírito Santo não têm norma estadual localizada.
 
 ## Conceito aproveitado e implementação
 
@@ -113,7 +138,7 @@ python -m unittest discover -s tests -v
 node --test apps/architecture/graph.test.mjs
 ```
 
-**235 testes aprovados nesta execução.** Relatório desta entrega: `evidence/test-report-v0.2.0.json`. Os testes de engenharia não demonstram acurácia jurídica, recall de NER ou desempenho de LLM. O build npm, a renderização React Flow e o CI remoto permanecem não homologados neste ambiente.
+**278 testes aprovados nesta execução** (253 do runtime, 13 de repositório, 12 do grafo); os 10 de navegador da 0.2.0 não foram reexecutados. Relatório: `evidence/test-report-v0.3.0.json`; aceitação em [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md). Os testes de engenharia não demonstram acurácia jurídica, recall de NER ou desempenho de LLM. O build npm, a renderização React Flow e o CI remoto permanecem não homologados neste ambiente.
 
 ## Publicação e proveniência
 

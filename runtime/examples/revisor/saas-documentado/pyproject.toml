@@ -1,0 +1,4 @@
+[project]
+name = "saas-documentado-sintetico"
+version = "0.1.0"
+dependencies = ["fastapi>=0.110", "anthropic>=0.30", "pgvector>=0.2", "sqlalchemy>=2"]

@@ -26,3 +26,21 @@ Atualização do upstream requer diff entre SHAs, revisão de permissões/licen�
 ## Evolução 0.2.0 — 14/10/2026
 
 Base local: commit `1ce7b53a206177d8453c7e620761d81188241f1f` da camada brasileira entregue anteriormente. Os 169 workflows foram preservados; sete novos foram adicionados em br-legal-engineering. Referências, licenças e conceito adotado estão em research/references.json. Nenhum código, dataset ou checkpoint de eyecite, LexML, LeNER-Br ou CAIL foi copiado. A documentação React Flow usa dependências opcionais, não bibliotecas embarcadas nesta distribuição. Estado de publicação em evidence/publication-attempt.json.
+
+## Evolução 0.3.0 — 16/10/2026
+
+Base: commit `4a1620e` (tag v0.2.0). Adicionados o plugin `br-project-review` (seis workflows), o motor `runtime/lz_revisor` e o catálogo normativo do revisor. As 15 minutas brasileiras foram redigidas para este pacote; nenhum texto de modelo de terceiro foi copiado.
+
+Repositórios públicos auditados em 16/10/2026 como referência de desenho, sem cópia de texto ou código:
+
+| Repositório | Licença observada | Aproveitamento |
+|---|---|---|
+| georgelinde887-sudo/nda-template-generator | MIT (titularidade inconsistente) | Nenhum texto; só a ideia de gerar minuta por campos |
+| ankane/awesome-legal | CC0-1.0 (só a lista) | Taxonomia de documentos de startup; a CC0 não cobre os documentos apontados (Cooley GO proíbe uso para treinar IA; Orrick é proprietária) |
+| Ro5s/Startup-Starter-Pack | MIT | Roteiro de fases; conteúdo desatualizado |
+| General-Legal/legal-templates | CC0-1.0 | Referência de estrutura; direito dos EUA, não adaptado |
+| General-Legal/general-legal-mcp | sem licença, sem código | Só o desenho de ferramentas |
+| legalize-kr/legalize-kr e admrule-kr | MIT declarado só no README | Arquitetura de legislação como código (norma por arquivo, metadados de vigência); servidor MCP local somente leitura |
+| ethicalml/awesome-artificial-intelligence-regulation | MIT | Lista de partida para N3; entradas conferidas na fonte antes de entrar no catálogo |
+
+Verificação das normas: 106 das 210 foram conferidas em fonte oficial (Planalto, Câmara, assembleias e casas civis estaduais, EUR-Lex, Federal Register, FTC, CPPA, procuradoria do Colorado, CAC, ISO, OCDE, Conselho da Europa). As demais estão marcadas como fonte secundária ou não localizada e nunca geram não conformidade. A pesquisa foi feita por agentes com orçamento de busca limitado; as leituras que sustentam as normas federais centrais foram refeitas pelo integrador no texto oficial.

@@ -1,0 +1,44 @@
+{
+  "catalogo": "valido",
+  "versao": "0.3.0",
+  "normas": 210,
+  "por_nivel": {
+    "N1": 171,
+    "N2": 26,
+    "N3": 13
+  },
+  "verificacao": {
+    "oficial_conferido": 106,
+    "nao_localizado": 16,
+    "fonte_secundaria": 88
+  },
+  "sinais": 50,
+  "evidencias": 38,
+  "ufs_com_normas": [
+    "AL",
+    "AM",
+    "AP",
+    "BA",
+    "CE",
+    "DF",
+    "GO",
+    "MA",
+    "MG",
+    "MS",
+    "MT",
+    "PA",
+    "PB",
+    "PE",
+    "PI",
+    "PR",
+    "RJ",
+    "RN",
+    "RO",
+    "RR",
+    "RS",
+    "SC",
+    "SE",
+    "SP",
+    "TO"
+  ]
+}

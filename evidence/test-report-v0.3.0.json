@@ -1,0 +1,74 @@
+{
+  "version": "0.3.0",
+  "executed_on": "2026-10-16",
+  "environment": {
+    "python": "3.13.16",
+    "sqlite": "3.45.1",
+    "platform": "Linux",
+    "node": "v22.22.0"
+  },
+  "suites": [
+    {
+      "suite": "runtime",
+      "tests": 253,
+      "passed": 253,
+      "failed": 0,
+      "seconds": 1.908,
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "evidence/runtime-tests-v0.3.0.txt",
+      "of_which_new_lz_revisor": 53
+    },
+    {
+      "suite": "repository",
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "seconds": 1.155,
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log": "evidence/repository-tests-v0.3.0.txt"
+    },
+    {
+      "suite": "graph",
+      "tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "command": [
+        "node",
+        "--test",
+        "apps/architecture/graph.test.mjs"
+      ],
+      "log": "evidence/graph-tests-v0.3.0.txt"
+    }
+  ],
+  "not_rerun": [
+    "browser_offline (10 testes de navegador da 0.2.0; a documentação visual não mudou)"
+  ],
+  "checks": {
+    "validate_br": "evidence/catalog-validation-v0.3.0.json",
+    "revisor_catalog": "evidence/revisor-catalog-v0.3.0.json",
+    "claude_plugin_validate": "evidence/claude-plugin-validate-v0.3.0.txt (marketplace e br-project-review: passed; aviso esperado sobre CLAUDE.md de perfil)",
+    "mcp_health": "evidence/mcp-health-v0.3.0.txt (claude mcp list: Connected, HOME isolado)",
+    "demo": "evidence/revisor-demo-app-ia-b2c-v0.3.0.md"
+  },
+  "independent_review": "Revisor separado somente leitura (2026-10-16); achados corrigidos com casos de regressão em runtime/tests/test_lz_revisor.py (classe RevisaoIndependenteTests).",
+  "not_claimed": [
+    "acurácia jurídica",
+    "avaliação semântica das 182 especificações",
+    "instalação pelo marketplace no cliente Claude",
+    "cobertura de normas municipais e setoriais"
+  ]
+}

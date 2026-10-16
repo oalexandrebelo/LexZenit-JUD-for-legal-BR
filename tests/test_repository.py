@@ -17,8 +17,8 @@ validator=module('validate_br');assembler=module('assemble_fork')
 class RepositoryTests(unittest.TestCase):
     def test_marketplace_and_all_contracts(self):
         report=validator.validate(ROOT)
-        self.assertEqual(report['plugins'],39)
-        self.assertEqual(report['skills'],176)
+        self.assertEqual(report['plugins'],40)
+        self.assertEqual(report['skills'],182)
 
     def test_sources_provenance_not_fabricated_connectors(self):
         for item in json.loads((ROOT/'catalog/sources.json').read_text()):

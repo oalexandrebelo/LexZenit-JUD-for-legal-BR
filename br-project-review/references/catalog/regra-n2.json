@@ -1,0 +1,89 @@
+{
+ "versao": "0.3.0",
+ "nota": "N2 é a segunda jurisdição do projeto. Padrão: EUA, quase padrão internacional para startups e IA. A regra troca o N2 quando outro país soberano é mais coerente com o mercado real do projeto. Avaliada em ordem; a primeira regra que casar decide. O motivo vai para o relatório. A exposição medida (receita, titulares, contratantes, regulador setorial, investidor) é decisão profissional: declare mercado_principal ou fixe pais_n2 quando a lista de países-alvo não refletir o peso real.",
+ "padrao": "US",
+ "jurisdicoes_disponiveis": {
+  "US": "Estados Unidos",
+  "EU": "União Europeia",
+  "PT": "Portugal (União Europeia)",
+  "ES": "Espanha (União Europeia)",
+  "DE": "Alemanha (União Europeia)",
+  "FR": "França (União Europeia)",
+  "IT": "Itália (União Europeia)",
+  "NL": "Países Baixos (União Europeia)",
+  "GB": "Reino Unido",
+  "CA": "Canadá",
+  "MX": "México",
+  "AR": "Argentina",
+  "CL": "Chile",
+  "CO": "Colômbia",
+  "CN": "China",
+  "KR": "Coreia do Sul"
+ },
+ "membros_ue": [
+  "AT",
+  "BE",
+  "BG",
+  "HR",
+  "CY",
+  "CZ",
+  "DK",
+  "EE",
+  "FI",
+  "FR",
+  "DE",
+  "GR",
+  "HU",
+  "IE",
+  "IT",
+  "LV",
+  "LT",
+  "LU",
+  "MT",
+  "NL",
+  "PL",
+  "PT",
+  "RO",
+  "SK",
+  "SI",
+  "ES",
+  "SE"
+ ],
+ "regras": [
+  {
+   "id": "fixado",
+   "quando": "pais_n2 informado no questionário",
+   "efeito": "usa o país informado"
+  },
+  {
+   "id": "mercado_principal",
+   "quando": "mercado_principal informado (país estrangeiro com maior receita ou usuários)",
+   "efeito": "usa esse país; membro da UE leva a regra UE"
+  },
+  {
+   "id": "eua_no_alvo",
+   "quando": "paises_alvo inclui US",
+   "efeito": "US"
+  },
+  {
+   "id": "primeiro_alvo_estrangeiro",
+   "quando": "paises_alvo tem país fora do Brasil",
+   "efeito": "o primeiro país estrangeiro da lista; membro da UE leva a regra UE com o país anotado"
+  },
+  {
+   "id": "sinal_ue",
+   "quando": "sinal publico_ue detectado e nenhum país declarado",
+   "efeito": "EU"
+  },
+  {
+   "id": "sinal_reino_unido",
+   "quando": "sinal publico_reino_unido detectado e nenhum país declarado",
+   "efeito": "GB"
+  },
+  {
+   "id": "padrao",
+   "quando": "nenhuma regra acima",
+   "efeito": "US (padrão)"
+  }
+ ]
+}

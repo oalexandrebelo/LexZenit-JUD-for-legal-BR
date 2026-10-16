@@ -1,3 +1,7 @@
+# 0.3.0 — 2026-10-16
+
+Revisor jurídico de projetos de IA e startups em três níveis: N1 Brasil (União e UFs), N2 país (EUA por padrão ou o país mais coerente com o mercado) e N3 mundo. Adicionado `br-project-review`, elevando o catálogo a 40 plugins e 182 workflows. Motor local `runtime/lz_revisor` com scanner de código, lógica de três valores, CLI e servidor MCP por stdio de ativação explícita. Catálogo de 210 normas (19 federais, 152 estaduais em 25 UFs, 26 do N2, 13 do N3), 106 conferidas em fonte oficial; 15 minutas brasileiras. 53 testes novos. Normas municipais e setoriais fora do escopo; Acre e Espírito Santo sem norma estadual localizada.
+
 # 0.2.0 — 2026-10-14
 
 Engenharia local de citações BR/CNJ/ECLI, leitor XML de subconjunto LexML, alinhamento BIO, pseudonimização HMAC escopada e harness de avaliação com abstenção. Adicionado `br-legal-engineering`, elevando o catálogo a 39 plugins e 176 workflows. Fontes de eyecite, LexML, LeNER-Br, ECLI e CAIL atribuídas sem dependência obrigatória dos repositórios. Open-ECLI-Utils permanece não confirmado. Documentação interativa React Flow com alternativa local independente; testes do modo offline e de falha de CDN. Publicação remota não concluída.

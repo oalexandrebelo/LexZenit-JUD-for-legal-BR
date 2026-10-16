@@ -1,0 +1,1009 @@
+{
+ "gerado_em": "2026-10-16",
+ "nota": "Normas da União. Fonte oficial conferida no Planalto e na Câmara em 2026-10-16 quando marcada.",
+ "normas": [
+  {
+   "id": "BR-LGPD",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Lei Geral de Proteção de Dados Pessoais (LGPD)",
+   "citacao": "Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026)",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "dados_pessoais",
+   "obrigacoes": [
+    {
+     "id": "transparencia",
+     "texto": "Informar ao titular, de forma clara e acessível, finalidade, forma e duração do tratamento, identificação do controlador, compartilhamento e direitos",
+     "dispositivo": "art. 9º",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "politica_privacidade"
+     ],
+     "modelo": "politica-privacidade"
+    },
+    {
+     "id": "base-legal-registro",
+     "texto": "Definir a hipótese legal de cada tratamento e manter registro das operações",
+     "dispositivo": "arts. 7º e 37",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "registro_operacoes"
+     ],
+     "modelo": "registro-operacoes"
+    },
+    {
+     "id": "direitos-titular",
+     "texto": "Atender os direitos do titular: confirmação, acesso, correção, anonimização ou eliminação, portabilidade, informação sobre compartilhamento e revogação do consentimento",
+     "dispositivo": "art. 18",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "canal_titular"
+     ],
+     "modelo": "politica-privacidade"
+    },
+    {
+     "id": "encarregado",
+     "texto": "Indicar encarregado e divulgar publicamente identidade e contato",
+     "dispositivo": "art. 41, caput e § 1º",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "encarregado_publicado"
+     ],
+     "gatilho": {
+      "nao": "agente_pequeno_porte"
+     },
+     "modelo": "politica-privacidade"
+    },
+    {
+     "id": "seguranca-incidentes",
+     "texto": "Adotar medidas de segurança técnicas e administrativas e comunicar à ANPD e ao titular incidente que possa acarretar risco ou dano relevante",
+     "dispositivo": "arts. 46 e 48",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "plano_incidentes"
+     ],
+     "modelo": "plano-incidentes"
+    },
+    {
+     "id": "operadores",
+     "texto": "Formalizar as instruções aos operadores (nuvem, APIs de IA, analytics, pagamentos) por contrato",
+     "dispositivo": "art. 39",
+     "natureza": "boa_pratica",
+     "severidade": "media",
+     "evidencias": [
+      "dpa_operadores"
+     ],
+     "gatilho": "dependencias_terceiros",
+     "modelo": "dpa-operador"
+    },
+    {
+     "id": "dados-sensiveis",
+     "texto": "Tratar dado sensível (saúde, biometria) só nas hipóteses do art. 11, como consentimento específico e destacado, com avaliação documentada",
+     "dispositivo": "art. 11",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "registro_operacoes",
+      "ripd"
+     ],
+     "gatilho": {
+      "algum": [
+       "dados_saude",
+       "biometria"
+      ]
+     },
+     "modelo": "ripd"
+    },
+    {
+     "id": "criancas",
+     "texto": "Dado de criança e adolescente no melhor interesse; para criança, consentimento específico e em destaque de um dos pais ou do responsável",
+     "dispositivo": "art. 14, caput e § 1º",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "consentimento_parental"
+     ],
+     "gatilho": "dados_criancas"
+    },
+    {
+     "id": "revisao-decisao-automatizada",
+     "texto": "Permitir pedido de revisão de decisão tomada unicamente com base em tratamento automatizado e informar critérios e procedimentos quando solicitado",
+     "dispositivo": "art. 20, caput e § 1º",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "canal_titular",
+      "documentacao_ia"
+     ],
+     "gatilho": "ia_decisao_automatizada",
+     "modelo": "aviso-ia"
+    },
+    {
+     "id": "transferencia-internacional",
+     "texto": "Transferir dados ao exterior só nas hipóteses legais (país adequado, cláusulas, garantias)",
+     "dispositivo": "art. 33",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "transferencia_internacional"
+     ],
+     "gatilho": "hospedagem_exterior",
+     "modelo": "dpa-operador"
+    },
+    {
+     "id": "ripd",
+     "texto": "Elaborar relatório de impacto para tratamentos de risco (a lei o exige quando a ANPD determinar)",
+     "dispositivo": "arts. 10, § 3º, e 38",
+     "natureza": "boa_pratica",
+     "severidade": "media",
+     "evidencias": [
+      "ripd"
+     ],
+     "gatilho": {
+      "algum": [
+       "dados_saude",
+       "biometria",
+       "dados_criancas",
+       "ia_decisao_automatizada",
+       "ia_treino_modelo"
+      ]
+     },
+     "modelo": "ripd"
+    },
+    {
+     "id": "cookies",
+     "texto": "Base legal e informação para cookies e rastreadores não essenciais",
+     "dispositivo": "arts. 7º e 9º; Guia orientativo da ANPD sobre cookies (não conferido nesta versão)",
+     "natureza": "boa_pratica",
+     "severidade": "media",
+     "evidencias": [
+      "politica_cookies"
+     ],
+     "gatilho": "rastreamento_cookies",
+     "modelo": "politica-cookies"
+    }
+   ],
+   "notas": "Sanção: art. 52, II, multa de até 2% do faturamento, limitada a R$ 50 milhões por infração. A Lei 15.352/2026 (25/02/2026) fez da ANPD autarquia de natureza especial (art. 55-A) e mudou a definição de encarregado (art. 5º, VIII). Regulamentos da ANPD em BR-ANPD-REGULAMENTOS. Competência privativa da União para legislar sobre dados pessoais (CF, art. 22, XXX, EC 115/2022, conferido): lei estadual que crie deveres de proteção de dados para particulares tende à inconstitucionalidade."
+  },
+  {
+   "id": "BR-ANPD-REGULAMENTOS",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Regulamentos do Conselho Diretor da ANPD (pequeno porte, incidentes, encarregado, transferência)",
+   "citacao": "Res. CD/ANPD 2/2022, 15/2024, 18/2024 e 19/2024",
+   "tipo": "resolucao",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "dados_pessoais",
+   "obrigacoes": [
+    {
+     "id": "prazo-incidente",
+     "texto": "Comunicar incidente relevante à ANPD e aos titulares no prazo do regulamento (3 dias úteis, segundo a Res. CD/ANPD 15/2024)",
+     "dispositivo": "Res. CD/ANPD 15/2024",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "plano_incidentes"
+     ],
+     "modelo": "plano-incidentes"
+    },
+    {
+     "id": "pequeno-porte",
+     "texto": "Agente de pequeno porte: registro simplificado e dispensa de encarregado, mantido canal de comunicação com o titular",
+     "dispositivo": "Res. CD/ANPD 2/2022",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "canal_titular"
+     ],
+     "gatilho": "agente_pequeno_porte"
+    },
+    {
+     "id": "clausulas-padrao",
+     "texto": "Usar mecanismo do regulamento de transferência internacional, como as cláusulas-padrão da ANPD",
+     "dispositivo": "Res. CD/ANPD 19/2024",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "transferencia_internacional"
+     ],
+     "gatilho": "hospedagem_exterior",
+     "modelo": "dpa-operador"
+    }
+   ],
+   "notas": "Conhecimento prévio, não conferido no texto oficial nesta versão (portal da ANPD não acessado). Conferir números, prazos e vigência antes de usar. A Decisão de adequação da UE para o Brasil (2026/179) cita a Res. CD/ANPD 19, de 23/08/2024."
+  },
+  {
+   "id": "BR-CDC",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Código de Defesa do Consumidor",
+   "citacao": "Lei 8.078, de 11/09/1990 (texto compilado)",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "b2c_consumidor",
+   "obrigacoes": [
+    {
+     "id": "informacao",
+     "texto": "Informação adequada, clara e ostensiva sobre o produto ou serviço, inclusive preço, características e riscos",
+     "dispositivo": "arts. 6º, III, e 31",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "termos_uso"
+     ],
+     "modelo": "termos-de-uso"
+    },
+    {
+     "id": "arrependimento",
+     "texto": "Direito de arrependimento de 7 dias em contratação fora do estabelecimento, com devolução imediata dos valores",
+     "dispositivo": "art. 49",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "direito_arrependimento"
+     ],
+     "gatilho": "pagamentos",
+     "modelo": "termos-de-uso"
+    },
+    {
+     "id": "contrato-adesao",
+     "texto": "Contrato de adesão em termos claros e legíveis; cláusulas que limitam direitos em destaque",
+     "dispositivo": "art. 54, §§ 3º e 4º",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "termos_uso"
+     ],
+     "modelo": "termos-de-uso"
+    }
+   ],
+   "notas": "A MP 1.393/2026 alterou o art. 57 (multas); a conversão em lei não foi conferida."
+  },
+  {
+   "id": "BR-DEC-7962",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Decreto do Comércio Eletrônico",
+   "citacao": "Decreto 7.962, de 15/03/2013",
+   "tipo": "decreto",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "b2c_consumidor",
+     "pagamentos"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "identificacao",
+     "texto": "Nome empresarial, CNPJ, endereço físico e eletrônico em local de destaque",
+     "dispositivo": "art. 2º, I e II",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "identificacao_fornecedor"
+     ],
+     "modelo": "termos-de-uso"
+    },
+    {
+     "id": "atendimento",
+     "texto": "Sumário do contrato antes da contratação, confirmação imediata e atendimento eletrônico eficaz",
+     "dispositivo": "art. 4º, I, III e V",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "atendimento_consumidor",
+      "termos_uso"
+     ],
+     "modelo": "termos-de-uso"
+    },
+    {
+     "id": "meio-arrependimento",
+     "texto": "Informar os meios de arrependimento e aceitá-lo pela mesma ferramenta da contratação",
+     "dispositivo": "art. 5º, caput e § 1º",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "direito_arrependimento"
+     ],
+     "modelo": "termos-de-uso"
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "BR-MCI",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Marco Civil da Internet",
+   "citacao": "Lei 12.965, de 23/04/2014",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "web_publico",
+     "app_mobile"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "informacao-dados",
+     "texto": "Informações claras e completas sobre coleta, uso, armazenamento, tratamento e proteção de dados pessoais",
+     "dispositivo": "art. 7º, VIII",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "politica_privacidade"
+     ],
+     "modelo": "politica-privacidade"
+    },
+    {
+     "id": "guarda-registros",
+     "texto": "Pessoa jurídica que explora aplicação com fins econômicos mantém registros de acesso por 6 meses, sob sigilo e em ambiente seguro",
+     "dispositivo": "art. 15",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "guarda_registros_acesso"
+     ],
+     "gatilho": "empresa_constituida"
+    },
+    {
+     "id": "conteudo-intimo",
+     "texto": "Remover, após notificação do participante, nudez ou ato sexual privado divulgado sem autorização; sem isso o provedor responde subsidiariamente",
+     "dispositivo": "art. 21",
+     "natureza": "boa_pratica",
+     "severidade": "alta",
+     "evidencias": [
+      "moderacao_denuncia"
+     ],
+     "gatilho": "conteudo_usuario",
+     "modelo": "termos-de-uso"
+    }
+   ],
+   "notas": "O STF declarou o art. 19 parcialmente inconstitucional em jun/2025 (ver BR-STF-T987-533). Dispositivos da MP 1.068/2021 constam como rejeitados. Regulamento: Decreto 8.771/2016 (não conferido)."
+  },
+  {
+   "id": "BR-STF-T987-533",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "STF — responsabilidade de provedores por conteúdo de terceiros (Temas 987 e 533)",
+   "citacao": "RE 1.037.396 e RE 1.057.258, julgados em jun/2025",
+   "tipo": "precedente",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.barbieriadvogados.com/regulamentacao-inteligencia-artificial-brasil/",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "conteudo_usuario",
+   "obrigacoes": [
+    {
+     "id": "notificacao-remocao",
+     "texto": "Sistema de notificação extrajudicial e remoção de conteúdo ilícito, com devido processo",
+     "dispositivo": "Temas 987 e 533",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "moderacao_denuncia"
+     ],
+     "modelo": "termos-de-uso"
+    },
+    {
+     "id": "dever-cuidado",
+     "texto": "Dever de cuidado contra circulação massiva de conteúdos ilícitos graves (falha sistêmica)",
+     "dispositivo": "Temas 987 e 533",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "moderacao_denuncia",
+      "politica_uso_aceitavel"
+     ],
+     "modelo": "politica-uso-aceitavel"
+    },
+    {
+     "id": "autorregulacao",
+     "texto": "Regras de autorregulação: termos, relatórios anuais de transparência e canais de atendimento acessíveis",
+     "dispositivo": "Temas 987 e 533",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "termos_uso"
+     ],
+     "modelo": "termos-de-uso"
+    }
+   ],
+   "notas": "Tese literal e acórdão não conferidos no portal do STF. Comunicações interpessoais (e-mail, mensageria privada) seguem o art. 19; marketplaces respondem pelo CDC. Fonte secundária: nunca gera não conformidade."
+  },
+  {
+   "id": "BR-ECA-DIGITAL",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Estatuto Digital da Criança e do Adolescente (ECA Digital)",
+   "citacao": "Lei 15.211, de 17/09/2025; vigência em 17/03/2026 (art. 41-A, incluído pela Lei 15.352/2026)",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15211.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": true,
+   "obrigacoes": [
+    {
+     "id": "padrao-protetivo",
+     "texto": "Prevenir riscos desde a concepção e configurar por padrão o modelo mais protetivo de privacidade",
+     "dispositivo": "arts. 6º e 7º",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "protecao_menores"
+     ],
+     "gatilho": {
+      "algum": [
+       "dados_criancas",
+       "acesso_provavel_menores"
+      ]
+     }
+    },
+    {
+     "id": "supervisao-parental",
+     "texto": "Ferramentas de supervisão parental acessíveis e fáceis de usar",
+     "dispositivo": "arts. 17 e 18",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "consentimento_parental",
+      "protecao_menores"
+     ],
+     "gatilho": {
+      "algum": [
+       "dados_criancas",
+       "acesso_provavel_menores"
+      ]
+     }
+    },
+    {
+     "id": "contas-ate-16",
+     "texto": "Rede social: contas de usuários de até 16 anos vinculadas a um responsável legal",
+     "dispositivo": "art. 24",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "consentimento_parental"
+     ],
+     "gatilho": {
+      "todos": [
+       {
+        "algum": [
+         "dados_criancas",
+         "acesso_provavel_menores"
+        ]
+       },
+       "conteudo_usuario"
+      ]
+     }
+    },
+    {
+     "id": "perfilamento-publicidade",
+     "texto": "Não usar perfilamento, análise emocional ou realidade aumentada ou virtual para direcionar publicidade comercial a crianças e adolescentes",
+     "dispositivo": "art. 22",
+     "natureza": "vedacao",
+     "severidade": "alta",
+     "evidencias": [
+      "protecao_menores"
+     ],
+     "gatilho": {
+      "todos": [
+       {
+        "algum": [
+         "dados_criancas",
+         "acesso_provavel_menores"
+        ]
+       },
+       {
+        "algum": [
+         "rastreamento_cookies",
+         "comunicacao_marketing"
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "verificacao-idade",
+     "texto": "Conteúdo, produto ou serviço impróprio para menores de 18: verificação de idade confiável a cada acesso, vedada a autodeclaração",
+     "dispositivo": "art. 9º, caput e § 1º",
+     "natureza": "obrigacao_legal",
+     "severidade": "critica",
+     "evidencias": [
+      "verificacao_idade"
+     ],
+     "gatilho": "conteudo_restrito_18"
+    },
+    {
+     "id": "exploracao-sexual",
+     "texto": "Remover e comunicar às autoridades conteúdo de aparente exploração ou abuso sexual, sequestro ou aliciamento",
+     "dispositivo": "art. 27",
+     "natureza": "obrigacao_legal",
+     "severidade": "critica",
+     "evidencias": [
+      "moderacao_denuncia"
+     ],
+     "gatilho": "conteudo_usuario"
+    }
+   ],
+   "notas": "Art. 1º: alcança produto ou serviço direcionado a crianças e adolescentes ou de acesso provável por eles. Art. 39: deveres proporcionais a funcionalidades, controle de conteúdo, número de usuários e porte. Art. 20: proíbe loot boxes em jogos direcionados a menores. Art. 31: relatório semestral acima de 1 milhão de usuários menores. Art. 40: representante legal no País. Art. 35: multa de até 10% do faturamento no Brasil ou de R$ 10 a R$ 1.000 por usuário, limitada a R$ 50 milhões por infração.",
+   "vigencia": {
+    "inicio": "2026-03-17"
+   }
+  },
+  {
+   "id": "BR-LBI-ART63",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Lei Brasileira de Inclusão — acessibilidade de sítios",
+   "citacao": "Lei 13.146, de 06/07/2015, art. 63",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "web_publico",
+     "empresa_constituida"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "acessibilidade",
+     "texto": "Sítio acessível conforme as melhores práticas internacionais (WCAG) e símbolo de acessibilidade em destaque",
+     "dispositivo": "art. 63, caput e § 1º",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "acessibilidade"
+     ]
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "BR-LEI-SOFTWARE",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Lei do Software — titularidade do programa",
+   "citacao": "Lei 9.609, de 19/02/1998, art. 4º",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l9609.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "colaboradores_externos",
+     "socios_multiplos"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "titularidade",
+     "texto": "Formalizar a titularidade do código feito por sócios, empregados, prestadores, bolsistas e estagiários; sem contrato, depende de provar vínculo e finalidade (art. 4º, § 2º)",
+     "dispositivo": "art. 4º",
+     "natureza": "exigencia_mercado",
+     "severidade": "alta",
+     "evidencias": [
+      "cessao_pi"
+     ],
+     "modelo": "cessao-pi"
+    },
+    {
+     "id": "confidencialidade",
+     "texto": "Acordo de confidencialidade com quem acessa código, dados e modelos",
+     "dispositivo": null,
+     "natureza": "exigencia_mercado",
+     "severidade": "media",
+     "evidencias": [
+      "nda"
+     ],
+     "gatilho": "colaboradores_externos",
+     "modelo": "nda-mutuo"
+    }
+   ],
+   "notas": "Art. 4º: salvo estipulação em contrário, os direitos sobre programa desenvolvido no contrato pertencem ao empregador ou contratante. Investidores pedem a cessão por escrito em due diligence."
+  },
+  {
+   "id": "BR-LC182",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Marco Legal das Startups — regimes de incentivo",
+   "citacao": "Lei Complementar 182, de 01/06/2021",
+   "tipo": "lei_complementar",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp182.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "oportunidade",
+   "gatilho": true,
+   "obrigacoes": [
+    {
+     "id": "p1",
+     "texto": "Enquadramento como startup: receita bruta de até R$ 16 milhões no ano anterior, até 10 anos de CNPJ e declaração de modelo inovador (art. 4º)",
+     "dispositivo": null,
+     "natureza": "boa_pratica",
+     "severidade": "baixa",
+     "evidencias": []
+    },
+    {
+     "id": "p2",
+     "texto": "Ambiente regulatório experimental (sandbox) dos reguladores setoriais (art. 11)",
+     "dispositivo": null,
+     "natureza": "boa_pratica",
+     "severidade": "baixa",
+     "evidencias": []
+    },
+    {
+     "id": "p3",
+     "texto": "Contrato Público para Solução Inovadora: até 12 meses, prorrogável por mais 12, até R$ 1,6 milhão (arts. 13 e 14)",
+     "dispositivo": null,
+     "natureza": "boa_pratica",
+     "severidade": "baixa",
+     "evidencias": []
+    },
+    {
+     "id": "p4",
+     "texto": "Investidor pelos instrumentos do art. 5º não é sócio nem responde por dívidas, salvo dolo, fraude ou simulação (art. 8º)",
+     "dispositivo": null,
+     "natureza": "boa_pratica",
+     "severidade": "baixa",
+     "evidencias": []
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "BR-LC182-APORTE",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Marco Legal das Startups — formalização do aporte",
+   "citacao": "Lei Complementar 182/2021, arts. 5º e 8º",
+   "tipo": "lei_complementar",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp182.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "capta_investimento",
+   "obrigacoes": [
+    {
+     "id": "instrumento",
+     "texto": "Formalizar o aporte em instrumento escrito (mútuo conversível, investimento-anjo e outros do art. 5º, § 1º) com regras de conversão e não responsabilização do investidor",
+     "dispositivo": "arts. 5º, § 1º, e 8º",
+     "natureza": "exigencia_mercado",
+     "severidade": "alta",
+     "evidencias": [
+      "instrumento_investimento"
+     ],
+     "modelo": "term-sheet-investimento"
+    },
+    {
+     "id": "acordo-socios",
+     "texto": "Acordo de sócios com vesting, saída e governança antes da rodada",
+     "dispositivo": null,
+     "natureza": "exigencia_mercado",
+     "severidade": "alta",
+     "evidencias": [
+      "acordo_socios"
+     ],
+     "gatilho": "socios_multiplos",
+     "modelo": "acordo-fundadores"
+    }
+   ],
+   "notas": "Vesting e acordo de sócios são prática de mercado; não decorrem da LC 182."
+  },
+  {
+   "id": "BR-ESTATUTO-OAB",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Estatuto da Advocacia — atividade privativa",
+   "citacao": "Lei 8.906, de 04/07/1994, arts. 1º e 4º",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8906.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "setor_juridico",
+     "b2c_consumidor"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "atividade-privativa",
+     "texto": "Consultoria e assessoria jurídicas são privativas de advogado: IA jurídica para o público se apresenta como ferramenta, com revisão de advogado inscrito, sem prometer parecer",
+     "dispositivo": "arts. 1º, II, e 4º",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "termos_uso",
+      "aviso_ia"
+     ],
+     "modelo": "aviso-ia"
+    }
+   ],
+   "notas": "Atos privativos praticados por não inscrito são nulos (art. 4º). Recomendação do Conselho Federal da OAB sobre IA generativa não conferida."
+  },
+  {
+   "id": "BR-TSE-IA-ELEICOES",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "TSE — IA na propaganda eleitoral",
+   "citacao": "Res. TSE 23.610/2019, alterada em 2024 e em 2026 (número não conferido)",
+   "tipo": "resolucao",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.tse.jus.br/comunicacao/noticias/2026/Marco/tse-aprova-calendario-eleitoral-e-regulamenta-uso-de-ia-nas-eleicoes-2026",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "setor_eleitoral",
+   "obrigacoes": [
+    {
+     "id": "rotulo",
+     "texto": "Rotular de forma explícita conteúdo sintético usado em propaganda eleitoral",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "rotulagem_conteudo_sintetico"
+     ],
+     "gatilho": "ia_conteudo_sintetico",
+     "modelo": "aviso-ia"
+    },
+    {
+     "id": "vedacoes",
+     "texto": "Vedado deepfake para prejudicar ou favorecer candidatura e chatbot ou avatar que simule candidato ou pessoa real",
+     "dispositivo": null,
+     "natureza": "vedacao",
+     "severidade": "critica",
+     "evidencias": [
+      "politica_uso_aceitavel"
+     ],
+     "gatilho": {
+      "algum": [
+       "ia_conteudo_sintetico",
+       "chatbot_publico"
+      ]
+     },
+     "modelo": "politica-uso-aceitavel"
+    }
+   ],
+   "notas": "Conteúdo de fonte secundária; resolução consolidada não lida no portal do TSE."
+  },
+  {
+   "id": "BR-CNJ-615",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "CNJ — IA no Poder Judiciário",
+   "citacao": "Resolução CNJ 615/2025",
+   "tipo": "resolucao",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.barbieriadvogados.com/regulamentacao-inteligencia-artificial-brasil/",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "setor_juridico",
+     "vende_governo"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "governanca-tribunais",
+     "texto": "Sistema de IA fornecido a tribunais: classificação de risco, supervisão humana, transparência e auditabilidade",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "avaliacao_impacto_ia",
+      "supervisao_humana"
+     ],
+     "modelo": "avaliacao-impacto-ia"
+    }
+   ],
+   "notas": "Substituiu a Res. CNJ 332/2020 (fonte secundária). Artigos não conferidos."
+  },
+  {
+   "id": "BR-ANVISA-SAMD",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "ANVISA — software como dispositivo médico",
+   "citacao": "RDC ANVISA 657/2022 (não conferida)",
+   "tipo": "resolucao",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "setor_saude",
+   "obrigacoes": [
+    {
+     "id": "regularizacao",
+     "texto": "Avaliar se o software tem finalidade médica e exige regularização na ANVISA",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "regularizacao_setorial"
+     ]
+    }
+   ],
+   "notas": "Conhecimento prévio; conferir RDC vigente e o enquadramento com regulatório de saúde."
+  },
+  {
+   "id": "BR-SFN-REGULACAO",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Regulação do Sistema Financeiro para fintechs",
+   "citacao": "Lei 12.865/2013 (arranjos de pagamento) e Res. CMN 4.893/2021 (segurança cibernética e nuvem), não conferidas",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "setor_financeiro",
+   "obrigacoes": [
+    {
+     "id": "autorizacao",
+     "texto": "Avaliar se a atividade exige autorização do Banco Central (instituição de pagamento, SCD, SEP) ou da CVM",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "regularizacao_setorial"
+     ]
+    },
+    {
+     "id": "ciberseguranca",
+     "texto": "Instituição autorizada: política de segurança cibernética e regras de contratação de nuvem",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "sgsi"
+     ]
+    }
+   ],
+   "notas": "Conhecimento prévio; conferir normas do BCB, CMN e CVM vigentes."
+  },
+  {
+   "id": "BR-PL-2338-2023",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Marco legal da Inteligência Artificial (PL 2.338/2023)",
+   "citacao": "PL 2.338/2023 — aprovado no Senado em 10/12/2024; na Câmara, Comissão Especial, aguardando parecer do relator",
+   "tipo": "projeto_de_lei",
+   "status": "em_tramitacao",
+   "fonte": {
+    "url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2487262",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "ia_generativa",
+     "ia_decisao_automatizada",
+     "ia_agente",
+     "chatbot_publico",
+     "ia_treino_modelo",
+     "ia_rag_vetorial",
+     "ia_conteudo_sintetico"
+    ]
+   },
+   "obrigacoes": [],
+   "notas": "Ficha da Câmara: 'Aguardando Parecer do Relator' (Dep. Aguinaldo Ribeiro), sem substitutivo; última movimentação em 02/09/2026; relator indicou votação após as eleições. Texto de referência: autógrafo do Senado (alto risco no art. 14, avaliação preliminar facultativa no art. 12, direitos autorais nos arts. 62 a 66). Se a Câmara alterar, volta ao Senado."
+  },
+  {
+   "id": "BR-PL-3967-2025",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Identificação obrigatória de conteúdo gerado por IA (PL 3.967/2025)",
+   "citacao": "PL 3.967/2025 — altera o Marco Civil; apensado ao PL 2.338/2023",
+   "tipo": "projeto_de_lei",
+   "status": "em_tramitacao",
+   "fonte": {
+    "url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2543191",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "ia_conteudo_sintetico",
+   "obrigacoes": [],
+   "notas": ""
+  },
+  {
+   "id": "BR-PL-6237-2025",
+   "nivel": "N1",
+   "jurisdicao": "BR",
+   "nome": "Sistema Nacional de IA (PL 6.237/2025)",
+   "citacao": "PL 6.237/2025 — do Executivo; apensado ao PL 2.338/2023 (fonte secundária)",
+   "tipo": "projeto_de_lei",
+   "status": "em_tramitacao",
+   "fonte": {
+    "url": "https://www.planalto.gov.br/ccivil_03/projetos/ato_2023_2026/2025/pl/pl-6237.htm",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "ia_generativa",
+     "ia_decisao_automatizada",
+     "ia_agente",
+     "chatbot_publico",
+     "ia_treino_modelo",
+     "ia_rag_vetorial",
+     "ia_conteudo_sintetico"
+    ]
+   },
+   "obrigacoes": [],
+   "notas": ""
+  }
+ ]
+}
