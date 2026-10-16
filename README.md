@@ -36,7 +36,7 @@ python -m legal_br.engine citations --file examples/engineering/citations.txt
 
 | O quê | Onde |
 |---|---|
-| Landing page (abre offline no navegador) | [`lexzenit/site/index.html`](lexzenit/site/index.html) |
+| Landing page | [oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR](https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/) · cópia offline em [`lexzenit/site/index.html`](lexzenit/site/index.html) |
 | Apresentação (PowerPoint, 15 slides) | [`lexzenit/media/lexzenit-juridico.pptx`](lexzenit/media/lexzenit-juridico.pptx) |
 | Vídeo explicativo (GIF e MP4) | [`lexzenit/media/`](lexzenit/media/) |
 | Marca (SVG e PNG, tinta e branco) | [`lexzenit/brand/`](lexzenit/brand/) |

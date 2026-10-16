@@ -1,5 +1,6 @@
 {
   "name": "legal-br",
+  "description": "LexZenit · skill jurídica para o Claude: 39 plugins de Direito brasileiro com evidências locais, citações rastreáveis, pseudonimização e revisão profissional obrigatória. Adaptação independente, não oficial da Anthropic.",
   "owner": {
     "name": "AB — Alexandre Belo"
   },
