@@ -1,9 +1,9 @@
 Validating marketplace manifest: /home/claude/repo/LexZenit-JUD-for-legal-BR/.claude-plugin/marketplace.json
 
 √ Validation passed
-Validating plugin manifest: /home/claude/repo/LexZenit-JUD-for-legal-BR/br-project-review/.claude-plugin/plugin.json
+Validating plugin manifest: /home/claude/repo/LexZenit-JUD-for-legal-BR/ab-lexzenit-project-review/.claude-plugin/plugin.json
 
-Validating plugin: /home/claude/repo/LexZenit-JUD-for-legal-BR/br-project-review/CLAUDE.md
+Validating plugin: /home/claude/repo/LexZenit-JUD-for-legal-BR/ab-lexzenit-project-review/CLAUDE.md
 
 ‼ Found 1 warning:
 

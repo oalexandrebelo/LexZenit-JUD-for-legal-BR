@@ -400,6 +400,122 @@ class RevisaoIndependenteTests(unittest.TestCase):
             self.assertFalse([a for a in firmes if "telemarketing_cobranca" in a["sinais_gatilho"] or "sac_telefonico" in a["sinais_gatilho"]])
 
 
+class RadarTests(unittest.TestCase):
+    def test_radar_usa_ficha_da_camara_e_marca_mudanca(self):
+        from lz_revisor import radar
+        chamadas = []
+        def fake(url):
+            chamadas.append(url)
+            return {"dados": {"siglaTipo": "PL", "numero": 2338, "ano": 2023,
+                              "statusProposicao": {"dataHora": "2026-11-20T10:00", "descricaoSituacao": "Aguardando Parecer",
+                                                   "descricaoTramitacao": "Notificação", "siglaOrgao": "PL233823", "despacho": "x"}}}
+        itens = radar.consultar(CAT, fetch=fake)
+        self.assertTrue(itens)
+        self.assertTrue(all(u.startswith("https://dadosabertos.camara.leg.br/api/v2/proposicoes/") for u in chamadas))
+        pl = next(i for i in itens if i["norma_id"] == "BR-PL-2338-2023")
+        self.assertEqual((pl["proposicao"], pl["mudou"]), ("PL 2338/2023", True))
+        self.assertIn("PL 2338/2023", radar.to_markdown(itens))
+
+    def test_radar_registra_erro_sem_parar(self):
+        from lz_revisor import radar
+        def falha(url):
+            raise OSError("sem rede")
+        itens = radar.consultar(CAT, fetch=falha)
+        self.assertTrue(all("erro" in i for i in itens))
+
+    def test_radar_recusa_outro_host(self):
+        from lz_revisor import radar
+        with self.assertRaises(ValueError):
+            radar._fetch("https://example.com/api")
+
+
+class DivergenciaTests(unittest.TestCase):
+    def test_resposta_nao_contradita_pelo_codigo(self):
+        r = dict(GO, sinais=dict(GO["sinais"], ia_generativa=False))
+        res = revisar(CAT, scan(FIXTURES / "app-ia-b2c", CAT), r, HOJE)
+        d = [x for x in res["divergencias"] if x["sinal"] == "ia_generativa"]
+        self.assertTrue(d and d[0]["indicios"])
+        self.assertIn("Respostas que o código contradiz", Revisor().markdown(res))
+
+
+class CiTests(unittest.TestCase):
+    def test_sarif_com_local_do_gatilho(self):
+        from lz_revisor.sarif import to_sarif
+        res = revisar(CAT, scan(FIXTURES / "app-ia-b2c", CAT), GO, HOJE)
+        sar = to_sarif(res)
+        self.assertEqual(sar["version"], "2.1.0")
+        rs = sar["runs"][0]["results"]
+        self.assertTrue(any(r["level"] == "error" for r in rs))
+        cdc = next(r for r in rs if r["ruleId"] == "BR-CDC/arrependimento")
+        self.assertEqual(cdc["locations"][0]["physicalLocation"]["artifactLocation"]["uri"], "src/lib/checkout.ts")
+        ids = {r["id"] for r in sar["runs"][0]["tool"]["driver"]["rules"]}
+        self.assertTrue({r["ruleId"] for r in rs} <= ids)
+
+    def test_cli_falhar_em_e_data(self):
+        with tempfile.TemporaryDirectory() as d:
+            resp = Path(d) / "r.json"
+            resp.write_text(json.dumps(GO))
+            base = [sys.executable, "-m", "lz_revisor", "revisar", str(FIXTURES / "app-ia-b2c"), "--respostas", str(resp)]
+            p = subprocess.run(base + ["--falhar-em", "alta", "--sarif", str(Path(d) / "r.sarif")], cwd=RUNTIME, capture_output=True, text=True)
+            self.assertEqual(p.returncode, 3, p.stderr)
+            self.assertTrue((Path(d) / "r.sarif").is_file())
+            p2 = subprocess.run(base + ["--falhar-em", "critica"], cwd=RUNTIME, capture_output=True, text=True)
+            self.assertEqual(p2.returncode, 0, p2.stderr)
+            p3 = subprocess.run(base + ["--data", "2027-01-02"], cwd=RUNTIME, capture_output=True, text=True)
+            self.assertIn("data de referência 2027-01-02", p3.stdout)
+
+    def test_proveniencia_e_urn(self):
+        res = revisar(CAT, None, GO, HOJE)
+        pv = res["proveniencia"]
+        self.assertEqual(len(pv["catalogo_sha256"]), 64)
+        self.assertEqual(pv["data_de_referencia"], "2026-10-16")
+        self.assertEqual(CAT.norma("BR-LGPD")["urn"], "urn:lex:br:federal:lei:2018-08-14;13709")
+
+
+class ValidadoresTests(unittest.TestCase):
+    @staticmethod
+    def cpf_sintetico(base9):
+        n = [int(c) for c in base9]
+        for k in (9, 10):
+            n.append((sum(v * w for v, w in zip(n, range(k + 1, 1, -1))) * 10 % 11) % 10)
+        s = "".join(map(str, n))
+        return f"{s[:3]}.{s[3:6]}.{s[6:9]}-{s[9:]}"
+
+    def test_cpf_e_cnpj(self):
+        from lz_revisor.validadores import cpf, cnpj
+        bom = self.cpf_sintetico("123456789")
+        self.assertTrue(cpf(bom))
+        self.assertFalse(cpf(bom[:-1] + str((int(bom[-1]) + 1) % 10)))
+        self.assertFalse(cpf("111.111.111-11"))
+        self.assertTrue(cnpj("12.ABC.345/01DE-35"))      # exemplo oficial do CNPJ alfanumérico
+        self.assertTrue(cnpj("11.222.333/0001-81"))
+        self.assertFalse(cnpj("11.222.333/0001-82"))
+
+    def test_scanner_so_conta_dv_valido_e_nao_guarda_valor(self):
+        bom = self.cpf_sintetico("987654321")
+        with tempfile.TemporaryDirectory() as d:
+            Path(d, "a.ts").write_text('const x = "' + "123" + '.456.789-00"\n')     # formato sem DV válido
+            Path(d, "b.ts").write_text(f'const y = "{bom}"\n')
+            Path(d, "rodape.html").write_text("<p>CNPJ 12.ABC.345/01DE-35</p>\n")
+            v = scan(d, CAT)
+            ind = [i for i in v.sinais["cpf_br"] if "dígito" in i.rotulo]
+            self.assertEqual([l for i in ind for l in i.locais], ["b.ts:1"])
+            self.assertIn("rodape.html:1", v.evidencias["identificacao_fornecedor"]["mencoes"])
+            self.assertNotIn(bom, json.dumps(v.to_dict(), ensure_ascii=False))
+
+    def test_reuse_e_sbom_como_evidencia(self):
+        with tempfile.TemporaryDirectory() as d:
+            Path(d, "LICENSES").mkdir()
+            Path(d, "LICENSES", "Apache-2.0.txt").write_text("x")
+            Path(d, "bom.cdx.json").write_text("{}")
+            Path(d, ".lgpd").mkdir()
+            Path(d, ".lgpd", "ROPA.md").write_text("x")
+            v = scan(d, CAT)
+            self.assertTrue(v.evidencias["licenca"]["documentos"])
+            self.assertTrue(v.evidencias["auditoria_licencas"]["documentos"])
+            self.assertTrue(v.evidencias["registro_operacoes"]["documentos"])
+
+
 class FixtureHygieneTests(unittest.TestCase):
     def test_fixtures_sem_cpf_nem_chave(self):
         cpf = re.compile(r"\b\d{3}\.\d{3}\.\d{3}-\d{2}\b")

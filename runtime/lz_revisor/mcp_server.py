@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import sys
 import traceback
+from datetime import date
 from pathlib import Path
 
 from . import __version__
@@ -42,7 +43,8 @@ TOOLS = [
      "inputSchema": {"type": "object", "properties": {
          "caminho": {"type": "string", "description": "Diretório do projeto (dentro das raízes autorizadas). Omitir para revisar só pelas respostas."},
          "respostas": RESPOSTAS_SCHEMA,
-         "formato": {"type": "string", "enum": ["markdown", "json"], "default": "markdown"}}}},
+         "formato": {"type": "string", "enum": ["markdown", "json", "sarif"], "default": "markdown"},
+         "data": {"type": "string", "description": "Data de referência AAAA-MM-DD para a vigência (padrão: hoje)"}}}},
     {"name": "perguntas_pendentes",
      "description": "Lista as perguntas do questionário que ainda faltam para fechar a revisão (UF, países, investimento, menores, decisões automatizadas...).",
      "inputSchema": {"type": "object", "properties": {"caminho": {"type": "string"}, "respostas": RESPOSTAS_SCHEMA}}},
@@ -89,9 +91,13 @@ class Server:
         args = args or {}
         resp = args.get("respostas") or {}
         if name == "revisar_projeto":
-            res = self.revisor.revisar(self._caminho(args.get("caminho")), resp)
+            hoje = date.fromisoformat(args["data"]) if args.get("data") else None
+            res = self.revisor.revisar(self._caminho(args.get("caminho")), resp, hoje)
             if args.get("formato") == "json":
                 return json.dumps(res, ensure_ascii=False, indent=2)
+            if args.get("formato") == "sarif":
+                from .sarif import to_sarif
+                return json.dumps(to_sarif(res), ensure_ascii=False, indent=2)
             return self.revisor.markdown(res)
         if name == "perguntas_pendentes":
             return json.dumps(self.revisor.perguntas(self._caminho(args.get("caminho")), resp), ensure_ascii=False, indent=2)

@@ -29,7 +29,7 @@ Base local: commit `1ce7b53a206177d8453c7e620761d81188241f1f` da camada brasilei
 
 ## Evolução 0.3.0 — 16/10/2026
 
-Base: commit `4a1620e` (tag v0.2.0). Adicionados o plugin `br-project-review` (seis workflows), o motor `runtime/lz_revisor` e o catálogo normativo do revisor. As 15 minutas brasileiras foram redigidas para este pacote; nenhum texto de modelo de terceiro foi copiado.
+Base: commit `4a1620e` (tag v0.2.0). Adicionados o plugin `ab-lexzenit-project-review` (seis workflows), o motor `runtime/lz_revisor` e o catálogo normativo do revisor. As 15 minutas brasileiras foram redigidas para este pacote; nenhum texto de modelo de terceiro foi copiado.
 
 Repositórios públicos auditados em 16/10/2026 como referência de desenho, sem cópia de texto ou código:
 
@@ -42,5 +42,7 @@ Repositórios públicos auditados em 16/10/2026 como referência de desenho, sem
 | General-Legal/general-legal-mcp | sem licença, sem código | Só o desenho de ferramentas |
 | legalize-kr/legalize-kr e admrule-kr | MIT declarado só no README | Arquitetura de legislação como código (norma por arquivo, metadados de vigência); servidor MCP local somente leitura |
 | ethicalml/awesome-artificial-intelligence-regulation | MIT | Lista de partida para N3; entradas conferidas na fonte antes de entrar no catálogo |
+
+Projetos semelhantes: 150 itens avaliados na fonte em três frentes, sem cópia de código, regras ou texto; registros em research/revisor/ e síntese em docs/REFERENCIAS-REVISOR.md. O visual da página do produto usa tokens do Spectrum 2 (adobe/spectrum-design-data, Apache-2.0) e a fonte Source Sans 3 (OFL), sem marca da Adobe.
 
 Verificação das normas: 106 das 210 foram conferidas em fonte oficial (Planalto, Câmara, assembleias e casas civis estaduais, EUR-Lex, Federal Register, FTC, CPPA, procuradoria do Colorado, CAC, ISO, OCDE, Conselho da Europa). As demais estão marcadas como fonte secundária ou não localizada e nunca geram não conformidade. A pesquisa foi feita por agentes com orçamento de busca limitado; as leituras que sustentam as normas federais centrais foram refeitas pelo integrador no texto oficial.

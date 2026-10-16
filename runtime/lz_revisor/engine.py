@@ -6,8 +6,12 @@ O motor nunca declara 'satisfeito_no_escopo': localizar um documento não prova 
 """
 from __future__ import annotations
 
+import hashlib
+import json
 from dataclasses import dataclass, field
 from datetime import date
+
+from . import __version__
 
 from .catalog import SEVERIDADE, UFS
 from .scanner import Varredura
@@ -356,10 +360,25 @@ def revisar(catalog, varredura: Varredura | None, respostas: dict | None, hoje: 
         }
 
     modelos = sorted({a["modelo"] for a in achados if a.get("modelo") and a["lacuna"]})
+    divergencias = []   # respondido "não", mas o código indica o contrário
+    if varredura:
+        for sid, v in sorted(((respostas.get("sinais") or {})).items()):
+            if v is False and varredura.sinais.get(sid):
+                locais = [l for i in varredura.sinais[sid] for l in (i.locais or [i.rotulo])][:4]
+                divergencias.append({"sinal": sid, "rotulo": catalog.sinais[sid]["rotulo"], "indicios": locais})
     return {
         "marca": "MINUTA — REVISÃO PROFISSIONAL OBRIGATÓRIA",
         "gerado_em": hoje.isoformat(),
-        "catalogo": {"versao": catalog.versao, "normas": len(catalog.normas), "arquivos": catalog.arquivos_normas},
+        "catalogo": {"versao": catalog.versao, "normas": len(catalog.normas), "arquivos": catalog.arquivos_normas,
+                     "sha256": catalog.sha256},
+        "proveniencia": {
+            "motor": f"lz_revisor {__version__}", "data_de_referencia": hoje.isoformat(),
+            "catalogo_sha256": catalog.sha256,
+            "respostas_sha256": hashlib.sha256(json.dumps(respostas, sort_keys=True, ensure_ascii=False).encode()).hexdigest(),
+            "sinais_por_origem": {o: sorted(k for k, v in sinais.items() if v.origem == o)
+                                  for o in ("declarado", "detectado") if any(v.origem == o for v in sinais.values())},
+            "regra": "Sinal desconhecido nunca vira 'não': a obrigação fica inconclusiva e gera pergunta.",
+        },
         "escopo": varredura.to_dict() if varredura else None,
         "respostas": {k: v for k, v in respostas.items() if k != "evidencias"},
         "sinais": {k: vars(v) for k, v in sinais.items()},
@@ -372,6 +391,7 @@ def revisar(catalog, varredura: Varredura | None, respostas: dict | None, hoje: 
         "oportunidades": oportunidades,
         "nao_aplicaveis": fora,
         "modelos_sugeridos": modelos,
+        "divergencias": divergencias,
         "limitacoes": [
             "Detecção por padrões é indício: ausência de detecção não prova ausência da característica.",
             "Localizar um documento não prova conformidade; o conteúdo exige revisão profissional.",

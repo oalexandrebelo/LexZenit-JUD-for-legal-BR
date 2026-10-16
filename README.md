@@ -1,13 +1,13 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="lexzenit/brand/lockup-white-2048.png">
-    <img alt="LexZenit" src="lexzenit/brand/lockup-ink-2048.png" width="320">
-  </picture>
+  <a href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/"><img alt="LexZenit" src="lexzenit/brand/lexzenit-logo.svg" width="320"></a>
 </p>
 
 # LexZenit · skill jurídica para o Claude
 
-Uma solução **AB ED&IA Soluções em Tecnologia Ltda.** (CNPJ 57.531.384/0001-96).
+<a href="https://www.alexandrebelo.com.br"><img alt="AB — Alexandre Belo" src="lexzenit/brand/ab-logo.svg" height="40" align="left"></a>
+
+Uma solução **AB ED&IA Soluções em Tecnologia Ltda.** (CNPJ 57.531.384/0001-96) · [alexandrebelo.com.br](https://www.alexandrebelo.com.br) · [landing page da LexZenit](https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/)
+<br clear="left">
 
 Raciocínio jurídico com lastro, do documento à evidência. 40 plugins, 182 workflows de Direito brasileiro, um revisor jurídico de projetos (N1 Brasil · N2 país · N3 mundo) e um núcleo local que guarda o original, reconhece citações sem autenticá-las por palpite, pseudonimiza e para na revisão humana.
 
@@ -57,15 +57,15 @@ A pasta `lexzenit/` não faz parte do pacote e não entra em `MANIFEST.sha256`.
 
 Abra **[a arquitetura interativa](apps/architecture/index.html)**; leia o **[estudo de oportunidades](research/OPORTUNIDADES.md)** e os **[contratos da versão](docs/ENGINEERING-V02.md)**. A arquitetura distingue código implementado, integração opcional, etapa humana e capacidade pendente.
 
-A camada preserva os 38 plugins e 169 workflows da 0.1.0, acrescentando `br-legal-engineering` (sete workflows, 0.2.0) e `br-project-review` (seis workflows, 0.3.0). O [catálogo completo](docs/COVERAGE.md) é verificável no JSON `catalog/skills.json`. Workflows são instruções para análise, não 182 modelos ou integrações externas prontas.
+A camada preserva os 38 plugins e 169 workflows da 0.1.0, acrescentando `br-legal-engineering` (sete workflows, 0.2.0) e `ab-lexzenit-project-review` (seis workflows, 0.3.0). O [catálogo completo](docs/COVERAGE.md) é verificável no JSON `catalog/skills.json`. Workflows são instruções para análise, não 182 modelos ou integrações externas prontas.
 
 ## Revisor jurídico de projetos (N1 · N2 · N3)
 
-Mapeia o que um projeto de IA, SaaS ou startup precisa cumprir e o que já tem. **N1:** União e as 27 UFs, com alerta de competência constitucional. **N2:** EUA por padrão, ou o país soberano mais coerente com o mercado real. **N3:** UE extraterritorial, tratados e padrões globais. Contratos e limites em [ENGINEERING-V03](docs/ENGINEERING-V03.md).
+Mapeia o que um projeto de IA, SaaS ou startup precisa cumprir e o que já tem. **N1:** União e as 27 UFs, com alerta de competência constitucional. **N2:** EUA por padrão, ou o país soberano mais coerente com o mercado real. **N3:** UE extraterritorial, tratados e padrões globais. Contratos e limites em [ENGINEERING-V03](docs/ENGINEERING-V03.md); projetos semelhantes avaliados em [REFERENCIAS-REVISOR](docs/REFERENCIAS-REVISOR.md). Página do produto: [LexZenit Project Review](https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/project-review/).
 
 ```text
-/plugin install br-project-review@legal-br
-/br-project-review:revisar-projeto
+/plugin install ab-lexzenit-project-review@legal-br
+/ab-lexzenit-project-review:revisar-projeto
 ```
 
 Motor local, a partir de `runtime/`:
@@ -74,6 +74,8 @@ Motor local, a partir de `runtime/`:
 python -m lz_revisor revisar /caminho/do/projeto --respostas respostas.json --saida revisao/
 python -m lz_revisor perguntas /caminho/do/projeto
 python -m lz_revisor normas --uf GO
+python -m lz_revisor revisar /caminho/do/projeto --respostas respostas.json --sarif revisao.sarif --falhar-em alta
+python -m lz_revisor radar        # status dos projetos de lei na API da Câmara (único comando com rede)
 ```
 
 Servidor MCP opcional, habilitado pelo operador a partir de `runtime/` (somente leitura, restrito às pastas de `--raiz`):
@@ -138,7 +140,7 @@ python -m unittest discover -s tests -v
 node --test apps/architecture/graph.test.mjs
 ```
 
-**278 testes aprovados nesta execução** (253 do runtime, 13 de repositório, 12 do grafo); os 10 de navegador da 0.2.0 não foram reexecutados. Relatório: `evidence/test-report-v0.3.0.json`; aceitação em [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md). Os testes de engenharia não demonstram acurácia jurídica, recall de NER ou desempenho de LLM. O build npm, a renderização React Flow e o CI remoto permanecem não homologados neste ambiente.
+**288 testes aprovados nesta execução** (263 do runtime, 13 de repositório, 12 do grafo); os 10 de navegador da 0.2.0 não foram reexecutados. Relatório: `evidence/test-report-v0.3.0.json`; aceitação em [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md). Os testes de engenharia não demonstram acurácia jurídica, recall de NER ou desempenho de LLM. O build npm, a renderização React Flow e o CI remoto permanecem não homologados neste ambiente.
 
 ## Publicação e proveniência
 

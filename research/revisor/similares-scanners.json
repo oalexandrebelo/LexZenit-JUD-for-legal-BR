@@ -1,0 +1,1410 @@
+{
+  "gerado_em": "2026-10-16",
+  "escopo": "Frente A - scanners de código/evidência para privacidade, dados pessoais e licenças (parte scanner/evidência da LexZenit)",
+  "metodo": "WebFetch de páginas do GitHub, PyPI, Packagist, Hugging Face e documentação oficial; commits/releases pela API do GitHub lida via WebFetch (acesso direto por curl/gh foi bloqueado pela política do ambiente). Nenhum código de terceiros foi baixado, instalado ou executado. 20 buscas WebSearch usadas.",
+  "convencoes": "'sem aviso' em arquivado = a página lida não mostrava banner de arquivamento (não é prova de que não esteja arquivado). Datas de commit = commit mais recente do branch padrão em 16/10/2026. 'ano não exibido' = a página só mostrou dia e mês.",
+  "bloqueios_e_limites": [
+    "docs.github.com (requisitos de SARIF): permissão não respondida; não repetido",
+    "hounddog.ai/terms-of-service: permissão não respondida; não repetido",
+    "scancode-toolkit.readthedocs.io e scancode-licensedb.aboutcode.org: permissão não respondida; não repetido",
+    "codeberg.org/fsfe/reuse-tool/releases e w3c.github.io/cg-reports (DPV legal): permissão não respondida; não repetido",
+    "GitHub via curl/gh: HTTP 403 pela política do ambiente (add_repo não foi usado por não ser necessário); páginas /tree do GitHub: robots proíbe",
+    "API /repos/{x} (estrelas, arquivado, licença) falhou; estrelas vêm das páginas HTML e podem estar arredondadas",
+    "www.gov.br (notícia da Receita sobre CNPJ alfanumérico): exigiu autenticação"
+  ],
+  "outros_vistos_nao_abertos": [
+    {
+      "nome": "Yiuky/PrivioSentry",
+      "nota": "Listagem do tópico 'lgpd': localiza e redige CPFs e endereços em PDFs com OCR local e IA; 8 estrelas. Não aberto."
+    },
+    {
+      "nome": "marcieltorres/safe-chat-slack-bot",
+      "nota": "Listagem do tópico 'lgpd': bot para Slack com detecção de PII; 49 estrelas. Não aberto."
+    },
+    {
+      "nome": "leocavalcante/redact-sensitive",
+      "nota": "Listagem do tópico 'lgpd': processador Monolog que mantém dado sensível fora de logs; 34 estrelas. Não aberto."
+    },
+    {
+      "nome": "Corviz/br-gpdpl-php; vfmunhoz/kotlin-protected-types; pi2schema/pi2schema",
+      "nota": "Listagem do tópico 'lgpd': anonimização, tipos protegidos de log e especificação de regras em schemas. Não abertos."
+    },
+    {
+      "nome": "piiscope (barissozudogru/piiscope, Apache-2.0, 1.3.0 de 26 ago 2026)",
+      "nota": "Lido no PyPI: PII em arquivos e bancos, SARIF, pontuação de risco, k-anonimato; NÃO lista CPF/CNPJ (LGPD só como etiqueta de jurisdição)."
+    },
+    {
+      "nome": "Nightfall sensitive-data-scanner",
+      "nota": "Scripts Apache-2.0 que dependem de API comercial (artigo aimultiple); dependência de chave: não adotar."
+    },
+    {
+      "nome": "DataHub, Apache Atlas, Marquez, OpenDLP",
+      "nota": "Catálogos/linhagem/DLP citados em artigo de terceiros; fora do escopo de scanner de repositório."
+    }
+  ],
+  "projetos": [
+    {
+      "id": "privado",
+      "nome": "Privado CLI (Privado-Inc/privado) + privado-core",
+      "url": "https://github.com/Privado-Inc/privado",
+      "categoria": "scanner de privacidade (fluxo de dados -> RoPA)",
+      "licenca": "LGPL-3.0 e GPL-3.0 (COPYING.LESSER e COPYING, conforme a página; texto dos arquivos não lido). privado-core: LGPL-3.0 (README), GPL-3.0 também detectada.",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-14 (2de3b2f, 'ci: build privado-core with CORE_AT so the private mulesoft-astgen release is readable (#605)')",
+        "ultima_release": "v1.3.91 (Latest), 10 nov 2025",
+        "arquivado": "sem aviso de arquivamento na página",
+        "estrelas": "651 (privado-core: 34)",
+        "observacao": "1.069 commits. Mensagem de commit indica dependência privada de build (mulesoft-astgen)."
+      },
+      "o_que_detecta": "Mais de 110 elementos de dados pessoais (fontes) e fluxos até 'sinks': terceiros, bancos/armazenamento, vazamentos (logs), APIs internas. Também Play Store Data Safety Report.",
+      "como_detecta": "Grafo de conhecimento de fluxo de dados (source->sink). Regras em YAML: fontes casam REGEX contra nomes de variável; sinks casam REGEX contra nomes de método. Engine (Joern, taint): não confirmado. Linguagens: README diz Java e Python GA, JS/TS 'em breve'; docs dizem Java GA e Python alpha (divergência entre as duas fontes).",
+      "formato_saida": "JSON em <dir>/.privado/privado.json com 5 seções: sources, processing, dataFlow (third_parties, leakages, storages, internal_apis, miscellaneous), collections, violations. RoPA (CSV/PDF) só pelo painel em nuvem. Excel/SARIF: não mencionados.",
+      "taxonomia_reutilizavel": "Sim, como inspiração: IDs 'Data.Sensitive.<Categoria>.<Elemento>', 22 categorias (um arquivo por categoria em rules/sources), sensibilidade low/medium/high, lista de elementos em CSV. Licença das regras/CSV: não confirmada.",
+      "vale_incorporar": [
+        "Usar o desenho do vocabulário (ID hierárquico + 3 níveis de sensibilidade) para os ids de sinais da LexZenit; reescrever, não copiar.",
+        "Estrutura do privado.json (fontes, tratamento, fluxo, coletas, violações) como modelo de um export 'RoPA-lite' (categoria de dado, titular, operador/destino, base legal sugerida).",
+        "Conceito de 'policies' allow/deny (ex.: dado sensível indo para log/terceiro no exterior = violação) como camada que cruza sinais com o catálogo N1/N2/N3."
+      ],
+      "riscos": [
+        "Copyleft (LGPL/GPL): não copiar regras nem CSV; licença das regras não confirmada.",
+        "Núcleo separado (privado-core, Scala por inferência do build.sbt) e CLI com telemetria configurável ('privado config'; conteúdo coletado não especificado): peso e privacidade incompatíveis com 'só stdlib/local'.",
+        "Cobertura de linguagens limitada (Java/Python)."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/Privado-Inc/privado",
+        "https://github.com/Privado-Inc/privado-core",
+        "https://docs.privado.ai/llms-full.txt (lidos 100.000 de 129.187 caracteres)",
+        "https://api.github.com/repos/Privado-Inc/privado/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Licença da pasta rules/ e do CSV de elementos",
+        "Engine de análise (Joern/taint)",
+        "Dados enviados pela telemetria",
+        "Últimos 29.187 caracteres da documentação"
+      ]
+    },
+    {
+      "id": "bearer",
+      "nome": "Bearer CLI",
+      "url": "https://github.com/Bearer/bearer",
+      "categoria": "SAST de segurança + privacidade",
+      "licenca": "Elastic License 2.0 (ELv2) - source-available, não open source OSI. GitHub classifica como NOASSERTION/Other.",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-12 (e3753de, bump de dependência da documentação)",
+        "ultima_release": "v2.1.1, 2026-08-24",
+        "arquivado": "sem aviso de arquivamento na página",
+        "estrelas": "2,7 mil",
+        "observacao": "Versão Pro vendida pela Cycode (README). 1.436 commits."
+      },
+      "o_que_detecta": "Mais de 120 tipos de dados (PII, PHI, dados sensíveis) em Go, Java, JS, TS, PHP, Python e Ruby; relatório de privacidade com titulares de dados e processadores terceiros (ex.: e-mail enviado ao Sentry); segredos (scanner 'secrets'); regras OWASP/CWE.",
+      "como_detecta": "Padrões no código-fonte; tipo de dado inferido por nome de campo/objeto e arquivos de schema (ex.: 'email' em db/schema.rb). 'Nunca vê os valores'. Uso de AST/data flow interprocedural: não confirmado na fonte (cross-file avançado é do Pro).",
+      "formato_saida": "--format: json, yaml, sarif, gitlab-sast, rdjson, html. --report: security (padrão), privacy, dataflow. Relatório de privacy em CSV (titulares, tipos, processadores, contagens por risco); a página diz que serve de insumo para PIA/DPIA/RoPA do GDPR.",
+      "taxonomia_reutilizavel": "Parcial: banco 'Recipes' (SDK/serviço -> processador) e mapeamento de titulares (--data-subject-mapping, JSON: User, Customer, Employee, Patient). Sem menção a Brasil/LGPD.",
+      "vale_incorporar": [
+        "Emitir SARIF (Bearer comprova o formato e o uso em CI).",
+        "Ideia 'recipes': tabela própria SDK/domínio -> operador/terceiro (+ país de hospedagem), alimentando o sinal 'hospedagem no exterior' e a minuta de transferência internacional.",
+        "Ideia de 'titular' (cliente, funcionário, paciente, criança) como dimensão do sinal, não só o tipo de dado."
+      ],
+      "riscos": [
+        "ELv2: proíbe oferecer o software como serviço gerenciado a terceiros e exige manter avisos; regras não copiáveis para o nosso catálogo.",
+        "Flag --disable-version-check indica chamada de rede para checar versão; --disable-domain-resolution indica resolução de domínios.",
+        "Dependência externa pesada (binário) e sem LGPD."
+      ],
+      "prioridade_para_lexzenit": "baixa (inspiração; não embutir)",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/Bearer/bearer",
+        "https://raw.githubusercontent.com/Bearer/bearer/main/LICENSE.txt",
+        "https://raw.githubusercontent.com/Bearer/bearer/main/README.md",
+        "https://docs.bearer.com/reference/commands/",
+        "https://docs.bearer.com/explanations/reports/",
+        "https://api.github.com/repos/Bearer/bearer/releases/latest",
+        "https://api.github.com/repos/Bearer/bearer/commits?per_page=1",
+        "https://api.github.com/repos/Bearer/bearer/license"
+      ],
+      "nao_verificado": [
+        "Se usa AST/tree-sitter",
+        "Telemetria além da checagem de versão"
+      ]
+    },
+    {
+      "id": "hounddog",
+      "nome": "HoundDog.ai (hounddogai/hounddog)",
+      "url": "https://github.com/hounddogai/hounddog",
+      "categoria": "scanner de privacidade em código (comercial, CLI gratuito)",
+      "licenca": "Proprietária: a página do repositório remete aos Termos de Serviço da HoundDog.ai; binário baixado das releases; repositório hospeda scripts de instalação e docs. LICENSE bruto não lido (erro de busca); página dos termos bloqueada.",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-10 (d968d60, 'Update public files')",
+        "ultima_release": "não exibida na página (seção vazia)",
+        "arquivado": "sem aviso na página",
+        "estrelas": "124",
+        "observacao": "O repositório é de distribuição/documentação, não do código-fonte do scanner."
+      },
+      "o_que_detecta": "100+ elementos de dados sensíveis (data-elements.md: 102 = 33 Critical, 49 Medium, 20 Low) cruzados com 800+ 'sinks'; vazamentos para logs, SDKs, APIs. Free: Python, JS, TS. Enterprise: C#, Go, Java, SQL, OpenAPI. Catálogo de serviços gRPC/Thrift (context engine).",
+      "como_detecta": "Análise estática determinística (declara não usar IA), rastreia valores por atribuições e transformações. Detalhe interno: não público.",
+      "formato_saida": "Console, markdown (--output-format=markdown), JSON (context engine). SARIF: não mencionado. RoPA/PIA/DPIA: só Enterprise.",
+      "taxonomia_reutilizavel": "Lista de 102 elementos legível na página, mas sob termos proprietários; não há CPF/LGPD (há Aadhaar, PAN, SSN).",
+      "vale_incorporar": [
+        "Escala de sensibilidade em 3 níveis (crítico/médio/baixo) por tipo de dado, ordenando o relatório.",
+        "Conceito de catálogo de 'sinks' (log, SDK de terceiros, API) como segunda dimensão de risco."
+      ],
+      "riscos": [
+        "Binário proprietário e termos de uso restritivos: não copiar listas nem regras.",
+        "Recursos de privacidade (RoPA etc.) só pagos; IA opcional envia trecho do código ao provedor de IA."
+      ],
+      "prioridade_para_lexzenit": "baixa (inspiração)",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/hounddogai/hounddog",
+        "https://raw.githubusercontent.com/hounddogai/hounddog/main/README.md",
+        "https://github.com/hounddogai/hounddog/blob/main/data-elements.md",
+        "https://api.github.com/repos/hounddogai/hounddog/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Texto da licença/termos (raw LICENSE falhou; https://www.hounddog.ai/terms-of-service não lido: permissão de acesso não respondida)",
+        "Telemetria"
+      ]
+    },
+    {
+      "id": "fides",
+      "nome": "Ethyca Fides (plataforma)",
+      "url": "https://github.com/ethyca/fides",
+      "categoria": "plataforma privacy-as-code (DSR, consentimento, mapa de dados)",
+      "licenca": "Apache-2.0 (barra lateral da página)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-06-01 (e87f3ff, 'ENG-3270 Reduce per-request overhead for API throughput (#8284)')",
+        "ultima_release": "v2.86.2 (Latest), 01 jun (ano não exibido na página)",
+        "arquivado": "sem aviso na página",
+        "estrelas": "478",
+        "observacao": "4.774 commits. Sem commit no branch padrão desde 01/06/2026 na leitura de 16/10/2026."
+      },
+      "o_que_detecta": "Atender pedidos de titulares e aplicar privacidade 'como código' em runtime; a página lida não descreve detecção em código-fonte (mapeamento de dados só como tutorial).",
+      "como_detecta": "Não descrito na página lida.",
+      "formato_saida": "Não especificado (pacote de DSR em ./fides_uploads, formato não informado).",
+      "taxonomia_reutilizavel": "Via fideslang (ver entrada própria).",
+      "vale_incorporar": [
+        "Nada diretamente além do fideslang; avaliar apenas exportar um 'System/Dataset' em YAML compatível como saída opcional."
+      ],
+      "riscos": [
+        "Plataforma servidor pesada (admin UI, privacy center); fora do escopo 'scanner local'.",
+        "Sem atividade recente no branch padrão."
+      ],
+      "prioridade_para_lexzenit": "baixa",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/ethyca/fides",
+        "https://api.github.com/repos/ethyca/fides/commits?per_page=1",
+        "https://github.com/ethyca/fides/releases"
+      ],
+      "nao_verificado": [
+        "Funções de detecção/discovery",
+        "Formato dos recursos YAML"
+      ]
+    },
+    {
+      "id": "fideslang",
+      "nome": "fideslang (taxonomia privacy-as-code)",
+      "url": "https://github.com/IABTechLab/fideslang",
+      "categoria": "taxonomia/vocabulário",
+      "licenca": "CC-BY-4.0 (página do repositório IABTechLab; ethyca/fideslang é fork com o mesmo selo CC BY 4.0)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2025-05-14 (76ba0ad, '20241210 ethyca final feedback (#196)')",
+        "ultima_release": "não exibida (seção vazia)",
+        "arquivado": "sem aviso na página",
+        "estrelas": "95 (IABTechLab); ethyca/fideslang: 4 (fork)",
+        "observacao": "175 commits. Congelado há ~17 meses. Docs em ethyca.github.io/fideslang descrevem como 'working draft'. Quem mantém hoje: não declarado."
+      },
+      "o_que_detecta": "Não detecta; é vocabulário: Data Categories hierárquicas (2 raízes: system, user; 26 de 2º nível, 24 sob user: account, authorization, behavior, biometric, childrens, contact, content, criminal_history, demographic, device, financial, government_id, health_and_medical, job_title, location, name, payment, privacy_preferences, sensor, social, telemetry, unique_id, user_sensor, workplace; 3º nível inclui demographic.race_ethnicity, religious_belief, sexual_orientation, political_opinion, health_and_medical.genetic).",
+      "como_detecta": "n/a (vocabulário).",
+      "formato_saida": "Pacote Python (pyproject.toml); formato dos arquivos de taxonomia não confirmado. Recursos: Organization, Policy, System, Dataset.",
+      "taxonomia_reutilizavel": "SIM - principal ativo reutilizável. Data Uses: 12 raízes (analytics, collect, employment, essential, finance, functional, marketing, operations, personalize, sales, third_party_sharing, train_ai_system). Data Subjects: anonymous_user, employee, customer, patient, next_of_kin... A descrição declara suporte a GDPR, CCPA, LGPD e ISO 19944 (alegação do README; não verificada na taxonomia).",
+      "vale_incorporar": [
+        "Adicionar a cada sinal do catálogo um campo 'fideslang' (ex.: saúde -> user.health_and_medical; biometria -> user.biometric; CPF -> user.government_id; pagamentos -> user.payment/user.financial; crianças -> user.childrens; analytics/cookies -> analytics.* / marketing.*; IA generativa -> train_ai_system) e usá-lo no RoPA-lite e nos relatórios.",
+        "Usar Data Uses e Subjects como vocabulário de finalidade e titular nas minutas (RoPA/RIPD)."
+      ],
+      "riscos": [
+        "Congelado desde mai/2025 e rotulado 'working draft': copiar chaves como snapshot versionado, não como dependência viva.",
+        "Sem rótulos LGPD-específicos (ex.: 'dado sensível' do art. 5, II não é flag explícito; crianças e adolescentes cobertos só por user.childrens).",
+        "CC-BY-4.0 exige atribuição."
+      ],
+      "prioridade_para_lexzenit": "alta",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/IABTechLab/fideslang",
+        "https://github.com/ethyca/fideslang",
+        "https://ethyca.github.io/fideslang/",
+        "https://ethyca.github.io/fideslang/taxonomy/data_categories/",
+        "https://ethyca.github.io/fideslang/taxonomy/data_uses/",
+        "https://raw.githubusercontent.com/IABTechLab/fideslang/main/README.md",
+        "https://api.github.com/repos/IABTechLab/fideslang/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Formato dos arquivos da taxonomia",
+        "Versionamento",
+        "Mantenedor atual"
+      ]
+    },
+    {
+      "id": "presidio",
+      "nome": "Microsoft Presidio (agora data-privacy-stack/presidio)",
+      "url": "https://github.com/data-privacy-stack/presidio",
+      "categoria": "detecção/anonimização de PII em texto",
+      "licenca": "MIT (arquivo LICENSE lido em microsoft/presidio: 'The MIT License (MIT), Copyright (c) Presidio Contributors')",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-08 (2523c7b, fix(anonymizer) ... (#2331)) em data-privacy-stack/presidio",
+        "ultima_release": "2.2.364, 22 jul (ano não exibido na página)",
+        "arquivado": "não; banner 'Presidio has moved to a new home' na página nova",
+        "estrelas": "11,2 mil",
+        "observacao": "1.643 commits. Repositório/docs mudaram de microsoft/presidio para data-privacy-stack/presidio; docs em presidio.dataprivacystack.org. Doc antiga redireciona."
+      },
+      "o_que_detecta": "Entidades globais (CREDIT_CARD, CRYPTO, DATE_TIME, EMAIL_ADDRESS, IBAN_CODE, IP_ADDRESS, MAC_ADDRESS, NRP, LOCATION, PERSON, PHONE_NUMBER, MEDICAL_LICENSE, URL) e específicas de ~18 países (EUA, Reino Unido, Espanha, Itália, Polônia, Singapura, Austrália, Índia, Finlândia, Coreia, Nigéria, Filipinas, Canadá, Suécia, África do Sul, Tailândia, Turquia, Alemanha) + NER médico. BRASIL NÃO consta: CPF, CNPJ, RG e CNH não aparecem na página.",
+      "como_detecta": "Reconhecedores por regex + validação (checksum) + palavras de contexto + NER (spaCy/transformers) + regras; PatternRecognizer com lista de padrões (name, regex, score), lista 'context', deny-list; reconhecedores podem ser definidos em YAML.",
+      "formato_saida": "Resultado de análise em objetos Python (tipo, início, fim, score); anonimização por operadores. Não é scanner de repositório.",
+      "taxonomia_reutilizavel": "Convenção de nomes de entidade (PAÍS_DOCUMENTO) e modelo score+contexto reutilizáveis como ideia.",
+      "vale_incorporar": [
+        "Copiar o MODELO de reconhecedor, não o pacote: regex + validador (DV) + palavras de contexto que elevam a confiança + score, tudo em stdlib. Entidades BR_CPF, BR_CNPJ (inclui alfanumérico), BR_CNS, BR_PIS, BR_TITULO_ELEITOR, BR_CNH, BR_RENAVAM, BR_PLACA, BR_CEP, BR_PIX.",
+        "Tratar 'confiança' como função de (padrão + DV válido + contexto na mesma linha/arquivo) em vez de nível fixo."
+      ],
+      "riscos": [
+        "Dependências pesadas (spaCy/transformers) quebram 'só biblioteca padrão'.",
+        "Foi projetado para texto, não código; sem Brasil.",
+        "Telemetria: não verificado."
+      ],
+      "prioridade_para_lexzenit": "alta (como padrão de projeto)",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/data-privacy-stack/presidio",
+        "https://github.com/microsoft/presidio",
+        "https://raw.githubusercontent.com/microsoft/presidio/main/LICENSE",
+        "https://presidio.dataprivacystack.org/supported_entities/",
+        "https://microsoft.github.io/presidio/analyzer/adding_recognizers/",
+        "https://api.github.com/repos/data-privacy-stack/presidio/commits?per_page=1",
+        "https://github.com/data-privacy-stack/presidio/releases"
+      ],
+      "nao_verificado": [
+        "Telemetria",
+        "Detalhe da API validate_result e do mecanismo de boost de contexto (a página lida não explica)"
+      ]
+    },
+    {
+      "id": "semgrep-regras",
+      "nome": "Semgrep (engine) e semgrep-rules",
+      "url": "https://github.com/semgrep/semgrep-rules",
+      "categoria": "SAST (regras de terceiros)",
+      "licenca": "Engine: LGPL-2.1 (página semgrep/semgrep). Regras: Semgrep Rules License v1.0 - uso apenas interno do negócio; NÃO permite distribuir as regras nem oferecê-las como serviço; preservar avisos.",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-15 (17e31e1, merge PR #4083)",
+        "ultima_release": "não aplicável/não lida",
+        "arquivado": "sem aviso na página",
+        "estrelas": "1,3 mil (semgrep-rules); 16,7 mil (semgrep)",
+        "observacao": "Sem diretório de privacidade/PII visível no semgrep-rules; docs de GDPR da Semgrep não citam rulesets específicos de privacidade."
+      },
+      "o_que_detecta": "Regras gerais de segurança; não há ruleset de privacidade/LGPD confirmado na fonte. A página de GDPR da Semgrep só mapeia recursos gerais a artigos 25, 32, 44-50.",
+      "como_detecta": "Padrões sobre AST (engine); regras em YAML.",
+      "formato_saida": "SARIF/JSON existem na CLI, mas as páginas lidas não os listam (não verificado aqui).",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Nada das regras. Só o fato de que a pesquisa acadêmica (ver tang-et-al) usa Semgrep, o que valida a abordagem 'literais + nomes de variáveis + sinks'."
+      ],
+      "riscos": [
+        "Licença das regras proíbe redistribuição: incompatível com plugin público.",
+        "Telemetria padrão: métricas pseudonimizadas ao usar configs do Registry (--metrics=off desliga)."
+      ],
+      "prioridade_para_lexzenit": "nao_adotar",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/semgrep/semgrep-rules",
+        "https://semgrep.dev/legal/rules-license",
+        "https://github.com/semgrep/semgrep",
+        "https://docs.semgrep.dev/compliance/gdpr",
+        "https://api.github.com/repos/semgrep/semgrep-rules/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Existência de rulesets de privacidade no Registry",
+        "Formatos de saída da CLI"
+      ]
+    },
+    {
+      "id": "tang-et-al",
+      "nome": "Pesquisa: 'Helping Code Reviewer Prioritize: Pinpointing Personal Data and its Processing' (Tang, Østvold, Bruntink) e trabalho correlato arXiv 2401.07316",
+      "url": "https://arxiv.org/abs/2306.11495",
+      "categoria": "pesquisa acadêmica (método)",
+      "licenca": "Artigos arXiv; a listagem do 2401.07316 mostra CC BY-NC-SA 4.0. O código/regras 'são open source' mas nenhum link é dado.",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "n/a",
+        "ultima_release": "n/a",
+        "arquivado": "n/a",
+        "estrelas": "n/a",
+        "observacao": "Artigo de 2023; repositório das regras não encontrado."
+      },
+      "o_que_detecta": "Dados pessoais em Java/JS/TS: 'fontes' (literais por regex + nomes de variáveis) em 10 categorias (Account, Contact, Personal ID, Online identifier, Location, Feedback, Health, National ID, Technical, Financial) e 'sinks' (Manipulation, Transportation, Creation/Deletion, Database, Encryption, Log) com verbos do Data Privacy Vocabulary; 8 padrões de fluxo.",
+      "como_detecta": "Semgrep com regras próprias; análise intraprocedural; precisão média 0,87 na identificação de fluxos em 4 apps (Rocket.Chat, Telegram, Odoo, Joplin); recall não medido.",
+      "formato_saida": "Duas visões: tipos de dados pessoais (hierarquia) e fluxos detalhados (arquivo, fonte, sink, padrão).",
+      "taxonomia_reutilizavel": "Sim: as 10 categorias e as 6 classes de sink como esquema.",
+      "vale_incorporar": [
+        "Usar as 10 categorias e as 6 classes de sink como eixos do catálogo de sinais (a LexZenit hoje só tem fonte/sinal, não sink).",
+        "Para reduzir falso positivo: regex de literais com condições extras e listas de nomes de identificadores por categoria."
+      ],
+      "riscos": [
+        "Sem repositório verificável: só método; limitação intraprocedural declarada.",
+        "2401.07316: licença NC-SA no texto."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://arxiv.org/html/2306.11495v1",
+        "https://arxiv.org/pdf/2306.11495",
+        "https://arxiv.org/abs/2401.07316",
+        "https://hackernoon.com/how-static-analysis-can-expose-personal-data-hidden-in-source-code?source=rss"
+      ],
+      "nao_verificado": [
+        "URL do repositório das regras",
+        "Termos exatos de licença do artigo 2306.11495"
+      ]
+    },
+    {
+      "id": "gdprlint",
+      "nome": "GDPRLint (pablorivast/GDPRLint)",
+      "url": "https://github.com/pablorivast/GDPRLint",
+      "categoria": "scanner de PII/segredos em código (pre-commit/CI)",
+      "licenca": "Apache-2.0",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-08 (0addf03, 'chore: release 0.4.0')",
+        "ultima_release": "0.4.0 no PyPI, 08 out 2026 (GitHub: seção de releases vazia)",
+        "arquivado": "sem aviso; status 'alpha'",
+        "estrelas": "1",
+        "observacao": "41 commits; projeto de um autor, muito recente."
+      },
+      "o_que_detecta": "64 regras (IDs SECRET.*, PII.*, SECURITY.*): e-mail, telefone, IBAN, DNI/NIE, cartão (Luhn), SSN/NHS/CPF 'com contexto', IP público, MAC, GPS, nascimento, placa, PII em URL e em logs, sinais de categorias especiais; segredos; padrões inseguros.",
+      "como_detecta": "Baseado em padrões, por linha (declara 'não é SAST completo nem data flow'); níveis de confiança possible/likely/high. Gate opcional por modelo local ('Laya', pesos no Hugging Face, centenas de MB; licença não mostrada).",
+      "formato_saida": "Texto, JSON (esquema gdprlint/report/v1), SARIF 2.1.0, catálogo de regras em JSON (gdprlint/rules/v1). Baseline .gdprlint-baseline.json; config .gdprlint.json; pre-commit.",
+      "taxonomia_reutilizavel": "Catálogo de regras exportável (útil como referência de formato).",
+      "vale_incorporar": [
+        "Gêmeo técnico mais próximo da LexZenit: copiar as IDEIAS de (a) esquema JSON versionado do relatório, (b) catálogo de regras exportável, (c) baseline de achados aceitos, (d) SARIF 2.1.0, (e) tags de artigo da lei como indicadores contextuais (equivalente: artigos da LGPD), (f) --fail-on para CI."
+      ],
+      "riscos": [
+        "Não conferi se o CPF tem validação de dígito (README diz só 'com contexto').",
+        "Gate de ML baixa pesos externos: não adotar.",
+        "Projeto novo, 1 estrela."
+      ],
+      "prioridade_para_lexzenit": "alta",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://pypi.org/project/gdprlint/",
+        "https://github.com/pablorivast/GDPRLint",
+        "https://api.github.com/repos/pablorivast/GDPRLint/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Validação de dígito do CPF",
+        "Licença dos pesos do Laya"
+      ]
+    },
+    {
+      "id": "gitleaks",
+      "nome": "Gitleaks",
+      "url": "https://github.com/gitleaks/gitleaks",
+      "categoria": "scanner de segredos (padrões de engenharia de regras)",
+      "licenca": "MIT",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não lido",
+        "ultima_release": "não lida",
+        "arquivado": "não, mas a página declara o projeto 'feature complete' (só correções de segurança) com o mantenedor migrando para o Betterleaks",
+        "estrelas": "29,9 mil",
+        "observacao": "Relevante só como modelo de formato de regra."
+      },
+      "o_que_detecta": "Segredos (senhas, chaves, tokens) em repositórios git, arquivos e stdin.",
+      "como_detecta": "Regex + pré-filtro por 'keywords' + entropia + allowlists (paths, regexes, stopwords, commits) + regras compostas ([[rules.required]] com withinLines/withinColumns).",
+      "formato_saida": "json, csv, junit, sarif, templates Go.",
+      "taxonomia_reutilizavel": "Não é taxonomia.",
+      "vale_incorporar": [
+        "Esquema de regra: pré-filtro por palavras-chave (desempenho), allowlists com stopwords e caminhos, regras compostas por proximidade (ex.: CPF válido a até N linhas de 'cliente/paciente'), baseline por relatório anterior."
+      ],
+      "riscos": [
+        "Dependência desnecessária; apenas copiar o conceito.",
+        "Mantenedor sinaliza fim de novas features."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/gitleaks/gitleaks"
+      ],
+      "nao_verificado": [
+        "Data do último commit/release",
+        "Telemetria"
+      ]
+    },
+    {
+      "id": "scancode",
+      "nome": "ScanCode Toolkit",
+      "url": "https://github.com/aboutcode-org/scancode-toolkit",
+      "categoria": "detecção de licenças/copyright/pacotes",
+      "licenca": "Apache-2.0 (código); CC-BY-4.0 para conjuntos de dados de referência; componentes e dados de teste de terceiros têm outras licenças",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-16 (dccaa76, merge PR #5364)",
+        "ultima_release": "v32.5.0 marcada Latest; v33.0.0rc1 é pré-release de 19 mai (ano não exibido)",
+        "arquivado": "sem aviso",
+        "estrelas": "2,6 mil",
+        "observacao": "12.814 commits."
+      },
+      "o_que_detecta": "Licenças, copyrights, manifestos de pacotes, dependências diretas, PURLs, em código-fonte e binários.",
+      "como_detecta": "Comparação completa (diff) do texto contra banco de licenças/regras, em vez de regex aproximada, probabilística ou ML.",
+      "formato_saida": "JSON, YAML, HTML, CycloneDX e SPDX (página do repositório); formatos via Jinja customizados. SARIF: não mostrado. Documentação de opções de saída: bloqueada.",
+      "taxonomia_reutilizavel": "LicenseDB do AboutCode (não lido: bloqueado).",
+      "vale_incorporar": [
+        "Aceitar JSON do ScanCode como entrada opcional de evidência (se o usuário já rodou).",
+        "Aprender o princípio: casar licença por trecho de texto normalizado, não só por nome do arquivo LICENSE."
+      ],
+      "riscos": [
+        "Pesado (Python + dados grandes); não vendorizar.",
+        "Dados com CC-BY-4.0 exigem atribuição."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/aboutcode-org/scancode-toolkit",
+        "https://github.com/aboutcode-org/scancode-toolkit/releases",
+        "https://api.github.com/repos/aboutcode-org/scancode-toolkit/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Lista oficial de formatos de saída (readthedocs bloqueado)",
+        "Licença e conteúdo do LicenseDB (bloqueado)"
+      ]
+    },
+    {
+      "id": "fossology",
+      "nome": "FOSSology",
+      "url": "https://github.com/fossology/fossology",
+      "categoria": "plataforma de conformidade de licenças",
+      "licenca": "GPL-2.0 (bibliotecas libfossdb e libfossrepo em LGPL-2.1)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-16 (0374173, merge PR #3931)",
+        "ultima_release": "4.7.1, 2026-06-11",
+        "arquivado": "sem aviso",
+        "estrelas": "1,0 mil",
+        "observacao": "Ativo."
+      },
+      "o_que_detecta": "Varreduras de licença, copyright e controle de exportação com fluxo de trabalho de conformidade (nomes dos agentes não mostrados na página).",
+      "como_detecta": "Agentes via linha de comando + scheduler + interface web; arquitetura PHP 7.3+ / Apache / PostgreSQL / scheduler (docker-compose).",
+      "formato_saida": "SPDX e ReadMe (avisos de copyright) em um clique. CycloneDX: não mostrado.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Apenas o conceito de revisão humana de achados de licença (cleared/não cleared) para o relatório."
+      ],
+      "riscos": [
+        "Stack servidor pesada e GPL-2.0: incompatível com 'local, só stdlib'."
+      ],
+      "prioridade_para_lexzenit": "nao_adotar",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/fossology/fossology",
+        "https://api.github.com/repos/fossology/fossology/releases/latest",
+        "https://api.github.com/repos/fossology/fossology/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Nomes e função de cada agente"
+      ]
+    },
+    {
+      "id": "reuse",
+      "nome": "REUSE (FSFE) reuse-tool e especificação",
+      "url": "https://github.com/fsfe/reuse-tool",
+      "categoria": "conformidade de cabeçalhos de licença/SPDX",
+      "licenca": "Código GPL-3.0-or-later; documentação CC-BY-SA-4.0; alguns arquivos CC0-1.0; trechos de spdx/tools-python em Apache-2.0",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-13 (76c399d, tradução Weblate) no espelho GitHub",
+        "ultima_release": "não confirmada (exemplo de pre-commit cita v6.2.0); página de releases do Codeberg bloqueada",
+        "arquivado": "não; GitHub é espelho do desenvolvimento no Codeberg",
+        "estrelas": "589",
+        "observacao": "Especificação REUSE 3.3 (README)."
+      },
+      "o_que_detecta": "`reuse lint` verifica se todo arquivo tem licença e copyright; `annotate` insere cabeçalhos SPDX-License-Identifier / SPDX-FileCopyrightText; `download` baixa textos para LICENSES/; `spdx` gera SBOM SPDX; `convert-dep5` converte .reuse/dep5 para REUSE.toml.",
+      "como_detecta": "Leitura de cabeçalhos, arquivos .license, REUSE.toml/dep5 e pasta LICENSES/.",
+      "formato_saida": "Texto no terminal, `reuse lint --json`, documento SPDX.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Evidência de licença 'forte' para a LexZenit: pasta LICENSES/ com ids SPDX, REUSE.toml ou .reuse/dep5, linhas SPDX-License-Identifier nos arquivos (regex trivial, stdlib). Aumentar a confiança do achado 'licença' e detectar mistura de licenças por arquivo."
+      ],
+      "riscos": [
+        "GPL-3.0: usar só como especificação; não importar nem copiar código."
+      ],
+      "prioridade_para_lexzenit": "alta",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/fsfe/reuse-tool",
+        "https://api.github.com/repos/fsfe/reuse-tool/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Última release",
+        "Texto da especificação REUSE (reuse.software não lido)"
+      ]
+    },
+    {
+      "id": "ort",
+      "nome": "OSS Review Toolkit (ORT)",
+      "url": "https://github.com/oss-review-toolkit/ort",
+      "categoria": "orquestração de conformidade de licenças/SBOM",
+      "licenca": "Apache-2.0",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não lido (API falhou)",
+        "ultima_release": "94.2.0 (Latest), 24 set (ano não exibido)",
+        "arquivado": "sem aviso",
+        "estrelas": "2,1 mil",
+        "observacao": "20.908 commits. Telemetria: não verificado."
+      },
+      "o_que_detecta": "Analyzer (dependências/metadados), Scanner (licenças e copyright), Advisor (avisos de segurança), Evaluator (regras de política e classificação de licenças), Reporter (relatórios e avisos), Notifier (e-mail/Jira), Downloader.",
+      "como_detecta": "Pipeline de ferramentas; política 'baseada em risco como código' (a página não descreve o formato das regras).",
+      "formato_saida": "SBOM SPDX e CycloneDX, documentação de atribuição e 'open source notices'. SARIF: não mostrado.",
+      "taxonomia_reutilizavel": "Não (classificação de licenças é configuração do usuário).",
+      "vale_incorporar": [
+        "Conceito de classificação de licenças em categorias (permissiva, copyleft fraco/forte, rede/AGPL, proprietária) com ação associada, como tabela do catálogo da LexZenit (ex.: AGPL em projeto SaaS = achado de risco)."
+      ],
+      "riscos": [
+        "Kotlin/JVM, pesado; não embutir.",
+        "Sem formato de regras confirmado."
+      ],
+      "prioridade_para_lexzenit": "baixa (conceito)",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/oss-review-toolkit/ort",
+        "https://github.com/oss-review-toolkit/ort/releases"
+      ],
+      "nao_verificado": [
+        "Último commit",
+        "Formato do script de regras",
+        "Telemetria"
+      ]
+    },
+    {
+      "id": "syft",
+      "nome": "Syft (Anchore)",
+      "url": "https://github.com/anchore/syft",
+      "categoria": "gerador de SBOM",
+      "licenca": "Apache-2.0",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-16 (a811932, bump de dependência)",
+        "ultima_release": "v1.51.1, 2026-08-27",
+        "arquivado": "sem aviso",
+        "estrelas": "9,7 mil",
+        "observacao": "Go."
+      },
+      "o_que_detecta": "Cataloga pacotes de imagens, sistemas de arquivos e arquivos (apk, dpkg, RPM, Go, Python, Java, JavaScript, Ruby, Rust, PHP, .NET e outros).",
+      "como_detecta": "Como lê manifestos/lockfiles/binários: não mostrado na página.",
+      "formato_saida": "CycloneDX, SPDX, Syft JSON e outros.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Reconhecer como evidência de SBOM os arquivos de saída de Syft/cdxgen (bom.json, *.cdx.json, *.spdx.json, sbom.*) e ler componentes/licenças com json da stdlib; não rodar o Syft."
+      ],
+      "riscos": [
+        "Binário Go externo; telemetria não verificada."
+      ],
+      "prioridade_para_lexzenit": "alta (como formato de entrada)",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/anchore/syft",
+        "https://api.github.com/repos/anchore/syft/releases/latest",
+        "https://api.github.com/repos/anchore/syft/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Método de detecção",
+        "Telemetria"
+      ]
+    },
+    {
+      "id": "cyclonedx",
+      "nome": "CycloneDX (especificação) e cdxgen",
+      "url": "https://github.com/CycloneDX/specification",
+      "categoria": "padrão de SBOM/ML-BOM/SaaSBOM",
+      "licenca": "Especificação: Apache-2.0. cdxgen: Apache-2.0.",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-12 (ad83dae, correção de typos) na especificação",
+        "ultima_release": "Spec 1.7 de 21 out 2025 (README); cdxgen: release não lida (API falhou; v13.5.0 aparece só como exemplo no README)",
+        "arquivado": "sem aviso",
+        "estrelas": "548 (spec); 1,1 mil (cdxgen)",
+        "observacao": "Padrão Ecma ECMA-424. cdxgen exige Node.js >= 24."
+      },
+      "o_que_detecta": "SBOM, SaaSBOM, ML-BOM, CBOM (spec). cdxgen gera SBOM, CBOM, SaaSBOM, OBOM, HBOM, AI-BOM e converte para SPDX 3.0.1.",
+      "como_detecta": "cdxgen lê manifestos, pode executar ferramentas de build externas e consultar registros públicos (FETCH_LICENSE).",
+      "formato_saida": "JSON (application/vnd.cyclonedx+json), XML, protobuf; esquema JSON no diretório schema/.",
+      "taxonomia_reutilizavel": "Esquema formal de componentes/licenças/serviços.",
+      "vale_incorporar": [
+        "Emitir um CycloneDX JSON mínimo (componentes que o scanner já extrai dos manifestos + licenças) como artefato de evidência.",
+        "Para projetos de IA: ML-BOM e SaaSBOM (serviços e fluxos de dados) como destino do sinal 'IA generativa' e 'hospedagem no exterior'."
+      ],
+      "riscos": [
+        "Não usar cdxgen como dependência (Node >= 24, executa build tools).",
+        "Campos de governança de dados (`data`/dataGovernance): não mencionados na página lida."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/CycloneDX/specification",
+        "https://github.com/cdxgen/cdxgen",
+        "https://api.github.com/repos/CycloneDX/specification/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Release mais recente do cdxgen",
+        "dataGovernance na spec 1.5+"
+      ]
+    },
+    {
+      "id": "spdx",
+      "nome": "SPDX (spdx-3-model e license-list-data)",
+      "url": "https://github.com/spdx/license-list-data",
+      "categoria": "padrão de SBOM e lista de licenças",
+      "licenca": "Não confirmada: spdx-3-model aponta para License.md sem nomear; license-list-data remete aos repositórios de origem (tentativa de ler LICENSE.md falhou).",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-09-16 (31ba1a5, 'License list build 3.29.0 using license list publisher 3.1.4')",
+        "ultima_release": "tags vX.Y.Z (README); seção de releases vazia",
+        "arquivado": "sem aviso",
+        "estrelas": "698 (license-list-data); 102 (spdx-3-model)",
+        "observacao": "SPDX 3.x tem perfis Core, Software, Security, Licensing, Dataset, AI, Build e Lite; main = última versão publicada, develop em v3.1-dev."
+      },
+      "o_que_detecta": "Modelos de dados; license-list-data traz a lista de licenças em HTML, JSON, RDF, JSON-LD, texto e templates (licenses.json, exceptions.json).",
+      "como_detecta": "n/a",
+      "formato_saida": "JSON-LD (spdx-model.jsonld), Turtle, SHACL, OWL; lista de licenças em vários formatos.",
+      "taxonomia_reutilizavel": "Sim: identificadores SPDX de licença; perfis Dataset e AI do SPDX 3 para IA.",
+      "vale_incorporar": [
+        "Normalizar toda licença detectada para um id SPDX, mantendo uma tabela própria mínima (~50 ids) com classe de copyleft escrita por nós.",
+        "Usar os perfis Dataset/AI como referência de quais campos o RoPA/ficha de IA devem ter."
+      ],
+      "riscos": [
+        "Licença dos dados da lista não confirmada: não copiar textos nem a lista inteira antes de confirmar; ids isolados são fatos, mas confirmar mesmo assim."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/spdx/license-list-data",
+        "https://github.com/spdx/spdx-3-model",
+        "https://api.github.com/repos/spdx/license-list-data/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Licença dos dados (CC0-1.0 é o que se espera, não confirmado)",
+        "Campos de licenses.json"
+      ]
+    },
+    {
+      "id": "licensee",
+      "nome": "licensee",
+      "url": "https://github.com/licensee/licensee",
+      "categoria": "identificação da licença do projeto",
+      "licenca": "MIT (LICENSE.md, conforme a página)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-15 (e56521d, merge de dependabot)",
+        "ultima_release": "v10.1.0, 2026-08-07",
+        "arquivado": "sem aviso",
+        "estrelas": "914",
+        "observacao": "Gem Ruby com CLI."
+      },
+      "o_que_detecta": "Descobre a licença (id SPDX) lendo LICENSE, manifestos e README.",
+      "como_detecta": "Normaliza o texto, compara por igualdade exata e depois pelo coeficiente de Sørensen-Dice contra textos conhecidos (a página não cita limiar).",
+      "formato_saida": "Não confirmado (página não lista formatos).",
+      "taxonomia_reutilizavel": "Usa a lista de licenças conhecidas (origem não confirmada na página).",
+      "vale_incorporar": [
+        "Reimplementar em stdlib: normalizar (minúsculas, sem pontuação e cabeçalhos de copyright), comparar com impressões digitais de ~15 licenças comuns (MIT, Apache-2.0, BSD-2/3, GPL-2.0/3.0, LGPL, AGPL-3.0, MPL-2.0, ISC, Unlicense) por Dice de bigramas; distinguir 'licença conhecida', 'modificada' e 'proprietária/ausente'."
+      ],
+      "riscos": [
+        "Ruby: não rodar; usar só o algoritmo (descrito na página)."
+      ],
+      "prioridade_para_lexzenit": "alta",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/licensee/licensee",
+        "https://api.github.com/repos/licensee/licensee/commits?per_page=1",
+        "https://api.github.com/repos/licensee/licensee/releases/latest"
+      ],
+      "nao_verificado": [
+        "Limiar de confiança padrão",
+        "Formatos de saída"
+      ]
+    },
+    {
+      "id": "trivy",
+      "nome": "Trivy (Aqua Security)",
+      "url": "https://github.com/aquasecurity/trivy",
+      "categoria": "scanner de vulnerabilidades/segredos/licenças",
+      "licenca": "Apache-2.0",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não lido",
+        "ultima_release": "não lida",
+        "arquivado": "sem aviso",
+        "estrelas": "38,1 mil",
+        "observacao": "Leitura parcial."
+      },
+      "o_que_detecta": "Vulnerabilidades, má configuração de IaC, segredos e licenças (lista da página).",
+      "como_detecta": "Não descrito na página lida.",
+      "formato_saida": "Não mencionados na página lida (SBOM, SARIF: não verificado).",
+      "taxonomia_reutilizavel": "Não verificado.",
+      "vale_incorporar": [
+        "Nenhum item verificado; citado só como alternativa de entrada de licenças."
+      ],
+      "riscos": [
+        "Binário Go grande."
+      ],
+      "prioridade_para_lexzenit": "baixa",
+      "verificado_em_fonte": false,
+      "url_fonte_lida": [
+        "https://github.com/aquasecurity/trivy"
+      ],
+      "nao_verificado": [
+        "Formatos de saída",
+        "Classificação de licenças",
+        "Telemetria",
+        "Datas"
+      ]
+    },
+    {
+      "id": "goul4rt-lgpd-skills",
+      "nome": "goul4rt/lgpd-skills (skills de agente para auditoria LGPD)",
+      "url": "https://github.com/goul4rt/lgpd-skills",
+      "categoria": "skills de IA (sem scanner determinístico descrito)",
+      "licenca": "MIT",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-05-31 (d85d79a, merge PR #1 multi-agent-distribution)",
+        "ultima_release": "nenhuma (seção vazia)",
+        "arquivado": "sem aviso",
+        "estrelas": "47 na página do repositório; a listagem do tópico 'lgpd' mostrou 74 (divergência não resolvida)",
+        "observacao": "8 commits; em português; presumível concorrente direto no formato 'skill'."
+      },
+      "o_que_detecta": "Orquestrador lgpd-audit + 18 sub-skills: base legal, mapeamento de dados, RoPA, RIPD, consentimento, DSAR, política de privacidade, incidentes, encarregado/DPO, DPA, transferência internacional, auditoria de fornecedores, logs de auditoria, chaves de criptografia, anonimização, retenção/eliminação, ECA Digital, retrofit de legado.",
+      "como_detecta": "Frases de gatilho acionam as skills; a página não descreve grep, scripts ou regras determinísticas (provavelmente o agente lê o código).",
+      "formato_saida": "Markdown versionado em .lgpd/: STATUS.md, ROPA.md, RIPD/, policies/, incidents/log.md, gaps.md.",
+      "taxonomia_reutilizavel": "Lista de 18 domínios e referência às resoluções da ANPD (CD/ANPD 2/2022, 4/2023, 15/2024, 18/2024, 19/2024, 30 e 31/2025) e à Lei 15.211/2025 (ECA Digital) - citadas pelo repositório, não conferidas por mim em fonte oficial.",
+      "vale_incorporar": [
+        "Adicionar ao catálogo de evidências os nomes de arquivo/pasta do padrão '.lgpd/' (ROPA.md, RIPD/, gaps.md) e detectar também RoPA/RIPD/DPA em Markdown.",
+        "Conferir se os 18 domínios têm correspondência nos nossos sinais/evidências (lacunas prováveis: retenção/eliminação, logs de auditoria, chaves de criptografia, incidentes, ECA Digital, encarregado).",
+        "Conferir as resoluções ANPD citadas contra o nosso catálogo N1 (em fonte oficial) antes de usar."
+      ],
+      "riscos": [
+        "Estrelas divergentes entre duas páginas; projeto novo.",
+        "Premissa de stack (Next.js/Prisma/Better Auth/Stripe/Pagar.me) enviesa o conteúdo."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/goul4rt/lgpd-skills",
+        "https://api.github.com/repos/goul4rt/lgpd-skills/commits?per_page=1",
+        "https://github.com/topics/lgpd"
+      ],
+      "nao_verificado": [
+        "Mecanismo de detecção",
+        "Exatidão das citações normativas"
+      ]
+    },
+    {
+      "id": "lgpd-app-skills",
+      "nome": "lgpd-app/skills (lgpd-check e lgpd-md)",
+      "url": "https://github.com/lgpd-app/skills",
+      "categoria": "skills de IA para auditoria de sites",
+      "licenca": "Apache-2.0",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não exibido",
+        "ultima_release": "nenhuma",
+        "arquivado": "sem aviso",
+        "estrelas": "2",
+        "observacao": "5 commits."
+      },
+      "o_que_detecta": "lgpd-check audita sites em 6 módulos (política de privacidade, consentimento de cookies, minimização, transferência internacional, direitos do titular, scripts de terceiros) com nota e correções; lgpd-md gera e valida o arquivo `lgpd.md` (declaração de conformidade).",
+      "como_detecta": "Não descrito.",
+      "formato_saida": "Relatório com pontuação; arquivo lgpd.md.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Reconhecer `lgpd.md` como arquivo de evidência (barato).",
+        "Os 6 módulos como checagem cruzada da cobertura de sinais/evidências."
+      ],
+      "riscos": [
+        "Formato `lgpd.md` sem adoção demonstrada."
+      ],
+      "prioridade_para_lexzenit": "baixa",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/lgpd-app/skills"
+      ],
+      "nao_verificado": [
+        "Detecção",
+        "Datas"
+      ]
+    },
+    {
+      "id": "mukul975-privacy-skills",
+      "nome": "mukul975/Privacy-Data-Protection-Skills",
+      "url": "https://github.com/mukul975/Privacy-Data-Protection-Skills",
+      "categoria": "base de skills de privacidade para agentes",
+      "licenca": "Apache-2.0",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não exibido",
+        "ultima_release": "não exibida",
+        "arquivado": "sem aviso",
+        "estrelas": "274 na página do repositório; 307 na listagem do tópico (divergência)",
+        "observacao": "24 commits."
+      },
+      "o_que_detecta": "282+ skills em 20 domínios; LGPD tem 3+ skills; scripts Python só com stdlib; skill `pii-detection-pipeline` (detalhes não mostrados).",
+      "como_detecta": "Não descrito.",
+      "formato_saida": "YAML/Markdown/scripts.",
+      "taxonomia_reutilizavel": "Mapeamentos NIST Privacy Framework, ISO 27701, OWASP Privacy Risks.",
+      "vale_incorporar": [
+        "Estrutura SKILL.md + scripts + templates como referência de empacotamento; mapeamentos de frameworks como possível coluna extra no catálogo."
+      ],
+      "riscos": [
+        "Declarado como material educativo; LGPD superficial."
+      ],
+      "prioridade_para_lexzenit": "baixa",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/mukul975/Privacy-Data-Protection-Skills"
+      ],
+      "nao_verificado": [
+        "O que os scripts fazem"
+      ]
+    },
+    {
+      "id": "lvmorales1-privacy-scanner",
+      "nome": "lvmorales1/privacy-scanner (PHP)",
+      "url": "https://github.com/lvmorales1/privacy-scanner",
+      "categoria": "scanner de arquivos/repositórios git (segredos + dados pessoais BR)",
+      "licenca": "MIT (Packagist)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não lido",
+        "ultima_release": "v0.2.0, 2026-06-20 (Packagist)",
+        "arquivado": "n/d",
+        "estrelas": "0; 55 instalações",
+        "observacao": "Projeto pequeno."
+      },
+      "o_que_detecta": "Segredos (chaves SSH, AWS, Stripe live, URLs de banco, GitHub, OpenAI, JWT) e dados pessoais: CPF, CNPJ, telefones brasileiros, e-mails.",
+      "como_detecta": "Regras são classes com regex e pontuação de risco 1-10; severidade LOW 1-3, MEDIUM 4-5, HIGH 6-7, CRITICAL 8-10.",
+      "formato_saida": "Saída com severidade, regra, arquivo, linha e valor mascarado; `--format=json`; exit code 0/1; limiares `fail_on_score` e `fail_on_severity` em privacy-scan.json; 'Risk Score: x/100'.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Nota de risco agregada e limiares de falha para CI (fail_on_score/severity)."
+      ],
+      "riscos": [
+        "Se valida dígito verificador de CPF/CNPJ: não confirmado.",
+        "Projeto minúsculo."
+      ],
+      "prioridade_para_lexzenit": "baixa",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://packagist.org/packages/lvmorales1/privacy-scanner"
+      ],
+      "nao_verificado": [
+        "Validação de DV",
+        "Estrutura do repositório"
+      ]
+    },
+    {
+      "id": "richardmsbr-privacy-shield-br",
+      "nome": "Richardmsbr/privacy-shield-br (PHP)",
+      "url": "https://github.com/Richardmsbr/privacy-shield-br",
+      "categoria": "biblioteca de detecção/mascaramento em runtime",
+      "licenca": "MIT (Packagist e página do repositório; arquivo LICENSE não lido)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não exibido",
+        "ultima_release": "só dev-main (sem tag)",
+        "arquivado": "n/d",
+        "estrelas": "1",
+        "observacao": "3 commits. Packagist mostra datas incoerentes (publicado 2026-03-30; 'última atualização' 2026-10-07)."
+      },
+      "o_que_detecta": "CPF, CNPJ, chaves PIX, e-mail, telefone, cartão em strings/arrays/objetos; máscara, redação, pseudonimização com CPF/CNPJ de aparência válida.",
+      "como_detecta": "Regex + validação de dígito verificador de CPF/CNPJ ('não apenas regex'). Não é scanner de código-fonte.",
+      "formato_saida": "Contagens por tipo, posições (scanDetailed), dados mascarados.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Incluir PIX (chave aleatória/e-mail/telefone/CPF/CNPJ) como padrão de pagamento brasileiro no sinal 'pagamentos'."
+      ],
+      "riscos": [
+        "Foco em runtime Laravel; projeto minúsculo."
+      ],
+      "prioridade_para_lexzenit": "baixa",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://packagist.org/packages/richardmsbr/privacy-shield-br",
+        "https://github.com/Richardmsbr/privacy-shield-br"
+      ],
+      "nao_verificado": [
+        "Detalhes dos padrões de PIX"
+      ]
+    },
+    {
+      "id": "code-guard-ai",
+      "nome": "negraodenio/code-guard-ai",
+      "url": "https://github.com/negraodenio/code-guard-ai",
+      "categoria": "auditoria de código gerado por IA (extensão + MCP + API)",
+      "licenca": "MIT (página do repositório)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não exibido",
+        "ultima_release": "nenhuma",
+        "arquivado": "sem aviso",
+        "estrelas": "1",
+        "observacao": "56 commits; usa CODEGUARD_LICENSE_KEY e aponta para code-guard.eu (modelo comercial)."
+      },
+      "o_que_detecta": "GDPR/AI Act/LGPD (região 'BR' no exemplo de API). No arquivo gdpr.ts (lido num espelho da Glama): 5 regras - e-mail fixo, CPF por formato ###.###.###-##, segredos, credencial fixa (inclui 'senha') e console.log com e-mail/user/token.",
+      "como_detecta": "Regex por linha sem AST nem fluxo; backend LLM multi-provedor.",
+      "formato_saida": "Lista de violações (regra, severidade, linha, trecho, mensagem, categoria, correção sugerida).",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Lição negativa: CPF só por formato, tudo 'CRITICAL', rotulado GDPR mesmo para CPF, trechos casados devolvidos no resultado. Evitar nos nossos relatórios (já guardamos só caminho:linha)."
+      ],
+      "riscos": [
+        "Código visto só pelo espelho da Glama (hash 552da6...), não no repositório.",
+        "Camada comercial; LLM envia código a provedores."
+      ],
+      "prioridade_para_lexzenit": "nao_adotar",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/negraodenio/code-guard-ai",
+        "https://glama.ai/mcp/servers/@negraodenio/code-guard-ai/blob/552da613cedb1d74637bf074344958dd9bea13c6/src/scanner/gdpr.ts"
+      ],
+      "nao_verificado": [
+        "Regras fora do arquivo gdpr.ts"
+      ]
+    },
+    {
+      "id": "lordmendes-lgpd-mcp",
+      "nome": "LordMendes/lgpd-mcp (servidor MCP de LGPD)",
+      "url": "https://github.com/LordMendes/lgpd-mcp",
+      "categoria": "servidor MCP de consulta/assistência LGPD",
+      "licenca": "MIT",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não exibido",
+        "ultima_release": "nenhuma",
+        "arquivado": "sem aviso",
+        "estrelas": "1",
+        "observacao": "9 commits; pacote npm @lordmendes/lgpd-mcp."
+      },
+      "o_que_detecta": "9 ferramentas (validar base legal, modelos de consentimento e política, avaliar necessidade de PIA, checklist, direitos do titular, mapear dados sensíveis, avaliação de risco), 5 recursos, 4 prompts; transportes stdio e HTTP.",
+      "como_detecta": "Não escaneia código (a página não indica).",
+      "formato_saida": "Texto/JSON via MCP.",
+      "taxonomia_reutilizavel": "Glossário e referências ANPD como recursos MCP.",
+      "vale_incorporar": [
+        "Comparar a lista de tools/recursos/prompts com o nosso MCP somente leitura (lacunas: checklist, glossário, direitos do titular)."
+      ],
+      "riscos": [
+        "Projeto minúsculo; não é scanner."
+      ],
+      "prioridade_para_lexzenit": "baixa",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/LordMendes/lgpd-mcp",
+        "https://policylayer.com/tools/io-github-lordmendes-lgpd-mcp"
+      ],
+      "nao_verificado": [
+        "Qualidade do conteúdo jurídico"
+      ]
+    },
+    {
+      "id": "pydantic-brasil",
+      "nome": "Luan1Schons/pydantic-brasil",
+      "url": "https://github.com/Luan1Schons/pydantic-brasil",
+      "categoria": "validadores de documentos brasileiros (referência de cobertura)",
+      "licenca": "MIT",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não lido",
+        "ultima_release": "nenhuma (seção vazia)",
+        "arquivado": "não (sem aviso)",
+        "estrelas": "11",
+        "observacao": "7 commits."
+      },
+      "o_que_detecta": "22 tipos: CPF, CNPJ (tradicional e alfanumérico de 2026), CPFouCNPJ, Inscrição Estadual, chave DF-e, GTIN, CEP, rastreio dos Correios, telefone BR, chave PIX, boleto, IBAN BR, banco, PIS/PASEP/NIS/NIT, título de eleitor, CNS, certidão civil, processo CNJ, placa, RENAVAM, CNH.",
+      "como_detecta": "Validadores Pydantic v2 (formato + dígitos).",
+      "formato_saida": "Tipos Pydantic.",
+      "taxonomia_reutilizavel": "Lista de tipos úteis como checklist de cobertura.",
+      "vale_incorporar": [
+        "Usar a lista de 22 tipos como checklist de padrões brasileiros do sinal 'dados pessoais' (documentos pessoais vs. dados fiscais de empresa vs. logística)."
+      ],
+      "riscos": [
+        "Só referência; implementar validadores próprios (stdlib)."
+      ],
+      "prioridade_para_lexzenit": "alta (como lista)",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/Luan1Schons/pydantic-brasil"
+      ],
+      "nao_verificado": [
+        "Correção dos algoritmos"
+      ]
+    },
+    {
+      "id": "brutils",
+      "nome": "brazilian-utils/python (brutils)",
+      "url": "https://github.com/brazilian-utils/python",
+      "categoria": "biblioteca de utilidades/validação de documentos brasileiros",
+      "licenca": "MIT",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-09 (b08c9f0, bump de dependência)",
+        "ultima_release": "não exibida (seção vazia; instalação via PyPI 'brutils')",
+        "arquivado": "n/d",
+        "estrelas": "525",
+        "observacao": "Ativo."
+      },
+      "o_que_detecta": "CPF, CNPJ (inclui alfanumérico), CEP, CNH, PIS/PASEP, título de eleitor, placas (antigas e Mercosul), telefone, processo jurídico, RENAVAM, passaporte etc.",
+      "como_detecta": "Validação (dígitos) e formatação.",
+      "formato_saida": "Funções Python.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Fonte de vetores de teste (casos válidos/ inválidos) para os nossos validadores; manter o scanner sem dependência externa."
+      ],
+      "riscos": [
+        "Dependência externa quebraria 'só stdlib'; usar apenas como referência."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/brazilian-utils/python",
+        "https://api.github.com/repos/brazilian-utils/python/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Release"
+      ]
+    },
+    {
+      "id": "validate-docbr",
+      "nome": "alvarofpp/validate-docbr",
+      "url": "https://github.com/alvarofpp/validate-docbr",
+      "categoria": "validação de documentos brasileiros",
+      "licenca": "MIT",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-01 (6bacff4, 'ci(release): Publica no PyPI antes de criar a tag')",
+        "ultima_release": "não determinada",
+        "arquivado": "n/d",
+        "estrelas": "484",
+        "observacao": "55 forks."
+      },
+      "o_que_detecta": "CPF, CNH, CNPJ (numérico e alfanumérico), CNS, PIS/NIS/PASEP/NIT, título eleitoral, RENAVAM, certidão.",
+      "como_detecta": "Validação por dígitos.",
+      "formato_saida": "Funções Python.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Vetores de teste adicionais, mesma ressalva."
+      ],
+      "riscos": [
+        "Mesma ressalva (referência apenas)."
+      ],
+      "prioridade_para_lexzenit": "baixa",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/alvarofpp/validate-docbr",
+        "https://api.github.com/repos/alvarofpp/validate-docbr/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Release"
+      ]
+    },
+    {
+      "id": "pii-ner-pt",
+      "nome": "Modelos/bibliotecas de NER para PII em português (hyrule-shield, OpenMed PII Portuguese)",
+      "url": "https://huggingface.co/OpenMed/OpenMed-PII-Portuguese-LiteClinical-Small-66M-v1",
+      "categoria": "NER para PII em texto",
+      "licenca": "hyrule-shield: MIT (PyPI). OpenMed PII Portuguese: Apache-2.0 (cartão do modelo).",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "n/a",
+        "ultima_release": "hyrule-shield 0.1.2 (22 out 2024); modelo OpenMed: data não lida",
+        "arquivado": "n/d",
+        "estrelas": "n/d",
+        "observacao": "hyrule-shield: beta, dependências spaCy e transformers."
+      },
+      "o_que_detecta": "hyrule-shield: nomes, CPF, RG, CNPJ, endereços, telefones por spaCy. OpenMed: 54 tipos de entidade (nome, endereço, e-mail, telefone, IBAN, cartão...); CPF e CNPJ NÃO aparecem na lista de entidades.",
+      "como_detecta": "Modelos neurais (DistilBERT 66M no OpenMed).",
+      "formato_saida": "Texto com marcadores (<PER>, <CPF>) ou entidades.",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Nenhuma para o scanner de repositório; no máximo mencionar como opção externa para dados em texto livre."
+      ],
+      "riscos": [
+        "Pesos e dependências pesadas; falsos negativos; incompatível com stdlib."
+      ],
+      "prioridade_para_lexzenit": "nao_adotar",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://pypi.org/project/hyrule-shield/",
+        "https://huggingface.co/OpenMed/OpenMed-PII-Portuguese-LiteClinical-Small-66M-v1"
+      ],
+      "nao_verificado": [
+        "Métricas de qualidade"
+      ]
+    },
+    {
+      "id": "aibom-scanner",
+      "nome": "aibom-scanner (saasvista)",
+      "url": "https://github.com/saasvista/aibom-scanner",
+      "categoria": "scanner estático de IA (AIBOM) - gêmeo arquitetural",
+      "licenca": "Apache-2.0",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-10-13 (9f5a506, merge PR #11 docs readme 1.3.0)",
+        "ultima_release": "1.3.0 no PyPI, 13 out 2026",
+        "arquivado": "sem informação",
+        "estrelas": "n/d (repositório não aberto)",
+        "observacao": "Lido via PyPI e API de commits."
+      },
+      "o_que_detecta": "70 padrões de SDKs/modelos de IA (OpenAI, Anthropic, Bedrock, HuggingFace...), 10 provedores chineses sinalizados por soberania de dados/exportação, frameworks de agentes, servidores MCP (transporte, comando de lançamento, versão fixada), ferramentas de agentes por capacidade, 34 regras de risco, 49 controles mapeados a NIST AI RMF, ISO 42001, EU AI Act e OWASP LLM.",
+      "como_detecta": "Só biblioteca padrão Python, sem rede e sem LLM; percorre a árvore com git ou os.walk; mascara strings com formato de chave; guarda só nomes de chaves de configs MCP.",
+      "formato_saida": "table, json, sarif; códigos de saída 0 (limpo), 1 (achados >= limiar), 2 (argumento/caminho inválido), 3 (cobertura incompleta, se pedido); GitHub Action saasvista/aibom-scanner@v1.",
+      "taxonomia_reutilizavel": "Mapeamento achado -> controle (mapped/partial/gap).",
+      "vale_incorporar": [
+        "Relatar cobertura (arquivos ilegíveis, truncagem) e usar código de saída 3 quando incompleta.",
+        "Separar no relatório 'observado' de 'inferido/checklist' (já alinhado com 'ausência de detecção não prova ausência').",
+        "Ampliar o sinal 'IA generativa': lista de SDKs, servidores MCP em configs e provedores em jurisdição sensível (alimenta N2/N3).",
+        "SARIF e GitHub Action."
+      ],
+      "riscos": [
+        "Concorrência direta no pedaço 'IA'; reimplementar do zero (sem copiar código).",
+        "Projeto novo de um autor."
+      ],
+      "prioridade_para_lexzenit": "alta",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://pypi.org/project/aibom-scanner/",
+        "https://api.github.com/repos/saasvista/aibom-scanner/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Estrelas e histórico do repositório",
+        "Licença do arquivo LICENSE"
+      ]
+    },
+    {
+      "id": "ai-bom-trusera",
+      "nome": "Trusera ai-bom",
+      "url": "https://github.com/trusera/ai-bom",
+      "categoria": "inventário de IA (AI-BOM)",
+      "licenca": "Apache-2.0 (PyPI)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-04-13 (012d53d, bump de requisito 'rich')",
+        "ultima_release": "3.6.0 no PyPI, 15 mar 2026",
+        "arquivado": "n/d",
+        "estrelas": "n/d",
+        "observacao": "Relatórios de EU AI Act são recurso pago da plataforma."
+      },
+      "o_que_detecta": "LLMs, frameworks de agentes, modelos, chaves de API, endpoints, contêineres de IA, serviços de nuvem, arquivos de modelo (.gguf, .safetensors), nós n8n, servidores MCP, A2A, notebooks; 25+ SDKs.",
+      "como_detecta": "Regex por padrão; AST opcional (--deep) para Python.",
+      "formato_saida": "Tabela, CycloneDX 1.6, SARIF 2.1.0, HTML, Markdown, SPDX 3.0, CSV, JUnit.",
+      "taxonomia_reutilizavel": "Mapeamentos EU AI Act e OWASP (módulos de conformidade).",
+      "vale_incorporar": [
+        "Exportar a lista de componentes de IA como CycloneDX (ML-BOM) além de SARIF.",
+        "Detectar arquivos de modelo (.gguf, .safetensors, .onnx) como sinal de 'IA própria/pesos' e de licença do modelo."
+      ],
+      "riscos": [
+        "SDKs de runtime enviam eventos à plataforma Trusera quando há chave de API; funil comercial.",
+        "Último commit em abr/2026."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://pypi.org/project/ai-bom/",
+        "https://api.github.com/repos/trusera/ai-bom/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Estrelas",
+        "Telemetria do scanner"
+      ]
+    },
+    {
+      "id": "ai-act-check",
+      "nome": "ai-act-check (svel26)",
+      "url": "https://github.com/svel26/ai-act-check",
+      "categoria": "scanner de EU AI Act (protótipo)",
+      "licenca": "AGPL-3.0 segundo a descrição (metadados do PyPI inconsistentes: 'Apache Software License (AGPL-3.0)')",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não lido",
+        "ultima_release": "2.0.1 no PyPI, 17 jan 2026",
+        "arquivado": "n/d",
+        "estrelas": "n/d",
+        "observacao": "Produto comercial AnnexFour Cloud."
+      },
+      "o_que_detecta": "Procura bibliotecas de ML regulamentadas (torch, sklearn, face_recognition) e sugere 'alto risco' por categorias (Biometria, Infraestrutura crítica, Emprego); gera rascunho de Anexo IV (exige OPENROUTER_API_KEY).",
+      "como_detecta": "Lista de bibliotecas, sem fluxo.",
+      "formato_saida": "scan_results.json e rascunho de Anexo IV.",
+      "taxonomia_reutilizavel": "Categorias do Anexo III em alto nível.",
+      "vale_incorporar": [
+        "Ideia: dependência de ML + domínio (biometria, emprego, crédito) => sinal de 'alto risco' para N3 (UE) e PL 2338/2023; reimplementar."
+      ],
+      "riscos": [
+        "AGPL-3.0: não incorporar; protótipo; rascunho exige chave de terceiros."
+      ],
+      "prioridade_para_lexzenit": "nao_adotar",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://pypi.org/project/ai-act-check/"
+      ],
+      "nao_verificado": [
+        "Repositório não aberto",
+        "Licença exata"
+      ]
+    },
+    {
+      "id": "dpv",
+      "nome": "W3C Data Privacy Vocabulary (DPV)",
+      "url": "https://github.com/w3c-cg/dpv",
+      "categoria": "vocabulário semântico de privacidade",
+      "licenca": "W3C Document License (README do repositório; licença própria do vocabulário não confirmada)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "2026-08-06 (c85ffac, 'minutes 08 AUG 2026')",
+        "ultima_release": "v2.3 mencionada nos relatórios finais (data não exibida)",
+        "arquivado": "sem aviso",
+        "estrelas": "83",
+        "observacao": "Relatório de extensões legais por jurisdição (CG-FINAL-legal-20240801) não lido (bloqueado)."
+      },
+      "o_que_detecta": "Vocabulário: finalidades, categorias de dados pessoais, operações de tratamento, medidas técnicas e organizacionais, bases legais, direitos, riscos.",
+      "como_detecta": "n/a",
+      "formato_saida": "RDF/XML, Turtle, JSON-LD, N3 (RDFS/SKOS; OWL2 alternativa).",
+      "taxonomia_reutilizavel": "SIM, com extensões para GDPR, AI Act, NIS2 e ~45 países; extensão para o Brasil/LGPD: não confirmada (não aparece na lista lida).",
+      "vale_incorporar": [
+        "Guardar, ao lado da chave fideslang, o IRI DPV de cada categoria/operação (campo opcional) para exportação em JSON-LD futura; verbos do DPV para classes de 'sink' (como no estudo de Tang et al.)."
+      ],
+      "riscos": [
+        "Esforço de manutenção do mapeamento; extensão LGPD pode não existir."
+      ],
+      "prioridade_para_lexzenit": "media",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/w3c-cg/dpv",
+        "https://github.com/w3c/dpv",
+        "https://api.github.com/repos/w3c/dpv/commits?per_page=1"
+      ],
+      "nao_verificado": [
+        "Extensão Brasil/LGPD",
+        "Licença do vocabulário",
+        "Relatório CG-FINAL-legal (URL bloqueada)"
+      ]
+    },
+    {
+      "id": "sarif",
+      "nome": "SARIF 2.1.0 (OASIS)",
+      "url": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html",
+      "categoria": "padrão de formato de saída",
+      "licenca": "Padrão OASIS (especificação)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "n/a",
+        "ultima_release": "OASIS Standard com errata aprovada, 28 ago 2023 (base de 27 mar 2020)",
+        "arquivado": "n/a",
+        "estrelas": "n/a",
+        "observacao": "Lidos os primeiros 100.000 de 104.316 caracteres."
+      },
+      "o_que_detecta": "n/a",
+      "como_detecta": "n/a",
+      "formato_saida": "Objetos principais: sarifLog, run, tool, result, reportingDescriptor, location (physicalLocation, logicalLocations).",
+      "taxonomia_reutilizavel": "Não.",
+      "vale_incorporar": [
+        "Emitir `--format sarif` com um reportingDescriptor por sinal (ruleId = id do sinal), result com physicalLocation = caminho:linha e nível por confiança; aparece no code scanning do GitHub."
+      ],
+      "riscos": [
+        "Limites de upload do GitHub (tamanho, quantidade de resultados) e propriedades exigidas: NÃO verificado - a página docs.github.com não foi lida (permissão de acesso não respondida)."
+      ],
+      "prioridade_para_lexzenit": "alta",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html"
+      ],
+      "nao_verificado": [
+        "Requisitos e limites do GitHub code scanning"
+      ]
+    },
+    {
+      "id": "web-trackers",
+      "nome": "Datasets/scanners de rastreadores web (DuckDuckGo Tracker Radar e Blacklight)",
+      "url": "https://github.com/duckduckgo/tracker-radar",
+      "categoria": "dados e coletor de rastreadores",
+      "licenca": "Tracker Radar: dados sob CC BY-NC-SA 4.0 (uso comercial exige licença separada, segundo o README). Blacklight collector: GPL-3.0.",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "não lido",
+        "ultima_release": "n/a",
+        "arquivado": "sem aviso",
+        "estrelas": "1,7 mil (Tracker Radar); 242 (blacklight-collector)",
+        "observacao": "Tracker Radar: 755 commits."
+      },
+      "o_que_detecta": "Tracker Radar: domínios de terceiros com entidade-pai, prevalência, fingerprinting, cookies, política de privacidade. Blacklight: rastreadores de terceiros, gravação de sessão, fingerprinting de canvas, Facebook pixel, eventos do Google Analytics.",
+      "como_detecta": "Blacklight: navegador headless (Puppeteer/Chromium) em páginas reais; não analisa repositório.",
+      "formato_saida": "Blacklight: inspection.json, browser-cookies.json, requests.har, ndjson.",
+      "taxonomia_reutilizavel": "Tracker Radar: metadados por domínio (formato não confirmado).",
+      "vale_incorporar": [
+        "Ideia: manter tabela própria de domínios/SDKs de analytics e publicidade com entidade-pai e país (feita a partir de fontes de licença livre)."
+      ],
+      "riscos": [
+        "CC BY-NC-SA bloqueia uso comercial e exige compartilhamento igual: não ingerir os dados.",
+        "GPL-3.0 e navegador headless: fora de escopo."
+      ],
+      "prioridade_para_lexzenit": "nao_adotar",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://github.com/duckduckgo/tracker-radar",
+        "https://github.com/the-markup/blacklight-collector"
+      ],
+      "nao_verificado": [
+        "Formato dos dados do Tracker Radar",
+        "Datas"
+      ]
+    },
+    {
+      "id": "cnpj-alfanumerico",
+      "nome": "CNPJ alfanumérico (Receita Federal / Serpro) - achado técnico para o validador",
+      "url": "https://www.serpro.gov.br/menu/noticias/videos/calculodvcnpjalfanaumerico.pdf",
+      "categoria": "norma técnica de formato (não é projeto)",
+      "licenca": "Documento técnico público (Serpro/Receita Federal)",
+      "licenca_fonte": "página do repositório/registro (ver url_fonte_lida)",
+      "situacao": {
+        "ultimo_commit": "n/a",
+        "ultima_release": "n/a",
+        "arquivado": "n/a",
+        "estrelas": "n/a",
+        "observacao": "Título de notícia da Receita nos resultados de busca: 'CNPJ terá letras e números a partir de julho de 2026'. A página da Receita exigiu autenticação e não foi lida; datas e atos normativos vêm de fontes secundárias."
+      },
+      "o_que_detecta": "Formato: 14 posições; as 12 primeiras alfanuméricas (0-9, A-Z) e os 2 dígitos verificadores numéricos.",
+      "como_detecta": "Algoritmo (PDF do Serpro lido): valor de cada caractere = código ASCII - 48 (A=17, B=18...); pesos 2 a 9 da direita para a esquerda, recomeçando após o 8º; soma; resto da divisão por 11; DV = 0 se o resto for 0 ou 1, senão 11 - resto; o 2º DV repete o cálculo com o 1º DV incluído (13 caracteres).",
+      "formato_saida": "n/a",
+      "taxonomia_reutilizavel": "n/a",
+      "vale_incorporar": [
+        "Regex do sinal CNPJ: aceitar [0-9A-Z]{12}[0-9]{2} (com ou sem máscara), validar os dois DVs com o algoritmo acima e rejeitar sequências repetidas; manter também a validação do CPF (módulo 11, rejeitar 11 dígitos iguais).",
+        "Hoje (16/10/2026) CNPJs alfanuméricos já podem circular: um regex só numérico perde dado e um regex de 14 dígitos gera falso positivo em outros números."
+      ],
+      "riscos": [
+        "Data de início (julho/2026) e ato normativo: confirmar na página da Receita ou no Diário Oficial antes de citar em minuta."
+      ],
+      "prioridade_para_lexzenit": "alta",
+      "verificado_em_fonte": true,
+      "url_fonte_lida": [
+        "https://www.serpro.gov.br/menu/noticias/videos/calculodvcnpjalfanaumerico.pdf",
+        "https://github.com/Luan1Schons/pydantic-brasil",
+        "https://github.com/brazilian-utils/python"
+      ],
+      "nao_verificado": [
+        "Ato normativo e data oficial de início",
+        "Página da Receita (exigiu autenticação)"
+      ]
+    }
+  ]
+}

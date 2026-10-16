@@ -13,6 +13,6 @@ test_shell_script_syntax (test_repository.RepositoryTests.test_shell_script_synt
 test_sources_provenance_not_fabricated_connectors (test_repository.RepositoryTests.test_sources_provenance_not_fabricated_connectors) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 1.155s
+Ran 13 tests in 1.113s
 
 OK

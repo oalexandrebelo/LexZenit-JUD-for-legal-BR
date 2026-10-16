@@ -1,6 +1,8 @@
 # Contratos de engenharia — 0.3.0 · revisor jurídico de projetos
 
-O plugin `br-project-review` e o motor `runtime/lz_revisor` mapeiam o que um projeto de IA, SaaS ou startup precisa cumprir, e o que já tem, em três níveis. Agora são 40 plugins e 182 workflows. O motor é código executável, só com a biblioteca padrão do Python. As seis skills são instruções somente leitura.
+O plugin `ab-lexzenit-project-review` e o motor `runtime/lz_revisor` mapeiam o que um projeto de IA, SaaS ou startup precisa cumprir, e o que já tem, em três níveis. Agora são 40 plugins e 182 workflows. O motor é código executável, só com a biblioteca padrão do Python. As seis skills são instruções somente leitura.
+
+Nome: o plugin se chama `ab-lexzenit-project-review` (marca AB LexZenit Project Review). O prefixo `ab-lexzenit-` fica reservado a produtos LexZenit da AB ED&IA; o validador aceita `br-` (áreas do Direito) e `ab-lexzenit-`.
 
 ## Níveis
 
@@ -14,7 +16,7 @@ Escolha do N2, na ordem: `pais_n2` fixado → `mercado_principal` (país estrang
 
 ## Legislação como código
 
-`br-project-review/references/catalog/`:
+`ab-lexzenit-project-review/references/catalog/`:
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -47,10 +49,19 @@ Projeto de lei e norma suspensa vão para o radar regulatório; sandbox, fomento
 | Superfície | Uso |
 |---|---|
 | CLI | `python -m lz_revisor revisar <projeto> --respostas r.json --saida dir/` (não sobrescreve), `perguntas`, `normas`, `minutas`, `minuta`, `validar-catalogo` |
+| CI | `revisar --sarif revisao.sarif --falhar-em alta`: SARIF 2.1.0 com o local do gatilho (`arquivo:linha`) e código de saída 3 quando há não conformidade da severidade pedida ou maior. `--data AAAA-MM-DD` avalia a vigência na data dos fatos. |
+| Radar | `python -m lz_revisor radar`: status de cada projeto de lei do catálogo na API de dados abertos da Câmara, com a marca do que mudou desde a conferência. Único comando com rede; nunca altera o catálogo. |
 | MCP stdio | `claude mcp add lz-revisor -e PYTHONPATH=<repo>/runtime -- python3 -m lz_revisor mcp --raiz <pasta>`. Sete ferramentas. Lê só dentro de `--raiz`, não escreve, não executa código do projeto, não acessa rede. |
-| Skills | `/br-project-review:revisar-projeto`, `mapa-uf`, `escolher-n2`, `classificar-risco-ia`, `kit-documentos`, `atualizar-catalogo` |
+| Skills | `/ab-lexzenit-project-review:revisar-projeto`, `mapa-uf`, `escolher-n2`, `classificar-risco-ia`, `kit-documentos`, `atualizar-catalogo` |
 
 O MCP é habilitado pelo operador. O plugin não traz `.mcp.json` nem hooks, conforme a política do repositório. O relatório registra caminho e linha de cada indício, nunca o texto casado.
+
+## Rastreabilidade e verificação
+
+- **Proveniência:** cada resultado traz a versão do motor, a data de referência, o SHA-256 do catálogo e o das respostas, e quais sinais foram declarados ou detectados.
+- **Respostas que o código contradiz:** quando o questionário diz "não" e o scanner encontra indício, o relatório lista arquivo e linha (`divergencias`); a resposta declarada continua valendo.
+- **Identificadores:** leis federais têm `urn` no padrão URN LEX do LexML.
+- **CPF e CNPJ (inclusive alfanumérico):** só contam com dígito verificador válido (`lz_revisor/validadores.py`). O valor nunca entra no relatório.
 
 ## Não faz
 

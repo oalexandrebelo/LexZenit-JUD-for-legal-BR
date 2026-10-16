@@ -1,0 +1,1852 @@
+{
+  "gerado_em": "2026-10-16",
+  "metodo": "git clone --depth 1 de cada repositório em /home/claude/work/revisor/repos/<owner>_<repo>; leitura de arquivos; WebFetch de páginas oficiais para licenças de terceiros; clones adicionais em repos/_ref_* para verificar licenças e o pipeline do legalize-kr.",
+  "limitacoes": [
+    "API do GitHub bloqueada nesta sessão (HTTP 403); por isso estrelas, status 'arquivado', 'fork' e linguagem calculada pelo GitHub são 'não verificado'. Linguagem e tamanho foram medidos localmente nos clones (git clone --depth 1).",
+    "Datas de 'último commit' são do HEAD do clone raso. Em legalize-kr e admrule-kr as datas são sintéticas (promulgação/observação às 12:00 KST).",
+    "WebSearch indisponível (orçamento do turno esgotado); verificações de terceiros foram feitas só com WebFetch de URLs diretas e com clones.",
+    "Páginas bloqueadas (permissão não concedida a tempo, não repetidas): commonpaper.com/standards/mutual-nda/, fi.co/terms, nvca.org/model-legal-documents/, ycombinator.com/docs/...Valuation Cap...docx, law.go.kr (Lei de Direitos Autorais coreana, art. 7). Itens correspondentes marcados 'não verificado'.",
+    "Nenhum script dos repositórios foi executado. O único script executado é o do auditor (leitura do README do ethicalml).",
+    "Nenhuma URL do catálogo foi checada quanto a disponibilidade ou conteúdo; status legislativos de 2026 não foram confirmados em fontes oficiais.",
+    "Este levantamento descreve licenças e termos; não é parecer jurídico. Direito sul-coreano (art. 7 da Lei de Direitos Autorais) e direito brasileiro de direitos autorais exigem revisão por advogado."
+  ],
+  "repos": [
+    {
+      "repo": "georgelinde887-sudo/nda-template-generator",
+      "existe": true,
+      "url": "https://github.com/georgelinde887-sudo/nda-template-generator",
+      "ultimo_commit": {
+        "data": "2026-10-16T13:04:51+05:30",
+        "hash": "df0142b",
+        "mensagem": "feat: initial commit for nda-template-generator v1.0.0",
+        "observacao": "commit único (raiz); repositório criado no mesmo dia desta auditoria"
+      },
+      "tamanho": {
+        "bytes_arquivos_rastreados": 20753,
+        "arquivos": 11
+      },
+      "linguagem": "JavaScript (Node, zero dependências) + HTML; sem dados em Markdown além da saída gerada",
+      "licenca_spdx": "MIT",
+      "licenca_arquivo": "LICENSE (Copyright (c) 2026 SendNow); também package.json 'license': 'MIT' e REPO_METADATA.json",
+      "resumo": "Gerador de NDA (mútuo/unilateral) em página HTML + classe JS que interpola campos em um texto em inglês e exporta Markdown/HTML. Em essência é uma ferramenta de marketing/SEO da SendNow (links de volta ao blog da empresa), não uma fonte jurídica.",
+      "mecanica": "src/nda-engine.js: classe NdaEngine; generateMarkdown() devolve um template literal fixo com 7 cláusulas (propósito, definição, exclusões, obrigações, prazo, lei aplicável, remédios) e campos {partes, endereços, propósito, prazo em anos, lei aplicável, data}. generateHtml() converte o Markdown por regex. index.html é a UI (seletor de tipo, 4 'jurisdições', prazo 1/2/3/5 anos). Testes: node --test (3 testes de substring). Nenhuma biblioteca, nenhum servidor, nenhuma IA. Observação: o seletor de 'jurisdição' só troca a string da lei aplicável; o texto das cláusulas é idêntico para Delaware, Califórnia, Nova York e Inglaterra e País de Gales. No modo 'unilateral' só mudam título e rótulos das partes; o corpo continua dizendo 'to each other' e 'a Party to the other Party'. No modo mútuo as partes são 'Party A/Party B' mas as cláusulas usam 'Disclosing Party/Receiving Party' (termos não definidos).",
+      "reaproveitavel": [
+        "Código (MIT): padrão de arquitetura 'motor de template puro + UI estática + testes de unidade' como referência para um gerador determinístico; qualquer trecho de código pode ser copiado mantendo o aviso MIT.",
+        "Estrutura das 7 cláusulas de NDA como checklist conceitual (referência conceitual, não como texto a copiar para o Brasil)."
+      ],
+      "nao_reaproveitavel": [
+        "Texto do NDA: genérico, em inglês, direito norte-americano/inglês; o autor/titularidade é incerta (ver riscos); sem equivalente direto no Brasil (foro, cláusula penal, LGPD e tratamento de segredo industrial não são cobertos pelo texto).",
+        "As 'jurisdições' múltiplas: apenas troca de string, sem adaptação real; não usar como evidência de suporte multi-jurisdição.",
+        "Links/âncoras para sendnow.live (conteúdo promocional)."
+      ],
+      "riscos": [
+        "Repo criado em 2026-10-16 (commit único): sem histórico, sem revisão por terceiros, sem sinais de adoção.",
+        "Cadeia de titularidade inconsistente: dono da conta 'georgelinde887-sudo', copyright 'SendNow', badge de CI apontando para 'sendnow-ecosystem/nda-template-generator', autor do commit 'Mohsmed Siraj Ibrahim'. Não verificado quem é o titular real do código.",
+        "REPO_METADATA.json contém 'sendnow_anchor_text' e 'verified_sendnow_target': indício de repositório criado para backlinks/SEO.",
+        "Defeitos jurídicos no template: termos não definidos no modo mútuo, corpo mútuo no modo unilateral, sem cláusula de foro/arbitragem, sem cláusula de obrigações de ordem legal além de remédios.",
+        "Não é aconselhamento jurídico; nenhum aviso de isenção no próprio texto gerado (apenas assinaturas)."
+      ],
+      "evidencias": [
+        {
+          "arquivo": "LICENSE",
+          "trecho": "MIT License\n\nCopyright (c) 2026 SendNow (https://sendnow.live)"
+        },
+        {
+          "arquivo": "package.json",
+          "trecho": "\"author\": \"SendNow Open Source Team <opensource@sendnow.live>\"; \"test\": \"node --test tests/*.test.js\""
+        },
+        {
+          "arquivo": "REPO_METADATA.json",
+          "trecho": "\"sendnow_anchor_text\": \"SendNow free confidential NDA template\""
+        },
+        {
+          "arquivo": "README.md",
+          "trecho": "[![CI](https://github.com/sendnow-ecosystem/nda-template-generator/actions/workflows/ci.yml/badge.svg)]..."
+        },
+        {
+          "arquivo": "src/nda-engine.js:23-31",
+          "trecho": "const isMutual = c.type === 'mutual'; ... (\"${isMutual ? 'Party A' : 'Disclosing Party'}\")"
+        },
+        {
+          "arquivo": "src/nda-engine.js:38",
+          "trecho": "The Parties desire to disclose confidential business, financial, technical, or operational information to each other solely for the purpose of ..."
+        },
+        {
+          "arquivo": "index.html:72-75",
+          "trecho": "<option value=\"State of Delaware\" selected>...<option value=\"England and Wales\">England and Wales</option>"
+        },
+        {
+          "arquivo": "CHANGELOG.md",
+          "trecho": "## [1.0.0] - 2026-10-16"
+        }
+      ]
+    },
+    {
+      "repo": "ankane/awesome-legal",
+      "existe": true,
+      "url": "https://github.com/ankane/awesome-legal",
+      "ultimo_commit": {
+        "data": "2026-07-04T11:40:20-07:00",
+        "hash": "4c84204",
+        "mensagem": "Fixed Orrick links"
+      },
+      "tamanho": {
+        "bytes_arquivos_rastreados": 11423,
+        "arquivos": 3
+      },
+      "linguagem": "Markdown (lista de links); sem código",
+      "licenca_spdx": "CC0-1.0",
+      "licenca_arquivo": "LICENSE.txt (texto CC0 1.0 Universal); README.md: 'Licensed under CC0 1.0'",
+      "resumo": "Lista 'awesome' de documentos jurídicos gratuitos para empresas (políticas de site, contratos com clientes, empregados, consultores, advisors, investidores, fundadores, NDAs, bibliotecas). Contém SOMENTE links; nenhum modelo está dentro do repositório (3 arquivos: README, CONTRIBUTING, LICENSE).",
+      "mecanica": "README.md em seções por tipo de contrato; documentos com linguagem simples marcados com :tada:. CONTRIBUTING exige que o recurso seja gratuito e sem registro. A CC0 cobre apenas a lista (nomes/links/organização); os documentos apontados têm licenças próprias (ver bloco 'awesome_legal_itens_terceiros').",
+      "reaproveitavel": [
+        "A lista em si (CC0): taxonomia de tipos de documento para startups (site policies, customer, employee IP, consulting, advisor, investor seed/series A, founder, NDA mútuo/unilateral) pode ser copiada e usada como esqueleto do mapa de documentos do revisor.",
+        "Itens com licença livre confirmada (ver bloco de terceiros): Series Seed e fork da Cooley (CC0), GitHub Balanced Employee IP Agreement (CC0), GitHub site-policy (CC0), Common Paper (CC BY 4.0), Basecamp policies (CC BY 4.0), Bloomberg Beta (CC BY 3.0), Automattic legalmattic e Medium policy (CC BY-SA 4.0)."
+      ],
+      "nao_reaproveitavel": [
+        "Qualquer documento Cooley GO: termos proíbem modificar/copiar/redistribuir fora do preenchimento e proíbem uso para criar, treinar ou melhorar IA/ML/LLM (ToU 'Last Updated: 9/20/24', Seção 5).",
+        "Orrick: 'all rights reserved'; licença apenas para uso pessoal, único e não comercial, sem sublicenciar, sem obras derivadas.",
+        "YC SAFE, NVCA, FAST (Founder Institute): licença não verificada ou sem licença aberta formal; usar só como referência conceitual.",
+        "Todos são direito norte-americano (Delaware/Califórnia); sem equivalente direto no Brasil sem adaptação."
+      ],
+      "riscos": [
+        "Alegação 'tem modelos' é enganosa: o repo é um índice de links; links podem quebrar (link rot) e conteúdo apontado muda sem versionamento.",
+        "A CC0 do índice dá falsa sensação de licença livre para os documentos apontados; vários têm termos restritivos, inclusive vedação a treinamento de IA (Cooley).",
+        "Alguns itens exigem registro ou têm acesso mudado; verificação de licença feita por amostragem em 2026-10-16, com 4 páginas bloqueadas (ver limitações)."
+      ],
+      "evidencias": [
+        {
+          "arquivo": "README.md",
+          "trecho": "Awesome free legal documents for companies ... Licensed under [CC0 1.0](LICENSE.txt)."
+        },
+        {
+          "arquivo": "README.md",
+          "trecho": "- [Common Paper - Cloud Service Agreement](https://commonpaper.com/standards/cloud-service-agreement/)"
+        },
+        {
+          "arquivo": "README.md",
+          "trecho": "- [Y Combinator - Simple Agreement for Future Equity (SAFE)](https://www.ycombinator.com/documents/#safe)"
+        },
+        {
+          "arquivo": "README.md",
+          "trecho": "- [Series Seed](https://github.com/seriesseed/equity) (and [Cooley Fork](https://github.com/CooleyLLP/seriesseed))"
+        },
+        {
+          "arquivo": "CONTRIBUTING.md",
+          "trecho": "Resources should: - be free - not require registration"
+        },
+        {
+          "arquivo": "LICENSE.txt",
+          "trecho": "Creative Commons Legal Code\n\nCC0 1.0 Universal"
+        }
+      ]
+    },
+    {
+      "repo": "Ro5s/Startup-Starter-Pack",
+      "existe": true,
+      "url": "https://github.com/Ro5s/Startup-Starter-Pack",
+      "ultimo_commit": {
+        "data": "2020-09-30T09:16:05-04:00",
+        "hash": "6634587",
+        "mensagem": "Update README.md",
+        "observacao": "sem atividade há mais de 6 anos"
+      },
+      "tamanho": {
+        "bytes_arquivos_rastreados": 269080,
+        "arquivos": 23
+      },
+      "linguagem": "Markdown (23 arquivos .md)",
+      "licenca_spdx": "MIT",
+      "licenca_arquivo": ".github/MISC/LICENSE.md (Copyright (c) 2019 Ross Campbell); README.md seção License",
+      "resumo": "Coletânea de modelos para setup e captação de startups, organizada em 'Starters' (8 fases) deployadas via OpenLaw.io e uma 'Library' por tipo de documento, com 13 modelos copiados em Markdown (principalmente Series Seed da Cooley) e muitos links externos.",
+      "mecanica": "README.md define 'Starters' (conjuntos de templates OpenLaw) e 'Library' (links para fonte original + .md local + .doc externo + template OpenLaw). Pasta .github/Markdown contém os 13 .md; .github/.DOC e .github/.PDF contêm apenas um README de 1 linha (vazias); .github/Descriptions tem descrições estendidas (Founder Accord, Shared Earnings Agreement); .github/Translations/Espanol tem README parcial. Nenhum código; nenhum gerador próprio (a geração acontece na plataforma OpenLaw, externa).",
+      "reaproveitavel": [
+        "Estrutura de fases 'Get serious ... Get online' como roteiro conceitual de ciclo de vida jurídico de uma startup (referência conceitual).",
+        "Textos de Series Seed (Cooley fork) em .md: a fonte original é CC0 (README do CooleyLLP/seriesseed), mas melhor usar a fonte oficial atualizada (fork da Cooley com último commit em 2024-09-05) do que esta cópia de 2020."
+      ],
+      "nao_reaproveitavel": [
+        "A licença MIT do repositório não cobre obras de terceiros copiadas: Founder Accord (mcoblaw.com), Innovator's Patent Agreement (Twitter), Shared Earnings Agreement (Earnest Capital) têm licença não verificada.",
+        "Links para NVCA, Techstars, YC Series AA, Docracy, eForms: documentos de terceiros com termos próprios, não redistribuídos aqui.",
+        "Tudo é direito norte-americano (Delaware, Califórnia/Nova York); sem equivalente direto no Brasil.",
+        "Templates OpenLaw: dependem de plataforma externa; disponibilidade atual não verificada."
+      ],
+      "riscos": [
+        "Obsolescência: último commit 2020-09-30; Series Seed copiado é anterior ao fork atual da Cooley; SAFE listado como 'v1.0' pós-money de 2018-2020.",
+        "Inconsistência interna: 'LLC Package (Delaware)' aponta para o template 'New York LLC Formation'; Operating Agreement listado é de Nova York.",
+        "Sem sinal de revisão por advogado; disclaimer próprio diz que não é aconselhamento jurídico.",
+        "Vesting: aparece só no term sheet Series Seed e como linha em branco do Founder Accord; não há modelo de vesting com cliff."
+      ],
+      "evidencias": [
+        {
+          "arquivo": "README.md",
+          "trecho": "* 💪*Get serious* ... * 🤞*Get square* ... * 🧥*Get form* ... * 💡*Get advice* ... * 🤐 *Get confidential* ... * 🌱*Get seed capital*: ... * 🏗️*Get incorporated* ... * 💻*Get online*"
+        },
+        {
+          "arquivo": "README.md",
+          "trecho": "📋 [**LLC Package (Delaware)**](https://app.openlaw.io/template/New%20York%20LLC%20Formation%20)"
+        },
+        {
+          "arquivo": "README.md",
+          "trecho": "📋 [**Corp. Package (Delaware)**](https://app.openlaw.io/template/Incorporation%20(Delaware))"
+        },
+        {
+          "arquivo": ".github/Markdown/Series-Seed-Term-Sheet-Equity.md:64",
+          "trecho": "Each Key Holder shall have four years vesting beginning *[_______]*. Full acceleration upon \"Double Trigger.\""
+        },
+        {
+          "arquivo": ".github/Markdown/Founder-Accord-MD.md:15-16",
+          "trecho": "| Vesting | [[ _ ]] | / | Vesting Commencement Dates | [[ _ ]] |"
+        },
+        {
+          "arquivo": ".github/.DOC/README.md",
+          "trecho": "A collection of .doc files for startup agreements"
+        },
+        {
+          "arquivo": ".github/MISC/LICENSE.md",
+          "trecho": "MIT License\n\nCopyright (c) 2019 Ross Campbell"
+        },
+        {
+          "arquivo": "(busca em todo o repo)",
+          "trecho": "ocorrências de 'cliff': 0; 'vesting' (palavra inteira): 3 arquivos, nenhum com cliff"
+        }
+      ]
+    },
+    {
+      "repo": "General-Legal/legal-templates",
+      "existe": true,
+      "url": "https://github.com/General-Legal/legal-templates",
+      "ultimo_commit": {
+        "data": "2026-09-22T12:31:25-07:00",
+        "hash": "6d68054",
+        "mensagem": "Update template.md"
+      },
+      "tamanho": {
+        "bytes_arquivos_rastreados": 996458,
+        "arquivos": 37
+      },
+      "linguagem": "Markdown + DOCX; 2 scripts Python (stdlib/python-docx)",
+      "licenca_spdx": "CC0-1.0",
+      "licenca_arquivo": "LICENSE (CC0 1.0 Universal); README.md: 'released under CC0 1.0 ... without attribution'",
+      "resumo": "12 modelos redigidos por advogados da General Legal (advisor, BAA/HIPAA, cookie notice, DPA EUA e global, offer letter Califórnia, MSA, NDA mútuo e unilateral, privacy policy EUA e GDPR, terms of use), em Markdown 'otimizado para LLM' e DOCX originais.",
+      "mecanica": "Pipeline offline simples: scripts/fetch_templates.py raspa general.legal/resources/library e baixa os .docx para docx-originals/; scripts/convert_docx.py (python-docx) converte para templates/<slug>/template.md, marcando campos a preencher com <mark>...</mark>. Cada template tem README (visão geral, quando usar, provisões-chave) e rodapé 'This template was prepared and made publicly available by General Legal, PC'. Não há motor de geração, servidor ou IA.",
+      "reaproveitavel": [
+        "Texto dos 12 modelos: CC0 permite copiar, adaptar e redistribuir sem atribuição (a General Legal pede, sem obrigar, manter o rodapé de crédito).",
+        "Estrutura de cláusulas e checklist de 'provisões-chave' de cada README como base para o catálogo de cláusulas do revisor (após tradução e adaptação ao direito brasileiro).",
+        "DPA global e privacy policy GDPR: úteis como esqueleto conceitual para LGPD (bases legais, transferência internacional, direitos do titular), não como texto final.",
+        "Convenção de marcação <mark> para placeholders e README por modelo (padrão replicável)."
+      ],
+      "nao_reaproveitavel": [
+        "Conteúdo substantivo é direito norte-americano: lei aplicável Delaware (NDAs), offer letter 'California Exempt', BAA/HIPAA, CCPA/CPRA: sem equivalente direto no Brasil.",
+        "Cláusulas como arbitragem, feedback license, exportação EUA, aviso por e-mail: precisam de adaptação a CDC/Código Civil/LGPD.",
+        "O rodapé institucional diz que não há relação advogado-cliente: não pode ser apresentado como parecer da LexZenit."
+      ],
+      "riscos": [
+        "Modelos 'processor-friendly' (favorecem fornecedor): servem de referência de um lado da negociação, não de ponto neutro.",
+        "Proveniência: os .docx foram raspados do site da General Legal por script; a declaração CC0 está no repo, mas a data de cada template e versão não é registrada.",
+        "Templates com 'mark' variável: privacy-policy-gdpr tem 84 marcas, exige trabalho de preenchimento."
+      ],
+      "evidencias": [
+        {
+          "arquivo": "README.md",
+          "trecho": "Attorney-drafted legal templates for startups and technology companies. Created by the attorneys at General Legal and released under CC0 1.0. Free for anyone to use, modify, and distribute for any purpose, without attribution."
+        },
+        {
+          "arquivo": "README.md",
+          "trecho": "The templates are released under CC0 1.0 Universal, so retaining that footnote isn't a legal requirement, but we ask that you keep it in place"
+        },
+        {
+          "arquivo": "LICENSE",
+          "trecho": "Creative Commons Legal Code\n\nCC0 1.0 Universal"
+        },
+        {
+          "arquivo": "scripts/fetch_templates.py:2",
+          "trecho": "Fetch all .docx templates from https://general.legal/resources/library."
+        },
+        {
+          "arquivo": "scripts/convert_docx.py",
+          "trecho": "Highlighted text becomes <mark>text</mark> (template placeholders). No programmatic templating syntax."
+        },
+        {
+          "arquivo": "templates/mutual-nda/template.md",
+          "trecho": "governed ... by and under the laws of the State of Delaware"
+        },
+        {
+          "arquivo": "templates/mutual-nda/template.md (rodapé)",
+          "trecho": "This template was prepared and made publicly available by General Legal, PC ... does not create an attorney-client relationship"
+        }
+      ]
+    },
+    {
+      "repo": "General-Legal/general-legal-mcp",
+      "existe": true,
+      "url": "https://github.com/General-Legal/general-legal-mcp",
+      "ultimo_commit": {
+        "data": "2026-10-14T13:16:16+02:00",
+        "hash": "4cb5938",
+        "mensagem": "Merge pull request #3 from General-Legal/update_sign_up_guidance"
+      },
+      "tamanho": {
+        "bytes_arquivos_rastreados": 25167,
+        "arquivos": 9
+      },
+      "linguagem": "Markdown + JSON (manifestos); NENHUM código-fonte executável",
+      "licenca_spdx": null,
+      "licenca_arquivo": "NENHUMA: não há arquivo LICENSE; plugin.json tem \"license\": \"\" (vazio). Sem licença, vale o direito autoral padrão (todos os direitos reservados).",
+      "resumo": "Plugin de agente (spec agent-plugins.org 1.0.0, versão 1.3.1) que conecta clientes MCP a servidores REMOTOS e fechados da General Legal: um para 'matters' (revisão de contratos por IA + advogado humano) e outro para constituição de empresas em Delaware. O repo só tem manifestos, guias e 2 skills de uso.",
+      "mecanica": "mcp.json declara 2 servidores streamable-http: https://mcp.general.legal/mcp (OAuth via Clerk) e https://incorp-mcp.general.legal/mcp (sem autenticação; protegido por 'formation_id'). docs/agents.md descreve um terceiro endpoint https://agents-mcp.general.legal/mcp (chave de API). Tools documentadas (8): start_deal, upload_document, confirm_upload, list_deals, list_contracts, list_thread_messages, reply_to_thread, download_contract; no endpoint de agentes mais 6 de cadastro/recuperação: get_signup_terms, sign_up, complete_signup, resend_signup_code, request_api_key_recovery, complete_api_key_recovery. Skill company-formation cita: get_filing_options, start_llc_formation, start_c_corp_formation, get_status, get_documents, update_formation (lista completa não verificada). Servidor declara suportar MCP '2025-11-25', saídas estruturadas e annotations. SDK/linguagem do servidor: não verificado (código não está no repo). Revisão: 'AI + human attorney', demora de horas a 1 dia útil.",
+      "reaproveitavel": [
+        "Somente como referência conceitual (sem licença para copiar): desenho de tools para fluxo jurídico (matter/deal, upload com chave de idempotência, confirmação, thread com advogado, download de versão liberada), padrão de upload por link e 'bytes fora dos argumentos da tool'.",
+        "Ideias de UX/segurança: divulgação obrigatória de disclaimer/termos antes do checkout; token de capacidade 'formation_id' tratado como segredo; recuperação de chave verificada por e-mail.",
+        "Texto de skills como exemplo de como instruir agentes a usar MCP jurídico (ler, não copiar)."
+      ],
+      "nao_reaproveitavel": [
+        "Qualquer conteúdo do repo (sem licença): README, docs e skills não podem ser copiados nem adaptados.",
+        "O servidor em si: fechado, hospedado pela General Legal; revisão por advogados dos EUA; Delaware.",
+        "Fluxo de constituição (LLC/C-corp de Delaware, EIN) sem equivalente no Brasil."
+      ],
+      "riscos": [
+        "Afirmação 'MCP em Python/Flask com RAG' não se sustenta: não há código, nem Python, nem Flask, nem RAG neste repo (grep sem resultados para flask/python/rag/embedding/taxonomia).",
+        "Dependência de serviço de terceiros com cadastro e aceite de engagement agreement; envio de documentos sensíveis a servidor externo.",
+        "Endpoint de incorporação é 'authless' e o formation_id é a única proteção.",
+        "Repo sem licença apesar de ser público: risco de infração se reutilizado."
+      ],
+      "evidencias": [
+        {
+          "arquivo": "plugin.json",
+          "trecho": "\"version\": \"1.3.1\", ... \"license\": \"\""
+        },
+        {
+          "arquivo": "mcp.json",
+          "trecho": "\"url\": \"https://mcp.general.legal/mcp\" ... \"url\": \"https://incorp-mcp.general.legal/mcp\""
+        },
+        {
+          "arquivo": "docs/oauth.md",
+          "trecho": "This endpoint exposes the eight tools below after authentication."
+        },
+        {
+          "arquivo": "docs/oauth.md",
+          "trecho": "| `start_deal` | Open a matter from a question or request. |"
+        },
+        {
+          "arquivo": "docs/oauth.md",
+          "trecho": "Reviews involve AI and a human attorney and typically take a few hours to one business day."
+        },
+        {
+          "arquivo": "docs/agents.md:37-48",
+          "trecho": "## Signup and recovery tools ... `get_signup_terms`, `sign_up`, `complete_signup`, `resend_signup_code`, `request_api_key_recovery`, `complete_api_key_recovery`"
+        },
+        {
+          "arquivo": "skills/company-formation/SKILL.md",
+          "trecho": "Server: `general-legal-incorporation` (https://incorp-mcp.general.legal/mcp). The endpoint is authless"
+        },
+        {
+          "arquivo": "(git ls-files)",
+          "trecho": ".gitattributes CHANGELOG.md README.md docs/agents.md docs/oauth.md mcp.json plugin.json skills/company-formation/SKILL.md skills/legal-matters/SKILL.md (9 arquivos; nenhum LICENSE)"
+        }
+      ]
+    },
+    {
+      "repo": "legalize-kr/legalize-kr",
+      "existe": true,
+      "url": "https://github.com/legalize-kr/legalize-kr",
+      "ultimo_commit": {
+        "data": "2026-10-16T12:00:00+09:00",
+        "hash": "279085d",
+        "mensagem": "기후에너지환경부령: 전기사업법 시행규칙 (일부개정)",
+        "observacao": "a data do commit é sintética: usa a data de promulgação (공포일자) às 12:00 KST, não o momento do push; o autor é o bot legalize-kr-bot"
+      },
+      "tamanho": {
+        "bytes_arquivos_rastreados": 280060289,
+        "arquivos": 5771,
+        "observacao": "clone --depth 1; histórico completo não baixado"
+      },
+      "linguagem": "Markdown com YAML frontmatter (5.770 arquivos .md + README); sem código",
+      "licenca_spdx": "MIT (apenas estrutura/metadados, declarada só no README); texto das leis: obra pública coreana",
+      "licenca_arquivo": "NENHUM arquivo LICENSE; README.md seção '라이선스': '법령 원문: 공공저작물 (대한민국 정부 저작물); 저장소 구조, 메타데이터: MIT'",
+      "resumo": "Leis da Coreia do Sul como repositório Git: cada lei é um arquivo Markdown; cada revisão é um commit com data de promulgação. 5.770 arquivos (3.059 diretórios em kr/): 2.034 decretos presidenciais, 1.759 leis, 211 regras da Suprema Corte e centenas de portarias ministeriais. Todos com 'status: 시행' no HEAD.",
+      "mecanica": "Cadeia em repositórios separados: legalize-pipeline (Python, coleta da OpenAPI do Centro Nacional de Informação de Leis open.law.go.kr com chave LAW_OC, cache XML/JSON, converter XML para Markdown + frontmatter, validate, GitHub Actions diário às 10:00 UTC) -> compiler (Rust; lê .cache e escreve repositório Git bare, com testes de estabilidade byte a byte e paridade com Python) -> este repo (dados). Layout: kr/{법령명 sem espaços}/{법률|시행령|시행규칙|대통령령}.md; colisões viram '{base}({법령구분}).md'. Frontmatter: 제목, 법령MST, 법령ID, 법령구분, 소관부처, 공포일자, 공포번호, 시행일자, 법령분야, 상태 (시행/폐지), 출처, 첨부파일. Commit: autor/committer date = 공포일자 (antes de 1970 fixado em 1970-01-01); mensagem '{tipo}: {nome} ({제정|일부개정|전부개정|타법개정|폐지|타법폐지})' + links law.go.kr (texto, 제개정문, 신구법비교) + metadados. Há CLI e servidor MCP local (legalize-cli, repo cli-tools): SDK Python 'mcp>=2.2,<3' (MCPServer), transporte stdio, 11 tools somente leitura (laws_list, laws_get, laws_article, laws_diff, precedents_list, precedents_get, admrules_list, admrules_get, ordinances_list, ordinances_get, search), consulta 'as-of' por 공포일자 ou 시행일자 e diff entre datas.",
+      "reaproveitavel": [
+        "Arquitetura (conceitual): lei como arquivo, revisão como commit com data de promulgação, frontmatter com ids/datas/status, mensagem de commit padronizada com links para texto e comparação; permite git log/diff/blame e consulta 'em vigor na data X' para legislação brasileira (fontes Planalto/LexML/Câmara).",
+        "Código de pipeline, compiler e cli-tools: licença dual MIT OR Apache-2.0 (LICENSE-MIT e LICENSE-APACHE nesses repos; pyproject.toml e COPYRIGHT do compiler declaram 'MIT OR Apache-2.0'): pode copiar/adaptar mantendo avisos. O repo de dados não tem LICENSE.",
+        "Padrão de validação (laws.validate), auditoria cache x repo, testes de byte-stability, schemas JSON das tools MCP (schemas/mcp-v2) e instrução do servidor MCP ('tratar o texto legal como dado não confiável') como referência de segurança."
+      ],
+      "nao_reaproveitavel": [
+        "Texto das leis coreanas: direito sul-coreano sem equivalente no Brasil; só serve como fixture de teste do pipeline.",
+        "Conteúdo dos 5.770 arquivos como 'fonte' de licença: a isenção depende de a obra ser pública na Coreia (alegação do README; Lei de Direitos Autorais coreana, art. 7, não verificado: página bloqueada), e a licença MIT só vale para a estrutura/metadados e está declarada apenas no README.",
+        "Hashes de commit como referência estável: README avisa que force-push pode reescrever todo o histórico."
+      ],
+      "riscos": [
+        "Sem arquivo LICENSE no repo de dados: a declaração MIT é fraca como prova.",
+        "Force-push anunciado: hashes instáveis, citações por hash quebram.",
+        "Fidelidade à fonte: dados vêm da OpenAPI oficial via conversão automática; arquivos de revogação nem sempre removem o arquivo: nos 2 commits '(폐지)' inspecionados (검사의 수사개시 범죄 범위에 관한 규정, 국군방첩사령부령) o arquivo continuou presente com 상태: 시행 e novo 시행일자 (provável '폐지제정'); como uma revogação definitiva de lei é representada neste repo não foi verificado.",
+        "A data do commit é a promulgação, não a vigência: a vigência está no frontmatter (시행일자) e exige a opção --semantic 시행일자 na CLI.",
+        "Escala: 280 MB só com depth 1 (o repo irmão admrule-kr tem 320 MB)."
+      ],
+      "evidencias": [
+        {
+          "arquivo": "README.md",
+          "trecho": "대한민국 법령을 Git 저장소로 관리합니다. 각 법령은 Markdown 파일이고, 각 개정은 실제 공포일자를 가진 Git commit입니다."
+        },
+        {
+          "arquivo": "README.md (라이선스)",
+          "trecho": "법령 원문: 공공저작물 (대한민국 정부 저작물) / 저장소 구조, 메타데이터: MIT"
+        },
+        {
+          "arquivo": "README.md (공지)",
+          "trecho": "전체 법령 히스토리를 재구성하기 위해 force-push가 실행될 수 있습니다. 이 경우 모든 commit hash가 변경됩니다."
+        },
+        {
+          "arquivo": "kr/민법/법률.md",
+          "trecho": "---\n제목: 민법\n법령MST: 284415 ... 공포일자: 2026-03-17 ... 시행일자: 2026-03-17 ... 상태: 시행"
+        },
+        {
+          "arquivo": "(git ls-files)",
+          "trecho": "5.771 arquivos: 5.770 em kr/*/*.md + README.md; nenhum LICENSE, .json, .yml ou teste"
+        },
+        {
+          "arquivo": "(histórico, git log)",
+          "trecho": "2026-09-29T12:00:00+09:00 | 대통령령: 검사의 수사개시 범죄 범위에 관한 규정 (폐지)  [arquivo mantido, 상태: 시행, 시행일자: 2026-10-02]"
+        },
+        {
+          "arquivo": "legalize-pipeline/.github/workflows/daily-laws-update.yml",
+          "trecho": "cron: '0 10 * * *' # 19:00 KST (UTC+9)"
+        },
+        {
+          "arquivo": "cli-tools/pyproject.toml",
+          "trecho": "license = \"MIT OR Apache-2.0\" ... \"mcp>=2.2,<3\" ... legalize-mcp = \"legalize_cli.mcp_server:main\""
+        },
+        {
+          "arquivo": "compiler/COPYRIGHT",
+          "trecho": "The legalize-kr/compiler workspace is dual-licensed under Apache 2.0 and MIT terms."
+        }
+      ]
+    },
+    {
+      "repo": "legalize-kr/admrule-kr",
+      "existe": true,
+      "url": "https://github.com/legalize-kr/admrule-kr",
+      "ultimo_commit": {
+        "data": "2026-10-11T12:00:00+09:00",
+        "hash": "0bb92136",
+        "mensagem": "현행 스냅샷: 관세법 시행규칙 제49조 운용에 관한 예규",
+        "observacao": "data sintética (data de observação da lista de origem); autor legalize-kr-bot"
+      },
+      "tamanho": {
+        "bytes_arquivos_rastreados": 319844098,
+        "arquivos": 22648,
+        "observacao": "clone --depth 1"
+      },
+      "linguagem": "Markdown com YAML frontmatter (22.647 arquivos 본문.md + README); sem código",
+      "licenca_spdx": "MIT (apenas estrutura/metadados, declarada só no README); texto: obra pública coreana",
+      "licenca_arquivo": "NENHUM arquivo LICENSE; README.md seção '라이선스': '행정규칙 원문: 공공저작물 (대한민국 정부 저작물); 저장소 구조, 메타데이터: MIT'",
+      "resumo": "Regras administrativas coreanas (portarias, avisos/고시, instruções/훈령, 예규 etc.) em Git: 22.647 documentos 'vigentes' organizados por órgão. 10.271 고시, 6.407 훈령, 3.862 예규. 708 documentos têm 본문출처 'attachment-only' (texto só em anexo, sem corpo no Markdown).",
+      "mecanica": "Mesma cadeia legalize-pipeline (pacote admrules) + compiler (admrule-kr-compiler). Layout {caminho do órgão}/{종류}/{nome}/본문.md, com sufixo _{발령번호 ou 일련번호} em colisões. Frontmatter: 행정규칙ID, 행정규칙일련번호, 행정규칙명, 행정규칙종류, 상위기관명, 소관부처명, 기관경로, 발령번호, 발령일자, 시행일자, 제개정구분, 현행여부, 본문출처, 출처. HEAD = snapshot do que a API considera vigente; o histórico completo por 발령일 fica no Git; revogações explícitas (códigos 200404/200410) removem o caminho no HEAD, 'revogação com novo texto' (200407, 폐지제정) mantém o novo corpo. Normalização de órgãos pela base org.go.kr.",
+      "reaproveitavel": [
+        "Modelo conceitual de 'atos infralegais' (portarias, instruções normativas, resoluções) como camada separada das leis, com árvore de órgãos e snapshot de vigência: relevante para o Brasil (ex.: normas de CVM, BCB, ANPD).",
+        "Regras documentadas de seleção de 'vigente' (README: seção 현행 판단 로직) como referência de desenho.",
+        "Código do pacote admrules do pipeline e do compiler: MIT OR Apache-2.0."
+      ],
+      "nao_reaproveitavel": [
+        "Texto das regras: administração pública coreana, sem equivalente brasileiro.",
+        "708 documentos sem corpo (attachment-only) não servem nem para teste de texto.",
+        "Declaração MIT só no README, sem arquivo LICENSE."
+      ],
+      "riscos": [
+        "Force-push possível, como no repo irmão.",
+        "'Vigente' é definido pela API de origem (campo 현행), não por inferência; o README avisa que não infere eficácia só pela data de 시행.",
+        "Tamanho (320 MB com depth 1): clonar em pipeline de CI exige filtro/blobless."
+      ],
+      "evidencias": [
+        {
+          "arquivo": "README.md",
+          "trecho": "최신 HEAD는 현행 행정규칙 스냅샷입니다. 개정 전 본문과 명칭 변경 이력은 Git history에 남으며, 원천 API의 현행 선택에 없는 행정규칙은 HEAD에서 제외됩니다."
+        },
+        {
+          "arquivo": "README.md (현행 행정규칙 판단 로직)",
+          "trecho": "명시 폐지(200404, 200410)는 제외하지만, 새 본문이 있는 폐지제정(200407)은 보존합니다."
+        },
+        {
+          "arquivo": "README.md (라이선스)",
+          "trecho": "행정규칙 원문: 공공저작물 (대한민국 정부 저작물) / 저장소 구조, 메타데이터: MIT"
+        },
+        {
+          "arquivo": "(frontmatter de todos os 본문.md)",
+          "trecho": "현행여부: 'Y' em 22.647/22.647; 본문출처: api-text 21.939, attachment-only 708"
+        },
+        {
+          "arquivo": "(git ls-files)",
+          "trecho": "22.648 arquivos (22.647 본문.md + README.md); nenhum LICENSE"
+        }
+      ]
+    },
+    {
+      "repo": "ethicalml/awesome-artificial-intelligence-regulation",
+      "existe": true,
+      "url": "https://github.com/ethicalml/awesome-artificial-intelligence-regulation",
+      "ultimo_commit": {
+        "data": "2026-10-13T23:03:47+08:00",
+        "hash": "358b71d",
+        "mensagem": "Merge pull request #93 from usasihq/add-usasi-policy-tracker"
+      },
+      "tamanho": {
+        "bytes_arquivos_rastreados": 5521618,
+        "arquivos": 7,
+        "observacao": "README.md tem 52.445 bytes; o resto são imagens"
+      },
+      "linguagem": "Markdown (README.md de 263 linhas) + imagens",
+      "licenca_spdx": "MIT",
+      "licenca_arquivo": "LICENSE (Copyright (c) 2018 Alejandro Saucedo); badge MIT no README",
+      "resumo": "Lista 'awesome' do Institute for Ethical AI & Machine Learning: 140 entradas em 7 seções (47 de regulação/política por 15 jurisdições, 22 frameworks/princípios, 6 padrões, 34 ferramentas, 16 processos/checklists, 7 cursos, 8 newsletters). Só links e descrições curtas.",
+      "mecanica": "README.md com seções H1 e, em 'Regulation and Policy', um H2 por país/bloco. Cada entrada: '* [Nome](URL) - descrição'. Aceita PRs da comunidade; vários recentes são autopromoção de ferramentas comerciais (eucomplyhub, SetAIComply, USASI, etc.). Extração para o catálogo feita por script próprio sobre o README (linhas citadas em 'linha_readme').",
+      "reaproveitavel": [
+        "Lista de URLs/nomes por jurisdição e tipo como insumo do catálogo global (fatos; a MIT cobre o texto do README, mas reescreva as descrições em vez de copiá-las).",
+        "Taxonomia da própria lista (regulação por país, frameworks, padrões, ferramentas, checklists) como esqueleto do catálogo.",
+        "Indicadores para verificar à parte: Brasil PL 2338/2023 (única entrada brasileira), AI Act, GDPR, NIST AI RMF, ISO/IEC 42001 e UNESCO."
+      ],
+      "nao_reaproveitavel": [
+        "Os documentos linkados têm licenças e termos próprios (não verificados, exceto menções no README como CC BY 4.0 para ai-governance.json); não copiar seus textos por causa da MIT da lista.",
+        "Descrições comerciais de terceiros (ferramentas SaaS) escritas como marketing.",
+        "Cobertura brasileira é mínima (1 entrada): não substitui levantamento próprio (LGPD, Marco Civil, etc. não estão listados)."
+      ],
+      "riscos": [
+        "Qualidade: erros de classificação e de link (Taiwan sob China; link 'Legal Text' do GDPR.EU para o Privacy Act dos EUA; CCPA apontando para bill de 2017-2018; Privacy Shield provavelmente obsoleto; AIDA com situação não informada).",
+        "Seção 'Regulation and Policy' mistura lei, projeto de lei, estratégia nacional, princípios e ferramentas comerciais.",
+        "Entradas promocionais e fontes frágeis (Notion pessoal, GitHub Pages individuais).",
+        "Datas de status em 2026 não verificadas contra fontes oficiais (nenhuma URL foi checada quanto a disponibilidade)."
+      ],
+      "evidencias": [
+        {
+          "arquivo": "LICENSE",
+          "trecho": "MIT License\n\nCopyright (c) 2018 Alejandro Saucedo"
+        },
+        {
+          "arquivo": "README.md:66-68",
+          "trecho": "## Brazil\n\n* [Brazilian AI Regulation (PL 2338/2023)](https://www25.senado.leg.br/web/atividade/materias/-/materia/157233) - A proposed bill in Brazil ..."
+        },
+        {
+          "arquivo": "README.md:82",
+          "trecho": "* [Personal Data Protection Act](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=I0050021) (sob '## China')"
+        },
+        {
+          "arquivo": "README.md:97",
+          "trecho": "[Legal Text](https://www.govinfo.gov/content/pkg/USCODE-2012-title5/pdf/USCODE-2012-title5-partI-chap5-subchapII-sec552a.pdf) (na entrada 'GDPR.EU Guide')"
+        },
+        {
+          "arquivo": "README.md:90-99",
+          "trecho": "entradas comerciais sob '## European Union': Annex III Deep Classifier, Penalty Calculator, eucomplyhub, SetAIComply"
+        }
+      ]
+    }
+  ],
+  "afirmacoes": {
+    "a": {
+      "afirmacao": "awesome-legal tem modelos de SaaS (Common Paper Cloud Service Agreement), NDA mútuo, IP assignment, YC SAFE post-money, Series Seed.",
+      "veredito": "parcial",
+      "justificativa": "O repositório não contém nenhum modelo: tem 3 arquivos (README, CONTRIBUTING, LICENSE.txt). Os itens existem apenas como links. Links presentes: Common Paper Cloud Service Agreement (confirmado), NDA mútuo (Cooley e Common Paper, confirmado), Series Seed (seriesseed/equity e fork da Cooley, confirmado). 'IP assignment': não há item com esse nome; há 'Employee IP agreements' (GitHub Balanced Employee IP Agreement, Rackspace, Orrick e Cooley 'Employee Confidential Information and Invention Assignment Agreement'). 'YC SAFE post-money': o README só diz 'Simple Agreement for Future Equity (SAFE)'; a página da YC (consultada) confirma que a YC oferece apenas versões post-money.",
+      "evidencias": [
+        {
+          "arquivo": "ankane/awesome-legal/README.md",
+          "trecho": "- [Common Paper - Cloud Service Agreement](https://commonpaper.com/standards/cloud-service-agreement/)"
+        },
+        {
+          "arquivo": "ankane/awesome-legal/README.md",
+          "trecho": "Mutual\n\n- [Cooley](...form-non-disclosure-agreement-mutual/)\n- [Common Paper](https://commonpaper.com/standards/mutual-nda/)"
+        },
+        {
+          "arquivo": "ankane/awesome-legal/README.md",
+          "trecho": "Employee IP agreements ... [Orrick](.../Employee-Confidential-Information-and-Invention-Assignment-Agreement)"
+        },
+        {
+          "arquivo": "ankane/awesome-legal/README.md",
+          "trecho": "Y Combinator - Simple Agreement for Future Equity (SAFE)"
+        }
+      ]
+    },
+    "b": {
+      "afirmacao": "Startup-Starter-Pack é organizado em fases 'Get serious, Get square, Get form, Get advice, Get confidential, Get seed capital, Get incorporated, Get online', com Delaware LLC/C-Corp e vesting com cliff, em Markdown.",
+      "veredito": "parcial",
+      "justificativa": "Confirmado: as 8 fases existem, na mesma ordem (README.md, seção 'Starters'); 'LLC Package (Delaware)' e 'Corp. Package (Delaware)' existem (o termo literal 'C-Corp' não aparece; e o link do pacote LLC aponta para um template 'New York LLC Formation'). NÃO confirmado: vesting com cliff (zero ocorrências de 'cliff'; 'vesting' só no term sheet Series Seed, 'four years vesting ... Double Trigger', e como linha em branco do Founder Accord). Parcial: Markdown existe só para 13 modelos em .github/Markdown; .github/.DOC e .github/.PDF são placeholders de uma linha; a maioria dos itens é link externo (OpenLaw, Docracy, NVCA, Techstars, YC).",
+      "evidencias": [
+        {
+          "arquivo": "Ro5s/Startup-Starter-Pack/README.md",
+          "trecho": "*Get serious* / *Get square* / *Get form* / *Get advice* / *Get confidential* / *Get seed capital* / *Get incorporated* / *Get online*"
+        },
+        {
+          "arquivo": "Ro5s/Startup-Starter-Pack/.github/Markdown/Series-Seed-Term-Sheet-Equity.md:64",
+          "trecho": "Each Key Holder shall have four years vesting beginning [_______]. Full acceleration upon \"Double Trigger.\""
+        },
+        {
+          "arquivo": "Ro5s/Startup-Starter-Pack/.github/.DOC/README.md",
+          "trecho": "A collection of .doc files for startup agreements"
+        }
+      ]
+    },
+    "c": {
+      "afirmacao": "General-Legal publica templates sob CC0 e um servidor MCP em Python/Flask com RAG, prompts de validação e taxonomia de risco contratual.",
+      "veredito": "parcial",
+      "justificativa": "Confirmado apenas: templates sob CC0 (General-Legal/legal-templates, LICENSE CC0 1.0 e README). NÃO confirmado: o repo General-Legal/general-legal-mcp não contém servidor, nem Python, nem Flask, nem RAG, nem prompts de validação, nem taxonomia de risco: só manifestos de plugin, 2 skills e guias que apontam para servidores remotos fechados (mcp.general.legal), e não tem licença. O único Flask da organização é General-Legal/findthefuckup-open: app que chama a API Anthropic com um prompt de revisão e severidade high/medium/low; não é MCP, não tem RAG e a MIT está só no README. Quem produziu a alegação provavelmente misturou repos ou descreveu o servidor hospedado sem ver o código.",
+      "evidencias": [
+        {
+          "arquivo": "General-Legal/legal-templates/LICENSE",
+          "trecho": "CC0 1.0 Universal"
+        },
+        {
+          "arquivo": "General-Legal/general-legal-mcp/plugin.json",
+          "trecho": "\"license\": \"\""
+        },
+        {
+          "arquivo": "General-Legal/general-legal-mcp/mcp.json",
+          "trecho": "\"url\": \"https://mcp.general.legal/mcp\""
+        },
+        {
+          "arquivo": "General-Legal/findthefuckup-open/Readme.md",
+          "trecho": "Backend: Flask (Python) ... AI: Anthropic Claude API ... MIT License"
+        }
+      ]
+    },
+    "d": {
+      "afirmacao": "legalize-kr converte leis coreanas em histórico Git com Markdown/JSON, rastreando revogações e vigência, e permite testes sobre o texto legal.",
+      "veredito": "parcial",
+      "justificativa": "Confirmado: histórico Git de leis coreanas, um commit por revisão, com data de promulgação, em Markdown com frontmatter YAML. Parcial: (1) JSON: o repo de dados não tem nenhum arquivo JSON (só .md); JSON aparece no pipeline (metadata.json/stats.json gerados localmente) e nos schemas/saídas do servidor MCP. (2) Revogações/vigência: o frontmatter tem 상태 (시행/폐지), 공포일자 e 시행일자, e os assuntos de commit marcam 폐지/타법폐지; porém todos os 5.770 arquivos do HEAD estão como 시행, o commit usa a promulgação (não a vigência) e nos 2 casos '(폐지)' inspecionados o arquivo permaneceu; o repo irmão admrule-kr remove explicitamente os revogados do HEAD. A consulta 'em vigor em data X' vem do CLI/MCP (cli-tools), não do repo de dados. (3) 'Testes sobre o texto legal': não há testes do conteúdo legal; há testes do pipeline e do compilador (pytest e cargo test, byte-stability, paridade) e validação de frontmatter/Unicode; a tool laws_diff compara textos entre datas.",
+      "evidencias": [
+        {
+          "arquivo": "legalize-kr/legalize-kr/README.md",
+          "trecho": "각 법령은 Markdown 파일이고, 각 개정은 실제 공포일자를 가진 Git commit입니다."
+        },
+        {
+          "arquivo": "legalize-kr/legalize-kr (git ls-files)",
+          "trecho": "5.770 arquivos .md + README.md; nenhum .json"
+        },
+        {
+          "arquivo": "legalize-kr/legalize-kr/kr/민법/법률.md",
+          "trecho": "상태: 시행 (5.770 de 5.770 arquivos)"
+        },
+        {
+          "arquivo": "legalize-kr/compiler/laws/tests/markdown_byte_stability.rs",
+          "trecho": "(teste do renderizador, não do conteúdo legal)"
+        }
+      ]
+    }
+  },
+  "divergencias_principais": [
+    "(a) awesome-legal é só índice de links (3 arquivos); nenhum modelo está no repo, e vários documentos apontados têm licença restritiva (Cooley proíbe uso para treinar/melhorar IA).",
+    "(b) Startup-Starter-Pack: não há 'cliff' em lugar nenhum; Markdown cobre só 13 modelos; .DOC/.PDF vazios; repo parado desde 2020-09-30.",
+    "(c) general-legal-mcp não tem código, nem Python/Flask, nem RAG, nem taxonomia de risco, e não tem licença; o CC0 vale só para legal-templates.",
+    "(d) legalize-kr: sem JSON no repo de dados; sem arquivo LICENSE (MIT só no README); HEAD só com leis 'em vigor'; testes são do pipeline, não do texto legal.",
+    "nda-template-generator: repo criado hoje, titularidade inconsistente, 'jurisdição' só troca uma string, e é veículo de backlinks da SendNow."
+  ],
+  "awesome_legal_itens_terceiros": [
+    {
+      "item": "Y Combinator SAFE (post-money)",
+      "url": "https://www.ycombinator.com/documents/#safe",
+      "licenca_ou_termos": "não verificado",
+      "evidencia": "Página YC não contém aviso de licença/copyright; só: 'YC does not assume responsibility for the contents of, or the consequence of using, any version of the safe.' Página lista 3 versões post-money para EUA (+ side letter) e 1 para Canadá/Cayman/Singapura. Download do .docx e termos do site: acesso bloqueado nesta sessão.",
+      "uso_lexzenit": "somente referência conceitual até verificar licença"
+    },
+    {
+      "item": "Series Seed (seriesseed/equity)",
+      "url": "https://github.com/seriesseed/equity",
+      "licenca_ou_termos": "CC0-1.0",
+      "evidencia": "README.md: 'Series Seed is open sourced under CC0'; último commit 2014-05-21 (clone local)",
+      "uso_lexzenit": "pode copiar/adaptar; direito de Delaware, desatualizado"
+    },
+    {
+      "item": "Series Seed - fork da Cooley (CooleyLLP/seriesseed)",
+      "url": "https://github.com/CooleyLLP/seriesseed",
+      "licenca_ou_termos": "CC0-1.0",
+      "evidencia": "README.md: 'all documents in this repository are open sourced under the CC0 1.0 Universal Public Domain Dedication'; CONTRIBUTING.md idem; último commit 2024-09-05 (clone local)",
+      "uso_lexzenit": "pode copiar/adaptar (fonte preferível); inclui board consent, stockholder consent e Series Seed Notes"
+    },
+    {
+      "item": "Bloomberg Beta Investment-Documents",
+      "url": "https://github.com/Bloomberg-Beta/Investment-Documents",
+      "licenca_ou_termos": "CC-BY-3.0",
+      "evidencia": "LICENSE.md: 'published by Bloomberg Beta 2016 L.P. under a Creative Commons license (Attribution 3.0 Unported)'; último commit 2025-11-11",
+      "uso_lexzenit": "pode adaptar com atribuição"
+    },
+    {
+      "item": "GitHub Balanced Employee IP Agreement",
+      "url": "https://github.com/github/balanced-employee-ip-agreement",
+      "licenca_ou_termos": "CC0-1.0",
+      "evidencia": "LICENSE.md: 'CC0 1.0 Universal'; último commit 2026-09-10",
+      "uso_lexzenit": "pode copiar/adaptar; cessão de PI de empregado sob lei dos EUA (Califórnia)"
+    },
+    {
+      "item": "GitHub site-policy",
+      "url": "https://github.com/github/site-policy",
+      "licenca_ou_termos": "CC0-1.0",
+      "evidencia": "README.md: 'We are proud to offer the policies in this repository under CC0-1.0'; sem permissão de marca",
+      "uso_lexzenit": "pode copiar/adaptar (ToS/privacidade de plataforma)"
+    },
+    {
+      "item": "Basecamp policies",
+      "url": "https://github.com/basecamp/policies",
+      "licenca_ou_termos": "CC-BY-4.0",
+      "evidencia": "LICENSE.md: Creative Commons Attribution 4.0 International; último commit 2026-10-06",
+      "uso_lexzenit": "pode adaptar com atribuição"
+    },
+    {
+      "item": "Automattic legalmattic",
+      "url": "https://github.com/Automattic/legalmattic",
+      "licenca_ou_termos": "CC-BY-SA-4.0",
+      "evidencia": "LICENSE.txt: 'licensed under the Creative Commons Attribution-ShareAlike 4.0 International Public License'",
+      "uso_lexzenit": "adaptar só se aceitar compartilhamento pela mesma licença (copyleft) nas derivadas"
+    },
+    {
+      "item": "Medium medium-policy",
+      "url": "https://github.com/Medium/medium-policy",
+      "licenca_ou_termos": "CC-BY-SA-4.0",
+      "evidencia": "LICENSE: 'Creative Commons Attribution-ShareAlike 4.0 International Public License'; último commit 2023-06-27",
+      "uso_lexzenit": "idem Automattic"
+    },
+    {
+      "item": "Common Paper - Cloud Service Agreement (e demais 'standards')",
+      "url": "https://commonpaper.com/standards/cloud-service-agreement/",
+      "licenca_ou_termos": "CC-BY-4.0",
+      "evidencia": "Página: 'Common Paper agreements are free to use and modify under CC BY 4.0' e 'All Common Paper agreements are released under the Creative Commons CC BY 4.0 license'; versão 2.1. A página do Mutual NDA foi bloqueada; a licença do NDA é inferida pela frase geral.",
+      "uso_lexzenit": "pode adaptar com atribuição; direito dos EUA"
+    },
+    {
+      "item": "Cooley GO (formulários: employee CIIAA, offer letter, consulting, advisor, NDA mútuo/unilateral)",
+      "url": "https://www.cooleygo.com/terms-of-use/",
+      "licenca_ou_termos": "restritiva/proprietária",
+      "evidencia": "Terms of Use (Last Updated 9/20/24): 'a limited, personal, non-exclusive, non-transferable license to use our Forms'; 'may not be sold or redistributed without the express written consent of Cooley'; sem direito de 'modify, edit, copy, reproduce, create derivative works' exceto preencher; licença revogável; Seção 5: materiais não podem ser usados para 'create, train, develop or improve' sistemas de ML/LLM/IA",
+      "uso_lexzenit": "NÃO usar nem como corpus/treino; no máximo ler como referência humana"
+    },
+    {
+      "item": "Orrick Startup Forms",
+      "url": "https://www.orrick.com/en/tech-studio/forms",
+      "licenca_ou_termos": "proprietária (all rights reserved)",
+      "evidencia": "Terms of Use Agreement (Updated July 2018): Seção 7 'Documents are provided on a nonexclusive license basis only for your personal one-time use for noncommercial purposes ... without any right to relicense, sublicense, distribute'; 5(c) proíbe 'compilations or derivative works'; 5(h) proíbe colheita automática; sem menção explícita a IA",
+      "uso_lexzenit": "NÃO copiar; uso comercial pela LexZenit seria fora da licença"
+    },
+    {
+      "item": "Founder Institute FAST",
+      "url": "https://fi.co/FAST",
+      "licenca_ou_termos": "sem licença formal identificada",
+      "evidencia": "FAQ: 'The FAST Agreement is free and can be modified as you need.'; rodapé 'Copyright © 2026, Founder Institute, Inc. All Rights Reserved'; Terms of Use (fi.co/terms) bloqueado nesta sessão",
+      "uso_lexzenit": "referência conceitual; não redistribuir sem confirmar termos"
+    },
+    {
+      "item": "NVCA Model Legal Documents",
+      "url": "https://nvca.org/model-legal-documents/",
+      "licenca_ou_termos": "não verificado",
+      "evidencia": "Página bloqueada nesta sessão",
+      "uso_lexzenit": "referência conceitual"
+    },
+    {
+      "item": "UPenn ELC Startup Kit; Five Minute Law NDA; YC Sales Agreement/Series A term sheet; Rackspace policy; Creative Commons policies",
+      "url": "(vários)",
+      "licenca_ou_termos": "não verificado",
+      "evidencia": "Não amostrados",
+      "uso_lexzenit": "verificar caso a caso"
+    }
+  ],
+  "repos_adicionais_descobertos": [
+    {
+      "repo": "General-Legal/agent-operated-company",
+      "url": "https://github.com/General-Legal/agent-operated-company",
+      "ultimo_commit": "2026-08-12T14:57:29+02:00 (b468225)",
+      "licenca_spdx": "MIT",
+      "licenca_arquivo": "LICENSE (Copyright (c) 2026 General Legal, LLP)",
+      "nota": "75 arquivos: modelos .md/.docx para constituir LLC/C-corp de Delaware operada por agente de IA, incluindo 'AI Governance Policy' (LLC e C-corp), instruções de EIN e manifest.json v0.6.0. Fonte conceitual útil para política de governança de IA; direito de Delaware."
+    },
+    {
+      "repo": "General-Legal/findthefuckup-open",
+      "url": "https://github.com/General-Legal/findthefuckup-open",
+      "ultimo_commit": "2026-02-02T21:40:26-07:00 (7f77adf)",
+      "licenca_spdx": "MIT (declarada só no README)",
+      "licenca_arquivo": "nenhum arquivo LICENSE",
+      "nota": "Único Flask da organização: app.py (976 linhas) recebe .docx, extrai parágrafos e chama a API Anthropic (claude-sonnet-4-20250514) com um prompt de revisão que devolve JSON {summary, issues[{paragraphIndex, issue, suggestion, severity high|medium|low}]}. Não é servidor MCP, não tem RAG nem taxonomia de risco contratual. Útil como referência de prompt/saída estruturada."
+    },
+    {
+      "repo": "legalize-kr/legalize-pipeline",
+      "url": "https://github.com/legalize-kr/legalize-pipeline",
+      "ultimo_commit": "2026-10-11T23:52:04+09:00 (e74db04)",
+      "licenca_spdx": "MIT OR Apache-2.0 (inferido de LICENSE-MIT + LICENSE-APACHE; expressão SPDX não declarada neste repo)",
+      "licenca_arquivo": "LICENSE-MIT, LICENSE-APACHE",
+      "nota": "Pipeline Python (laws, admrules, ordinances, precedents, images, core) com suíte pytest em tests/ e 7 workflows GitHub Actions (diário e semanal)."
+    },
+    {
+      "repo": "legalize-kr/compiler",
+      "url": "https://github.com/legalize-kr/compiler",
+      "ultimo_commit": "2026-10-11T23:54:25+09:00 (20b82f3)",
+      "licenca_spdx": "MIT OR Apache-2.0",
+      "licenca_arquivo": "COPYRIGHT, LICENSE-MIT, LICENSE-APACHE",
+      "nota": "Compiladores Rust (laws, admrules, ordinances, precedents) que escrevem repositório Git bare; testes de byte-stability e paridade com Python."
+    },
+    {
+      "repo": "legalize-kr/cli-tools",
+      "url": "https://github.com/legalize-kr/cli-tools",
+      "ultimo_commit": "2026-10-16T19:31:07+09:00 (11cfc54)",
+      "licenca_spdx": "MIT OR Apache-2.0",
+      "licenca_arquivo": "pyproject.toml (license-files LICENSE-MIT, LICENSE-APACHE)",
+      "nota": "legalize-cli v0.5.3 e servidor MCP local (stdio) com 11 tools somente leitura; Python MCP SDK >=2.2,<3."
+    }
+  ],
+  "catalogo_global": [
+    {
+      "jurisdicao": "Áustria",
+      "nome": "Artificial Intelligence Mission Austria 2030",
+      "tipo": "estrategia_politica",
+      "url": "https://www.bmk.gv.at/themen/innovation/publikationen/ikt/ai/aimat.html",
+      "secao_readme": "Regulation and Policy / Austria",
+      "linha_readme": 64
+    },
+    {
+      "jurisdicao": "Brasil",
+      "nome": "Brazilian AI Regulation (PL 2338/2023)",
+      "tipo": "projeto_de_lei",
+      "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/157233",
+      "secao_readme": "Regulation and Policy / Brazil",
+      "linha_readme": 68,
+      "obs": "README descreve como 'proposed bill'; situação em out/2026 não verificada. Única entrada brasileira."
+    },
+    {
+      "jurisdicao": "Canadá",
+      "nome": "Artificial Intelligence and Data Act (AIDA)",
+      "tipo": "projeto_de_lei",
+      "url": "https://ised-isde.canada.ca/site/innovation-better-canada/en/artificial-intelligence-and-data-act-aida-companion-document",
+      "secao_readme": "Regulation and Policy / Canada",
+      "linha_readme": 72,
+      "obs": "README descreve como 'An Act'; situação legislativa atual não verificada."
+    },
+    {
+      "jurisdicao": "China",
+      "nome": "Beijing AI Principles",
+      "tipo": "principio",
+      "url": "https://www.baai.ac.cn/blog/beijing-ai-principles",
+      "secao_readme": "Regulation and Policy / China",
+      "linha_readme": 76
+    },
+    {
+      "jurisdicao": "China",
+      "nome": "China Internet Security Law",
+      "tipo": "lei",
+      "url": "https://en.wikipedia.org/wiki/China_Internet_Security_Law",
+      "secao_readme": "Regulation and Policy / China",
+      "linha_readme": 77,
+      "obs": "Link aponta para a Wikipedia; o PDF KPMG linkado na descrição usa o título 'Cybersecurity Law'."
+    },
+    {
+      "jurisdicao": "China",
+      "nome": "China's Administrative Provisions on Information Services on Microblogs",
+      "tipo": "norma_infralegal",
+      "url": "http://en.pkulaw.cn/display.aspx?cgid=309714&lib=law",
+      "secao_readme": "Regulation and Policy / China",
+      "linha_readme": 78
+    },
+    {
+      "jurisdicao": "China",
+      "nome": "China's Interim Measures for the Management of Generative Artificial Intelligence Services",
+      "tipo": "norma_infralegal",
+      "url": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm",
+      "secao_readme": "Regulation and Policy / China",
+      "linha_readme": 79
+    },
+    {
+      "jurisdicao": "China",
+      "nome": "China's Personal Information Security Specification (Translation)",
+      "tipo": "padrao",
+      "url": "https://www.newamerica.org/cybersecurity-initiative/digichina/blog/translation-chinas-personal-information-security-specification/",
+      "secao_readme": "Regulation and Policy / China",
+      "linha_readme": 80
+    },
+    {
+      "jurisdicao": "China",
+      "nome": "Decision on strengthening the protection of online information",
+      "tipo": "lei",
+      "url": "https://www.globalprivacyblog.com/privacy/chinas-legislature-adopts-decision-on-strengthening-the-protection-of-online-information/",
+      "secao_readme": "Regulation and Policy / China",
+      "linha_readme": 81
+    },
+    {
+      "jurisdicao": "Taiwan (listado sob 'China' no README)",
+      "nome": "Personal Data Protection Act",
+      "tipo": "lei",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=I0050021",
+      "secao_readme": "Regulation and Policy / China",
+      "linha_readme": 82,
+      "obs": "Listada sob China, mas o link é law.moj.gov.tw (Taiwan/República da China): jurisdição real provável é Taiwan."
+    },
+    {
+      "jurisdicao": "Dubai (Emirados Árabes Unidos)",
+      "nome": "Smart Dubai Artificial Intelligence Principles and Ethics - Ethical AI Toolkit",
+      "tipo": "principio",
+      "url": "https://www.smartdubai.ae/initiatives/ai-principles-ethics",
+      "secao_readme": "Regulation and Policy / Dubai",
+      "linha_readme": 86
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "Annex III Deep Classifier",
+      "tipo": "ferramenta",
+      "url": "https://eucomplyhub.com/annex3",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 90,
+      "obs": "Ferramenta/tracker de terceiros, não normativo."
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "Ethics Guidelines for Trustworthy AI",
+      "tipo": "principio",
+      "url": "https://ec.europa.eu/futurium/en/ai-alliance-consultation",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 91
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "EU AI Act",
+      "tipo": "lei",
+      "url": "https://artificialintelligenceact.eu/",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 92
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "EU AI Act + ISO 42001 + NIST AI RMF Crosswalk",
+      "tipo": "ferramenta",
+      "url": "https://eucomplyhub.com/crosswalk",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 93,
+      "obs": "Ferramenta/tracker de terceiros, não normativo."
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "EU AI Act Governance Assessment Example (DE)",
+      "tipo": "ferramenta",
+      "url": "https://github.com/id-levi/eu-ai-act-ressourcen",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 94
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "EU AI Act Penalty Calculator",
+      "tipo": "ferramenta",
+      "url": "https://eucomplyhub.com/penalty-calculator",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 95,
+      "obs": "Ferramenta/tracker de terceiros, não normativo."
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "eucomplyhub",
+      "tipo": "ferramenta",
+      "url": "https://eucomplyhub.com",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 96,
+      "obs": "Ferramenta/tracker de terceiros, não normativo."
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "GDPR.EU Guide",
+      "tipo": "guia",
+      "url": "https://gdpr.eu/",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 97,
+      "obs": "O link 'Legal Text' da descrição aponta para 5 U.S.C. 552a (Privacy Act, US Code), não para o GDPR."
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "General Data Protection Regulation GDPR",
+      "tipo": "lei",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32016R0679",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 98
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "SetAIComply",
+      "tipo": "ferramenta",
+      "url": "https://www.setaicomply.com",
+      "secao_readme": "Regulation and Policy / European Union",
+      "linha_readme": 99,
+      "obs": "Ferramenta/tracker de terceiros, não normativo."
+    },
+    {
+      "jurisdicao": "Índia",
+      "nome": "IT Amendment Rules, 2026",
+      "tipo": "norma_infralegal",
+      "url": "https://www.meity.gov.in/static/uploads/2026/02/550681ab908f8afb135b0ad42816a1c9.pdf",
+      "secao_readme": "Regulation and Policy / India",
+      "linha_readme": 103
+    },
+    {
+      "jurisdicao": "Índia",
+      "nome": "The Digital Personal Data Protection (DPDP) Act",
+      "tipo": "lei",
+      "url": "https://www.meity.gov.in/writereaddata/files/Digital%20Personal%20Data%20Protection%20Act%202023.pdf",
+      "secao_readme": "Regulation and Policy / India",
+      "linha_readme": 104
+    },
+    {
+      "jurisdicao": "Índia",
+      "nome": "The National Strategy for Artificial Intelligence",
+      "tipo": "estrategia_politica",
+      "url": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf",
+      "secao_readme": "Regulation and Policy / India",
+      "linha_readme": 105
+    },
+    {
+      "jurisdicao": "Índia",
+      "nome": "The Principles for Responsible AI",
+      "tipo": "principio",
+      "url": "https://www.niti.gov.in/sites/default/files/2021-02/Responsible-AI-22022021.pdf",
+      "secao_readme": "Regulation and Policy / India",
+      "linha_readme": 106
+    },
+    {
+      "jurisdicao": "Irlanda",
+      "nome": "National AI Strategy of Ireland",
+      "tipo": "estrategia_politica",
+      "url": "https://assets.gov.ie/static/documents/5e511b3a/National_Digital_and_AI_Strategy_2030.pdf",
+      "secao_readme": "Regulation and Policy / Ireland",
+      "linha_readme": 110,
+      "obs": "README diz 'em 2026'; URL é 'National_Digital_and_AI_Strategy_2030'."
+    },
+    {
+      "jurisdicao": "Israel",
+      "nome": "The principles of the policy for the responsible development of the field of AI",
+      "tipo": "principio",
+      "url": "https://www.gov.il/en/pages/most-news20221117",
+      "secao_readme": "Regulation and Policy / Israel",
+      "linha_readme": 114
+    },
+    {
+      "jurisdicao": "México",
+      "nome": "Artificial Intelligence National Agenda Proposal for Mexico",
+      "tipo": "estrategia_politica",
+      "url": "https://www.ania.org.mx/_files/ugd/447d95_c7e6ebee6cf44b38a0d386cc9534f6e5.pdf",
+      "secao_readme": "Regulation and Policy / Mexico",
+      "linha_readme": 118,
+      "obs": "Hospedado em ania.org.mx; natureza (governamental ou não) não verificada."
+    },
+    {
+      "jurisdicao": "Singapura",
+      "nome": "Data Protection Act 2012",
+      "tipo": "lei",
+      "url": "https://sso.agc.gov.sg/Act/PDPA2012",
+      "secao_readme": "Regulation and Policy / Singapore",
+      "linha_readme": 122
+    },
+    {
+      "jurisdicao": "Singapura",
+      "nome": "Protection from Online Falsehoods and Manipulation Act 2019",
+      "tipo": "lei",
+      "url": "https://sso.agc.gov.sg/Acts-Supp/18-2019/Published/20190625?DocDate=20190625",
+      "secao_readme": "Regulation and Policy / Singapore",
+      "linha_readme": 123
+    },
+    {
+      "jurisdicao": "Suíça",
+      "nome": "New Federal Act on Data Protection (nFADP)",
+      "tipo": "lei",
+      "url": "https://www.fedlex.admin.ch/eli/cc/2022/491/en",
+      "secao_readme": "Regulation and Policy / Switzerland",
+      "linha_readme": 127
+    },
+    {
+      "jurisdicao": "Emirados Árabes Unidos",
+      "nome": "UAE National Strategy for AI",
+      "tipo": "estrategia_politica",
+      "url": "https://ai.gov.ae/wp-content/uploads/2021/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf",
+      "secao_readme": "Regulation and Policy / United Arab Emirates",
+      "linha_readme": 131
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "The Information Commissioner's Office guide to Data Protection",
+      "tipo": "guia",
+      "url": "https://ico.org.uk/for-organisations/guide-to-data-protection/",
+      "secao_readme": "Regulation and Policy / United Kingdom",
+      "linha_readme": 135
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "UK Data Protection Act of 2018",
+      "tipo": "lei",
+      "url": "http://www.legislation.gov.uk/ukpga/2018/12/contents/enacted",
+      "secao_readme": "Regulation and Policy / United Kingdom",
+      "linha_readme": 136
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "UK's AI regulation: a pro-innovation approach",
+      "tipo": "estrategia_politica",
+      "url": "https://www.gov.uk/government/publications/ai-regulation-a-pro-innovation-approach",
+      "secao_readme": "Regulation and Policy / United Kingdom",
+      "linha_readme": 137
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "AI Laws by State",
+      "tipo": "ferramenta",
+      "url": "https://www.ailawsbystate.com",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 141,
+      "obs": "Ferramenta/tracker de terceiros, não normativo."
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "California Consumer Privacy Act (CCPA)",
+      "tipo": "lei",
+      "url": "http://leginfo.legislature.ca.gov/faces/billCompareClient.xhtml?bill_id=201720180AB375",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 142,
+      "obs": "URL aponta para comparação do bill AB 375 (2017-2018), não para texto consolidado vigente."
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "DoD's Ethical Principles for AI",
+      "tipo": "principio",
+      "url": "https://www.diu.mil/responsible-ai-guidelines",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 143
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "EU-U.S. and Swiss-U.S. Privacy Shield Frameworks",
+      "tipo": "framework",
+      "url": "https://www.privacyshield.gov/welcome",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 144,
+      "obs": "Provável instrumento histórico/invalidado; status não verificado nesta auditoria."
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "Executive Order on Maintaining American Leadership in AI",
+      "tipo": "ordem_executiva",
+      "url": "https://www.whitehouse.gov/presidential-actions/executive-order-maintaining-american-leadership-artificial-intelligence/",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 145,
+      "obs": "Descrição truncada no README ('Official mandate by the President of the US to'); status atual não verificado."
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "Fair Credit Reporting Act 2018",
+      "tipo": "lei",
+      "url": "https://www.ftc.gov/enforcement/statutes/fair-credit-reporting-act",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 146
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "Gramm-Leach-Billey Act (for financial institutions)",
+      "tipo": "lei",
+      "url": "https://www.ftc.gov/tips-advice/business-center/privacy-and-security/gramm-leach-bliley-act",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 147
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "Health Insurance Portability and Accountability Act of 1996",
+      "tipo": "lei",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 148
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "Privacy Act of 1974",
+      "tipo": "lei",
+      "url": "https://www.justice.gov/opcl/privacy-act-1974",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 149
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "Privacy Protection Act of 1980",
+      "tipo": "lei",
+      "url": "https://epic.org/privacy/ppa/",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 150
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "The White House Executive Order in AI",
+      "tipo": "ordem_executiva",
+      "url": "https://www.whitehouse.gov/briefing-room/presidential-actions/2023/10/30/executive-order-on-the-safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence/",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 151,
+      "obs": "Status atual (vigente/revogada) não verificado."
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "U.S. AI Policy Tracker (USASI)",
+      "tipo": "ferramenta",
+      "url": "https://unitedstatesofamericasuperintelligence.com/policy/",
+      "secao_readme": "Regulation and Policy / United States of America",
+      "linha_readme": 152,
+      "obs": "Ferramenta/tracker de terceiros, não normativo."
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI & Machine Learning 8 principles for Responsible ML",
+      "tipo": "principio",
+      "url": "https://ethical.institute/principles.html",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 156
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI Governance Engineering: The Thesis & Body of Knowledge",
+      "tipo": "framework",
+      "url": "https://aigovernanceengineer.com/bok",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 157
+    },
+    {
+      "jurisdicao": "Nova Zelândia",
+      "nome": "Algorithm charter for Aotearoa New Zealand",
+      "tipo": "principio",
+      "url": "https://data.govt.nz/use-data/data-ethics/government-algorithm-transparency-and-accountability/algorithm-charter",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 158
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "An Evaluation of Guidelines - The Ethics of Ethics",
+      "tipo": "pesquisa",
+      "url": "https://arxiv.org/ftp/arxiv/papers/1903/1903.03425.pdf",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 159
+    },
+    {
+      "jurisdicao": "Internacional (ACM)",
+      "nome": "Association for Computer Machinery's Code of Ethics and Professional Conduct",
+      "tipo": "principio",
+      "url": "https://www.acm.org/code-of-ethics",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 160
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Boundary & Consent Reference Frameworks",
+      "tipo": "framework",
+      "url": "https://shadow-hickory-d63.notion.site/Boundary-Consent-Reference-Frameworks-2f99b44ae6578072992cf2725684bcf0?source=copy_link",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 161,
+      "obs": "Hospedado em Notion pessoal ('For reference only'); fonte frágil."
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "Declaration for responsible and intelligent data practice",
+      "tipo": "principio",
+      "url": "https://www.declaration.org.uk/",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 162
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "European Commission's Guidelines for Trustworthy AI",
+      "tipo": "principio",
+      "url": "https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 163
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "From What to How: An initial review of publicly available AI Ethics Tools, Methods and Research to translate principles into practices",
+      "tipo": "pesquisa",
+      "url": "https://arxiv.org/abs/1905.06876",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 164
+    },
+    {
+      "jurisdicao": "Internacional (IEEE)",
+      "nome": "IEEE's Ethically Aligned Design",
+      "tipo": "framework",
+      "url": "https://ethicsinaction.ieee.org/",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 165
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Montreal AI Ethics Institute State of AI Ethics June 2020 Report",
+      "tipo": "pesquisa",
+      "url": "https://montrealethics.ai/the-state-of-ai-ethics-report-june-2020/",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 166
+    },
+    {
+      "jurisdicao": "Canadá (Québec)",
+      "nome": "Montréal Declaration for a responsible development of artificial intelligence",
+      "tipo": "principio",
+      "url": "https://www.montrealdeclaration-responsibleai.com/the-declaration",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 167
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "Oxford's Recommendations for AI Governance",
+      "tipo": "pesquisa",
+      "url": "https://www.fhi.ox.ac.uk/wp-content/uploads/Standards_-FHI-Technical-Report.pdf",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 168
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "PWC's Responsible AI",
+      "tipo": "framework",
+      "url": "https://www.pwc.com/gx/en/issues/data-and-analytics/artificial-intelligence/what-is-responsible-ai.html",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 169
+    },
+    {
+      "jurisdicao": "Internacional (UNESCO)",
+      "nome": "Recommendation on the Ethics of Artificial Intelligence",
+      "tipo": "principio",
+      "url": "https://unesdoc.unesco.org/ark:/48223/pf0000381137",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 170
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "SHELET Protocol",
+      "tipo": "framework",
+      "url": "https://mordechaipotash.github.io/poly-wiki-public/",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 171,
+      "obs": "Fonte individual (GitHub Pages); fonte frágil."
+    },
+    {
+      "jurisdicao": "Singapura",
+      "nome": "Singapore Data Protection Govt Commission's AI Governance Principles",
+      "tipo": "framework",
+      "url": "https://www.pdpc.gov.sg/help-and-resources/2020/01/model-ai-governance-framework",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 172
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Technical and Organizational Best Practices",
+      "tipo": "framework",
+      "url": "https://www.fbpml.org/the-best-practices/the-best-practices",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 173
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Toronto Declaration",
+      "tipo": "principio",
+      "url": "https://www.accessnow.org/the-toronto-declaration-protecting-the-rights-to-equality-and-non-discrimination-in-machine-learning-systems/",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 174
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "UK Government's Data Ethics Framework Principles",
+      "tipo": "framework",
+      "url": "https://www.gov.uk/government/publications/data-ethics-framework/data-ethics-framework",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 175
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "Understanding artificial intelligence ethics and safety",
+      "tipo": "guia",
+      "url": "https://www.turing.ac.uk/research/publications/understanding-artificial-intelligence-ethics-and-safety",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 176
+    },
+    {
+      "jurisdicao": "União Europeia",
+      "nome": "YRproject",
+      "tipo": "ferramenta",
+      "url": "https://yrproject.nl/",
+      "secao_readme": "High Level Frameworks and Principles",
+      "linha_readme": 177,
+      "obs": "Ferramenta/base de conhecimento (EN/NL/DE) sobre AI Act."
+    },
+    {
+      "jurisdicao": "Austrália",
+      "nome": "ACS Code of Professional Conduct - PDF",
+      "tipo": "principio",
+      "url": "https://www.acs.org.au/content/dam/acs/rules-and-regulations/Code-of-Professional-Conduct_v2.1.pdf",
+      "secao_readme": "Industry standards initiatives",
+      "linha_readme": 181
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "ai-governance.json",
+      "tipo": "padrao",
+      "url": "https://github.com/certian-register/ai-governance-manifest",
+      "secao_readme": "Industry standards initiatives",
+      "linha_readme": 182,
+      "obs": "README diz 'Draft v0.1, CC BY 4.0'; não verificado no repositório de origem."
+    },
+    {
+      "jurisdicao": "Internacional (ACM)",
+      "nome": "Association for Computer Machinery's Code of Ethics and Professional Conduct",
+      "tipo": "principio",
+      "url": "https://www.acm.org/code-of-ethics",
+      "secao_readme": "Industry standards initiatives",
+      "linha_readme": 183
+    },
+    {
+      "jurisdicao": "Internacional (IEEE)",
+      "nome": "IEEE Global Initiative for Ethical Considerations in Artificial Intelligence (AI) and Autonomous Systems (AS)",
+      "tipo": "padrao",
+      "url": "https://ethicsinaction.ieee.org/",
+      "secao_readme": "Industry standards initiatives",
+      "linha_readme": 184
+    },
+    {
+      "jurisdicao": "Internacional (ISO/IEC)",
+      "nome": "ISO/IEC's Standards for Artificial Intelligence",
+      "tipo": "padrao",
+      "url": "https://www.iso.org/committee/6794475/x/catalogue/",
+      "secao_readme": "Industry standards initiatives",
+      "linha_readme": 185
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Open Ethics Transparency Protocol",
+      "tipo": "padrao",
+      "url": "https://openethics.ai/oetp/",
+      "secao_readme": "Industry standards initiatives",
+      "linha_readme": 186
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Aequitas' Bias & Fairness Audit Toolkit",
+      "tipo": "ferramenta",
+      "url": "http://aequitas.dssg.io/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 190
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI Agent Incident Register",
+      "tipo": "ferramenta",
+      "url": "https://companyscope.io/register",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 191
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI Atlas Nexus",
+      "tipo": "ferramenta",
+      "url": "https://github.com/IBM/ai-atlas-nexus",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 192
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI Disclosure Kit",
+      "tipo": "ferramenta",
+      "url": "https://disclosekit.com",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 193
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI Governance Compare",
+      "tipo": "ferramenta",
+      "url": "https://github.com/modusensus/ai-governance-compare",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 194
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI Law Radar",
+      "tipo": "ferramenta",
+      "url": "https://ailawradar.com",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 195
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI Policy Generator",
+      "tipo": "ferramenta",
+      "url": "https://brandquill.app/ai-policy-generator",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 196
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AIR Blackbox",
+      "tipo": "ferramenta",
+      "url": "https://github.com/airblackbox/air-blackbox-mcp",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 197
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Alibi",
+      "tipo": "ferramenta",
+      "url": "https://github.com/SeldonIO/alibi",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 198
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Allowly Hiring Evidence",
+      "tipo": "ferramenta",
+      "url": "https://allowly.ai/docs/solutions/hiring/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 199
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Awesome Machine Learning Production List",
+      "tipo": "ferramenta",
+      "url": "https://github.com/ethicalml/awesome-production-machine-learning",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 200
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Cape Python",
+      "tipo": "ferramenta",
+      "url": "https://github.com/capeprivacy/cape-python",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 201
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Certian",
+      "tipo": "ferramenta",
+      "url": "https://certian.com",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 202
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Council of AI",
+      "tipo": "ferramenta",
+      "url": "https://councilof.ai",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 203
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Deployer AI Risk Register (DARR)",
+      "tipo": "ferramenta",
+      "url": "https://www.airiskdeployer.org",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 204
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Dutybound AI Regulation Deadlines",
+      "tipo": "ferramenta",
+      "url": "https://github.com/michalszymanski-ai/ai-regulation-deadlines",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 205
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "EU AI Act Check",
+      "tipo": "ferramenta",
+      "url": "https://i6eal.de/eu-ai-act-check/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 206
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "eXplainability Toolbox",
+      "tipo": "ferramenta",
+      "url": "https://ethical.institute/xai.html",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 207
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "FAT Forensics",
+      "tipo": "ferramenta",
+      "url": "https://fat-forensics.org/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 208
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "IBM's AI Explainability 360 Open Source Toolkit",
+      "tipo": "ferramenta",
+      "url": "http://aix360.mybluemix.net/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 209
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Linux Foundation AI Landscape",
+      "tipo": "ferramenta",
+      "url": "https://landscape.lfai.foundation/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 210
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Made by Human",
+      "tipo": "ferramenta",
+      "url": "https://madebyhuman.iamjarl.com",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 211
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Microsoft Fairlearn",
+      "tipo": "ferramenta",
+      "url": "https://fairlearn.org/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 212
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Microsoft Interpret ML",
+      "tipo": "ferramenta",
+      "url": "https://interpret.ml/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 213
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Open Ethics Data Passport",
+      "tipo": "ferramenta",
+      "url": "https://openethics.ai/oedp/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 214
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Open Ethics Label: AI nutrition labels",
+      "tipo": "ferramenta",
+      "url": "https://openethics.ai/label/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 215
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Orca AI Incident Archive",
+      "tipo": "ferramenta",
+      "url": "https://github.com/Continuum-AI-Corp/Orca-AI-Incident-Archive",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 216
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "OrcaPromptVault",
+      "tipo": "ferramenta",
+      "url": "https://github.com/Continuum-AI-Corp/OrcaPromptVault",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 217
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Orchard Kit",
+      "tipo": "ferramenta",
+      "url": "https://github.com/OrchardHarmonics/orchard-kit",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 218
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "PrivacyScrubber",
+      "tipo": "ferramenta",
+      "url": "https://privacyscrubber.com",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 219
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Responsible AI Studio",
+      "tipo": "ferramenta",
+      "url": "https://app.responsibleaistudio.com/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 220
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Signato AI Act Readiness Quiz",
+      "tipo": "ferramenta",
+      "url": "https://signato.ai/quiz",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 221
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Taking action on digital ethics",
+      "tipo": "ferramenta",
+      "url": "https://www.avanade.com/en-us/thinking/research-and-insights/trendlines/digital-ethics",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 222
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "TinyTools",
+      "tipo": "ferramenta",
+      "url": "https://tinytools-smoky.vercel.app/",
+      "secao_readme": "Interactive and Practical Tools",
+      "linha_readme": 223
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "AI RFX Procurement Framework",
+      "tipo": "framework",
+      "url": "https://ethical.institute/rfx.html",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 237
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Checklist for data science projects",
+      "tipo": "ferramenta",
+      "url": "http://deon.drivendata.org/",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 238
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "Designing Ethical AI Experiences Checklist and Agreement",
+      "tipo": "checklist_processo",
+      "url": "https://resources.sei.cmu.edu/library/asset-view.cfm?assetid=636620",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 239
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Ethical OS Toolkit",
+      "tipo": "checklist_processo",
+      "url": "https://ethicalos.org/",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 240
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Ethics Canvas",
+      "tipo": "checklist_processo",
+      "url": "https://www.ethicscanvas.org/index.html",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 241
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "FAIAS — Financial AI Independent Assurance Standard",
+      "tipo": "framework",
+      "url": "https://github.com/attahwonder/faias-standard",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 242
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Kat Zhou's Design Ethically Resources",
+      "tipo": "checklist_processo",
+      "url": "https://www.designethically.com/toolkit",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 243
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Machine Learning Assurance",
+      "tipo": "checklist_processo",
+      "url": "https://monitaur.ai/blog/machine-learning-assurance/",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 244
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Markula Center's Ethical Toolkit for Engineering/Design Practice",
+      "tipo": "checklist_processo",
+      "url": "https://www.scu.edu/ethics-in-technology-practice/ethical-toolkit/",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 245
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Microsoft AI Fairness Checklist",
+      "tipo": "checklist_processo",
+      "url": "https://www.microsoft.com/en-us/research/project/ai-fairness-checklist/",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 246
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "ODEP's Checklist for Employers: Facilitating the Hiring of People with Disabilities Through the Use of eRecruiting Screening Systems, Including AI",
+      "tipo": "checklist_processo",
+      "url": "https://www.peatworks.org/wp-content/uploads/2020/10/EARN_PEAT_eRecruiting_Checklist.pdf",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 247
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "Open Ethics Maturity Model (OEMM)",
+      "tipo": "framework",
+      "url": "https://openethics.ai/oemm/",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 248
+    },
+    {
+      "jurisdicao": "Estados Unidos (municipal)",
+      "nome": "San Francisco City's Ethics & Algorithms Toolkit",
+      "tipo": "checklist_processo",
+      "url": "https://ethicstoolkit.ai/",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 249
+    },
+    {
+      "jurisdicao": "Reino Unido",
+      "nome": "UK Government's Data Ethics Workbook",
+      "tipo": "checklist_processo",
+      "url": "https://www.gov.uk/government/publications/data-ethics-workbook/data-ethics-workbook",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 250
+    },
+    {
+      "jurisdicao": "Estados Unidos",
+      "nome": "US NIST AI Risk Management Framework",
+      "tipo": "framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 251
+    },
+    {
+      "jurisdicao": "Global (não específico)",
+      "nome": "World Economic Forum's Guidelines for Procurement",
+      "tipo": "checklist_processo",
+      "url": "https://www.weforum.org/press/2019/09/uk-government-first-to-pilot-ai-procurement-guidelines-co-designed-with-world-economic-forum/",
+      "secao_readme": "Processes and Checklists",
+      "linha_readme": 252
+    }
+  ],
+  "catalogo_global_meta": {
+    "total_entradas": 125,
+    "excluidas_do_catalogo": {
+      "Online Courses and Learning Resources": 7,
+      "Research and Industry Newsletters": 8
+    },
+    "motivo_exclusao": "cursos e newsletters não são fontes normativas",
+    "contagem_por_tipo": {
+      "ferramenta": 44,
+      "principio": 16,
+      "lei": 16,
+      "framework": 13,
+      "checklist_processo": 11,
+      "estrategia_politica": 6,
+      "padrao": 5,
+      "pesquisa": 4,
+      "norma_infralegal": 3,
+      "guia": 3,
+      "projeto_de_lei": 2,
+      "ordem_executiva": 2
+    },
+    "contagem_por_jurisdicao_na_secao_regulacao": {
+      "Estados Unidos": 12,
+      "União Europeia": 10,
+      "China": 6,
+      "Índia": 4,
+      "Reino Unido": 3,
+      "Singapura": 2,
+      "Áustria": 1,
+      "Brasil": 1,
+      "Canadá": 1,
+      "Taiwan (listado sob 'China' no README)": 1,
+      "Dubai (Emirados Árabes Unidos)": 1,
+      "Irlanda": 1,
+      "Israel": 1,
+      "México": 1,
+      "Suíça": 1,
+      "Emirados Árabes Unidos": 1
+    },
+    "tipos_usados": "lei, projeto_de_lei, norma_infralegal, ordem_executiva, estrategia_politica, principio, framework, padrao, guia, pesquisa, ferramenta, checklist_processo"
+  }
+}

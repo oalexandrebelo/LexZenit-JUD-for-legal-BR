@@ -3,10 +3,16 @@
 40 plugins · 182 workflows. Especificações de aceitação semântica, não classificadores homologados.
 
 ## Novidade
-Seis workflows do revisor jurídico de projetos (`br-project-review`) adicionados na 0.3.0; os 176 anteriores foram preservados. Na 0.2.0, sete workflows de engenharia. Métrica de cobertura nacional continua desconhecida.
+Seis workflows do revisor jurídico de projetos (`ab-lexzenit-project-review`) adicionados na 0.3.0; os 176 anteriores foram preservados. Na 0.2.0, sete workflows de engenharia. Métrica de cobertura nacional continua desconhecida.
 
 | Plugin | Comando | Entrega |
 |---|---|---|
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:atualizar-catalogo` | Atualizar o catálogo normativo |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:classificar-risco-ia` | Classificar risco de sistema de IA |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:escolher-n2` | Escolher o país N2 |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:kit-documentos` | Kit de documentos do projeto |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:mapa-uf` | Mapa estadual de normas para projetos digitais |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:revisar-projeto` | Revisar projeto · N1 Brasil · N2 país · N3 mundo |
 | br-agribusiness | `/br-agribusiness:agricultural-inputs` | Defensivos e rastreabilidade agropecuária |
 | br-agribusiness | `/br-agribusiness:agro-credit` | CPR, crédito e garantias rurais |
 | br-agribusiness | `/br-agribusiness:rural-tenure` | Arrendamento, parceria e terra rural |
@@ -155,12 +161,6 @@ Seis workflows do revisor jurídico de projetos (`br-project-review`) adicionado
 | br-procurement | `/br-procurement:public-sanctions` | Defesa em sanções contratuais |
 | br-procurement | `/br-procurement:sicaf-qualification-auditor` | Habilitação e certidões |
 | br-procurement | `/br-procurement:tcu-precedent-validator-br` | Jurisprudência de contas |
-| br-project-review | `/br-project-review:atualizar-catalogo` | Atualizar o catálogo normativo |
-| br-project-review | `/br-project-review:classificar-risco-ia` | Classificar risco de sistema de IA |
-| br-project-review | `/br-project-review:escolher-n2` | Escolher o país N2 |
-| br-project-review | `/br-project-review:kit-documentos` | Kit de documentos do projeto |
-| br-project-review | `/br-project-review:mapa-uf` | Mapa estadual de normas para projetos digitais |
-| br-project-review | `/br-project-review:revisar-projeto` | Revisar projeto · N1 Brasil · N2 país · N3 mundo |
 | br-public-law | `/br-public-law:administrative-process` | Atos e processo administrativo |
 | br-public-law | `/br-public-law:public-employment` | Servidores, concursos e disciplina |
 | br-public-law | `/br-public-law:public-finance` | Orçamento, responsabilidade fiscal e controle |

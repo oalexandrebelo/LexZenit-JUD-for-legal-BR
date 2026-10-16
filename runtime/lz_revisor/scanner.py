@@ -16,6 +16,8 @@ import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .validadores import VALIDADORES
+
 IGNORAR_DIRS = {".git", ".hg", ".svn", "node_modules", ".next", ".nuxt", ".svelte-kit", "dist", "build", "out",
                 "coverage", ".venv", "venv", "env", "__pycache__", ".turbo", ".cache", "vendor", "Pods", ".gradle",
                 "target", ".expo", ".idea", ".pytest_cache", ".mypy_cache", ".tox", "site-packages", ".dart_tool",
@@ -175,13 +177,17 @@ def scan(root: str | Path, catalog) -> Varredura:
     regex_sinais = []
     for sid, s in sinais_cat.items():
         for p in s.get("codigo", []):
-            regex_sinais.append((sid, re.compile(p["padrao"], re.I), p["rotulo"], p["confianca"]))
+            flags = 0 if p.get("validador") else re.I
+            regex_sinais.append((sid, re.compile(p["padrao"], flags), p["rotulo"], p["confianca"], VALIDADORES.get(p.get("validador"))))
     regex_evid_termos = []
     for eid, e in evid_cat.items():
         for termo in e.get("termos", []):
-            regex_evid_termos.append((eid, _termo_regex(termo), termo))
+            regex_evid_termos.append((eid, _termo_regex(termo), None))
         for padrao in e.get("codigo", []):
-            regex_evid_termos.append((eid, re.compile(padrao, re.I), "rota ou código"))
+            if isinstance(padrao, dict):
+                regex_evid_termos.append((eid, re.compile(padrao["padrao"]), VALIDADORES.get(padrao.get("validador"))))
+            else:
+                regex_evid_termos.append((eid, re.compile(padrao, re.I), None))
 
     achados: dict[str, dict[tuple, Indicio]] = {}
     evid: dict[str, dict] = {}
@@ -260,14 +266,14 @@ def scan(root: str | Path, catalog) -> Varredura:
             if MANIFESTOS.search(fn):
                 deps |= _parse_deps(rel, text)
             linhas = text.splitlines()
-            for sid, rx, rotulo, conf in regex_sinais:
+            for sid, rx, rotulo, conf, valida in regex_sinais:
                 for i, line in enumerate(linhas, 1):
-                    if rx.search(line):
+                    if any(valida(m.group(0)) for m in rx.finditer(line)) if valida else rx.search(line):
                         add(sid, "codigo", rotulo, conf, f"{rel}:{i}")
                         break
-            for eid, rx, termo in regex_evid_termos:
+            for eid, rx, valida in regex_evid_termos:
                 for i, line in enumerate(linhas, 1):
-                    if rx.search(line):
+                    if any(valida(m.group(0)) for m in rx.finditer(line)) if valida else rx.search(line):
                         add_evid(eid, "mencoes", f"{rel}:{i}")
                         break
         if truncada:

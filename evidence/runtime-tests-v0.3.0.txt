@@ -56,7 +56,13 @@ test_no_automatic_publication (test_core.VerdictTests.test_no_automatic_publicat
 test_nonapplicability_requires_evidence (test_core.VerdictTests.test_nonapplicability_requires_evidence) ... ok
 test_nonconformity_without_evidence_rejected (test_core.VerdictTests.test_nonconformity_without_evidence_rejected) ... ok
 test_noncritical_nonconformity_requires_revision (test_core.VerdictTests.test_noncritical_nonconformity_requires_revision) ... ok
-test_one_critical_finding_not_diluted_by_100_good_results (test_core.VerdictTests.test_one_critical_finding_not_diluted_by_100_good_results) ... ok
+test_one_critical_finding_not_diluted_by_100_good_results (test_core.VerdictTests.test_one_critical_finding_not_diluted_by_100_good_results) ... /usr/local/lib/python3.13/dist-packages/pydantic/main.py:263: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f8cf57716c0>
+  validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/local/lib/python3.13/dist-packages/pydantic/main.py:263: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f8cf57714e0>
+  validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
 test_partial_coverage_blocks_ready_status (test_core.VerdictTests.test_partial_coverage_blocks_ready_status) ... ok
 test_satisfied_without_evidence_rejected (test_core.VerdictTests.test_satisfied_without_evidence_rejected) ... ok
 test_stale_law_blocks_ready_status (test_core.VerdictTests.test_stale_law_blocks_ready_status) ... ok
@@ -118,13 +124,7 @@ test_foreign_namespace (test_engineering.LexmlTests.test_foreign_namespace) ... 
 test_generated_locator_declared (test_engineering.LexmlTests.test_generated_locator_declared) ... ok
 test_hash_and_schema_claim (test_engineering.LexmlTests.test_hash_and_schema_claim) ... ok
 test_hierarchy (test_engineering.LexmlTests.test_hierarchy) ... ok
-test_long_provision_retained_flagged (test_engineering.LexmlTests.test_long_provision_retained_flagged) ... /home/claude/repo/LexZenit-JUD-for-legal-BR/runtime/legal_br/lexml.py:71: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc2a63b46d0>
-  meta[id(el)] = {'path':'/'+('/'.join(path_stack)), 'source_id':element_id, 'order':nodes}
-ResourceWarning: Enable tracemalloc to get the object allocation traceback
-/home/claude/repo/LexZenit-JUD-for-legal-BR/runtime/legal_br/lexml.py:71: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc2a63b47c0>
-  meta[id(el)] = {'path':'/'+('/'.join(path_stack)), 'source_id':element_id, 'order':nodes}
-ResourceWarning: Enable tracemalloc to get the object allocation traceback
-ok
+test_long_provision_retained_flagged (test_engineering.LexmlTests.test_long_provision_retained_flagged) ... ok
 test_missing_article (test_engineering.LexmlTests.test_missing_article) ... ok
 test_namespace_required (test_engineering.LexmlTests.test_namespace_required) ... ok
 test_quote_amendment_context (test_engineering.LexmlTests.test_quote_amendment_context) ... ok
@@ -156,8 +156,12 @@ test_oficial_exige_url_e_data (test_lz_revisor.CatalogoTests.test_oficial_exige_
 test_projeto_de_lei_nao_tem_obrigacao (test_lz_revisor.CatalogoTests.test_projeto_de_lei_nao_tem_obrigacao) ... ok
 test_sinal_desconhecido_quebra_catalogo (test_lz_revisor.CatalogoTests.test_sinal_desconhecido_quebra_catalogo) ... ok
 test_vigencia_futura_exige_inicio (test_lz_revisor.CatalogoTests.test_vigencia_futura_exige_inicio) ... ok
+test_cli_falhar_em_e_data (test_lz_revisor.CiTests.test_cli_falhar_em_e_data) ... ok
+test_proveniencia_e_urn (test_lz_revisor.CiTests.test_proveniencia_e_urn) ... ok
+test_sarif_com_local_do_gatilho (test_lz_revisor.CiTests.test_sarif_com_local_do_gatilho) ... ok
 test_saida_nao_sobrescreve (test_lz_revisor.CliTests.test_saida_nao_sobrescreve) ... ok
 test_validar_catalogo (test_lz_revisor.CliTests.test_validar_catalogo) ... ok
+test_resposta_nao_contradita_pelo_codigo (test_lz_revisor.DivergenciaTests.test_resposta_nao_contradita_pelo_codigo) ... ok
 test_fixtures_sem_cpf_nem_chave (test_lz_revisor.FixtureHygieneTests.test_fixtures_sem_cpf_nem_chave) ... ok
 test_kleene (test_lz_revisor.LogicaTests.test_kleene) ... ok
 test_caminho_fora_da_raiz_e_recusado (test_lz_revisor.McpTests.test_caminho_fora_da_raiz_e_recusado) ... ok
@@ -188,6 +192,9 @@ test_membro_ue_vira_bloco_ue (test_lz_revisor.N2Tests.test_membro_ue_vira_bloco_
 test_mercado_principal_vence_eua (test_lz_revisor.N2Tests.test_mercado_principal_vence_eua) ... ok
 test_padrao_eua (test_lz_revisor.N2Tests.test_padrao_eua) ... ok
 test_sinal_ue_sem_pais_declarado (test_lz_revisor.N2Tests.test_sinal_ue_sem_pais_declarado) ... ok
+test_radar_recusa_outro_host (test_lz_revisor.RadarTests.test_radar_recusa_outro_host) ... ok
+test_radar_registra_erro_sem_parar (test_lz_revisor.RadarTests.test_radar_registra_erro_sem_parar) ... ok
+test_radar_usa_ficha_da_camara_e_marca_mudanca (test_lz_revisor.RadarTests.test_radar_usa_ficha_da_camara_e_marca_mudanca) ... ok
 test_markdown_tem_marca_e_assinatura (test_lz_revisor.RelatorioTests.test_markdown_tem_marca_e_assinatura) ... ok
 test_relatorio_nao_copia_texto_casado (test_lz_revisor.RelatorioTests.test_relatorio_nao_copia_texto_casado) ... ok
 test_alerta_de_competencia_impede_firme_e_aparece (test_lz_revisor.RevisaoIndependenteTests.test_alerta_de_competencia_impede_firme_e_aparece) ... ok
@@ -203,6 +210,9 @@ test_app_b2c_sinais (test_lz_revisor.ScannerTests.test_app_b2c_sinais) ... ok
 test_indicio_guarda_local_nunca_texto (test_lz_revisor.ScannerTests.test_indicio_guarda_local_nunca_texto) ... ok
 test_saas_documentado_evidencias (test_lz_revisor.ScannerTests.test_saas_documentado_evidencias) ... ok
 test_sdk_de_nuvem_e_indicio_fraco (test_lz_revisor.ScannerTests.test_sdk_de_nuvem_e_indicio_fraco) ... ok
+test_cpf_e_cnpj (test_lz_revisor.ValidadoresTests.test_cpf_e_cnpj) ... ok
+test_reuse_e_sbom_como_evidencia (test_lz_revisor.ValidadoresTests.test_reuse_e_sbom_como_evidencia) ... ok
+test_scanner_so_conta_dv_valido_e_nao_guarda_valor (test_lz_revisor.ValidadoresTests.test_scanner_so_conta_dv_valido_e_nao_guarda_valor) ... ok
 test_chunk_offsets_match_original (test_workspace.SegmentationTests.test_chunk_offsets_match_original) ... ok
 test_coverage_and_bounded_windows (test_workspace.SegmentationTests.test_coverage_and_bounded_windows) ... ok
 test_empty_no_chunks (test_workspace.SegmentationTests.test_empty_no_chunks) ... ok
@@ -259,6 +269,6 @@ test_unverified_seed_cannot_traverse (test_workspace.WorkspaceTests.test_unverif
 test_wrong_matter_refused (test_workspace.WorkspaceTests.test_wrong_matter_refused) ... ok
 
 ----------------------------------------------------------------------
-Ran 253 tests in 1.908s
+Ran 263 tests in 2.086s
 
 OK

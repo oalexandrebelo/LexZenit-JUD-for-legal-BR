@@ -14,9 +14,9 @@ class Revisor:
     def __init__(self, catalog_dir: Path | None = None):
         self.catalog = load_catalog(catalog_dir)
 
-    def revisar(self, caminho: str | None, respostas: dict | None = None) -> dict:
+    def revisar(self, caminho: str | None, respostas: dict | None = None, hoje=None) -> dict:
         varredura = scan(caminho, self.catalog) if caminho else None
-        return revisar(self.catalog, varredura, respostas or {})
+        return revisar(self.catalog, varredura, respostas or {}, hoje)
 
     def markdown(self, resultado: dict, titulo: str | None = None) -> str:
         return to_markdown(resultado, titulo or "Revisão jurídica do projeto")

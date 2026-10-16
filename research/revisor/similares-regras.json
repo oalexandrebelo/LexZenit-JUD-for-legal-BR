@@ -1,0 +1,2060 @@
+[
+  {
+    "id": "oscal-nist",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "NIST OSCAL (Open Security Controls Assessment Language)",
+    "url": "https://github.com/usnistgov/OSCAL",
+    "licenca": "CC0 1.0 / domínio público (LICENSE.md lido)",
+    "situacao": "Ativo (1.581 commits, 187 issues abertas; não arquivado)",
+    "ultimo_release": "v1.2.3 em 07/08 (ano não exibido na página; assets da v1.2.3 carimbados 2026-08-07); v1.2.2 em 30/04; v1.2.1 em 06/03",
+    "o_que_modela": "7 modelos em 3 camadas: catalog e profile (controle); component-definition e SSP (implementação); assessment-plan, assessment-results e POA&M (avaliação). Catalog organiza controles de qualquer framework; profile seleciona/ajusta uma baseline; assessment-results registra escopo, evidências, observations, risks e findings.",
+    "formato_dados": "JSON, XML e YAML (schemas oficiais)",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável (padrão de formato; o conteúdo de referência é o catálogo NIST SP 800-53 rev5)",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "média (formato de interoperabilidade, não catálogo jurídico)",
+    "vale_incorporar": [
+      "Exportar o resultado do motor como OSCAL assessment-results: 1 finding por obrigação avaliada, evidências como observations, lacunas como POA&M.",
+      "Modelar 'gatilhos -> obrigações aplicáveis' como OSCAL profile (seleção de obrigações por sinais do projeto); N1/N2/N3 como catalogs separados.",
+      "Pendurar dispositivo, natureza, severidade e vigência em props com namespace próprio (precedente: o preprint arXiv 2604.13767 propõe 16 propriedades de extensão para IA)."
+    ],
+    "riscos": [
+      "OSCAL foi desenhado para controles de segurança, não para normas jurídicas: dispositivo, sanção e vigência exigem extensão própria.",
+      "Não confirmei na fonte como representar 'inconclusivo' nem os valores de objective-status; o mapeamento dos 3 estados fica para validar contra o JSON Schema.",
+      "Custo de UUIDs, back-matter e validação; o ganho só aparece se algum cliente ou ferramenta consumir OSCAL."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/usnistgov/OSCAL",
+      "https://github.com/usnistgov/OSCAL/releases",
+      "https://raw.githubusercontent.com/usnistgov/OSCAL/main/LICENSE.md",
+      "https://pages.nist.gov/OSCAL/resources/concepts/layer/",
+      "https://pages.nist.gov/OSCAL/resources/concepts/layer/assessment/assessment-results/"
+    ],
+    "nao_verificado": [
+      "Valores permitidos de objective-status (satisfied/not-satisfied) e reason: páginas de referência JSON bloqueadas nesta sessão (PROVENANCE_REQUIRED)",
+      "Como representar 'inconclusivo' ou 'não avaliado' no modelo"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "oscal-compass-trestle",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "compliance-trestle (OSCAL Compass; origem IBM)",
+    "url": "https://github.com/oscal-compass/compliance-trestle",
+    "licenca": "Apache-2.0",
+    "situacao": "Ativo; v5 estável em desenvolvimento, v4 em manutenção, v2/v3 descontinuadas; projeto sandbox da CNCF (OSCAL Compass foi contribuído originalmente pela IBM)",
+    "ultimo_release": "v5.0.0 em 07/08/2026; v3.12.4 em 03/08/2026; v4.2.0 em 02/07/2026",
+    "o_que_modela": "Compliance-as-code em CI: edita documentos OSCAL validando o schema, converte formatos para OSCAL, governa conteúdo em markdown e drawio, assinatura destacada de JSON.",
+    "formato_dados": "OSCAL em JSON e YAML (XML só no roadmap); markdown",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "baixa (ferramenta, não catálogo)",
+    "vale_incorporar": [
+      "Referência de fluxo 'markdown editável -> OSCAL validado em CI' para o catálogo curado por humanos.",
+      "Usar como validador independente do export OSCAL da LexZenit em CI (sem acoplar ao motor)."
+    ],
+    "riscos": [
+      "Dependência Python grande; só JSON/YAML (não XML).",
+      "Nada foi instalado nem executado nesta pesquisa."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/oscal-compass/compliance-trestle",
+      "https://github.com/oscal-compass/compliance-trestle/releases"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "oscal-cli",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "oscal-cli (metaschema-framework)",
+    "url": "https://github.com/metaschema-framework/oscal-cli",
+    "licenca": "Domínio público / CC0 (informado na página)",
+    "situacao": "Ativo (412 commits; 9 issues e 11 PRs abertos)",
+    "ultimo_release": "v3.2.0 em 15/05; v3.1.0 em 10/02; v3.0.0 em 12/01 (anos não exibidos)",
+    "o_que_modela": "CLI Java: converte OSCAL entre XML/JSON/YAML, valida recursos OSCAL, resolve profiles, valida modelos Metaschema.",
+    "formato_dados": "OSCAL XML/JSON/YAML; Metaschema",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Validar o JSON exportado (assessment-results/profile) no CI antes de publicar; resolver o profile para conferir que o conjunto de obrigações aplicáveis bate com o motor."
+    ],
+    "riscos": [
+      "Exige JVM; uso apenas como verificador externo."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/metaschema-framework/oscal-cli",
+      "https://github.com/metaschema-framework/oscal-cli/releases"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "oscal-compass-c2p",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "compliance-to-policy (C2P, OSCAL Compass)",
+    "url": "https://github.com/oscal-compass/compliance-to-policy",
+    "licenca": "Apache-2.0",
+    "situacao": "Ativo; projeto sandbox da CNCF; 42 estrelas",
+    "ultimo_release": "não visível na página (seção Releases vazia)",
+    "o_que_modela": "Ponte entre compliance-as-code e policy-as-code: gera políticas nativas (Kyverno, Open Cluster Management, Auditree) a partir de OSCAL component-definitions e converte os resultados dos motores em OSCAL assessment-results. OPA/Gatekeeper aparece só no roadmap (não suportado hoje).",
+    "formato_dados": "OSCAL JSON de entrada e saída; plugins Python (PluginSpec/PluginConfig); CLI e versão em Go",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Padrão arquitetural: obrigação -> verificação automatizável -> resultado normalizado em assessment-results. Serve de modelo para plugins de verificação do repositório (ex.: 'existe política de privacidade publicada', 'sem PII em logs').",
+      "Viewer de assessment-results em markdown (c2p tools viewer) como ideia para o relatório humano."
+    ],
+    "riscos": [
+      "Corrige a premissa do briefing: OPA não é suportado hoje, só Kyverno/OCM/Auditree.",
+      "Escopo de infraestrutura (Kubernetes/nuvem), não de leis."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/oscal-compass/compliance-to-policy"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "lula",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "Lula (Defense Unicorns) - GitOps for Compliance",
+    "url": "https://github.com/defenseunicorns/lula",
+    "licenca": "Apache-2.0",
+    "situacao": "Estágio inicial; o README avisa 'Expect breaking changes'",
+    "ultimo_release": "não visível (Releases vazio)",
+    "o_que_modela": "Controles de conformidade como arquivos YAML em Git, mapeados a implementações por UUID; importa planilhas (eMASS) e catálogos OSCAL pela UI; o comando crawl analisa PRs quanto ao impacto de conformidade e comenta neles; exporta relatórios e avaliações.",
+    "formato_dados": "YAML por controle; OSCAL (importação de catálogos na UI)",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Comentário automático em PR com o impacto legal da mudança (arquivos tocados -> obrigações afetadas).",
+      "Um arquivo YAML por controle/obrigação, revisável por PR (hoje o catálogo é gerado por build_n123.py)."
+    ],
+    "riscos": [
+      "Premissas do briefing não confirmadas na página: validação de Kubernetes, component-definition e Rego/Kyverno não aparecem no README lido.",
+      "Projeto imaturo."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/defenseunicorns/lula"
+    ],
+    "nao_verificado": [
+      "Uso de Rego/Kyverno e geração de assessment-results pelo Lula atual"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "nist-olir",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "NIST OLIR (Online Informative References)",
+    "url": "https://csrc.nist.gov/projects/olir",
+    "licenca": "não informada na página (publicação do NIST)",
+    "situacao": "Ativo (lista OLIRs de IA, inclusive finais)",
+    "ultimo_release": "n/a (catálogo contínuo)",
+    "o_que_modela": "Programa de mapeamentos padronizados entre elementos de documentos/produtos e documentos NIST (CSF 1.1, Privacy Framework 1.0, SP 800-53r5); catálogo de referências informativas e Derived Relationship Mappings (DRMs); inclui OLIRs de IA (ex.: mapeamentos para o AI RMF 1.0).",
+    "formato_dados": "não informado na página",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "média (conceito de mapeamento entre normas e controles)",
+    "vale_incorporar": [
+      "Adotar a ideia de relação tipada entre obrigação e controle (igual/subconjunto/superconjunto/intersecção) no crosswalk, em vez de 'mapeado: sim/não'."
+    ],
+    "riscos": [
+      "Os tipos de relação (teoria dos conjuntos) e a NISTIR 8278 não aparecem na página lida: não verificado."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://csrc.nist.gov/projects/olir"
+    ],
+    "nao_verificado": [
+      "Tipos de relacionamento e formato dos arquivos (JSON/CSV/OSCAL)"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "govtech-sg-control-catalog",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "Control Catalog (GovTech Singapura)",
+    "url": "https://info.standards.tech.gov.sg/control-catalog",
+    "licenca": "não informada na página",
+    "situacao": "Publicado; mantido pelo programa de reforma de políticas ICT&SS",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Catálogo de controles de cibersegurança em OSCAL, com perfis por tipo/risco de sistema (nuvem de baixo/médio/alto risco, on-premises, IA generativa, serviços digitais, sandbox); o mesmo controle pode ser obrigatório num perfil e só recomendado em outro.",
+    "formato_dados": "OSCAL JSON (exemplos em GovtechSG/tech-standards, segundo a página)",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "média",
+    "vale_incorporar": [
+      "Precedente real de 'perfil por tipo de sistema' com obrigatório vs recomendado no mesmo controle: espelha a nossa natureza (obrigação legal vs boa prática) por gatilho.",
+      "O perfil 'IA generativa' é exemplo de seleção de controles por sinal do projeto."
+    ],
+    "riscos": [
+      "Licença não informada; o repositório tech-standards não foi aberto."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://info.standards.tech.gov.sg/control-catalog"
+    ],
+    "nao_verificado": [
+      "Licença e conteúdo do repositório GovtechSG/tech-standards"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "venturalitica-sdk",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "Venturalitica SDK (compliance-as-code para IA, saída OSCAL)",
+    "url": "https://github.com/Venturalitica/venturalitica-sdk",
+    "licenca": "Apache-2.0",
+    "situacao": "Atividade incerta: 153 commits, 6 estrelas, sem releases visíveis",
+    "ultimo_release": "não visível",
+    "o_que_modela": "Políticas em YAML que seguem a estrutura OSCAL assessment-plan (uuid, metadata, reviewed-controls, control-selections, props metric_key/threshold/operator); avalia localmente, gera ML-BOM CycloneDX, trace_*.json e rascunho do Anexo IV; cobre EU AI Act arts. 9 a 15. O preprint (arXiv 2604.13767, Ugarte et al.) afirma gerar OSCAL assessment-results validados contra o schema do NIST e propõe 16 propriedades de extensão (ciclo de vida, modo de enforcement, rastreabilidade de risco).",
+    "formato_dados": "YAML (políticas) e JSON (traces; OSCAL assessment-results segundo o preprint)",
+    "cobertura": {
+      "ue": "EU AI Act arts. 9-15",
+      "eua": "não informado",
+      "brasil_lgpd": "não informado",
+      "ufs_brasil": "não informado"
+    },
+    "sobreposicao_com_lexzenit": "média (OSCAL aplicado a conformidade de IA)",
+    "vale_incorporar": [
+      "Único precedente achado de OSCAL assessment-results aplicado à regulação de IA: copiar a IDEIA de props de extensão (fase do ciclo de vida, modo de enforcement, rastreabilidade) para os nossos campos."
+    ],
+    "riscos": [
+      "O README não documenta a geração de assessment-results; a alegação vem do preprint (submetido à IEEE Computer, segundo o próprio texto).",
+      "Foco em métricas de modelo (equidade), não em obrigações legais gerais."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/Venturalitica/venturalitica-sdk",
+      "https://arxiv.org/abs/2604.13767"
+    ],
+    "nao_verificado": [
+      "Conteúdo dos 16 props de extensão; schema exato do assessment-results gerado"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "complianceascode-content",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "ComplianceAsCode/content",
+    "url": "https://github.com/ComplianceAsCode/content",
+    "licenca": "BSD-3-Clause (LICENSE lido)",
+    "situacao": "Ativo (cerca de 2,8 mil estrelas; mais de 44 mil commits)",
+    "ultimo_release": "v0.1.82 em 01/09; v0.1.81 em 01/06; v0.1.80 em 06/03 (anos não exibidos)",
+    "o_que_modela": "Políticas de conformidade e hardening para RHEL, Fedora, Ubuntu, Debian, SLES, Firefox, Kubernetes/OpenShift. Regras de entrada em YAML + checks OVAL + Ansible + Bash; saída SCAP (XCCDF/OVAL), playbooks e scripts.",
+    "formato_dados": "YAML (regras), OVAL, SCAP, Ansible",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável (PCI-DSS, CIS, STIG, OSPP, USGCB, NIST; HIPAA via scripts)",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "baixa (hardening de SO, não lei)",
+    "vale_incorporar": [
+      "Padrão 'uma regra, várias referências': cada regra carrega ids de vários frameworks e entra em perfis; útil para ligar 1 verificação do repositório a N obrigações/jurisdições."
+    ],
+    "riscos": [
+      "Domínio diferente (configuração de plataforma)."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/ComplianceAsCode/content",
+      "https://github.com/ComplianceAsCode/content/releases",
+      "https://raw.githubusercontent.com/ComplianceAsCode/content/master/LICENSE"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "opencontrol",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "OpenControl (compliance-masonry, standards, schemas)",
+    "url": "https://github.com/opencontrol",
+    "licenca": "não confirmada (LICENSE.md existe no compliance-masonry; tipo não exibido)",
+    "situacao": "Organização majoritariamente parada: 32 repos; compliance-masonry atualizado em 16/02/2026; os demais entre 2019 e 2023; só 'RedHat' arquivado; sem aviso de migração para OSCAL",
+    "ultimo_release": "não visível",
+    "o_que_modela": "OpenControl Schema legível por máquina para certificações, padrões e componentes; compliance-masonry gera documentação de certificação (ex.: FedRAMP).",
+    "formato_dados": "OpenControl Schema (YAML segundo conhecimento prévio; não confirmado na página)",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Nada novo além do OSCAL; a ideia de 'componentes que satisfazem controles' já está no component-definition."
+    ],
+    "riscos": [
+      "Praticamente dormente; não adotar como formato."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/opencontrol",
+      "https://github.com/opencontrol/compliance-masonry"
+    ],
+    "nao_verificado": [
+      "Licença; formato exato dos arquivos"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "opa",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "Open Policy Agent (OPA) e linguagem Rego",
+    "url": "https://github.com/open-policy-agent/opa",
+    "licenca": "Apache-2.0",
+    "situacao": "Ativo; projeto graduado da CNCF; cerca de 12,2 mil estrelas, 6.795 commits; auditoria de segurança Cure53",
+    "ultimo_release": "não visível (Releases vazio)",
+    "o_que_modela": "Motor de políticas de uso geral; políticas escritas em Rego (declarativo).",
+    "formato_dados": "Rego; JSON como dado de entrada",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Opcional: exportar obrigações verificáveis em configuração como Rego, para pipelines que já usem OPA."
+    ],
+    "riscos": [
+      "Avaliação minha (não verificada em fonte): a semântica de 'undefined' do Rego não equivale à lógica de três valores verdadeiro/falso/desconhecido; manter o motor próprio.",
+      "Premissa do briefing 'OPA aplicado a compliance': a página do OPA não menciona conformidade jurídica."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/open-policy-agent/opa"
+    ],
+    "nao_verificado": [
+      "Último release; mantenedores atuais"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "conftest",
+    "grupo": "OSCAL e compliance-as-code",
+    "nome": "Conftest (open-policy-agent)",
+    "url": "https://github.com/open-policy-agent/conftest",
+    "licenca": "não exibida na página lida",
+    "situacao": "Ativo (3,3 mil estrelas, 1.283 commits)",
+    "ultimo_release": "não visível",
+    "o_que_modela": "Testes sobre dados de configuração estruturados (Kubernetes, Tekton, Terraform, Serverless) escritos em Rego.",
+    "formato_dados": "Rego; vários formatos de config",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Modelo de 'política como teste' executado em CI sobre arquivos do repositório; inspiração para regras de varredura declarativas."
+    ],
+    "riscos": [
+      "A página não menciona compliance; licença não confirmada."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/open-policy-agent/conftest"
+    ],
+    "nao_verificado": [
+      "Licença"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "ciso-assistant",
+    "grupo": "GRC e catálogos de controles",
+    "nome": "CISO Assistant Community (intuitem)",
+    "url": "https://github.com/intuitem/ciso-assistant-community",
+    "licenca": "AGPL-3.0; o diretório enterprise está sob licença comercial da intuitem",
+    "situacao": "Ativo (cerca de 4,5 mil estrelas, 7.972 commits; a main pode ter quebras)",
+    "ultimo_release": "v4.0.4 em 15/09; v4.0.3 em 13/09; v4.0.2 em 12/09 (anos não exibidos)",
+    "o_que_modela": "Plataforma GRC: riscos, AppSec, compliance e auditoria, TPRM, BIA, privacidade. Princípio central: desacoplar compliance de controles para reaproveitar avaliações entre escopos e frameworks. 'Mapping explorer' e mapeamento automático entre bibliotecas.",
+    "formato_dados": "Bibliotecas de frameworks em Excel e YAML (carga direta pela UI; scripts convert_library_v2.py e prepare_mapping_v2.py); DSL para frameworks próprios",
+    "cobertura": {
+      "ue": "EU AI Act e GDPR (texto completo e checklist do GDPR.EU) listados; também NIS2 e DORA",
+      "eua": "HIPAA (via NIST SP 800-66), SOC 2, NIST CSF, CMMC, PCI DSS",
+      "brasil_lgpd": "LGPD/Brasil NÃO aparecem no README (126 frameworks + 38 da comunidade + 'em breve'); a listagem de backend/library/libraries estava bloqueada (robots) e não foi lida",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (catálogo de frameworks + mapeamento; sem leitura de repositório nem questionário jurídico)",
+    "vale_incorporar": [
+      "Gerar, a partir do nosso catálogo, uma biblioteca no formato do CISO Assistant (Excel/YAML) para que um usuário importe 'LexZenit BR/UE/EUA' como framework: distribuição sem construir um GRC.",
+      "Usar o 'desacoplar compliance de controles' como modelo: uma evidência/controle satisfaz várias obrigações (LGPD art. 46, ISO 27001, PPSI) e a avaliação é reaproveitada."
+    ],
+    "riscos": [
+      "AGPL-3.0: não copiar código nem conteúdo de bibliotecas; gerar arquivos próprios no formato e não embutir o software.",
+      "O esquema exato das bibliotecas não foi lido (README cita Excel/YAML/DSL): validar antes de prometer compatibilidade."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/intuitem/ciso-assistant-community",
+      "https://raw.githubusercontent.com/intuitem/ciso-assistant-community/main/README.md",
+      "https://github.com/intuitem/ciso-assistant-community/releases"
+    ],
+    "nao_verificado": [
+      "Lista completa de bibliotecas (a LGPD pode existir fora do README)",
+      "Schema YAML das bibliotecas"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "comp-ai",
+    "grupo": "GRC e catálogos de controles",
+    "nome": "Comp AI (trycomp.ai) - trycompai/comp",
+    "url": "https://github.com/trycompai/comp",
+    "licenca": "AGPL-3.0 (cerca de 99%); pasta /ee sob licença comercial",
+    "situacao": "Ativo (1,9 mil estrelas, 8.231 commits)",
+    "ultimo_release": "não visível",
+    "o_que_modela": "Plataforma 'alternativa open source à Vanta/Drata' com IA: coleta de evidências, políticas, controles; frameworks SOC 2, ISO 27001, HIPAA e GDPR.",
+    "formato_dados": "não especificado na página; stack Next.js, Prisma, Postgres, Trigger.dev",
+    "cobertura": {
+      "ue": "GDPR citado como nome de framework",
+      "eua": "SOC 2, HIPAA",
+      "brasil_lgpd": "não aparece",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Fluxo 'gap -> tarefa -> evidência anexada -> política gerada' como referência de UX para o resultado do questionário."
+    ],
+    "riscos": [
+      "AGPL + componente comercial: não reutilizar código.",
+      "Sem LGPD, EU AI Act nem leis estaduais."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/trycompai/comp"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "probo",
+    "grupo": "GRC e catálogos de controles",
+    "nome": "Probo (getprobo/probo)",
+    "url": "https://github.com/getprobo/probo",
+    "licenca": "MIT",
+    "situacao": "Ativo (cerca de 1,3 mil estrelas, 201 forks)",
+    "ultimo_release": "não visível (Releases vazio)",
+    "o_que_modela": "GRC open source 'para engenheiros': frameworks customizados importáveis/exportáveis, Statement of Applicability, biblioteca de controles com maturidade, políticas versionadas com quórum e assinatura, inventário de fornecedores (DPA/BAA, subprocessadores), registro de riscos, DPIA/TIA, auditorias, evidências, portal, cookies. Acesso por web, CLI (prb), GraphQL e MCP (270+ ferramentas).",
+    "formato_dados": "PostgreSQL; export PDF; formato de import/export de frameworks não especificado na página",
+    "cobertura": {
+      "ue": "GDPR e ISO 27001 na descrição; tags ISO 27701 e ISO 42001 (não confirmam suporte)",
+      "eua": "SOC 2; HIPAA em tag",
+      "brasil_lgpd": "LGPD não mencionada",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (GRC com MCP e DPIA, mas sem motor jurídico)",
+    "vale_incorporar": [
+      "Statement of Applicability (SoA) como artefato de saída do 'não aplicável' com justificativa: a LexZenit já produz os estados; falta o SoA exportável.",
+      "Estudar o formato de import/export de frameworks do Probo (MIT) como alvo de exportação do catálogo."
+    ],
+    "riscos": [
+      "Plataforma pesada; não é catálogo jurídico.",
+      "Esquema de import/export não lido."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/getprobo/probo"
+    ],
+    "nao_verificado": [
+      "Formato de import/export de frameworks; último release"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "eramba",
+    "grupo": "GRC e catálogos de controles",
+    "nome": "eramba (Community/Enterprise)",
+    "url": "https://www.eramba.org/",
+    "licenca": "Community: gratuita, mas NÃO open source segundo a própria equipe (licença própria híbrida: adaptar para uso próprio, não redistribuir; GNU nos primeiros anos). Enterprise: EUR 5.000/ano.",
+    "situacao": "Ativo comercialmente (v3.31.0, atualizada há 69 dias na captura); o GitHub oficial só tem upptime, docker, templates e zendesk-mcp-server",
+    "ultimo_release": "3.31.0",
+    "o_que_modela": "GRC: riscos, compliance, incidentes, privacidade; templates de frameworks, políticas, controles internos e questionários de fornecedores.",
+    "formato_dados": "não informado (API e integrações)",
+    "cobertura": {
+      "ue": "ISO 27001/27002, NIS2, DORA, GDPR",
+      "eua": "SOC 2",
+      "brasil_lgpd": "LGPD não mencionada",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Nada para incorporar."
+    ],
+    "riscos": [
+      "Não é open source: o fórum da empresa (dez/2022) diz que o repositório da Community não era público; não reutilizar nada."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://www.eramba.org/",
+      "https://discussions.eramba.org/t/question-eramba-not-anymore-open-source/2506",
+      "https://github.com/eramba"
+    ],
+    "nao_verificado": [
+      "Situação atual da licença além do fórum de 2022"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "scf",
+    "grupo": "GRC e catálogos de controles",
+    "nome": "Secure Controls Framework (SCF)",
+    "url": "https://securecontrolsframework.com/",
+    "licenca": "Creative Commons BY-ND 4.0 (termos lidos). Proíbe distribuir material modificado, inclusive derivados gerados por IA; produto ou solução baseada no SCF exige licença comercial.",
+    "situacao": "Ativo (releases trimestrais)",
+    "ultimo_release": "2026.2 (home) e 2026.1 (página de leis): inconsistência entre páginas",
+    "o_que_modela": "Metaframework de controles de cibersegurança e privacidade: mais de 1.500 controles em 34 domínios; mapeia 200+ (home) ou 250 (página LRF) leis, regulamentos e frameworks.",
+    "formato_dados": "Excel/CSV e NIST OSCAL JSON",
+    "cobertura": {
+      "ue": "GDPR e 'European Union Artificial Intelligence Act (Regulation (EU) 2024/1689)' na lista de LRF",
+      "eua": "CCPA/CPRA, Colorado Privacy Act, SB1386, SB327, TX SB 2610 (menu)",
+      "brasil_lgpd": "SIM: 'Brazil - General Data Protection Law (LGPD) (2018)' na lista de LRF",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (cobre LGPD, EUA e UE, mas é controle->lei, sem gatilhos nem repositório)",
+    "vale_incorporar": [
+      "Usar a lista de ~250 leis do SCF só como checklist de cobertura (gap analysis do nosso catálogo): são fatos públicos, não conteúdo derivado.",
+      "Se a LexZenit virar produto, avaliar a licença comercial do SCF para ingestão do crosswalk."
+    ],
+    "riscos": [
+      "BY-ND 4.0 + cláusula expressa contra derivados feitos por IA: NÃO ingerir o crosswalk no catálogo nem pedir a um modelo para 'reescrever' o SCF.",
+      "A página STRM (tipos de relação) foi bloqueada nesta sessão: detalhes do STRM não verificados."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://securecontrolsframework.com/",
+      "https://securecontrolsframework.com/terms-conditions",
+      "https://securecontrolsframework.com/start-here/included-laws-regulations-frameworks-lrf"
+    ],
+    "nao_verificado": [
+      "Tipos de relação do STRM e níveis de força",
+      "Quais leis estaduais dos EUA além das citadas"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "ppsi-2",
+    "grupo": "GRC e catálogos de controles",
+    "nome": "PPSI 2.0 - Programa de Privacidade e Segurança da Informação (SGD/MGI)",
+    "url": "https://www.gov.br/governodigital/pt-br/privacidade-e-seguranca/ppsi-2.0",
+    "licenca": "Documentos sob CC BY-ND 3.0 (Atribuição-SemDerivações), segundo a página",
+    "situacao": "Em vigor: Portaria SGD/MGI 9.511/2025 (28/10/2025), vigência desde 01/01/2026; IN SGD/MGI 4/2026 (14/01/2026) sobre o ciclo 2026; obrigatório para órgãos com unidades do SISP",
+    "ultimo_release": "Guia do Framework v1.2; Modelo de Programa de Governança em Privacidade v1.0",
+    "o_que_modela": "Framework de controles e medidas de privacidade e segurança da informação para a administração federal; área de maturidade que diagnostica o grau de implementação; modelo de programa de governança em privacidade (ações, papéis, prazos).",
+    "formato_dados": "PDF/DOCX; existe ferramenta de diagnóstico em planilha (manual v8.0 ciclo 5 apareceu em busca), mas a página lida não a nomeia",
+    "cobertura": {
+      "ue": "n/a",
+      "eua": "n/a",
+      "brasil_lgpd": "SIM (base: LGPD, Lei 14.129/2021, decretos, normas do GSI/PR e da ANPD)",
+      "ufs_brasil": "não (federal)"
+    },
+    "sobreposicao_com_lexzenit": "média (catálogo brasileiro de controles + diagnóstico de maturidade)",
+    "vale_incorporar": [
+      "Crosswalk opcional obrigação LGPD -> controle/medida do PPSI para clientes govtech (citando os IDs, sem copiar o texto).",
+      "Questionário de maturidade por controle como inspiração para um modo 'diagnóstico de maturidade', além de conformidade."
+    ],
+    "riscos": [
+      "CC BY-ND: não redistribuir versão modificada do framework; só referenciar identificadores.",
+      "A planilha de diagnóstico não foi aberta (a URL do manual aparece só em resultado de busca)."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://www.gov.br/governodigital/pt-br/privacidade-e-seguranca/ppsi-2.0"
+    ],
+    "nao_verificado": [
+      "Esquema da planilha de diagnóstico; número de controles e medidas"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "openfisca-core",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "OpenFisca Core",
+    "url": "https://github.com/openfisca/openfisca-core",
+    "licenca": "AGPL-3.0",
+    "situacao": "Ativo (5.260 commits, 241 estrelas, 102 issues abertas)",
+    "ultimo_release": "não visível (Releases vazio)",
+    "o_que_modela": "Microssimulação 'rules as code' para tributos e benefícios; tópicos do repo: better-rules, legislation-as-code, rules-as-code. Documentação oficial: parâmetro = 'propriedade da legislação que muda com o tempo'; o motor busca automaticamente o valor correto para o período de cálculo. Pacotes por país (ex.: OpenFisca-France).",
+    "formato_dados": "Python/NumPy; parâmetros e variáveis (formato YAML dos parâmetros e testes YAML: conhecimento prévio, não confirmado nas páginas lidas)",
+    "cobertura": {
+      "ue": "França (OpenFisca-France)",
+      "eua": "não informado",
+      "brasil_lgpd": "Nenhum pacote para o Brasil encontrado nas fontes lidas",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (vigência temporal e regras, em outro domínio)",
+    "vale_incorporar": [
+      "Vigência como parâmetro de primeira classe: a consulta ao motor recebe data_referencia e devolve a redação/obrigação vigente naquela data (hoje o catálogo guarda status e início, não versões).",
+      "Um parâmetro por 'número da lei' (limiares de faturamento, prazos, multas): tirar números do texto e pô-los em campos com vigência datada e fonte."
+    ],
+    "riscos": [
+      "AGPL-3.0: inspirar-se, não copiar nem embutir.",
+      "Domínio de cálculo numérico; a nossa lógica é qualitativa."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/openfisca/openfisca-core",
+      "https://openfisca.org/doc/key-concepts/parameters.html",
+      "https://github.com/openfisca/country-template"
+    ],
+    "nao_verificado": [
+      "Formato YAML exato dos parâmetros com datas e do campo reference (as páginas lidas não o mostram)"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "catala",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "Catala (Inria)",
+    "url": "https://github.com/CatalaLang/catala",
+    "licenca": "Apache-2.0 (subdiretórios podem ter outra licença)",
+    "situacao": "Projeto de pesquisa da Inria; README: 'o compilador ainda é instável'; 5.669 commits, 2,4 mil estrelas",
+    "ultimo_release": "1.2.1 em 06/07 (backend Java); 1.2.0 'Blanco' em 02/06 (Java e Python); nightly 22/08 (anos não exibidos)",
+    "o_que_modela": "DSL para programação literária de especificações legais, com lógica default ('definition-under-conditions') para exceções; gera PDF legível por juristas; bibliotecas de direito francês.",
+    "formato_dados": "Linguagem Catala; backends Java e Python nas releases lidas (OCaml/JS não confirmados)",
+    "cobertura": {
+      "ue": "França",
+      "eua": "não informado",
+      "brasil_lgpd": "não informado",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa-média (modelagem de exceções)",
+    "vale_incorporar": [
+      "Lógica default como modelo mental para precedência e exceções (lex specialis, 'ressalvado', competência da União x lei estadual, ex.: EC 115): cada obrigação com 'prevalece sobre' / 'cede a' explícitos."
+    ],
+    "riscos": [
+      "Compilador instável e curva alta; não usar como motor.",
+      "Sem Brasil."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/CatalaLang/catala",
+      "https://github.com/CatalaLang/catala/releases"
+    ],
+    "nao_verificado": [
+      "Backends OCaml/JS atuais"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "blawx",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "Blawx (Lexpedite/blawx)",
+    "url": "https://github.com/Lexpedite/blawx",
+    "licenca": "MIT",
+    "situacao": "Não arquivado; 1.134 commits, 198 issues abertas; o README declara uso educacional e experimental",
+    "ultimo_release": "sem release publicada; badge v1.6.16-alpha",
+    "o_que_modela": "Ferramenta web 'rules as code' (Django + Blockly) sobre SWI-Prolog e s(CASP): codificar regras, publicar API, explicar respostas, raciocínio hipotético.",
+    "formato_dados": "Blocos visuais; Docker (lexpedite/blawx)",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não informado",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Ideia de 'explicação da resposta' (árvore de justificativa): para cada estado do motor, listar as premissas e sinais que levaram a ele."
+    ],
+    "riscos": [
+      "Experimental; Prolog/s(CASP) é exagero para o motor."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/Lexpedite/blawx"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "legalruleml",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "OASIS LegalRuleML Core Specification v1.0",
+    "url": "https://docs.oasis-open.org/legalruleml/legalruleml-core-spec/v1.0/legalruleml-core-spec-v1.0.html",
+    "licenca": "Copyright OASIS 2021; IPR 'RF on Limited Terms'; o documento não pode ser modificado (salvo tradução)",
+    "situacao": "OASIS Standard, 30/08/2021",
+    "ultimo_release": "v1.0",
+    "o_que_modela": "Normas deônticas (Obrigação, Permissão, Proibição, Direito) com parte destinatária e terceiros afetados; defeasibility (regras estritas, defeasible, defeaters) e superioridade; violação, penalidades e reparações; normas constitutivas x prescritivas; 'Alternatives' para interpretações divergentes; metadados de fonte jurídica, jurisdição, autoridade, tempo e vigência.",
+    "formato_dados": "XML (XSD e RelaxNG), baseado em RuleML; metamodelo RDFS",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não aplicável",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "média (vocabulário conceitual)",
+    "vale_incorporar": [
+      "Padronizar 'natureza' com o vocabulário deôntico (obrigação/proibição/permissão/direito) e separar norma constitutiva (definição) de prescritiva.",
+      "Campo 'sanção' ligado à violação (penalty/reparation) e campo 'interpretações alternativas' para pontos em disputa (hoje em 'dúvidas')."
+    ],
+    "riscos": [
+      "XML pesado; adotar só o vocabulário, não o formato."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://docs.oasis-open.org/legalruleml/legalruleml-core-spec/v1.0/legalruleml-core-spec-v1.0.html"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "akoma-ntoso",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "OASIS Akoma Ntoso 1.0 (LegalDocML)",
+    "url": "https://docs.oasis-open.org/legaldocml/akn-core/v1.0/akn-core-v1.0-part1-vocabulary.html",
+    "licenca": "OASIS Standard (termos de uso não lidos)",
+    "situacao": "OASIS Standard, 29/08/2018",
+    "ultimo_release": "v1.0",
+    "o_que_modela": "XML para documentos parlamentares, legislativos e judiciais; modelo FRBR em quatro níveis (Work, Expression, Manifestation, Item); Expression representa versões de uma norma em datas distintas; metadados de identificação, ciclo de vida e classificação; URIs/IRIs padronizados para citação; cerca de 310 elementos.",
+    "formato_dados": "XML (namespace .../legaldocml/ns/akn/3.0)",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não verificado (relação com o LexML não confirmada)",
+      "ufs_brasil": "não aplicável"
+    },
+    "sobreposicao_com_lexzenit": "média (modelo de versionamento)",
+    "vale_incorporar": [
+      "Separar a identidade da norma (Work) das suas redações por data (Expression): id estável + lista de versões com vigência, em vez de sobrescrever o registro quando a norma é alterada."
+    ],
+    "riscos": [
+      "Não adotar o XML; só o modelo conceitual FRBR.",
+      "A seção 5.7 (modificações) não foi lida (conteúdo truncado)."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://docs.oasis-open.org/legaldocml/akn-core/v1.0/akn-core-v1.0-part1-vocabulary.html"
+    ],
+    "nao_verificado": [
+      "Seção 5.7 (modificações e versionamento); relação com o schema LexML"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "lexml-brasil",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "LexML Brasil (portal, URN LEX e repositórios github.com/lexml)",
+    "url": "https://www.lexml.gov.br/",
+    "licenca": "Repositórios: GPL-2.0 (xml-schemas, parser-projeto-lei, lexml-eta, jsonix-lexml) e GPL-3.0 (urn-formatter); jsonix-schema-compiler BSD-2-Clause; licença dos dados do portal não informada",
+    "situacao": "Ativo: lexml-eta atualizado em 13/10/2026; xml-schemas em 01/09/2026; nenhum dos 10 repositórios listados (de 64) está arquivado",
+    "ultimo_release": "não visível",
+    "o_que_modela": "Rede de informação legislativa e jurídica (legislação, jurisprudência, proposições legislativas, doutrina). Identificador URN LEX confirmado: urn:lex:br:federal:lei:2018-08-14;13709 para a LGPD (padrão país:esfera:tipo:data;número). A página da LGPD lista o texto atualizado (Planalto, marcado 'Multivigente'), Câmara e Senado, e o PDF da Imprensa Nacional; XML não apareceu.",
+    "formato_dados": "URN LEX; esquemas XML LexML; conversão XML<->JSON (jsonix)",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "SIM (fonte nacional; federal confirmado; cobertura estadual NÃO verificada)",
+      "ufs_brasil": "Padrão de URN para UFs não verificado; cobertura estadual do acervo não confirmada"
+    },
+    "sobreposicao_com_lexzenit": "média (identificadores e resolvedor de fontes oficiais, não catálogo de obrigações)",
+    "vale_incorporar": [
+      "Usar a URN LEX como id canônico e chave de deduplicação de cada norma N1 (federal já confirmado) e como resolvedor do 'link_oficial', hoje nao_localizado em várias entradas.",
+      "Para o radar de PLs: a categoria 'Proposições Legislativas' do LexML é um segundo ponto de consulta além das APIs da Câmara/Senado."
+    ],
+    "riscos": [
+      "Código GPL: usar apenas a convenção URN e links; não copiar código.",
+      "URN para estados/municípios e acesso programático (SRU/OAI-PMH) não confirmados: não assumir."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://www.lexml.gov.br/",
+      "https://github.com/lexml",
+      "https://github.com/lexml/lexml-xml-schemas",
+      "https://www.lexml.gov.br/urn/urn:lex:br:federal:lei:2018-08-14;13709"
+    ],
+    "nao_verificado": [
+      "Formato de URN para UFs",
+      "API/SRU/OAI-PMH do LexML",
+      "Licença dos dados do portal",
+      "Mantenedor institucional (a página inicial só mostrava menus)"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "w3c-dpv",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "W3C Data Privacy Vocabulary (DPV) v2.3",
+    "url": "https://github.com/w3c/dpv",
+    "licenca": "W3C Community Final Specification Agreement (relatório); repositório: W3C Document License salvo indicação",
+    "situacao": "Ativo (535 commits, 117 issues); Final Community Group Report de 25/02/2026",
+    "ultimo_release": "v2.3 (25/02/2026)",
+    "o_que_modela": "Vocabulário/ontologia para descrever como dados pessoais e tecnologias (inclusive IA) são usados: extensões PD, LOC, RISK, TECH, AI, JUSTIFICATIONS, LEGAL por jurisdição (UE: GDPR, AI Act, NIS2, EHDS, DGA; e ainda UK, HK, IN, JP, KR, MO, MY, PH, SG, TH, TW, US), SECTOR e IEEE 7012.",
+    "formato_dados": "RDF/XML, Turtle, JSON-LD, N3 (RDFS/SKOS; OWL2 alternativo)",
+    "cobertura": {
+      "ue": "GDPR, AI Act, NIS2, EHDS, DGA, Carta de Direitos Fundamentais",
+      "eua": "extensão LEGAL-US",
+      "brasil_lgpd": "NÃO: nenhuma extensão LEGAL para o Brasil nem menção à LGPD na página da v2.3",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (vocabulário de sinais e de leis)",
+    "vale_incorporar": [
+      "Mapear os nossos 'sinais' (dados_criancas, ia_decisao_automatizada, ia_treino_modelo...) a conceitos DPV (IRIs) como campo opcional: permite exportar JSON-LD e interoperar com ferramentas como o Regula (que emite DPV-AIAct).",
+      "Oportunidade: propor/publicar uma extensão LEGAL-BR (LGPD); a lacuna foi confirmada."
+    ],
+    "riscos": [
+      "Esforço de ontologia; licença FSA do W3C para o relatório (ler antes de redistribuir trechos)."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/w3c/dpv",
+      "https://w3c-cg.github.io/dpv/2.3/dpv/"
+    ],
+    "nao_verificado": [
+      "Se a lista de jurisdições do repositório traz BR em outra página (só a página de índice foi lida)"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "legalize-kr",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "legalize-kr (leis coreanas em Git) - lido na frente A",
+    "url": "https://github.com/legalize-kr/legalize-kr",
+    "licenca": "MIT só para estrutura/metadados (declarada no README, sem arquivo LICENSE); texto das leis: obra pública coreana",
+    "situacao": "Ativo segundo o clone da frente A (datas de commit sintéticas = data de promulgação)",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Lei = arquivo Markdown com frontmatter (ids, datas de promulgação e vigência, status); revisão = commit com a data de promulgação; pipeline Python (API oficial, Actions diário) -> compilador Rust -> repo Git; servidor MCP local com 11 ferramentas somente leitura e consulta por data.",
+    "formato_dados": "Markdown + YAML frontmatter; Git",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (arquitetura de vigência temporal e MCP)",
+    "vale_incorporar": [
+      "Histórico por norma como commits com data de vigência + consulta por data (laws_get/laws_diff): base para 'o que mudou desde a última revisão' e para o radar.",
+      "Frontmatter com campos de vigência e status verificável."
+    ],
+    "riscos": [
+      "Repo de dados sem licença e com aviso de force-push: não ingerir texto; só a arquitetura."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/legalize-kr/legalize-kr",
+      "/home/claude/work/revisor/research/repos.md",
+      "/home/claude/work/revisor/research/repos.json"
+    ],
+    "nao_verificado": [],
+    "observacoes": "Verificado na frente A (clone raso e leitura de arquivos); não relido nesta frente."
+  },
+  {
+    "id": "regbr-unb",
+    "grupo": "Rules as code e legislação estruturada",
+    "nome": "RegBR (UnB, PLoS ONE 2022)",
+    "url": "https://www.repositorio.unb.br/handle/10482/45107?locale=fr",
+    "licenca": "não informada na página do repositório",
+    "situacao": "Artigo de 2022; nenhum repositório de código citado na página",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Primeiro framework nacional para centralizar, classificar e analisar regulações do governo federal brasileiro: banco central via ETL automatizado, mineração de dados e NLP de classificação de textos jurídicos em português; métricas de complexidade linguística e restritividade por setor.",
+    "formato_dados": "banco de dados centralizado (formato não especificado)",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "SIM (legislação federal)",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa (acadêmico, classificação de texto)",
+    "vale_incorporar": [
+      "Referência acadêmica para classificação automática de normas por setor (apoio ao radar), se o dataset for publicado."
+    ],
+    "riscos": [
+      "Não confirmei disponibilidade de código ou dados; não é rules as code."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://www.repositorio.unb.br/handle/10482/45107?locale=fr"
+    ],
+    "nao_verificado": [
+      "Disponibilidade e licença do dataset/código"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "fli-eu-ai-act-checker",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "EU AI Act Compliance Checker (Future of Life Institute)",
+    "url": "https://artificialintelligenceact.eu/assessment/eu-ai-act-compliance-checker/",
+    "licenca": "não informada (sem código aberto; sem API; o FLI desencoraja iframe)",
+    "situacao": "Ativo: último item do changelog em 03/07/2025; texto legal usado: Reg. (UE) 2024/1689, versão do JO de 13/06/2024; rodapé 2026",
+    "ultimo_release": "sem número de versão oficial (o arquivo do fluxograma indica 'Flowchart-v1.0')",
+    "o_que_modela": "Questionário guiado de escopo e papel: exclusões (uso pessoal, autoridades públicas, organizações internacionais de países terceiros), pergunta de escopo que absorve GPAI, perguntas de alto risco no início, fabricantes de produto com escopo antes do alto risco, avaliação de impacto em direitos fundamentais para deployers de alto risco. Saídas por papel: provider de alto risco, deployer, distribuidor, importador, representante autorizado, fabricante de produto; alfabetização em IA; aviso de que o usuário pode ser 'operator' (art. 3).",
+    "formato_dados": "Formulário web; fluxograma em PDF; resultado por e-mail",
+    "cobertura": {
+      "ue": "SIM (só UE)",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (só a classificação de risco da UE)",
+    "vale_incorporar": [
+      "Estruturar o questionário de IA como o checker: escopo/papel primeiro, depois proibidas (art. 5), alto risco (art. 6 e Anexo III), transparência (art. 50), GPAI (arts. 51-55), com a saída organizada POR PAPEL (provider, deployer, importer, distributor) em vez de lista única de artigos.",
+      "Pergunta de 'dispensa/exceção' antes das obrigações (uso pessoal, pesquisa, autoridade pública) para gerar 'não aplicável' fundamentado."
+    ],
+    "riscos": [
+      "Sem licença/API: usar só a estrutura lógica, que decorre do próprio regulamento, e nunca o texto do FLI.",
+      "Texto legal de junho de 2024 e changelog de jul/2025: não verifiquei alterações posteriores do regulamento."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://artificialintelligenceact.eu/assessment/eu-ai-act-compliance-checker/"
+    ],
+    "nao_verificado": [
+      "Lista literal das perguntas (a página não a mostra)",
+      "Se há atualizações posteriores a 07/2025"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "compl-ai",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "COMPL-AI (ETH Zurich, INSAIT, LatticeFlow)",
+    "url": "https://github.com/compl-ai/compl-ai",
+    "licenca": "Apache-2.0",
+    "situacao": "Ativo; a v2 está sendo construída sobre o Inspect (UK AISI); scores v1 e v2 não são comparáveis; 309 commits, 208 estrelas",
+    "ultimo_release": "sem release visível",
+    "o_que_modela": "Mapeia princípios do EU AI Act para requisitos técnicos cobertos por 29 benchmarks (robustez, equidade, divulgação de IA, resiliência a ataques, toxicidade) e adiciona o capítulo de segurança do Código de Prática da UE.",
+    "formato_dados": "CLI com saída JSONL; configuração YAML/JSON; visualização com inspect view",
+    "cobertura": {
+      "ue": "SIM (EU AI Act e Código de Prática)",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa (benchmarks de modelo, não revisão de projeto)",
+    "vale_incorporar": [
+      "Para cada obrigação técnica do AI Act (ex.: art. 15), sugerir em 'evidências esperadas' o tipo de benchmark/teste que a comprovaria (robustez, viés, divulgação de IA)."
+    ],
+    "riscos": [
+      "Foco em avaliar LLMs, não em ler repositórios nem em direito brasileiro."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/compl-ai/compl-ai"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "ai-verify",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "AI Verify (AI Verify Foundation, Singapura)",
+    "url": "https://github.com/aiverify-foundation/aiverify",
+    "licenca": "Apache-2.0",
+    "situacao": "Ativo (3.035 commits, 94 estrelas); v2.0 anunciada como 'upcoming release'",
+    "ultimo_release": "sem release visível",
+    "o_que_modela": "Framework e toolkit de testes de governança de IA: testes técnicos padronizados para classificação e regressão supervisionadas em dados tabulares e imagem; plugins (stock-plugins, third-party-plugins); integração com Veritas (financeiro) na v2.",
+    "formato_dados": "Plugins/módulos Python; formato de dados não especificado",
+    "cobertura": {
+      "ue": "consistente com UE, OCDE e Singapura (segundo a página)",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Arquitetura de plugins para 'testes de evidência' externos que alimentam o estado de uma obrigação."
+    ],
+    "riscos": [
+      "Foco técnico em modelos; a página não confirma os 11 princípios nem checklist de processo."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/aiverify-foundation/aiverify"
+    ],
+    "nao_verificado": [
+      "Checklist de processo / princípios de governança"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "credoai-lens",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "Credo AI Lens",
+    "url": "https://github.com/credo-ai/credoai_lens",
+    "licenca": "Apache-2.0",
+    "situacao": "ARQUIVADO em 12/07/2024; README: 'This project is no longer maintained'",
+    "ultimo_release": "não visível",
+    "o_que_modela": "Biblioteca Python de avaliação de IA responsável (modelos e dados).",
+    "formato_dados": "Biblioteca Python 3.8+",
+    "cobertura": {
+      "ue": "não",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Nada: arquivado."
+    ],
+    "riscos": [
+      "Não adotar (sem manutenção). O produto comercial Credo AI não foi avaliado a fundo (só resultados de busca)."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/credo-ai/credoai_lens"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "giskard-oss",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "Giskard (giskard-oss v3)",
+    "url": "https://github.com/Giskard-AI/giskard-oss",
+    "licenca": "Apache-2.0",
+    "situacao": "Ativo; a v3 é a atual, com giskard-checks e giskard-scan estáveis; a v2 está sem manutenção; cerca de 5,9 mil estrelas",
+    "ultimo_release": "não visível",
+    "o_que_modela": "giskard-scan: scanner de vulnerabilidades e red teaming de agentes (prompt injection, conteúdo nocivo, estereótipos, desinformação) com categorias alinhadas ao OWASP LLM Top 10; giskard-checks: evals com asserções e LLM-as-judge.",
+    "formato_dados": "Biblioteca Python 3.12+ assíncrona; cenários com checks; relatório impresso",
+    "cobertura": {
+      "ue": "sem mapeamento ao EU AI Act na página",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Indicar o giskard-scan como 'evidência esperada' técnica para obrigações de segurança de IA (OWASP LLM01-10) no relatório."
+    ],
+    "riscos": [
+      "Não é catálogo jurídico."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/Giskard-AI/giskard-oss"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "nist-dioptra",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "NIST Dioptra",
+    "url": "https://github.com/usnistgov/dioptra",
+    "licenca": "CC BY 4.0 para as partes de software do NIST",
+    "situacao": "Ativo; v1.1.0",
+    "ultimo_release": "1.1.0",
+    "o_que_modela": "Plataforma para avaliar características de confiabilidade de IA (validade, segurança, explicabilidade, privacidade, equidade); apoia a função Measure do NIST AI RMF.",
+    "formato_dados": "API REST; experimentos como componentes YAML; Docker",
+    "cobertura": {
+      "ue": "não",
+      "eua": "NIST AI RMF (Measure)",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Nenhum item de catálogo; no máximo citar como ferramenta de evidência da função Measure do AI RMF."
+    ],
+    "riscos": [
+      "Corrige a premissa: não é um testbed só de segurança de ML."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/usnistgov/dioptra"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "holistic-ai",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "Holistic AI (biblioteca open source)",
+    "url": "https://github.com/holistic-ai/holisticai",
+    "licenca": "Apache-2.0",
+    "situacao": "Repositório público (113 estrelas, 189 commits); data do último commit não exibida",
+    "ultimo_release": "não visível",
+    "o_que_modela": "Biblioteca Python para medir e mitigar viés, explicabilidade, robustez, risco de privacidade e eficácia de modelos.",
+    "formato_dados": "Biblioteca Python; notebooks",
+    "cobertura": {
+      "ue": "sem menção ao EU AI Act na página",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Métricas de viés como evidência técnica de obrigações sobre decisão automatizada (LGPD art. 20; AI Act art. 10/15)."
+    ],
+    "riscos": [
+      "Não mapeia normas; a plataforma comercial Holistic AI não foi avaliada."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/holistic-ai/holisticai"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "mitre-atlas",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "MITRE ATLAS (atlas-data)",
+    "url": "https://github.com/mitre-atlas/atlas-data",
+    "licenca": "Arquivo LICENSE existe, tipo não exibido; aviso 'Approved for Public Release; Distribution Unlimited', copyright MITRE 2021-2026",
+    "situacao": "Ativo (293 commits); atualizações mensais de conteúdo",
+    "ultimo_release": "conteúdo 2026.05, formato 6.0.0",
+    "o_que_modela": "Táticas, técnicas (e sub-técnicas), mitigações e estudos de caso de ataques a sistemas de IA, com relações tipadas (sequences, achieves, specializes, mitigates, employs).",
+    "formato_dados": "YAML (dist/ATLAS-latest.yaml), STIX (atlas-to-stix), Excel, camadas ATT&CK Navigator",
+    "cobertura": {
+      "ue": "não",
+      "eua": "não (catálogo técnico de ameaças)",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Etiquetar 'sinais' e evidências de segurança de IA com IDs ATLAS (técnica/mitigação) no relatório técnico; o formato YAML versionado com relações tipadas é bom modelo de catálogo."
+    ],
+    "riscos": [
+      "Licença do repositório não confirmada: citar IDs, não copiar descrições."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/mitre-atlas/atlas-data"
+    ],
+    "nao_verificado": [
+      "Tipo da licença"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "owasp-ai-exchange",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "OWASP AI Exchange",
+    "url": "https://github.com/OWASP/www-project-ai-security-and-privacy-guide",
+    "licenca": "Não informada nas páginas lidas (repositório e owaspai.org)",
+    "situacao": "Projeto Flagship da OWASP; 429 estrelas; item de mídia mais recente 2026-06-25",
+    "ultimo_release": "sem versão numerada",
+    "o_que_modela": "Conjunto vivo de ameaças (entrada, desenvolvimento, runtime) e controles de segurança e privacidade de IA; 300+ páginas; parcerias com ISO/IEC, CEN/CENELEC e NIST.",
+    "formato_dados": "Markdown + Hugo (project.owasp.yaml)",
+    "cobertura": {
+      "ue": "alimenta padrões (AI Act, ISO) por parcerias; mapeamentos não exibidos",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Fonte de referência para a camada de controles técnicos de IA (ameaças -> contramedidas) que acompanha as obrigações legais."
+    ],
+    "riscos": [
+      "Licença não confirmada; mapeamentos a ISO/AI Act não verificados."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/OWASP/www-project-ai-security-and-privacy-guide",
+      "https://owaspai.org/"
+    ],
+    "nao_verificado": [
+      "Licença",
+      "Mapeamentos ISO 27090/42001/AI Act"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "owasp-llm-top10",
+    "grupo": "Conformidade e segurança de IA (checkers, benchmarks, catálogos)",
+    "nome": "OWASP Top 10 for LLM Applications 2025",
+    "url": "https://genai.owasp.org/llm-top-10/",
+    "licenca": "CC BY-SA 4.0 por padrão (rodapé: salvo indicação em contrário)",
+    "situacao": "Edição 2025 vigente; edição anterior 2023-24; traduções, inclusive português",
+    "ultimo_release": "2025",
+    "o_que_modela": "10 riscos: LLM01 Prompt Injection, 02 Sensitive Information Disclosure, 03 Supply Chain, 04 Data and Model Poisoning, 05 Improper Output Handling, 06 Excessive Agency, 07 System Prompt Leakage, 08 Vector and Embedding Weaknesses, 09 Misinformation, 10 Unbounded Consumption.",
+    "formato_dados": "Páginas por risco; formato de download não especificado",
+    "cobertura": {
+      "ue": "não",
+      "eua": "não",
+      "brasil_lgpd": "tradução em português disponível",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Usar LLM01-LLM10 como ids de 'sinais/evidências' do questionário para projetos com LLM (RAG, agentes, chat público); amarra obrigações de segurança (LGPD art. 46) a riscos concretos."
+    ],
+    "riscos": [
+      "Share-alike: citar ids e títulos; não copiar texto no catálogo proprietário."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://genai.owasp.org/llm-top-10/"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "regula-getregula",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "Regula (kuzivaai/getregula; pacote regula-ai)",
+    "url": "https://github.com/kuzivaai/getregula",
+    "licenca": "GitHub: motor e CLI Apache-2.0 OU EUPL-1.2; padrões de detecção DRL 1.1. PyPI/Socket (regula-ai 1.5.0): MIT. CONFLITO entre fontes.",
+    "situacao": "Público; 4 estrelas, 20 commits na main (o README cita 2.936 testes); instalação via pipx/git; o README diz PyPI indisponível, mas o Socket lista regula-ai 1.5.0 'criado há 7 meses'",
+    "ultimo_release": "regula-ai 1.5.0 (Socket); GitHub sem releases",
+    "o_que_modela": "Varredura estática local por padrões (423 regexes) de indicadores de governança de IA; decisão de aplicabilidade implementada para 3 regimes: EU AI Act, Coreia do Sul AI Basic Act e Colorado SB 26-189; `regula assess` registra fatos declarados em .regula/facts.json com proveniência (quem, por qual comando, em resposta a qual pergunta, quando); 'unknown é uma resposta e nunca é lido como no'; estados 'insufficient_information' / 'unresolved' / indicações (potentially prohibited, high-risk, transparency); servidor MCP stdio (regula_check, regula_classify, regula_gap); trilha de auditoria com encadeamento de hash (Socket).",
+    "formato_dados": "JSON (envelope comum CLI/REST), SARIF (CI), JSON-LD (regula dpv, vocabulário DPV-AIAct), HTML, CSV",
+    "cobertura": {
+      "ue": "SIM (decisão de aplicabilidade)",
+      "eua": "Colorado SB 26-189 (decisão); NIST como referência",
+      "brasil_lgpd": "Só 'brazil' como valor opcional de --jurisdictions, que 'não executa decisão de aplicabilidade'; LGPD/Marco Legal NÃO aparecem no README (o resumo do Socket alega LGPD e Marco Legal da IA: não confirmado no GitHub)",
+      "ufs_brasil": "NÃO"
+    },
+    "sobreposicao_com_lexzenit": "ALTA parcial: é o mais próximo (lê repositório + questionário + multi-jurisdição + MCP stdio + 'unknown não é no'), mas só IA, só 3 regimes com decisão, sem Brasil nem UFs, sem verificação de fonte oficial por norma",
+    "vale_incorporar": [
+      "Proveniência de cada resposta do questionário (quem declarou, por qual pergunta, quando) gravada junto do estado inferido.",
+      "Regra explícita 'desconhecido nunca vira não conforme' (a LexZenit já usa lógica de 3 valores: confirmar que a proveniência também existe).",
+      "Saída SARIF + exit code por severidade para CI/GitHub code scanning; trilha de auditoria com hash encadeado.",
+      "Separar no próprio output 'jurisdições com decisão de aplicabilidade' de 'jurisdições só como referência'."
+    ],
+    "riscos": [
+      "Licença inconsistente entre GitHub e PyPI e README sem versão: risco de procedência/estabilidade.",
+      "Tração mínima (4 estrelas); alegações de LGPD não confirmadas.",
+      "Não copiar padrões de detecção (DRL 1.1)."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/kuzivaai/getregula",
+      "https://raw.githubusercontent.com/kuzivaai/getregula/main/README.md",
+      "https://socket.dev/pypi/package/regula-ai"
+    ],
+    "nao_verificado": [
+      "Lista dos 13 frameworks com referências selecionadas",
+      "Se algum arquivo em data/ traz artigos da LGPD (pasta bloqueada por robots)"
+    ],
+    "observacoes": "Não é concorrência direta, mas é o referencial de desenho mais próximo."
+  },
+  {
+    "id": "euconform",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "EuConform (Hiepler/EuConform)",
+    "url": "https://github.com/hiepler/euconform",
+    "licenca": "MIT e EUPL-1.2 (dupla)",
+    "situacao": "Público (125 estrelas, 80 commits); data do último commit não exibida",
+    "ultimo_release": "sem release visível",
+    "o_que_modela": "CLI scan (gera artefatos a partir do repositório), bias (CrowS-Pairs via Ollama), validate/verify (schemas e integridade de bundles), import (SBOM CycloneDX -> AI BOM); app web com quiz de classificação de risco (art. 5 e art. 6/Anexo III).",
+    "formato_dados": "JSON (euconform.report/aibom/bundle/ci .json), Markdown, ZIP do bundle; anotações nativas no GitHub Actions",
+    "cobertura": {
+      "ue": "SIM (só UE; UI em inglês e alemão)",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (scan + quiz, só AI Act)",
+    "vale_incorporar": [
+      "Bundle de evidências com verificação de integridade (validate/verify) para a entrega do relatório ao cliente.",
+      "Quiz de classificação de risco art. 5/6/Anexo III como referência de fluxo aberto (MIT/EUPL) para estudar."
+    ],
+    "riscos": [
+      "Só UE; declara orientação técnica, não jurídica."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/hiepler/euconform"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "eu-ai-act-compliance-kit",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "EU AI Act Compliance Kit (ogulcanaydogan)",
+    "url": "https://github.com/ogulcanaydogan/eu-ai-act-compliance-kit",
+    "licenca": "Apache-2.0",
+    "situacao": "Mantido ('Stable and in active maintenance', segundo o README); 0 estrelas; exemplos citam v0.1.31",
+    "ultimo_release": "não visível (Releases vazio)",
+    "o_que_modela": "Classifica sistemas (unacceptable, high_risk, limited, minimal), avalia evidências com estados compliant / partial / non_compliant / not_assessed, gera checklists e relatórios (JSON, MD, HTML, PDF); GitHub Action com gate de política; verifica arts. 5, 10, 11, 13, 14, 15, 43, 50 e 51-55. A entrada é um descritor YAML do sistema (não lê o código-fonte).",
+    "formato_dados": "Descritores YAML validados por schema; saídas JSON/MD/HTML/PDF",
+    "cobertura": {
+      "ue": "SIM (só UE; 'jurisdiction overlays' ficam fora do escopo open source, segundo a doc)",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (estados de avaliação e gate de CI)",
+    "vale_incorporar": [
+      "Ter um 'descritor de sistema' em YAML como alternativa ao questionário interativo (entrada versionável no repo)."
+    ],
+    "riscos": [
+      "Tração nula; só UE."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/ogulcanaydogan/eu-ai-act-compliance-kit",
+      "https://eu-ai-act-compliance-kit.readthedocs.io"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "ai-act-check",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "ai-act-check (svel26)",
+    "url": "https://github.com/svel26/ai-act-check",
+    "licenca": "Apache-2.0",
+    "situacao": "Protótipo (classificador PyPI 'Beta'); existem versões mais novas que a 0.3.1",
+    "ultimo_release": "0.3.1 em 03/12/2025 (PyPI); 2.0.1 mencionada",
+    "o_que_modela": "Scanner estático de manifestos de dependências e AST Python que mapeia bibliotecas de IA a casos de uso do Anexo III; um agente LLM redige o rascunho do Anexo IV com base nas evidências.",
+    "formato_dados": "JSON de achados; ANNEX_IV_DRAFT.txt",
+    "cobertura": {
+      "ue": "SIM",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa-média",
+    "vale_incorporar": [
+      "Heurística 'biblioteca/dependência de IA -> categoria de risco' como sinal automático para o questionário (preencher a resposta com evidência)."
+    ],
+    "riscos": [
+      "Protótipo; a página remete a uma empresa comercial separada (Sovereign Code)."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://pypi.org/project/ai-act-check/0.3.1/"
+    ],
+    "nao_verificado": [
+      "Repositório GitHub não aberto diretamente"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "aigov-cli",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "aigov (abhaykshir) - AI Governance-as-Code CLI",
+    "url": "https://pypi.org/project/aigov/",
+    "licenca": "Apache-2.0",
+    "situacao": "Alfa ('heuristic-based detection and context inference')",
+    "ultimo_release": "0.5.2 em 28/04/2026 (PyPI)",
+    "o_que_modela": "Descobre sistemas de IA em código, infraestrutura e nuvem (imports Python, chaves de API, configs MCP, AWS, Docker, Terraform, Kubernetes), classifica pelo EU AI Act (art. 5, Anexo III, art. 50), score de risco 0-100 e grafo; Colorado AI Act e NIST AI RMF no roadmap; achados com tag origin_jurisdiction (ISO 3166-1).",
+    "formato_dados": "JSON, Markdown, CSV, SARIF, HTML (grafo)",
+    "cobertura": {
+      "ue": "SIM (disponível)",
+      "eua": "Colorado e NIST AI RMF: planejados",
+      "brasil_lgpd": "LGPD não mencionada",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média-baixa",
+    "vale_incorporar": [
+      "Inventário de sistemas de IA do repositório (incluindo servidores MCP) como etapa prévia ao questionário."
+    ],
+    "riscos": [
+      "Alfa; só Python."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://pypi.org/project/aigov/"
+    ],
+    "nao_verificado": [
+      "Repositório github.com/abhaykshir/aigov não aberto"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "eu-act-guard",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "EU Act Guard (Product Hunt)",
+    "url": "https://hunted.space/product/eu-act-guard",
+    "licenca": "não informada",
+    "situacao": "Acesso antecipado; Product Hunt: 0 votos positivos, 1 comentário",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Scanner de conformidade com o EU AI Act sobre o código no GitHub (caminhos de arquivo e correções), rastreamento de site para rotulagem do art. 50, verificação de política de privacidade, rascunho do Anexo IV, mapeamento ISO 42001; relatórios técnico, jurídico e de negócios.",
+    "formato_dados": "Relatórios (formato não especificado)",
+    "cobertura": {
+      "ue": "SIM (só UE, ISO 42001, prEN 18286)",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (mesmo formato de entrega: três relatórios por público)",
+    "vale_incorporar": [
+      "Entregar 3 visões do mesmo resultado (técnica, jurídica, executiva)."
+    ],
+    "riscos": [
+      "Produto fechado/early access; sem licença nem código."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://hunted.space/product/eu-act-guard"
+    ],
+    "nao_verificado": [
+      "Se é open source"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "arkforge-eu-ai-act-api",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "ArkForge EU AI Act API / MCP",
+    "url": "https://arkforge.tech/en/eu-ai-act-api.html",
+    "licenca": "não informada para o scanner",
+    "situacao": "Serviço comercial com plano grátis (50 scans/mês), Pro EUR 19, Ultra EUR 49",
+    "ultimo_release": "n/a",
+    "o_que_modela": "API REST /v1/scan: recebe URL de repositório GitHub ou código, devolve risk_score, risk_category, frameworks_detected, compliance_score e recomendações (check, status, eu_article, effort, how) para arts. 6, 9, 13, 14, 17 e 52(3).",
+    "formato_dados": "JSON + OpenAPI; também listado como conector MCP (glama)",
+    "cobertura": {
+      "ue": "SIM (só UE)",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média-baixa",
+    "vale_incorporar": [
+      "Campo 'esforço' por recomendação (esforço para corrigir) além de severidade."
+    ],
+    "riscos": [
+      "Fechado; licença do scanner não informada; o repo ark-forge/trust-layer não foi aberto."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://arkforge.tech/en/eu-ai-act-api.html"
+    ],
+    "nao_verificado": [
+      "Licença/código do scanner"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "air-blackbox-mcp",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "AIR Blackbox MCP Server",
+    "url": "https://mcpservers.org/servers/airblackbox/air-blackbox-mcp",
+    "licenca": "não informada",
+    "situacao": "Pacote PyPI air-blackbox-mcp; 14 tools na instalação completa (10 na básica)",
+    "ultimo_release": "não visível",
+    "o_que_modela": "Servidor MCP stdio que escaneia projetos Python (scan_project, scan_code, scan_file) para o EU AI Act, com correções de código, checagens de GDPR, análise de viés e relatórios; com o SDK cobre também Jupyter, TS, JS, Java e Kotlin.",
+    "formato_dados": "MCP stdio",
+    "cobertura": {
+      "ue": "EU AI Act e GDPR",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (mesma forma de entrega: MCP stdio sobre repositório)",
+    "vale_incorporar": [
+      "Confirma que 'MCP stdio que lê o diretório do projeto' já é padrão de mercado: nada a mudar."
+    ],
+    "riscos": [
+      "Licença não informada; só UE."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://mcpservers.org/servers/airblackbox/air-blackbox-mcp"
+    ],
+    "nao_verificado": [
+      "Licença; o repo github.com/airblackbox/air-blackbox-mcp não foi aberto"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "lgpd-app-skills",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "lgpd-app/skills (lgpd-check, lgpd-md)",
+    "url": "https://github.com/lgpd-app/skills",
+    "licenca": "Apache-2.0",
+    "situacao": "Público; 5 commits, 2 estrelas; sem releases",
+    "ultimo_release": "não visível",
+    "o_que_modela": "Skills para agentes (Claude Code, Cursor, Copilot): lgpd-check audita websites em 6 módulos (política de privacidade, consentimento de cookies, minimização, transferência internacional, direitos do titular, scripts de terceiros) e gera relatório com score; lgpd-md gera/valida arquivos lgpd.md.",
+    "formato_dados": "Skills instaladas por npx skills add; relatório com score (formato não detalhado)",
+    "cobertura": {
+      "ue": "não",
+      "eua": "não",
+      "brasil_lgpd": "SIM (só LGPD, sem artigos citados na página)",
+      "ufs_brasil": "NÃO"
+    },
+    "sobreposicao_com_lexzenit": "média na parte LGPD; nenhuma em multi-jurisdição",
+    "vale_incorporar": [
+      "Convenção de arquivo lgpd.md (declaração legível por máquina e por humano na raiz do repo) como possível insumo do questionário."
+    ],
+    "riscos": [
+      "Maturidade mínima; segundo a página, não analisa código."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/lgpd-app/skills"
+    ],
+    "nao_verificado": [
+      "Se analisa código-fonte; formato do relatório"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "lgpd-audit-skill",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "Skill lgpd-audit (claudskills.com; origem não identificada)",
+    "url": "https://claudskills.com/skills/lgpd-audit/SKILL.md",
+    "licenca": "não informada; autor e repositório não identificados",
+    "situacao": "n/a",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Audita sistema/repositório/mudança contra os 10 princípios do art. 6 da LGPD; cita também art. 5 II, 14, 15-16, 20 e 46; localiza PII, rastreia leitura/escrita de campos, verifica PII em logs/URLs; achados por severidade com princípio, arquivo e linha, evidência e correção; lista os princípios que não podem ser checados só pelo código.",
+    "formato_dados": "Relatório em texto; scripts find_pii.sh e scan_security.sh (não incluídos no texto)",
+    "cobertura": {
+      "ue": "não",
+      "eua": "não",
+      "brasil_lgpd": "SIM (só LGPD)",
+      "ufs_brasil": "NÃO"
+    },
+    "sobreposicao_com_lexzenit": "média na parte LGPD-código",
+    "vale_incorporar": [
+      "O trecho final 'princípios que não podem ser checados só pelo código' equivale ao nosso 'inconclusivo': manter e explicitar quais obrigações dependem do questionário."
+    ],
+    "riscos": [
+      "Origem e licença desconhecidas: só referência de desenho."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://claudskills.com/skills/lgpd-audit/SKILL.md"
+    ],
+    "nao_verificado": [
+      "Autor, licença, repositório"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "complyr",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "Complyr (complyr.com.br)",
+    "url": "https://www.tabnews.com.br/marivaaldo/pitch-complyr-lgpd-sem-dor-de-cabeca-mvp-aberto-e-gratuito",
+    "licenca": "não informada",
+    "situacao": "MVP gratuito anunciado em 23/10/2025 (TabNews); autor 'marivaaldo'",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Plataforma que mapeia dados pessoais e sensíveis em sistemas e formulários, classifica tipos (nome, CPF, e-mail, saúde), gerencia consentimentos, captura cookies, integra o Google Tag Manager, painel de insights.",
+    "formato_dados": "NestJS, Next.js, PostgreSQL multi-tenant, Redis Streams",
+    "cobertura": {
+      "ue": "não",
+      "eua": "não",
+      "brasil_lgpd": "SIM (só LGPD)",
+      "ufs_brasil": "NÃO"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Nada técnico: confirma a demanda brasileira por LGPD no fluxo de desenvolvimento."
+    ],
+    "riscos": [
+      "Sem licença nem repositório; análise de código não mencionada."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://www.tabnews.com.br/marivaaldo/pitch-complyr-lgpd-sem-dor-de-cabeca-mvp-aberto-e-gratuito"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "privado",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "Privado (Privado-Inc/privado)",
+    "url": "https://github.com/Privado-Inc/privado",
+    "licenca": "LGPL-3.0 e GPL-3.0 (conforme a página)",
+    "situacao": "Público; 651 estrelas, 1.069 commits, 93 releases",
+    "ultimo_release": "v1.3.91 em 10/11/2025",
+    "o_que_modela": "Análise estática open source que identifica dados pessoais no código (mais de 110 elementos) e mapeia o fluxo até sinks (terceiros, bancos, logs, APIs internas) usando grafo de conhecimento; Data Safety Report; RoPA (art. 30) pela plataforma em nuvem.",
+    "formato_dados": "JSON em .privado/privado.json; CI/CD; Java e Python GA, JS/TS 'em breve'",
+    "cobertura": {
+      "ue": "GDPR (citado)",
+      "eua": "CCPA (citado)",
+      "brasil_lgpd": "LGPD não mencionada",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média (alimenta os mesmos sinais: trata_dado_pessoal, compartilha_terceiro, transferência)",
+    "vale_incorporar": [
+      "Aceitar privado.json (e SARIF de outras ferramentas) como ENTRADA opcional de sinais: dados pessoais detectados e sinks externos preenchem respostas do questionário com evidência."
+    ],
+    "riscos": [
+      "LGPL/GPL: consumir só a saída JSON de um processo externo; não embutir.",
+      "O último release visto é de nov/2025 (cerca de 11 meses antes de hoje)."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/Privado-Inc/privado"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "bearer",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "Bearer CLI",
+    "url": "https://github.com/Bearer/bearer",
+    "licenca": "Elastic License 2.0 (não pode ser oferecida como serviço gerenciado a terceiros sem aprovação)",
+    "situacao": "Não arquivado; 1.436 commits, cerca de 2,7 mil estrelas; versão comercial Bearer Pro via Cycode",
+    "ultimo_release": "não visível",
+    "o_que_modela": "SAST focado em fluxo de dados: classifica 120+ tipos de dados (PII/PHI) e componentes que os processam; relatórios usados como insumo de PIA, DPIA e RoPA; regras OWASP Top 10 e CWE Top 25.",
+    "formato_dados": "Relatório com arquivo/linhas e resumo por severidade e CWE; SARIF não mencionado na página",
+    "cobertura": {
+      "ue": "sem regras GDPR específicas na página",
+      "eua": "não",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa-média",
+    "vale_incorporar": [
+      "Idem Privado: fonte opcional de sinais de dados sensíveis."
+    ],
+    "riscos": [
+      "A ELv2 impede embutir em oferta SaaS da LexZenit; só integração opcional feita pelo usuário."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/Bearer/bearer"
+    ],
+    "nao_verificado": [],
+    "observacoes": ""
+  },
+  {
+    "id": "fides",
+    "grupo": "Scanners de repositório e concorrentes parciais",
+    "nome": "Fides (Ethyca) e fideslang",
+    "url": "https://github.com/ethyca/fides",
+    "licenca": "Apache-2.0; taxonomia fideslang sob CC BY 4.0",
+    "situacao": "Ativo (4.774 commits, 478 estrelas, 217 issues abertas)",
+    "ultimo_release": "badge de Latest Release sem versão legível",
+    "o_que_modela": "'Privacy as Code': engenharia de privacidade, atendimento de solicitações de titulares (DSAR) contra bancos reais, Privacy Center, taxonomia de dados (fideslang) e data map.",
+    "formato_dados": "fideslang (taxonomia); formato dos manifestos não detalhado na página",
+    "cobertura": {
+      "ue": "'gdpr' apenas como tag",
+      "eua": "não",
+      "brasil_lgpd": "LGPD não mencionada",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa-média (vocabulário de dados/finalidades)",
+    "vale_incorporar": [
+      "Reusar a taxonomia fideslang (CC BY 4.0, com atribuição) como vocabulário de categorias de dados e finalidades nos sinais do questionário."
+    ],
+    "riscos": [
+      "Plataforma pesada; só a taxonomia interessa."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://github.com/ethyca/fides"
+    ],
+    "nao_verificado": [
+      "Estrutura exata da fideslang e versão"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "ansvar-eu-regulations-mcp",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "Ansvar EU Regulations MCP (@ansvar/eu-regulations-mcp)",
+    "url": "https://github.com/Ansvar-Systems/EU_compliance_MCP",
+    "licenca": "Apache-2.0 (pacote npm); na lista da organização o repo aparece como ARQUIVADO (corpora pré-construídos ficam na infra deles)",
+    "situacao": "Pacote 1.1.2, última atualização 17/02/2026; gateway remoto com plano grátis de 100 consultas/dia",
+    "ultimo_release": "1.1.2",
+    "o_que_modela": "Servidor MCP que consulta regulamentos europeus (GDPR, NIS2, DORA, AI Act, eIDAS, MDR...): 49 regulamentos (outras partes da página citam 47 e 37), 2.528 artigos, 3.869 considerandos, 1.226 definições; 709 mapeamentos para ISO 27001 e NIST CSF 2.0; 323 regras de aplicabilidade por setor; 407 artefatos de auditoria. Texto do EUR-Lex inserido sem processamento por LLM, verificação diária.",
+    "formato_dados": "SQLite com FTS5; fluxo EUR-Lex HTML -> parse -> SQLite -> MCP",
+    "cobertura": {
+      "ue": "SIM",
+      "eua": "a organização tem outros MCPs; repositório de direito americano não listado",
+      "brasil_lgpd": "NÃO",
+      "ufs_brasil": "NÃO"
+    },
+    "sobreposicao_com_lexzenit": "média (catálogo + aplicabilidade + MCP, só UE)",
+    "vale_incorporar": [
+      "Padrão 'texto oficial sem LLM + mapeamentos marcados como auxílio interpretativo, não orientação oficial' (rotular a origem de cada campo: oficial vs curado).",
+      "SQLite + FTS5 como índice local de busca no servidor MCP stdio, mantendo o catálogo em JSON como fonte."
+    ],
+    "riscos": [
+      "Contagens inconsistentes na própria página; só UE; corpora fechados."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://socket.dev/npm/package/@ansvar/eu-regulations-mcp",
+      "https://github.com/Ansvar-Systems"
+    ],
+    "nao_verificado": [
+      "Licença dos corpora; conteúdo do repositório"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "regulations-ai",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "regulations.ai (Smitteck GmbH)",
+    "url": "https://regulations.ai/",
+    "licenca": "Sem licença formal: fatos (instrumento, jurisdição, status, datas, fonte oficial) 'públicos e de leitura gratuita'; pede atribuição 'regulations.ai (Smitteck GmbH)' e link ao registro",
+    "situacao": "Ativo: página gerada em 16/10/2026 a partir do corpus; cada registro tem data de verificação",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Referência contínua de leis e políticas de IA: 1.162 instrumentos em 118 jurisdições (inclui o Brasil), mais ONU, OCDE, G7, UNESCO e UIT; cada registro traz instrumento, jurisdição, status de vigência, datas, fonte oficial e data da última verificação; conteúdo gerado por máquina é identificado com modelo e data; calendário de conformidade.",
+    "formato_dados": "Servidor MCP remoto (Streamable HTTP, sem chave) com search, fetch, search_regulations, get_regulation, recent_changes, get_glossary_term, list_jurisdictions, compare_regulations; schema.org Legislation/DefinedTerm/Event; pacote Open Knowledge Format v0.2",
+    "cobertura": {
+      "ue": "sim (nível mundo)",
+      "eua": "entradas dos EUA com códigos 'NA' e 'ST' sem explicação na página",
+      "brasil_lgpd": "SIM (Brasil entre as 118 jurisdições)",
+      "ufs_brasil": "não confirmado"
+    },
+    "sobreposicao_com_lexzenit": "média (catálogo N3 de IA com status e fonte, via MCP)",
+    "vale_incorporar": [
+      "Cruzar o N3 de IA e o radar com um segundo catálogo independente: divergência de status/vigência vira 'revisar manualmente'.",
+      "Copiar o desenho de registro: cada entrada com 'last_verified' e marcação de conteúdo gerado por máquina (já temos verificação oficial/secundária/não localizada)."
+    ],
+    "riscos": [
+      "Sem licença formal: não ingerir em massa; tratar como fonte secundária.",
+      "Termos de uso de acesso automatizado não lidos."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://regulations.ai/llms.txt"
+    ],
+    "nao_verificado": [
+      "Termos de uso para reuso em massa",
+      "Cobertura de estados brasileiros"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "vorp-ai-tracker",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "Vorp Labs - AI regulatory updates tracker",
+    "url": "https://vorplabs.com/ai-regulatory-updates",
+    "licenca": "CC BY 4.0 (dados em CSV/JSON; pode copiar, adaptar e republicar, inclusive para fins comerciais, com crédito e link)",
+    "situacao": "Ativo: 91 fontes, 15 jurisdições, verificação em 10/10/2026; verificação mensal com próximo check por linha",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Registro de leis, regulamentos e guias oficiais de IA. Campos: jurisdiction, source_id, source_title, issuer, source_status, bindingness, published_on/effective_on, last_checked/next_check_due, translation_status, affected_ai_activity, operator_artifact, materiality, public_action, caveats. Cinco portões de publicação e regra 'fonte oficial primeiro'.",
+    "formato_dados": "CSV e JSON com os mesmos campos; o JSON traz referência, licença e citação sugerida",
+    "cobertura": {
+      "ue": "parcial (lista de jurisdições não exibida)",
+      "eua": "Estados Unidos e Califórnia citados",
+      "brasil_lgpd": "Brasil NÃO confirmado (lista não exibida)",
+      "ufs_brasil": "não confirmado"
+    },
+    "sobreposicao_com_lexzenit": "média (registro de status e vigência, N3 IA)",
+    "vale_incorporar": [
+      "Adotar os campos bindingness (vinculante vs soft law), next_check_due e translation_status no catálogo, e checagens de frescor (alerta quando next_check_due vencer).",
+      "Importar as linhas aplicáveis (CC BY 4.0, com atribuição) para o radar N3 como fonte secundária."
+    ],
+    "riscos": [
+      "Cobertura de 15 jurisdições; Brasil não confirmado."
+    ],
+    "verificado_em_fonte": "sim",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://vorplabs.com/ai-regulatory-updates/methodology"
+    ],
+    "nao_verificado": [
+      "Quais são as 15 jurisdições; se inclui o Brasil"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "digital-policy-alert",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "Digital Policy Alert (St. Gallen / SGEPT)",
+    "url": "https://digitalpolicyalert.org/",
+    "licenca": "Conteúdo do site CC BY-NC 4.0 (não comercial); dados por API/MCP/arquivo apenas pelos termos DPA (classes Internal Use, Derived Use, Redistribution); uso comercial exige licença",
+    "situacao": "Ativo: Licensed Data General Terms de 06/10/2026",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Mais de 23.000 eventos regulatórios desde 2021 em 50+ jurisdições; ciclo completo (rascunho, consulta, adoção, remoção); temas: IA, plataformas, proteção de dados, tributação, sanções, cooperação.",
+    "formato_dados": "API (chave demo) e servidor MCP; formato dos campos não especificado",
+    "cobertura": {
+      "ue": "sim",
+      "eua": "não especificado",
+      "brasil_lgpd": "Brasil não citado na página",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa-média (radar de mudanças)",
+    "vale_incorporar": [
+      "Modelo de 'evento regulatório' com ciclo de vida (rascunho -> consulta -> adoção) para o radar de PLs."
+    ],
+    "riscos": [
+      "Licença comercial paga/negociada; não ingerir sem contrato."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://digitalpolicyalert.org/api-access",
+      "https://digitalpolicyalert.org/terms"
+    ],
+    "nao_verificado": [
+      "Preços; cobertura do Brasil"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "oecd-ai-navigator",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "OECD.AI Policy Navigator",
+    "url": "https://oecd.ai/en/dashboards/overview",
+    "licenca": "All rights reserved OECD (Terms & conditions não lidos); nenhuma licença de dados informada",
+    "situacao": "Ativo; 'atualizado regularmente' por pontos de contato oficiais",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Políticas e iniciativas públicas de IA: 80+ jurisdições e organizações, 900+ políticas (meta description); páginas por país e por organização internacional.",
+    "formato_dados": "Sem download/API mencionados na página",
+    "cobertura": {
+      "ue": "sim",
+      "eua": "sim (por país)",
+      "brasil_lgpd": "O Brasil não apareceu na página de visão geral",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa",
+    "vale_incorporar": [
+      "Só como link de conferência manual no N3."
+    ],
+    "riscos": [
+      "Sem licença de reuso: não ingerir."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://oecd.ai/en/dashboards/overview"
+    ],
+    "nao_verificado": [
+      "Termos; existência de download/API em outras páginas"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "iapp-state-tracker",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "IAPP US State Privacy Legislation Tracker",
+    "url": "https://www.iapp.org/resources/article/us-state-privacy-legislation-tracker/",
+    "licenca": "não informada; conteúdo completo restrito a membros; mapa em imagem",
+    "situacao": "Ativo: publicado em 18/04/2019, atualizado em 08/09/2026",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Projetos de lei de privacidade abrangentes em nível estadual (aprovados e em tramitação); matriz de 14 disposições em duas categorias (direitos do consumidor e obrigações das empresas); diretório por estado.",
+    "formato_dados": "Página web e imagem",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "SIM (estados)",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "baixa (referência para o N2 EUA)",
+    "vale_incorporar": [
+      "As 14 disposições servem de checklist de colunas para o nosso N2 de privacidade estadual dos EUA (conferir se cada obrigação está modelada)."
+    ],
+    "riscos": [
+      "Sem reuso permitido/declarado: apenas link."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://www.iapp.org/resources/article/us-state-privacy-legislation-tracker/"
+    ],
+    "nao_verificado": [
+      "Termos de uso"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "privacylawmap",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "PrivacyLawMap (privacylawmap.com)",
+    "url": "https://privacylawmap.com/",
+    "licenca": "All rights reserved; sem licença aberta; mantenedor não identificado na página",
+    "situacao": "Dados coletados em 2026-10-12",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Mapa dos 50 estados + DC (só leis abrangentes de privacidade do consumidor): 20 estados com lei ativa, 4 com lei sancionada de vigência futura; calculadora de aplicabilidade de 4 perguntas; comparador de leis; verificador de GPC; gerador de política de privacidade.",
+    "formato_dados": "Aplicação web; sem API/download mencionados",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "SIM (estados)",
+      "brasil_lgpd": "não",
+      "ufs_brasil": "não"
+    },
+    "sobreposicao_com_lexzenit": "média no desenho do gatilho de aplicabilidade (N2 EUA)",
+    "vale_incorporar": [
+      "Fluxo de aplicabilidade em 4 perguntas por estado como modelo dos gatilhos do N2-EUA (a página não lista as 4 perguntas; os limiares típicos são conhecimento prévio)."
+    ],
+    "riscos": [
+      "Sem licença; só inspiração de UX."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://privacylawmap.com/"
+    ],
+    "nao_verificado": [
+      "Metodologia, fontes e as 4 perguntas"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "camara-dados-abertos",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "Dados Abertos da Câmara dos Deputados (API e arquivos)",
+    "url": "https://dadosabertos.camara.leg.br/",
+    "licenca": "Não informada na página lida",
+    "situacao": "Ativo; arquivos anuais atualizados diariamente",
+    "ultimo_release": "n/a",
+    "o_que_modela": "API REST (JSON/XML) e arquivos em massa (CSV, XLSX, ODS, JSON, XML) com proposições: uri, sigla, número, ano, ementa, temas, palavras-chave, tramitação mais recente, proposições relacionadas, autores; lista de temas e códigos pela API.",
+    "formato_dados": "JSON, XML, CSV, XLSX, ODS",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "SIM (federal; proposições na Câmara)",
+      "ufs_brasil": "não (estados ficam nas assembleias)"
+    },
+    "sobreposicao_com_lexzenit": "alta para o radar de PLs federais (fonte oficial)",
+    "vale_incorporar": [
+      "Base oficial do radar: baixar proposições anuais, filtrar por tema/palavras-chave (IA, dados pessoais, ECA digital) e comparar a tramitação. Cruzar com o Senado e o LexML."
+    ],
+    "riscos": [
+      "Autenticação, limites e licença não descritos na página lida."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://dadosabertos.camara.leg.br/swagger/api.html"
+    ],
+    "nao_verificado": [
+      "Limites de taxa, licença, endpoints exatos"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "senado-dados-abertos",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "Dados Abertos do Senado Federal",
+    "url": "https://legis.senado.leg.br/dadosabertos/docs/index.html",
+    "licenca": "não verificado",
+    "situacao": "não verificado",
+    "ultimo_release": "n/a",
+    "o_que_modela": "não verificado (página bloqueada nesta sessão: PROVENANCE_REQUIRED)",
+    "formato_dados": "não verificado",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "não verificado",
+      "ufs_brasil": "não verificado"
+    },
+    "sobreposicao_com_lexzenit": "alta para o radar (a verificar)",
+    "vale_incorporar": [
+      "Pendência: abrir a documentação e confirmar endpoints de matérias e tramitação."
+    ],
+    "riscos": [
+      "não verificado"
+    ],
+    "verificado_em_fonte": "não",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [],
+    "nao_verificado": [
+      "Tudo"
+    ],
+    "observacoes": ""
+  },
+  {
+    "id": "legisweb",
+    "grupo": "Catálogos jurídicos via MCP e rastreadores de regulação",
+    "nome": "LegisWeb",
+    "url": "https://www.legisweb.com.br/",
+    "licenca": "Comercial, por assinatura",
+    "situacao": "Ativo",
+    "ultimo_release": "n/a",
+    "o_que_modela": "Plataforma brasileira de informação tributária: banco de legislação federal, estadual (filtro por UF) e das capitais; consultoria, simuladores e boletim diário; há banner de API de integração.",
+    "formato_dados": "não informado",
+    "cobertura": {
+      "ue": "não informado na fonte",
+      "eua": "não informado na fonte",
+      "brasil_lgpd": "Tributário; LGPD não é área coberta",
+      "ufs_brasil": "SIM para legislação tributária estadual"
+    },
+    "sobreposicao_com_lexzenit": "baixa (adjacente: tributos, não conformidade de projeto)",
+    "vale_incorporar": [
+      "Nada a incorporar; mostra que existe mercado de base legislativa por UF, mas tributária."
+    ],
+    "riscos": [
+      "Não é concorrente nem fonte reutilizável."
+    ],
+    "verificado_em_fonte": "parcial",
+    "verificado_em": "2026-10-16",
+    "url_fonte_lida": [
+      "https://www.legisweb.com.br/"
+    ],
+    "nao_verificado": [
+      "Termos da API"
+    ],
+    "observacoes": ""
+  }
+]

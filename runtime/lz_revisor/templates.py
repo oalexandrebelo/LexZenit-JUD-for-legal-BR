@@ -1,6 +1,6 @@
 """Minutas brasileiras: listagem e preenchimento de campos {{campo}}.
 
-As minutas ficam no plugin (br-project-review/references/templates). Preencher campos não
+As minutas ficam no plugin (ab-lexzenit-project-review/references/templates). Preencher campos não
 torna o documento válido: a saída continua marcada como minuta para revisão profissional.
 """
 from __future__ import annotations

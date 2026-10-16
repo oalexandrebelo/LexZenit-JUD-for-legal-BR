@@ -10,10 +10,10 @@
   "suites": [
     {
       "suite": "runtime",
-      "tests": 253,
-      "passed": 253,
+      "tests": 263,
+      "passed": 263,
       "failed": 0,
-      "seconds": 1.908,
+      "seconds": 2.086,
       "command": [
         "-m",
         "unittest",
@@ -23,14 +23,14 @@
         "-v"
       ],
       "log": "evidence/runtime-tests-v0.3.0.txt",
-      "of_which_new_lz_revisor": 53
+      "of_which_new_lz_revisor": 63
     },
     {
       "suite": "repository",
       "tests": 13,
       "passed": 13,
       "failed": 0,
-      "seconds": 1.155,
+      "seconds": 1.113,
       "command": [
         "-m",
         "unittest",
@@ -62,9 +62,10 @@
     "revisor_catalog": "evidence/revisor-catalog-v0.3.0.json",
     "claude_plugin_validate": "evidence/claude-plugin-validate-v0.3.0.txt (marketplace e br-project-review: passed; aviso esperado sobre CLAUDE.md de perfil)",
     "mcp_health": "evidence/mcp-health-v0.3.0.txt (claude mcp list: Connected, HOME isolado)",
-    "demo": "evidence/revisor-demo-app-ia-b2c-v0.3.0.md"
+    "demo": "evidence/revisor-demo-app-ia-b2c-v0.3.0.md",
+    "demo_sarif": "evidence/revisor-demo-app-ia-b2c-v0.3.0.sarif"
   },
-  "independent_review": "Revisor separado somente leitura (2026-10-16); achados corrigidos com casos de regressão em runtime/tests/test_lz_revisor.py (classe RevisaoIndependenteTests).",
+  "independent_review": "Revisor separado somente leitura (2026-10-16); achados corrigidos com casos de regressão em runtime/tests/test_lz_revisor.py (classe RevisaoIndependenteTests). Recursos posteriores (radar, SARIF, proveniência, divergências, validadores) cobertos por testes próprios; sem segunda revisão independente.",
   "not_claimed": [
     "acurácia jurídica",
     "avaliação semântica das 182 especificações",

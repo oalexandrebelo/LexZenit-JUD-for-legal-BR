@@ -8,6 +8,7 @@ import sys
 from urllib.parse import urlsplit
 
 NAME = re.compile(r'^[a-z0-9][a-z0-9-]{1,63}$')
+PREFIXOS = ('br-', 'ab-lexzenit-')  # br-*: áreas do Direito; ab-lexzenit-*: produtos LexZenit da AB ED&IA
 HIDDEN = re.compile('[\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]')
 
 
@@ -39,7 +40,7 @@ def validate(root: Path) -> dict:
     require(catalog['semantic_benchmark_executed'] is False, 'Unsubstantiated semantic benchmark claim.')
     for entry in market['plugins']:
         name = entry['name']
-        require(NAME.fullmatch(name) is not None and name.startswith('br-'), 'Invalid BR namespace.')
+        require(NAME.fullmatch(name) is not None and name.startswith(PREFIXOS), 'Invalid BR namespace.')
         require(entry['source'] == './'+name, 'Plugin source must be a local canonical directory.')
         folder = root/name
         require(not folder.is_symlink(), 'Plugin directory symlink rejected.')

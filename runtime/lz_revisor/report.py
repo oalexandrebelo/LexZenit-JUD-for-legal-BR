@@ -64,6 +64,11 @@ def to_markdown(res: dict, titulo: str = "Revisão jurídica do projeto") -> str
         L.append(f"| {NOME_NIVEL[n]} | {c['nao_conformidade_evidenciada']} | {c['lacunas_inconclusivas']} | "
                  f"{c['evidencia_a_revisar']} | {c['dependem_de_resposta']} |")
     L += ["", f"Radar regulatório (projetos e normas suspensas): {res['resumo']['radar']} itens.", ""]
+    if res.get("divergencias"):
+        L += ["## Respostas que o código contradiz", "",
+              "A resposta declarada vale para a análise, mas confira: o código tem indícios do contrário.", ""]
+        L += [f"- **{_c(d['rotulo'])}** respondido como não; indícios em " + ", ".join(f"`{_c(x)}`" for x in d["indicios"]) for d in res["divergencias"]]
+        L.append("")
     if res["perguntas_pendentes"]:
         L += ["## Perguntas que destravam a análise", ""]
         L += [f"{i}. {p}" for i, p in enumerate(res["perguntas_pendentes"], 1)]
@@ -116,5 +121,8 @@ def to_markdown(res: dict, titulo: str = "Revisão jurídica do projeto") -> str
             L.append(f"- {_jur(a['jurisdicao'])} · {a['norma_id']}: {alvo} — {a.get('motivo') or a.get('motivo_jurisdicao')}")
         L += ["", "</details>", ""]
     L += ["## Limitações", ""] + [f"- {x}" for x in res["limitacoes"]] + [""]
+    pv = res.get("proveniencia") or {}
+    if pv:
+        L += [f"Proveniência: {pv.get('motor')} · data de referência {pv.get('data_de_referencia')} · catálogo `{pv.get('catalogo_sha256', '')[:12]}` · respostas `{pv.get('respostas_sha256', '')[:12]}`", ""]
     L += ["Responsável pela revisão: ______________________  OAB/UF: ________  Data: ___/___/______", ""]
     return "\n".join(L)

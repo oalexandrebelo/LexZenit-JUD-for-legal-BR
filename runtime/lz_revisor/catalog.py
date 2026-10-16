@@ -1,6 +1,7 @@
 """Carga e validação do catálogo normativo (Legislação como Código)."""
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -26,7 +27,7 @@ def default_catalog_dir() -> Path:
     env = os.environ.get("LZ_REVISOR_CATALOG")
     if env:
         return Path(env)
-    return Path(__file__).resolve().parents[2] / "br-project-review" / "references" / "catalog"
+    return Path(__file__).resolve().parents[2] / "ab-lexzenit-project-review" / "references" / "catalog"
 
 
 def _load(path: Path):
@@ -46,6 +47,7 @@ class Catalog:
     regra_n2: dict
     normas: list
     arquivos_normas: list = field(default_factory=list)
+    sha256: str = ""
 
     def norma(self, norma_id: str) -> dict | None:
         return next((n for n in self.normas if n["id"] == norma_id), None)
@@ -161,8 +163,11 @@ def load_catalog(root: Path | None = None) -> Catalog:
             n = dict(n)
             n["_arquivo"] = path.name
             normas.append(n)
+    h = hashlib.sha256()
+    for path in sorted(root.glob("*.json")) + sorted((root / "normas").glob("*.json")):
+        h.update(path.name.encode() + b"\0" + path.read_bytes())
     cat = Catalog(root=root, versao=sinais_doc.get("versao", "?"), sinais=sinais, evidencias=evidencias,
                   questionario=_load(root / "questionario.json"), regra_n2=_load(root / "regra-n2.json"),
-                  normas=normas, arquivos_normas=arquivos)
+                  normas=normas, arquivos_normas=arquivos, sha256=h.hexdigest())
     validate(cat)
     return cat
