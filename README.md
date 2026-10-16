@@ -7,6 +7,8 @@
 
 # LexZenit · skill jurídica para o Claude
 
+Uma solução **AB ED&IA Soluções em Tecnologia Ltda.** (CNPJ 57.531.384/0001-96).
+
 Raciocínio jurídico com lastro, do documento à evidência. 39 plugins, 176 workflows de Direito brasileiro e um núcleo local que guarda o original, reconhece citações sem autenticá-las por palpite, pseudonimiza e para na revisão humana.
 
 ![Explicação em 20 segundos: evidência, citações, privacidade e revisão](lexzenit/media/lexzenit-juridico.gif)
