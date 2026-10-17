@@ -277,6 +277,7 @@ html.leaving .app{animation:lz-blur-out .34s var(--ease) both}
 .footer__logos{display:flex;align-items:center;gap:var(--sp-400)}
 .footer__logos a{color:var(--gray-900);display:block}
 .footer__logos svg{display:block;width:auto}
+.footer__sep{width:1px;height:32px;background:var(--gray-300)}
 .footer p,.footer li{font-size:var(--fs-100);color:var(--gray-700)}
 .footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
 .footer h4{font-size:var(--fs-100);font-weight:700;margin-bottom:var(--sp-200)}
@@ -640,8 +641,9 @@ claude mcp add lz-revisor -e PYTHONPATH="$PWD" -- \
   <div class="footer__inner gutter">
     <div class="footer__brand">
       <div class="footer__logos">
-        <a href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/" data-blur aria-label="LexZenit, skill jurídica"><svg viewBox="0 0 1829 345" style="height:26px" aria-hidden="true"><use href="#lz-lockup"/></svg></a>
         <a href="https://www.alexandrebelo.com.br" aria-label="AB — Alexandre Belo, alexandrebelo.com.br"><svg viewBox="40 40 905 520" style="height:44px" aria-hidden="true"><use href="#ab-mono"/></svg></a>
+        <span class="footer__sep" aria-hidden="true"></span>
+        <a href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/" data-blur aria-label="LexZenit, skill jurídica"><svg viewBox="0 0 1829 345" style="height:26px" aria-hidden="true"><use href="#lz-lockup"/></svg></a>
       </div>
       <p>LexZenit é uma solução da AB ED&amp;IA Soluções em Tecnologia Ltda., CNPJ 57.531.384/0001-96.</p>
     </div>
