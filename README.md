@@ -4,10 +4,7 @@
 
 # LexZenit · skill jurídica para o Claude
 
-<a href="https://www.alexandrebelo.com.br"><img alt="AB — Alexandre Belo" src="lexzenit/brand/ab-logo.svg" height="40" align="left"></a>
-
 Uma solução **AB ED&IA Soluções em Tecnologia Ltda.** (CNPJ 57.531.384/0001-96) · [alexandrebelo.com.br](https://www.alexandrebelo.com.br) · [landing page da LexZenit](https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/)
-<br clear="left">
 
 Raciocínio jurídico com lastro, do documento à evidência. 40 plugins, 182 workflows de Direito brasileiro, um revisor jurídico de projetos (N1 Brasil · N2 país · N3 mundo) e um núcleo local que guarda o original, reconhece citações sem autenticá-las por palpite, pseudonimiza e para na revisão humana.
 
@@ -151,3 +148,11 @@ Este pacote é a camada independente, não o clone completo da Anthropic. `upstr
 ## Licença e segurança
 
 Código original Apache-2.0; referências e bibliotecas mantêm suas licenças. `NOTICE`, `SECURITY.md` e a política empacotada nos plugins definem limites. Nenhuma regra baseada em ausência de achado produz conformidade. Todo output jurídico continua sujeito a revisão profissional, identificação da fonte, data e versão.
+
+---
+
+<p align="center">
+  <a href="https://www.alexandrebelo.com.br"><img alt="AB — Alexandre Belo" src="lexzenit/brand/ab-logo.svg" height="44"></a>
+  &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;
+  <a href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/"><img alt="LexZenit" src="lexzenit/brand/lexzenit-logo.svg" height="26"></a>
+</p>

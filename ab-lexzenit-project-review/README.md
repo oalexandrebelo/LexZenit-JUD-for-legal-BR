@@ -1,7 +1,5 @@
 <p align="center">
   <a href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/"><img alt="LexZenit" src="assets/lexzenit-logo.svg" width="300"></a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://www.alexandrebelo.com.br"><img alt="AB — Alexandre Belo" src="assets/ab-logo.svg" height="72"></a>
 </p>
 
 # AB LexZenit · Project Review — revisor jurídico de projetos (N1 · N2 · N3)
@@ -44,3 +42,11 @@ O catálogo tem data de corte. Fonte secundária nunca gera não conformidade; a
 ---
 
 LexZenit é uma solução da **AB ED&IA Soluções em Tecnologia Ltda.** (CNPJ 57.531.384/0001-96). [alexandrebelo.com.br](https://www.alexandrebelo.com.br) · [LexZenit](https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/) · Apache-2.0.
+
+---
+
+<p align="center">
+  <a href="https://www.alexandrebelo.com.br"><img alt="AB — Alexandre Belo" src="assets/ab-logo.svg" height="44"></a>
+  &nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;
+  <a href="https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/"><img alt="LexZenit" src="assets/lexzenit-logo.svg" height="26"></a>
+</p>
