@@ -6,6 +6,15 @@
   },
   "plugins": [
     {
+      "name": "ab-lexzenit-project-review",
+      "source": "./ab-lexzenit-project-review",
+      "description": "Revisor jurídico de projetos de IA e startups: mapeia lacunas em N1 Brasil (União e 27 UFs), N2 país (EUA ou o mais coerente) e N3 mundo, com catálogo normativo versionado, minutas brasileiras e revisão profissional obrigatória.",
+      "author": {
+        "name": "AB — Alexandre Belo",
+        "url": "https://www.alexandrebelo.com.br"
+      }
+    },
+    {
       "name": "br-agribusiness",
       "source": "./br-agribusiness",
       "description": "Agronegócio, terra, crédito rural e insumos: análise brasileira com fontes localizadas, controle temporal e revisão profissional obrigatória.",

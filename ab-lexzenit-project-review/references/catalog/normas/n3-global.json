@@ -1,0 +1,631 @@
+{
+ "gerado_em": "2026-10-16",
+ "nota": "Normas extraterritoriais, tratados e padrões globais; normas nacionais de outros países só com o país no alcance.",
+ "normas": [
+  {
+   "id": "EU-AI-ACT",
+   "nivel": "N3",
+   "jurisdicao": "EU",
+   "nome": "Regulamento de IA da UE (AI Act), com a redação do Reg. 2026/1744",
+   "citacao": "Reg. (UE) 2024/1689; Reg. (UE) 2026/1744 (Digital Omnibus on AI)",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "ia_generativa",
+     "ia_decisao_automatizada",
+     "ia_agente",
+     "chatbot_publico",
+     "ia_treino_modelo",
+     "ia_rag_vetorial",
+     "ia_conteudo_sintetico"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "classificacao",
+     "texto": "Classificar o sistema (proibido, alto risco, transparência, GPAI ou mínimo) e registrar a decisão",
+     "dispositivo": "arts. 5º, 6º e 50",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "avaliacao_impacto_ia",
+      "documentacao_ia"
+     ],
+     "modelo": "avaliacao-impacto-ia"
+    },
+    {
+     "id": "praticas-proibidas",
+     "texto": "Não usar práticas proibidas (manipulação, exploração de vulnerabilidades, pontuação social, reconhecimento de emoções no trabalho e na educação, entre outras)",
+     "dispositivo": "art. 5º",
+     "natureza": "vedacao",
+     "severidade": "critica",
+     "evidencias": [
+      "politica_uso_aceitavel"
+     ],
+     "modelo": "politica-uso-aceitavel"
+    },
+    {
+     "id": "literacia",
+     "texto": "Medidas de apoio à alfabetização em IA da equipe",
+     "dispositivo": "art. 4º",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "documentacao_ia"
+     ]
+    },
+    {
+     "id": "aviso-interacao",
+     "texto": "Informar que a pessoa interage com um sistema de IA",
+     "dispositivo": "art. 50(1)",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "aviso_ia"
+     ],
+     "gatilho": {
+      "algum": [
+       "chatbot_publico",
+       "ia_generativa"
+      ]
+     },
+     "modelo": "aviso-ia"
+    },
+    {
+     "id": "marcacao-sintetico",
+     "texto": "Provedor: marcar saídas sintéticas em formato legível por máquina",
+     "dispositivo": "art. 50(2)",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "rotulagem_conteudo_sintetico"
+     ],
+     "gatilho": "ia_conteudo_sintetico",
+     "modelo": "aviso-ia"
+    },
+    {
+     "id": "rotulo-deepfake",
+     "texto": "Implantador: rotular deepfakes e texto de interesse público gerado por IA",
+     "dispositivo": "art. 50(4)",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "rotulagem_conteudo_sintetico"
+     ],
+     "gatilho": "ia_conteudo_sintetico",
+     "modelo": "aviso-ia"
+    },
+    {
+     "id": "gpai",
+     "texto": "Provedor de modelo de propósito geral: documentação técnica, informação a integradores, política de direitos autorais e resumo público do treino",
+     "dispositivo": "art. 53",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "documentacao_ia"
+     ],
+     "gatilho": "modelo_ia_proprio_distribuido",
+     "modelo": "inventario-ia"
+    }
+   ],
+   "notas": "Alcance extraterritorial (art. 2º). Aplicam-se: proibições e literacia desde 02/02/2025; GPAI desde 02/08/2025; aplicação geral e art. 50 desde 02/08/2026, com carência de 4 meses para o art. 50(2) de sistemas generativos já no mercado. Reg. 2026/1744 (08/07/2026, em vigor em 27/07/2026, conferido no EUR-Lex) adiou o alto risco: Anexo III para 02/12/2027 e Anexo I para 02/08/2028 (ver EU-AI-ACT-ALTO-RISCO). Multas de até € 35 milhões ou 7% do faturamento mundial."
+  },
+  {
+   "id": "EU-AI-ACT-ALTO-RISCO",
+   "nivel": "N3",
+   "jurisdicao": "EU",
+   "nome": "AI Act — sistemas de alto risco (Anexo III)",
+   "citacao": "Reg. (UE) 2024/1689, cap. III, com a data do Reg. 2026/1744",
+   "tipo": "regulamento",
+   "status": "vigencia_futura",
+   "fonte": {
+    "url": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     {
+      "algum": [
+       "ia_generativa",
+       "ia_decisao_automatizada",
+       "ia_agente",
+       "chatbot_publico",
+       "ia_treino_modelo",
+       "ia_rag_vetorial",
+       "ia_conteudo_sintetico"
+      ]
+     },
+     {
+      "algum": [
+       "setor_emprego",
+       "setor_educacao",
+       "setor_financeiro",
+       "setor_saude",
+       "biometria",
+       "vende_governo",
+       "setor_juridico"
+      ]
+     }
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "alto-risco",
+     "texto": "Provedor de sistema de alto risco: gestão de risco, governança de dados, documentação técnica, logs, supervisão humana, sistema de qualidade, avaliação de conformidade e registro",
+     "dispositivo": "arts. 8º a 17 e 43",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "avaliacao_impacto_ia",
+      "documentacao_ia",
+      "logs_ia",
+      "supervisao_humana"
+     ],
+     "modelo": "avaliacao-impacto-ia"
+    }
+   ],
+   "notas": "O setor não basta: o uso precisa estar no Anexo III. Data de 02/12/2027 vem dos considerandos e de páginas da Comissão; artigo operativo não lido.",
+   "vigencia": {
+    "inicio": "2027-12-02"
+   }
+  },
+  {
+   "id": "EU-GDPR",
+   "nivel": "N3",
+   "jurisdicao": "EU",
+   "nome": "Regulamento Geral sobre a Proteção de Dados (RGPD/GDPR)",
+   "citacao": "Reg. (UE) 2016/679",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "dados_pessoais",
+   "obrigacoes": [
+    {
+     "id": "base-transparencia",
+     "texto": "Base legal e transparência",
+     "dispositivo": "arts. 6º e 12 a 14",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "politica_privacidade"
+     ],
+     "modelo": "politica-privacidade"
+    },
+    {
+     "id": "direitos",
+     "texto": "Direitos do titular, inclusive sobre decisões exclusivamente automatizadas",
+     "dispositivo": "arts. 15 a 22",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "canal_titular"
+     ]
+    },
+    {
+     "id": "representante",
+     "texto": "Controlador sem estabelecimento na UE: representante na União",
+     "dispositivo": "art. 27",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "representante_ue"
+     ]
+    },
+    {
+     "id": "registro-dpia",
+     "texto": "Registro de atividades e avaliação de impacto para tratamento de alto risco",
+     "dispositivo": "arts. 30 e 35",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "registro_operacoes",
+      "ripd"
+     ],
+     "modelo": "ripd"
+    },
+    {
+     "id": "violacao-72h",
+     "texto": "Notificar violação à autoridade em até 72 horas",
+     "dispositivo": "art. 33",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "plano_incidentes"
+     ],
+     "modelo": "plano-incidentes"
+    },
+    {
+     "id": "operadores",
+     "texto": "Contrato com operadores com o conteúdo do art. 28",
+     "dispositivo": "art. 28",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "dpa_operadores"
+     ],
+     "gatilho": "dependencias_terceiros",
+     "modelo": "dpa-operador"
+    }
+   ],
+   "notas": "Aplica-se a quem oferece bens ou serviços a pessoas na UE ou monitora seu comportamento (art. 3(2)). A Decisão de Execução (UE) 2026/179, de 26/01/2026, reconheceu a adequação do Brasil (título e data conferidos no EUR-Lex): transferência UE→Brasil no escopo da LGPD dispensa cláusulas-padrão; transferências posteriores a terceiros países continuam reguladas. Texto do RGPD não lido nesta versão."
+  },
+  {
+   "id": "EU-DSA",
+   "nivel": "N3",
+   "jurisdicao": "EU",
+   "nome": "Digital Services Act (DSA)",
+   "citacao": "Reg. (UE) 2022/2065",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://eur-lex.europa.eu/EN/legal-content/summary/digital-services-act-auditing-very-large-online-platforms-and-search-engines.html",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "conteudo_usuario",
+   "obrigacoes": [
+    {
+     "id": "notificacao-acao",
+     "texto": "Hospedagem e plataformas: notificação e ação, motivação de remoções e canal de reclamações",
+     "dispositivo": "arts. 16, 17 e 20",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "moderacao_denuncia"
+     ],
+     "modelo": "termos-de-uso"
+    },
+    {
+     "id": "representante-legal",
+     "texto": "Prestador sem estabelecimento na UE: representante legal na União",
+     "dispositivo": "art. 13",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "representante_ue"
+     ]
+    },
+    {
+     "id": "termos",
+     "texto": "Termos e condições claros sobre moderação de conteúdo",
+     "dispositivo": "art. 14",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "termos_uso"
+     ],
+     "modelo": "termos-de-uso"
+    }
+   ],
+   "notas": "Aplicação geral desde 17/02/2024; micro e pequenas empresas têm isenção de parte das obrigações; plataformas muito grandes a partir de 45 milhões de usuários na UE."
+  },
+  {
+   "id": "EU-CRA",
+   "nivel": "N3",
+   "jurisdicao": "EU",
+   "nome": "Cyber Resilience Act (CRA)",
+   "citacao": "Reg. (UE) 2024/2847",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R2847",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "app_mobile",
+     "modelo_ia_proprio_distribuido"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "notificacao-vulnerabilidades",
+     "texto": "Fabricante de produto com elementos digitais: notificar vulnerabilidades ativamente exploradas e incidentes graves",
+     "dispositivo": "art. 14",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "plano_incidentes"
+     ],
+     "modelo": "plano-incidentes"
+    }
+   ],
+   "notas": "Notificações desde 11/09/2026; requisitos essenciais e marcação CE desde 11/12/2027. SaaS puro tende a ficar fora; conferir o enquadramento.",
+   "vigencia": {
+    "inicio": "2026-09-11"
+   }
+  },
+  {
+   "id": "INT-OCDE-IA",
+   "nivel": "N3",
+   "jurisdicao": "INT",
+   "nome": "Princípios de IA da OCDE (revisão de 2024)",
+   "citacao": "Recomendação do Conselho da OCDE sobre IA",
+   "tipo": "principio",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.oecd.org/en/about/news/press-releases/2024/05/oecd-updates-ai-principles-to-stay-abreast-of-rapid-technological-developments.html",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "ia_generativa",
+     "ia_decisao_automatizada",
+     "ia_agente",
+     "chatbot_publico",
+     "ia_treino_modelo",
+     "ia_rag_vetorial",
+     "ia_conteudo_sintetico"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "principios",
+     "texto": "Política de IA com os cinco princípios: bem-estar, direitos humanos, transparência, robustez e responsabilização",
+     "dispositivo": null,
+     "natureza": "boa_pratica",
+     "severidade": "baixa",
+     "evidencias": [
+      "sistema_gestao_ia",
+      "documentacao_ia"
+     ],
+     "modelo": "inventario-ia"
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "INT-COE-CONVENCAO-IA",
+   "nivel": "N3",
+   "jurisdicao": "INT",
+   "nome": "Convenção-Quadro do Conselho da Europa sobre IA e Direitos Humanos",
+   "citacao": "CETS 225 (aberta à assinatura em 05/09/2024)",
+   "tipo": "tratado",
+   "status": "em_tramitacao",
+   "fonte": {
+    "url": "https://rm.coe.int/1680afae3c",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "vende_governo",
+     {
+      "algum": [
+       "ia_generativa",
+       "ia_decisao_automatizada",
+       "ia_agente",
+       "chatbot_publico",
+       "ia_treino_modelo",
+       "ia_rag_vetorial",
+       "ia_conteudo_sintetico"
+      ]
+     }
+    ]
+   },
+   "obrigacoes": [],
+   "notas": "Não está em vigor em 16/10/2026. Obriga Estados; alcança o projeto via clientes governamentais de Partes."
+  },
+  {
+   "id": "ISO-42001",
+   "nivel": "N3",
+   "jurisdicao": "ISO",
+   "nome": "ISO/IEC 42001:2023 — sistema de gestão de IA",
+   "citacao": "ISO/IEC 42001:2023",
+   "tipo": "padrao",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.iso.org/standard/42001",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     {
+      "algum": [
+       "ia_generativa",
+       "ia_decisao_automatizada",
+       "ia_agente",
+       "chatbot_publico",
+       "ia_treino_modelo",
+       "ia_rag_vetorial",
+       "ia_conteudo_sintetico"
+      ]
+     },
+     "clientes_enterprise_globais"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "aims",
+     "texto": "Sistema de gestão de IA (política, riscos, impacto, ciclo de vida, fornecedores, auditoria interna)",
+     "dispositivo": null,
+     "natureza": "exigencia_mercado",
+     "severidade": "media",
+     "evidencias": [
+      "sistema_gestao_ia"
+     ],
+     "modelo": "inventario-ia"
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "ISO-42005",
+   "nivel": "N3",
+   "jurisdicao": "ISO",
+   "nome": "ISO/IEC 42005:2025 — avaliação de impacto de sistemas de IA",
+   "citacao": "ISO/IEC 42005:2025",
+   "tipo": "padrao",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.iso.org/standard/42005",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "ia_decisao_automatizada",
+   "obrigacoes": [
+    {
+     "id": "avaliacao-impacto",
+     "texto": "Avaliação de impacto do sistema de IA sobre pessoas, grupos e sociedade",
+     "dispositivo": null,
+     "natureza": "boa_pratica",
+     "severidade": "media",
+     "evidencias": [
+      "avaliacao_impacto_ia"
+     ],
+     "modelo": "avaliacao-impacto-ia"
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "ISO-27001",
+   "nivel": "N3",
+   "jurisdicao": "ISO",
+   "nome": "ISO/IEC 27001:2022 — segurança da informação",
+   "citacao": "ISO/IEC 27001:2022 (Emenda 1:2024)",
+   "tipo": "padrao",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.iso.org/standard/27001",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "clientes_enterprise_globais",
+   "obrigacoes": [
+    {
+     "id": "sgsi",
+     "texto": "Sistema de gestão de segurança da informação (ou relatório SOC 2) para clientes enterprise",
+     "dispositivo": null,
+     "natureza": "exigencia_mercado",
+     "severidade": "media",
+     "evidencias": [
+      "sgsi"
+     ]
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "CN-IA-GENERATIVA",
+   "nivel": "N3",
+   "jurisdicao": "CN",
+   "nome": "China — Medidas provisórias para serviços de IA generativa",
+   "citacao": "CAC, 10/07/2023, em vigor desde 15/08/2023",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "ia_generativa",
+   "obrigacoes": [
+    {
+     "id": "dados-treino",
+     "texto": "Dados de treino e modelos de fonte lícita, respeito à PI e base legal para dados pessoais",
+     "dispositivo": "art. 7º",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "documentacao_ia"
+     ]
+    },
+    {
+     "id": "avaliacao-registro",
+     "texto": "Serviço com atributo de opinião pública: avaliação de segurança e registro de algoritmo",
+     "dispositivo": "art. 17",
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "avaliacao_impacto_ia"
+     ]
+    }
+   ],
+   "notas": "Só para serviço ao público na China continental. Tradução feita por ferramenta; revisar com tradutor jurídico."
+  },
+  {
+   "id": "CN-ROTULAGEM",
+   "nivel": "N3",
+   "jurisdicao": "CN",
+   "nome": "China — Medidas de rotulagem de conteúdo sintético",
+   "citacao": "CAC, 07/03/2025, em vigor desde 01/09/2025",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "ia_conteudo_sintetico",
+   "obrigacoes": [
+    {
+     "id": "rotulo-explicito-implicito",
+     "texto": "Rótulo explícito visível e rótulo implícito nos metadados do conteúdo gerado",
+     "dispositivo": "arts. 3º a 5º",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "rotulagem_conteudo_sintetico"
+     ],
+     "modelo": "aviso-ia"
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "KR-LEI-BASICA-IA",
+   "nivel": "N3",
+   "jurisdicao": "KR",
+   "nome": "Coreia do Sul — Lei-Quadro de IA (AI Basic Act)",
+   "citacao": "Em vigor desde 22/01/2026 (fonte secundária)",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&mPid=2&nttSeqNo=1214&sCode=eng",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "ia_generativa",
+   "obrigacoes": [
+    {
+     "id": "transparencia",
+     "texto": "Aviso e rotulagem de saídas de IA generativa; deveres adicionais para IA de alto impacto",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "aviso_ia",
+      "rotulagem_conteudo_sintetico"
+     ],
+     "modelo": "aviso-ia"
+    }
+   ],
+   "notas": "Carência de sanções de pelo menos um ano. Representante local acima de limiares: não verificado."
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+  "structural_validation": "passed",
+  "plugins": 40,
+  "skills": 182,
+  "source_records": 192,
+  "semantic_case_specifications": 182,
+  "official_claude_cli_validation": false,
+  "semantic_evaluation": false
+}

@@ -1,0 +1,12 @@
+{
+  "name": "app-ia-b2c-sintetico",
+  "private": true,
+  "dependencies": {
+    "next": "15.0.0",
+    "react-dom": "19.0.0",
+    "openai": "4.0.0",
+    "stripe": "16.0.0",
+    "posthog-js": "1.0.0",
+    "@supabase/supabase-js": "2.0.0"
+  }
+}

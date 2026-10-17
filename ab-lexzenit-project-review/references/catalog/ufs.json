@@ -1,0 +1,568 @@
+{
+ "gerado_em": "2026-10-16",
+ "cobertura": [
+  {
+   "uf": "AC",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "nao_localizado",
+   "normas_no_catalogo": 0,
+   "conferidas_oficial": 0,
+   "temas_nao_localizados": [
+    "consumidor_digital",
+    "ia",
+    "inovacao",
+    "lgpd_poder_publico",
+    "outro"
+   ],
+   "notas": "Nada localizado em nenhuma das cinco categorias, também na rodada de continuação (nova busca bloqueada pelo limite). Resultados anteriores traziam só programas do Sebrae e atos do TJAC. Ausência de achado não prova ausência de lei: UF com menor cobertura do lote."
+  },
+  {
+   "uf": "AL",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 5,
+   "conferidas_oficial": 1,
+   "temas_nao_localizados": [],
+   "notas": "Nenhuma lei ou decreto estadual de IA localizado (a busca retornou apenas iniciativas do Executivo, como IA na Procuradoria e curso na Segurança Pública, que não são norma). Inovação: Lei 7.117/2009, Política Estadual de CT&I (Lei 8.956/2023, número a confirmar) e Decreto 95.265/2024, que regulamenta bônus tecnológico, encomenda tecnológica, CPSI (teto de R$ 1,6 mi por contrato) e sandbox regulatório. Consumidor: Lei 8.538/2021 (bloqueio de telemarketing e SMS). LGPD no Executivo: Decreto 91.229/2023. Ausência de achado não prova ausência de lei."
+  },
+  {
+   "uf": "AP",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 3,
+   "conferidas_oficial": 0,
+   "temas_nao_localizados": [
+    "consumidor_digital",
+    "ia",
+    "lgpd_poder_publico",
+    "outro"
+   ],
+   "notas": "Lei 2.333/2018 (sistema de CT&I) e leis setoriais de startups (3.237/2025 turismo digital; 3.305/2025 agro), todas lidas só em agregador. Sem LGPD estadual nem consumidor localizados; decreto de 2020 sobre governo digital citado sem número."
+  },
+  {
+   "uf": "AM",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 6,
+   "conferidas_oficial": 0,
+   "temas_nao_localizados": [
+    "ia",
+    "lgpd_poder_publico",
+    "outro"
+   ],
+   "notas": "Lei 6.827/2024 (Scale Up, art. 7 permite contratar Scale Ups) e lei de inovação de 2006 sem número. Consumidor: Lei 3.633/2011 (telemarketing, multa R$ 10 mil por ligação) e outras de fonte publicitária não conferida. Sem decreto próprio de LGPD localizado."
+  },
+  {
+   "uf": "BA",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 5,
+   "conferidas_oficial": 3,
+   "temas_nao_localizados": [],
+   "notas": "Só projetos de lei sobre IA localizados: governança de IA na administração estadual (dep. Euclides Fernandes, publicado no DOE da Alba em 05/05/2026) e disciplina de IA nas escolas (dep. Patrick Lopes, 01/04/2025). Marco de inovação: Lei 14.315/2021 e Decretos 22.327/2023 e 22.378/2023 (o 22.378 não foi lido). Sandbox e CPSI não apareceram no trecho lido do Decreto 22.327. O Edital FAPESB 17/2026 (R$ 8 mi) é compra pública de inovação em IA para PGE, SEMA, BAHIAFARMA e FAPESB. LGPD no Executivo: Decreto 24.105/2025. Lei de consumidor digital não localizada."
+  },
+  {
+   "uf": "CE",
+   "tem_lei_ia": "sim",
+   "tem_marco_inovacao": "nao_localizado",
+   "normas_no_catalogo": 9,
+   "conferidas_oficial": 6,
+   "temas_nao_localizados": [],
+   "notas": "Lei 17.611/2021 é o único marco estadual de IA com regras para o setor privado entre as UFs do lote (empresas sediadas no CE ou com sistema em operação no CE). Há possível inconstitucionalidade. Há PL (nº 635/2025 pelo nome do arquivo) para reescrevê-la com avaliação de impacto algorítmico para órgãos estaduais. Lei geral de inovação do CE não localizada (as leis encontradas são da FUNCAP e do Fundo de Inovação Tecnológica); há PL de sandbox regulatório (08/06/2026). Consumidor: Lei 15.111/2012 (telemarketing) e PL 584/2025 (cancelamento online de assinaturas). LGPD no Executivo: Lei 18.699/2024 (lei, não decreto). Segunda rodada: projetos adicionais no CE, todos sem andamento verificado: PL 612/2025 (fomento a IA com sandbox permanente), PL 943/2023 (veda IA para conteúdo sexual de menores e impõe monitoramento a provedores), PL 51/2024 (campanha contra deepfake infantil), PL 906/2023 (cancelamento por app em telecom). Projetos escolares de IA (PL 173/2025 e PL 621/2024) sem gatilho para fornecedores."
+  },
+  {
+   "uf": "DF",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 5,
+   "conferidas_oficial": 3,
+   "temas_nao_localizados": [
+    "ia",
+    "outro"
+   ],
+   "notas": "Lei 6.140/2018 (encomenda tecnológica e compras para inovação; sem sandbox na leitura) e Lei 6.692/2020 (cidade inteligente). LGPD: Decreto 45.771/2024 em vigor; o 42.036/2021 foi revogado. Consumidor: Lei 6.058/2017 (cancelamento por meio idêntico ao da contratação). Sem lei distrital de IA localizada."
+  },
+  {
+   "uf": "ES",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "nao_localizado",
+   "normas_no_catalogo": 0,
+   "conferidas_oficial": 0,
+   "temas_nao_localizados": [
+    "consumidor_digital",
+    "ia",
+    "inovacao",
+    "lgpd_poder_publico"
+   ],
+   "notas": "Nenhuma norma localizada em nenhum dos cinco temas; só notícias de uso de IA no governo. Buscar direto em conslegis.es.gov.br e ioes.dio.es.gov.br."
+  },
+  {
+   "uf": "GO",
+   "tem_lei_ia": "sim",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 6,
+   "conferidas_oficial": 4,
+   "temas_nao_localizados": [
+    "outro"
+   ],
+   "notas": "LC 205/2025 (19/05/2025) confirmada em texto oficial e no DO original: sandbox permanente (arts. 32 a 38) e de agentes autônomos (arts. 41 a 43), NEI-IA (arts. 27 a 31), preferência por código aberto (arts. 4, 15, 57), Centro Estadual de Computação Aberta e IA em colaboração com o CEIA-UFG (arts. 49 a 53), requisitos para data centers (art. 68). Sem capítulo de sanções. LC 215/2026 (10/09/2026) só mudou governança: NEI-IA, Centro Estadual e diplomacia passam da SGG para a SECTI (texto da LC 215 não lido). Também: Lei 20.472/2019 (startups), Decretos 10.092/2022 e 10.609/2024 (LGPD e dados), Lei 17.424/2011 (telemarketing, página oficial)."
+  },
+  {
+   "uf": "MA",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 4,
+   "conferidas_oficial": 0,
+   "temas_nao_localizados": [],
+   "notas": "Sem lei de IA localizada. Há o edital GovIA Maranhão (FAPEMA, março/2026, R$ 2 mi, inscrições encerradas em 16/04/2026), que é fomento a startups para IA no governo e não é norma. A 'Lei de Inovação do Maranhão' (Lei 11.733) só foi encontrada em notícia, sem data nem texto. Lei 12.686/2025 (startups de turismo digital) lida em fonte secundária. Consumidor: Lei 9.053/2009, cadastro de bloqueio de telemarketing no Procon/MA, confirmada em notícia de 2019 (texto não lido). Decreto ou lei de LGPD do Executivo: nao_localizado."
+  },
+  {
+   "uf": "MT",
+   "tem_lei_ia": "sim",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 22,
+   "conferidas_oficial": 21,
+   "temas_nao_localizados": [
+    "consumidor_digital",
+    "outro"
+   ],
+   "notas": "Lei 13.257/2026 proíbe apps de IA para deep nudes e obriga plataformas a remover (art. 2º). Lei 10.690/2018 (startups) confirmada só por citação em PL; texto não lido. Muitos PLs em tramitação, nenhum confirmado como lei: IA no governo (1513/2023, 367/2024, 707/2026), IA nas escolas (808/2024), deepfake e menores (1565/2023, 581/2024), cancelamento por app em telecom (606/2023, 1058/2024). Decreto 1.428/2025 (PSI-MT) é de segurança da informação, não de LGPD."
+  },
+  {
+   "uf": "MS",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 4,
+   "conferidas_oficial": 1,
+   "temas_nao_localizados": [
+    "ia",
+    "outro"
+   ],
+   "notas": "Lei 6.380/2024 é o marco mais completo do lote depois de GO: sandbox regulatório, encomenda tecnológica, reserva de até 5% do orçamento para contratações de inovação e startups. Consumidor: Lei 5.597/2020 (multa de fidelidade), só por notícia. Sem decreto geral de LGPD confirmado."
+  },
+  {
+   "uf": "MG",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "parcial",
+   "normas_no_catalogo": 3,
+   "conferidas_oficial": 0,
+   "temas_nao_localizados": [
+    "consumidor_digital",
+    "ia"
+   ],
+   "notas": "Sem lei de IA localizada. Lei 24.839/2024 (Minas Inteligente) não menciona IA. LGPD: Decreto 48.237/2021, art. 16 limita transferência de dados a entes privados. Consumidor digital e lei de inovação: não localizados."
+  },
+  {
+   "uf": "PA",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "parcial",
+   "normas_no_catalogo": 3,
+   "conferidas_oficial": 1,
+   "temas_nao_localizados": [
+    "ia",
+    "lgpd_poder_publico",
+    "outro"
+   ],
+   "notas": "EC 69/2016 (CT&I) conferida na ALEPA; Lei Estadual de Inovação (PL 181/2016) sem número confirmado. Lei 9.263/2021 (bloqueio de telemarketing e SMS, multa R$ 5 mil por ligação). Cuidado: buscas confundem Pará com Paraná."
+  },
+  {
+   "uf": "PB",
+   "tem_lei_ia": "sim",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 6,
+   "conferidas_oficial": 3,
+   "temas_nao_localizados": [],
+   "notas": "Lei 14.008/2025 (número confirmado por nome de arquivo e por notícia) proíbe IA para imagens sexualizadas de crianças e adolescentes e obriga empresas que usam IA comercialmente a adotar medidas preventivas. Escopo estreito e risco de competência. Há ainda projetos educacionais de IA (PL 2.586/2024 aprovado em abril/2025 e PL 3.282/2024 enviado à sanção em 24/10/2025) sem gatilho para projetos digitais; a sanção não foi verificada. Inovação: Lei 12.191/2022 (encomenda tecnológica no art. 31 e poder de compra). Consumidor: Lei 8.841/2009 (multa de R$ 250 a R$ 10.000 por ligação). LGPD no Executivo: Decreto 41.238/2021. Segunda rodada: PL 1.409/2023 (princípios de IA na administração, parecer favorável da CCJ) e PL 1.118/2023 (botão de cancelamento de assinaturas online, parecer favorável da CCJ em 28/11/2023). Verificar se algum virou lei."
+  },
+  {
+   "uf": "PR",
+   "tem_lei_ia": "sim",
+   "tem_marco_inovacao": "sim (fonte secundária)",
+   "normas_no_catalogo": 8,
+   "conferidas_oficial": 2,
+   "temas_nao_localizados": [
+    "consumidor_digital"
+   ],
+   "notas": "Lei 22.324/2025 (oficial) só para o Executivo. Reserva de 10% da TI para IA a partir de 2026. Lei 20.541/2021 e sandbox da Lei 20.744/2021 vêm de fonte secundária e precisam de conferência. LGPD: Decreto 6.474/2020. Lei 23.025/2026 de dados sensíveis a verificar (EC 115)."
+  },
+  {
+   "uf": "PE",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "parcial",
+   "normas_no_catalogo": 8,
+   "conferidas_oficial": 2,
+   "temas_nao_localizados": [],
+   "notas": "Lei de IA não localizada. A norma de id 70611 no portal da ALEPE foi o primeiro resultado da busca por 'lei estadual IA PE' e segue não identificada: texto e dados referenciais bloqueados por robots.txt, e duas outras rotas (matéria jornalística e artigo acadêmico) não a citam. Conferir manualmente. Inovação: só o INOVAR-PE (Leis 15.063/2013 e 16.381/2018, ligado a incentivo de ICMS). A lei geral de inovação não foi localizada. PE tem o mais denso arcabouço de consumidor digital do lote: Código Estadual de Defesa do Consumidor (Lei 16.559/2019, com seção de comércio eletrônico), Lei 16.757/2019 (multa de cancelamento limitada a 20%), Leis 16.825/2020 e 17.787/2022 (telemarketing). LGPD no Executivo: Decretos 49.265/2020 e 51.745/2021."
+  },
+  {
+   "uf": "PI",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "parcial",
+   "normas_no_catalogo": 3,
+   "conferidas_oficial": 1,
+   "temas_nao_localizados": [],
+   "notas": "Lei 8.541/2024 é só campanha de conscientização sobre deepfake infantil, sem obrigação para particulares, e por isso não conta como lei de IA regulatória. Inovação: FIDEPI (Lei 7.430/2020, startups elegíveis a financiamento), Lei 8.771/2025 (política das MPEs) e FUNDES (Lei 5.790/2008, não lida). Lei geral de inovação, consumidor digital e LGPD no Executivo: nao_localizado. A Lei 8.409/2024 (educação empreendedora) cita a Lei estadual de Liberdade Econômica 8.025/2023, que não foi lida. Segunda rodada: Lei 8.541/2024 confirmada no DOE-PI nº 239/2024; há proposição de IA na administração estadual (dep. Kalume, maio/2024) com ambiente regulatório experimental. Notícia de junho/2024 fala em secretaria estadual de IA, ato não localizado."
+  },
+  {
+   "uf": "RJ",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "nao_localizado",
+   "normas_no_catalogo": 9,
+   "conferidas_oficial": 0,
+   "temas_nao_localizados": [
+    "inovacao"
+   ],
+   "notas": "Sem lei de IA localizada, mas um decreto específico (PIAF) teria sido publicado em 14/10/2026; confirmar no DOERJ. Projeto de IA em SAC em tramitação. Consumidor: Leis 6.322/2012 e 9.813/2022 (fonte secundária). LGPD: Decreto 48.891 (só citado). O sandbox localizado é municipal."
+  },
+  {
+   "uf": "RN",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 5,
+   "conferidas_oficial": 2,
+   "temas_nao_localizados": [],
+   "notas": "Sem lei de IA localizada (as notícias são sobre uso de IA na própria Assembleia). Inovação: LC 716/2022 (Política de CT&I com encomenda tecnológica no art. 60, startups nos arts. 64 a 70 e poder de compra), LC 745/2023 (altera a LC 716) e Lei 10.325/2018 (política de startups, com os arts. 3 a 8 vetados). Consumidor: Lei 10.175/2017 (telemarketing e SAC, com multa de R$ 1.000 por reclamação). LGPD no Executivo: Decreto 32.815/2023."
+  },
+  {
+   "uf": "RS",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "nao_localizado",
+   "normas_no_catalogo": 2,
+   "conferidas_oficial": 1,
+   "temas_nao_localizados": [
+    "consumidor_digital",
+    "ia",
+    "inovacao"
+   ],
+   "notas": "Só a Estratégia de Governo Digital (06/2025) em notícia, sem número de norma. LGPD: Decreto 55.647/2020 conferido. Inovação e consumidor digital: não localizados."
+  },
+  {
+   "uf": "RO",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 4,
+   "conferidas_oficial": 3,
+   "temas_nao_localizados": [
+    "ia",
+    "outro"
+   ],
+   "notas": "LC 1.343/2026 (Lei da Inovação, DOE 12/06/2026) conferida no texto: sem sandbox nem IA; Fider com mínimo de 10% em inovação; regulamentação em 90 dias. Decreto 26.451/2021 (LGPD no Executivo, CGPD) e Lei 4.403/2018 + Decreto 25.771/2021 (Não Perturbe) conferidos."
+  },
+  {
+   "uf": "RR",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "nao_localizado",
+   "normas_no_catalogo": 5,
+   "conferidas_oficial": 3,
+   "temas_nao_localizados": [
+    "ia",
+    "inovacao",
+    "lgpd_poder_publico",
+    "outro"
+   ],
+   "notas": "Leis 1.340/2019 (SVA/serviços digitais na fatura) e 2.071/2024 (cancelamento online de telefonia) vigentes, mas com risco de competência: o Executivo vetou o PL 191/2024 por invasão da competência da União sobre telecom. Projetos de 2026 sobre consignado e cancelamento sem número."
+  },
+  {
+   "uf": "SC",
+   "tem_lei_ia": "sim",
+   "tem_marco_inovacao": "parcial",
+   "normas_no_catalogo": 4,
+   "conferidas_oficial": 3,
+   "temas_nao_localizados": [
+    "consumidor_digital",
+    "inovacao",
+    "lgpd_poder_publico"
+   ],
+   "notas": "Lei 19.450/2025 (administração pública; exclui o setor privado; prevê ambiente regulatório experimental). Projetos de IA privada (PL 578/2025) enfrentam parecer de inadmissibilidade por competência da União. LGPD, inovação geral e consumidor digital: não localizados."
+  },
+  {
+   "uf": "SP",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 13,
+   "conferidas_oficial": 11,
+   "temas_nao_localizados": [],
+   "notas": "Nenhuma lei de IA localizada; só projetos (PL 363/2026, 1134/2023, 257/2024, 270/2024, 1336/2025). Marco de inovação: LC 1.049/2008 + SPAI; marco de startups e sandbox estaduais não localizados. Consumidor: Lei 17.832/2023 (consolidação) com telemarketing, cancelamento, cobrança e atendimento. A Lei 13.226/2008 foi revogada por ela. LGPD: Decreto 65.347/2020."
+  },
+  {
+   "uf": "SE",
+   "tem_lei_ia": "nao_localizado",
+   "tem_marco_inovacao": "sim",
+   "normas_no_catalogo": 4,
+   "conferidas_oficial": 3,
+   "temas_nao_localizados": [],
+   "notas": "Só projetos de lei de IA localizados: governança, uso e contratação de IA na administração estadual (apresentado em 05/01/2026, com avaliação de impacto algorítmico, exigências para editais e contratos e autorização de sandbox) e campanha contra deepfake infantil (06/02/2024). Nenhum teve tramitação verificada. Inovação: Lei 9.496/2024, com sandbox (art. 2º, XX, e art. 42), encomenda tecnológica (art. 44) e capítulo de startups (arts. 53 a 56). LGPD no Executivo: Decreto 40.006/2021. Consumidor digital: nao_localizado. Número 9.496 da Lei de Inovação confirmado também em notícia de 23/01/2026."
+  },
+  {
+   "uf": "TO",
+   "tem_lei_ia": "sim",
+   "tem_marco_inovacao": "nao_localizado",
+   "normas_no_catalogo": 6,
+   "conferidas_oficial": 5,
+   "temas_nao_localizados": [
+    "inovacao",
+    "lgpd_poder_publico",
+    "outro"
+   ],
+   "notas": "Lei 4.752/2025 (disciplina optativa de IA em escolas públicas) conferida na Aleto; escopo restrito, vedações no art. 5º. Consumidor: Leis 3.377/2018, 3.624/2019 e 3.625/2019 só por notícia. Projetos (sem número) de IA na administração, deepfake infantil, educação digital e telemarketing por robôs. Sem LGPD estadual nem inovação localizadas."
+  }
+ ],
+ "duvidas_pesquisa": [
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "PENDENTE, ESCOPO DESTA RODADA: o limite de 200 WebSearch por turno estava esgotado desde o início; 7 tentativas (cobrindo deepfake, MA 9.053/2009 e PE 70611) foram recusadas e nenhuma busca nova foi feita. Só foi possível usar WebFetch em URLs já registradas no levantamento anterior ou citadas em páginas lidas. Por isso NÃO foram feitos: item 1 (deepfake, conteúdo sexual sintético, reconhecimento facial, crianças online) em AL, BA, MA, PE, RN e SE; item 2 (consumidor digital) em BA, MA, RN, AL e SE, e em PE só a releitura do Código; item 3; item 4. 'normas' está vazio de propósito: preencher com 'nao_localizado' sugeriria que a busca foi feita. Ausência de achado não prova ausência de lei, e aqui nem houve busca. Para continuar, enviar nova mensagem após esta resposta."
+  },
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "PENDENTE, item 3 (MA, Lei 9.053/2009): texto oficial não obtido, portanto nenhum artigo foi registrado. A página do Procon/MA (http://www.procon.ma.gov.br/bloqueio-de-telemarketing-2/, citada na matéria de O Imparcial) está bloqueada por robots.txt. Sem texto, não confirmar data, multa, escopo sobre SMS ou isenções. Rotas: portal de legislação da ALEMA, DOE-MA, ou leitura humana da página do Procon/MA."
+  },
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "PENDENTE, item 4 (PE, ALEPE id 70611): continua NÃO identificada. Nenhuma rota alternativa (DOE-PE, notícia oficial, legisweb) pôde ser pesquisada sem busca. O portal legis.alepe.pe.gov.br bloqueia leitura automatizada. Não presumir que seja norma de IA: o código só indica que apareceu como primeiro resultado de uma busca por 'lei estadual IA PE'."
+  },
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "PENDENTE, item 5: apenas SE-LGPD-001 e RN-LGPD-001 ganharam link_oficial (cópias em sites de entes estaduais, não no DOE). As demais entradas ainda sem URL oficial no levantamento anterior seguem assim por falta de busca: AL-INO-002, AL-INO-003, AL-CONS-001, BA-INO-001, MA-INO-001, MA-INO-002, MA-INO-003, MA-CONS-001, PE-CONS-001 a PE-CONS-004, PE-LGPD-001, PE-LGPD-002, RN-INO-002 (as entradas de CE, PB e PI estão fora deste complemento). O DOE de AL de 10/02/2023 traz o projeto da Lei 8.956/2023, não a lei sancionada."
+  },
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "SE-LGPD-001: o número provável é 41.006 (ver atualizacoes), mas a leitura foi feita por resumo automatizado e a cópia tem incoerências internas. Confirmar no DOE-SE de 06 e 07/10/2021. Se confirmado, corrigir também o nome do arquivo citado e qualquer referência a '40.006' em outros documentos do revisor."
+  },
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "PE-CONS-001: arts. 112 em diante (incluindo art. 180, com as faixas A a E das multas, e a vigência) não foram lidos porque a cópia da Coad é truncada no art. 111. Sem as faixas, não dá para estimar o risco financeiro das infrações dos arts. 81 e 55-A."
+  },
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "Notas de método: o WebFetch devolve resumo gerado por modelo auxiliar e limita citações literais a cerca de 125 caracteres; números de artigo vindos dessas leituras devem ser conferidos no texto oficial antes de entrar em parecer."
+  },
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "Marco federal citado de memória do modelo, SEM verificação nesta rodada: Lei 15.211/2025 (ECA Digital). Se estiver em vigor, pode limitar normas estaduais sobre proteção de crianças online (competência concorrente em proteção à infância, art. 24, XV, CF, mas telecomunicações, informática e proteção de dados são privativas da União, art. 22, IV e XXX). Conferir número, data e vigência antes de qualquer uso."
+  },
+  {
+   "arquivo": "uf-nordeste-complemento.json",
+   "duvida": "Para a próxima rodada, consultas prioritárias sugeridas: (1) 'Lei 9.053/2009 Maranhão' em ALEMA e DOE-MA; (2) PE ALEPE 70611 por DOE-PE e legisweb; (3) deepfake, conteúdo sexual sintético e reconhecimento facial, uma consulta por UF (AL, BA, MA, PE, RN, SE), com 'Assembleia Legislativa' e 'lei estadual'; (4) BA, MA, SE e AL: 'lei estadual cancelamento de serviço por meio eletrônico', 'multa de fidelidade' e 'informação de preço em site'; (5) RN: Lei 10.175/2017, regulamentação do art. 6º."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "ESCOPO DA BUSCA (2ª rodada): o limite de 200 WebSearch por turno continuou esgotado, então nenhuma busca nova pôde ser feita. Só foi possível ler (WebFetch) URLs que já tinham surgido em buscas anteriores. Por isso, deepfake, reconhecimento facial e proteção de crianças online (pedido 1) e consumidor digital (pedido 2) seguem sem busca nova em AL, BA, MA, PE, RN e SE; os achados novos vieram de projetos de lei do CE, PB e PI que já estavam nos resultados antigos. Ausência de achado não prova ausência de lei. Para continuar, é preciso liberar buscas num novo turno."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "LEITURA AUTOMATIZADA: o conteúdo de cada norma foi lido por WebFetch, que devolve resumo gerado por modelo auxiliar e limita citações literais a 125 caracteres. Foram relidos: CE Lei 17.611/2021 (texto ALECE), PB Lei 14.008/2025 (PDF SAPL, com transcrição quase literal), PE Lei 16.757/2019 (art. 55-A literal, via normasbrasil) e PI Lei 8.541/2024 (DOE-PI). As demais 'fonte_secundaria' não têm URL oficial legível sem nova busca; conferir artigos no texto oficial antes de usar em parecer."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "PE, ALEPE id 70611: segue NÃO identificada. Texto e dados referenciais bloqueados por robots.txt; a matéria da Tribuna Online é de Porto Alegre e o artigo da FUMEC não cita lei estadual de PE. Rota recomendada: consulta humana a legis.alepe.pe.gov.br (id=70611) ou ao DOE-PE. Não presumir que seja lei de IA."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "MA, Lei 9.053/2009: existência, tema (bloqueio de telemarketing, Procon/MA, 30 dias, até quatro linhas) e ano confirmados em notícia de O Imparcial (2019). Texto, sanções, data exata e alcance sobre SMS não lidos; a página do legisweb (id 130531) não foi relida por orientação do proxy (HTTP 429). Também não lido: Decreto 37.783/2022 (legisweb id 433669), que apareceu na busca de inovação do MA."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "PE Lei 16.757/2019: a página registra assinatura de 'Eriberto Medeiros, Presidente' (provável Presidente da Alepe), o que sugere promulgação pelo Legislativo. Confirmar no DOE-PE se houve veto e derrubada. A fonte oficial da ALEPE está bloqueada à leitura automatizada."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "PB Lei 14.008/2025: primeiro dígito do número ilegível no PDF; '14.008' vem do nome do arquivo e de notícia. Dia do cabeçalho ilegível ('A1 de outubro de 2025') e carimbo de publicação só com o dia '15' legível. Confirmar número, sanção e publicação no DOE-PB. Redação do art. 1º usa 'sexista' e os arts. 2º e 3º usam 'eróticas': alcance ambíguo."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "PB, desfecho dos projetos: PL 1.118/2023 (botão de cancelamento de assinaturas online), PL 1.409/2023 (IA na administração), PL 2.586/2024 (ética em IA nas escolas, aprovado em abril/2025) e PL 3.282/2024 (autógrafo 1.745/2025 de 24/10/2025). Sanção não verificada em nenhum. Os PDFs oficiais da Lei 12.191/2022 (site do governo e SAPL) falharam novamente; a EC estadual 49/2021 (CT&I) não foi lida."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "PI: notícia de 11/06/2024 diz que o estado criou secretaria estadual de IA e tornou IA matéria obrigatória nas escolas, sem citar ato; atos de criação não localizados. Lei estadual de Liberdade Econômica 8.025/2023 (citada na Lei 8.409/2024 e no PL 374/2023) não lida."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "SE: data de sanção da Lei 9.496/2024 (16/07 na imprensa x 22/07 no PDF); decreto regulamentador mencionado em notícia, não localizado; número do Decreto 40.006/2021 (retificação mencionada); autoria e tramitação dos dois PLs de IA."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "AL: número e data de publicação da Lei 8.956/2023 (só aparece como base do Decreto 95.265/2024; o DOE de 10/02/2023 traz o PL); discrepância 2023 x 2024 na data do Decreto 95.265."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "BA: as 'Diretrizes para a Integração da IA na Rede Estadual' (SEC, fevereiro/2026) não puderam ser lidas (erro de acesso); o Decreto 22.378/2023 e o texto da Lei 14.315/2021 também não foram lidos. Natureza do ato e exigências a fornecedores de IA para escolas não verificadas."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "MA: a 'Lei de Inovação' (Lei 11.733) e o Decreto 37.958/2022 só foram citados em notícia; data e conteúdo não verificados. Não foi encontrado o texto do edital GovIA Maranhão nem seu número."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "CE: lei geral de inovação não localizada (as normas achadas são da FUNCAP, de 1990 e 2001, e a Lei 15.596/2014 sobre o Fundo de Inovação Tecnológica, que cita a LC 129/2013, não lida). Regulamentação do art. 2º da Lei 15.111/2012 não verificada. Existência de ADI contra a Lei 17.611/2021 não verificada. Numerações dos PLs do CE foram inferidas dos nomes dos arquivos (documentos S/N); andamento de todos não verificado."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "CORREÇÃO: na primeira rodada, o arquivo chamou o 'Não Me Perturbe' de cadastro da Anatel. Segundo O Povo (17/01/2025), é autorregulação do setor de telecom (Conexis), com bloqueio só de telecom e crédito consignado, em até 30 dias. Observação em CE-CONS-001 corrigida."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "STF e competência: a validação de lei fluminense de cadastro 'não perturbe' (ADI 5962) foi lida apenas em notícia da Teletime; a matéria do Conjur (2017) sobre ADIs contra leis estaduais de telefonia e internet não pôde ser lida. Confirmar acórdãos antes de usar como precedente, especialmente para leis estaduais que alcançam operadoras (art. 22, IV, CF), como CE-CONS-003."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "Normas federais que podem afetar este mapa e não foram verificadas neste lote: PL 2.338/2023 (marco de IA), a Lei federal do ECA Digital e o PL 3.066/2025 (criminalização de IA em pornografia infantojuvenil, citado em notícia como aprovado em comissão da Câmara). Se em vigor, podem pré-excluir regras estaduais sobre IA e crianças online."
+  },
+  {
+   "arquivo": "uf-nordeste.json",
+   "duvida": "Leis a ler em rodada futura: Lei 5.790/2008 do PI (FUNDES) e seu decreto de 2015; IN 02/2023 do RN (diretrizes de tratamento de dados); Lei 8.409/2024 do PI (hubs de inovação); LC 478/2012 do RN (possivelmente revogada pela LC 716/2022)."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "LEGENDA: verificacao = oficial_conferido (ato ou texto lido em portal oficial, inclusive assembleia, casa civil, diário oficial ou site de secretaria; inclui proposições lidas no site da assembleia e leis conhecidas por citação em documento oficial, ressalvado em observacoes); fonte_secundaria (só agregador como normasbrasil/legisweb, notícia ou menção indireta); nao_localizado. 'projeto_de_lei' e 'veto' não são normas vigentes. possivel_inconstitucionalidade: sim | risco_parcial | nao_identificada. Nenhuma lei que regule dados pessoais de particulares foi marcada como 'sim'. tem_marco_inovacao aceita também 'parcial'."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "LIMITE DE BUSCA: o limite de WebSearch (200 por turno, compartilhado) ficou esgotado nas duas rodadas. Na rodada de continuação não foi possível pesquisar o Acre, o item 5 nas demais UFs nem consumidor digital onde estava nao_localizado; só foram lidas URLs já retornadas por buscas anteriores. O que ficou nao_localizado reflete busca rasa, não inexistência. O modo 'extended' nunca foi usado. Para fechar AC, AP, PA, RR, TO (inovação, LGPD), PA/AM (IA) e item 5 fora de MT e TO, é preciso nova rodada com busca disponível."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "MÉTODO DE LEITURA: o WebFetch devolve resumo feito por modelo, não o texto integral, e limita citações literais a 125 caracteres. Numerações de artigos devem ser conferidas no texto integral antes de citar em parecer; vale em especial para GO-IA-001, MS-INO-001, RO-LGP-001 e DF-LGP-001. Houve ao menos um erro de leitura detectado e corrigido nesta rodada (sentido das alterações da LC 215)."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "GOIÁS - LC 215/2026: o texto da LC 215 em si não foi lido nem localizada sua publicação no DO/GO; o efeito foi reconstruído do consolidado (9 notas) e do DO original. Ordem dos blocos confirmada para os arts. 27, 29 e 52; para os arts. 20, 21, 26 § 1º e 50 § 1º a direção é inferência. Arts. 8, 32 a 43, 44, 48, 57 e 68 sem nota de alteração. Recomenda-se ler a LC 215 na íntegra para confirmar que não há outros dispositivos alterados sem nota e se há regras de transição."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "GOIÁS - LC 205: não há capítulo de sanções; os deveres dos arts. 8, 44 e 48 não têm penalidade própria no texto. O art. 44, III remete ao inciso II e deixa dúvida sobre o alcance da auditoria. O art. 1º lido difere da ementa. Não foi feita busca de ADI contra a lei. A matéria da Machado Meyer grafa 202/25 no subtítulo (erro): LC 202/2025 é a lei do transporte metropolitano."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "GOIÁS - consumidor: a Lei 17.424/2011 foi lida em página oficial do Procon-GO; Decreto 7.990/2013 e Lei 19.042/2015 vêm só do Rota Jurídica (2017) e não foram lidos. Nenhuma lei goiana de cancelamento online ou multa de fidelidade foi localizada."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "PÁGINAS NÃO LIDAS: legisweb.com.br devolveu HTTP 429 (Lei nº 19.450/2025, provavelmente de outro estado; Decreto nº 15.646/2021, possivelmente MS; Decreto nº 6.547/2022, possivelmente TO). Correio do Estado (telemarketing em MS) deu erro de servidor. Também apareceram e não foram lidos: Leis TO 3.998/2022 e 3.377/2018 no legisweb, Lei DF 6.653/2020, Lei MS 3.641/2009, Leis 5.357/2020 e 5.450/2021 (UF indefinida), Lei MT 8.569/2006. Arquivos da SAPL da Aleto em .docx (2026/13936 'dispõe sobre IA' e 2026/14403 'pl_27-26') vieram ilegíveis: podem conter projeto geral de IA."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "RONDÔNIA: a LC 1.343/2026 deu 90 dias para regulamentação (art. 5º, ~10/09/2026); não verifiquei se há decreto regulamentador. A ligação entre a LC 1.343 e o PLC 178/2026 da Alero é inferência."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "TELECOM E COMPETÊNCIA: leis e projetos estaduais que impõem deveres a operadoras (RR 1.340/2019 e 2.071/2024, AM 5.779/2022 e SVA, DF 6.058/2017 para provedores, PLs de MT 606/2023, 1058/2024, 172/2022, 81/2019, PL MS 136/2026) tangenciam os arts. 21, XI e 22, IV da CF. Evidências: veto do Executivo de RR ao PL 191/2024 (oficial) e, segundo A Crítica, ADI 5963 (lei RJ mantida) e ADI 7211 (lei RJ invalidada). Os acórdãos não foram lidos e não há ADI localizada contra as leis deste lote."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "FONTES FRACAS: AM-CON-002, AM-CON-003 e demais leis do dep. Roberto Cidade vêm de 'especial publicitário' (Portal Amazônia); AM-INO-001, AP-INO-*, PA-CON-001, RR-CON-001/002 e DF-CON-001 foram lidas em normasbrasil; MT-CON-001 e MT-INO-001 só por citação em PL. Confirmar nos portais das assembleias antes de qualquer uso."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "MATO GROSSO: todos os PLs da ALMT listados vêm de PDFs de proposição; o andamento atual (aprovação, sanção, arquivamento) não foi checado, e vários são antigos (2013, 2019, 2021). Pelo material lido MT tem uma lei de IA sancionada (13.257/2026), nenhuma lei de bloqueio de telemarketing e nenhuma de cancelamento online confirmadas. MT-IA-001, art. 2º, tem risco de competência."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "MATO GROSSO DO SUL: o capítulo do sandbox da Lei 6.380/2024 aparece com numeração confusa na leitura; a Resolução CGE 67 tem data inferida; a Lei 5.597/2020 foi lida só por notícia, e a aplicação a SaaS é interpretação nossa. Não localizei lei estadual de telemarketing de MS."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "DISTRITO FEDERAL: não localizei lei distrital de IA; o DF tem muitas leis de consumidor que não foram varridas. A origem da Lei 6.058/2017 no PL 415/2015 é inferência. A Lei 6.140/2018 não foi checada quanto a alterações."
+  },
+  {
+   "arquivo": "uf-norte-centro-oeste.json",
+   "duvida": "NÃO LOCALIZADOS (sem prova de inexistência): AC em todas as categorias; lei de IA em AP, AM, PA, RO, RR, MS e DF; inovação em RR e TO; decreto de LGPD em AC, AP, AM, PA, RR, TO e MS (geral); consumidor digital em AC e AP; item 5 em AC, AP, AM, PA, RO, RR, GO, MS e DF."
+  },
+  {
+   "arquivo": "uf-sudeste-sul-complemento.json",
+   "duvida": "EXECUCAO NAO REALIZADA: normas=[] e atualizacoes=[] NAO significam ausencia de lei nem confirmacao de nada. O limite de 200 WebSearch por turno (compartilhado entre agentes) estava esgotado em 16/10/2026; as 4 buscas tentadas (RJ Decreto 50.523; SC Lei 19.450; ES decreto LGPD; SC decreto LGPD) foram recusadas pela ferramenta. Nenhum WebFetch foi feito, porque a regra da tarefa e fetch so em URLs vindas de busca e as URLs do levantamento anterior nao permitem confirmar o que falta. Nenhum numero, data ou conteudo foi preenchido de memoria."
+  },
+  {
+   "arquivo": "uf-sudeste-sul-complemento.json",
+   "duvida": "ITEM 1 (RJ-IA-001, Decreto 50.523/2026): segue fonte_secundaria (so atlaspublico.com.br, conforme uf-sudeste-sul.json). Pendente: confirmar numero, data de assinatura (13/10/2026) e publicacao (14/10/2026) no DOERJ ou no portal do governo do RJ; ler os artigos; confirmar alcance (Executivo estadual apenas, indireta incluida ou nao); obter link oficial."
+  },
+  {
+   "arquivo": "uf-sudeste-sul-complemento.json",
+   "duvida": "ITEM 2 (consumidor digital em ES, MG, PR, RS, SC): ES-CONS-000, MG-CONS-000, PR-CONS-000, RS-CONS-000 e SC-CONS-000 seguem nao_localizado (nao e prova de inexistencia). Pendente buscar em cada Assembleia/portal de legislacao: cancelamento por meio eletronico, cadastro nao perturbe/telemarketing, multa de fidelidade, informacao de preco em sites, atendimento (SAC). Regra: lei estadual que discipline cadastro/tratamento de dados de particulares recebe possivel_inconstitucionalidade=true (EC 115/2022, art. 22, XXX, CF); telecomunicacoes pode atrair art. 22, IV."
+  },
+  {
+   "arquivo": "uf-sudeste-sul-complemento.json",
+   "duvida": "ITEM 3 (inovacao, startups, sandbox, CPSI em ES, MG, RJ, RS, SC): ES-INOV-000, RJ-INOV-000, RS-INOV-000 e SC-INOV-000 seguem nao_localizado; MG-INOV-001 (Lei 24.839/2024, Minas Inteligente) segue fonte_secundaria e nao e marco de startups. Pendente localizar a lei estadual geral de inovacao de cada UF e eventual marco de startups, sandbox e regra de CPSI/compras de inovacao. Nenhum numero foi registrado por falta de fonte."
+  },
+  {
+   "arquivo": "uf-sudeste-sul-complemento.json",
+   "duvida": "ITEM 4 (decreto de LGPD no poder publico em ES e SC): ES-LGPD-000 e SC-LGPD-000 seguem nao_localizado. O levantamento anterior indicou conslegis.es.gov.br e ioes.dio.es.gov.br como fontes para o ES; para SC preferir o portal da ALESC ou o Diario Oficial de SC."
+  },
+  {
+   "arquivo": "uf-sudeste-sul-complemento.json",
+   "duvida": "ITEM 5 (SC-IA-001, Lei 19.450/2025): segue oficial_conferido apenas quanto a existencia, numero, data (05/09/2025) e ementa; o texto lido continua sendo o autografo da ALESC (19/08/2025). Pendente: ler o texto sancionado/publicado, ver se houve veto e conferir a numeracao dos arts. 8 e 11. A pagina do Legisweb dessa lei foi recusada pelo proxy (HTTP 429) no levantamento anterior; preferir o portal da ALESC ou o Diario Oficial de SC. Divergencia de autoria (PGE/SC x ALESC) tambem aberta."
+  },
+  {
+   "arquivo": "uf-sudeste-sul-complemento.json",
+   "duvida": "PARA RETOMAR: enviar nova mensagem em turno com cota de busca disponivel. Ordem sugerida: (1) RJ Decreto 50.523 (fato novo e de maior impacto), (5) texto publicado da Lei 19.450/2025, (4) LGPD ES/SC, (3) inovacao, (2) consumidor digital. Ao retomar, atualizar entradas existentes pelo mesmo id (via atualizacoes) e criar ids novos so para normas novas, com prefixo UF-TEMA-C##."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "SP, Lei 13.226/2008: a premissa está desatualizada. A ALESP mostra a lei como revogada pela Lei 17.832/2023 (consolidação), com conteúdo nos arts. 127-129. Conferir o status do Decreto 53.921/2008 e o objeto da ADI TJSP 2342591-64.2023.8.26.0000 citada na ficha da Lei 17.832."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "SP, Lei 17.832/2023: li só até o art. 194 e por resumo; numerar artigos a partir da íntegra antes de citar. Contagem de leis consolidadas: 64, 72 ou 74 conforme a fonte."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "SP, Decreto 67.799/2023: fonte é cópia em ses.sp.bvs.br; a data 13/07/2023 foi inferida do nome do arquivo e a publicação (14/07/2023) vem do resumo. A Estratégia cobre 2023-2026: verificar se há sucessora."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "RJ, Decreto 50.523/2026: uma única fonte secundária (atlaspublico.com.br), com 3 dias de publicado. Confirmar número, data, texto e prazos no DOERJ de 14/10/2026."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "RJ: Decreto 48.891 (LGPD) só citado em ato da SEDCON, sem data. Decreto 49.326/2024 (governo digital) só citado pela Justen. Leis 6.322/2012 e 9.813/2022 vêm de fontes secundárias. Lei 10.994 sem data confirmada. PL de IA em SAC (Dionísio Lins) sem número. PL 5.272/2021: checar sanção ou veto."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "RJ: o sandbox localizado (Lei Complementar 300, de 18/05/2026) é do MUNICÍPIO do Rio de Janeiro, não do Estado."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "PR: Migalhas publicou 'Lei 22.343/25', erro; o número oficial é 22.324/2025. A Lei não menciona sandbox, mas AEN e Justen dizem que o Plano de Diretrizes prevê; ler os Anexos I-III."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "PR: Lei 20.541/2021 aparece como Lei de Inovação (Justen) e como lei de habilitação de municípios ao Fundo Paraná (relatório SEIA). Lei 20.744/2021 (sandbox) só na Justen. Decreto 1.350/2022 só na Justen. Conferir no portal de legislação do PR."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "PR: número e data do decreto dos 10% da TI para IA; data de assinatura do Decreto 6.474/2020; conteúdo e alcance da Lei 23.025/2026 (possível questão de EC 115, art. 22, XXX)."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "SC: texto final da Lei 19.450/2025 não lido (só o autógrafo); autoria divergente entre PGE/SC (Rodrigo Diel de Abreu) e ALESC (Mário Motta). Acompanhar PL 578/2025 e o projeto do Observatório de IA."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "MG: Resolução OGE 10/2025 vem de notícia (ano inferido). Lei 24.839/2024 vem de fonte secundária. Resolução Conjunta PGJ/CGMP 06/2025 (MPMG) apareceu na busca e não foi lida."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "ES: nada localizado. O Ato Normativo 161/2024 do TJES (Judiciário) apareceu na busca e não foi lido."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "Leis estaduais gerais de inovação de MG, RS, SC, RJ e ES (as chamadas 'Lei Mineira/Gaúcha/Catarinense/Fluminense de Inovação'), marco de startups e sandbox estaduais: existência provável pelo padrão pós-Lei 13.243/2016, mas NÃO conferida; nenhum número foi registrado por falta de fonte."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "Lacunas de cobertura por limite de buscas (200 por turno, compartilhado): consumidor digital em ES, MG, PR, RS, SC; decreto de LGPD em ES, SC e data do RJ; inovação em ES, MG, RJ, RS, SC; IA em ES e RS pela Assembleia/Diário Oficial. Também não consultei diretamente ALMG, Alerj, ALES, ALEP, Alergs."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "Duas páginas do Legisweb (ids 475961 e 483267) foram recusadas pelo proxy (HTTP 429) e não foram lidas; nenhuma conclusão depende delas (Lei 22.324 e Lei 19.450 foram conferidas por outras fontes)."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "Os campos possivel_inconstitucionalidade são análise preliminar minha, salvo SC-IA-002 (voto do relator da CCJ) e a observação da PGE/SC; não há decisão judicial localizada sobre nenhum deles. Federal de contexto: Lei 15.211/2025 (ECA Digital) e Decreto 12.622/2025, citados no Boletim da PGE/SC."
+  },
+  {
+   "arquivo": "uf-sudeste-sul.json",
+   "duvida": "PENDENTE (continuação solicitada em 16/10/2026, NÃO executada): o limite de 200 buscas por turno continuava esgotado, então nenhuma verificação mudou. Itens abertos: (1) RJ-IA-001 segue fonte_secundaria; confirmar Decreto 50.523/2026 no DOERJ de 14/10/2026 ou no portal do governo do RJ (número, data, artigos, alcance). (2) Consumidor digital em ES, MG, PR, RS e SC (cancelamento online, telemarketing/não perturbe, multa de fidelidade, informação em sites): IDs ES-CONS-000, MG-CONS-000, PR-CONS-000, RS-CONS-000 e SC-CONS-000 seguem nao_localizado. (3) Inovação/startups/sandbox/CPSI em ES, MG, RJ, RS e SC: ES-INOV-000, RJ-INOV-000, RS-INOV-000 e SC-INOV-000 seguem nao_localizado; MG-INOV-001 segue fonte_secundaria. (4) Decreto de LGPD no poder público de ES (ES-LGPD-000) e SC (SC-LGPD-000) seguem nao_localizado. (5) SC-IA-001: texto sancionado da Lei 19.450/2025 não lido; permanece o autógrafo. A página do Legisweb dessa lei foi recusada pelo proxy (HTTP 429) com orientação de não repetir a busca, então preferir o portal da ALESC ou o Diário Oficial de SC. Ao retomar, atualizar as entradas existentes pelo mesmo ID e criar novos IDs só para normas novas."
+  }
+ ]
+}

@@ -1,9 +1,140 @@
 {
-  "version": "0.2.0",
-  "total": 176,
-  "plugins": 39,
+  "version": "0.3.0",
+  "total": 182,
+  "plugins": 40,
   "semantic_benchmark_executed": false,
   "skills": [
+    {
+      "plugin": "ab-lexzenit-project-review",
+      "id": "atualizar-catalogo",
+      "title": "Atualizar o catálogo normativo",
+      "command": "/ab-lexzenit-project-review:atualizar-catalogo",
+      "path": "ab-lexzenit-project-review/skills/atualizar-catalogo/SKILL.md",
+      "domain": "Revisão jurídica de projetos de IA e startups (N1 · N2 · N3)",
+      "origin": "br-original",
+      "source_ids": [
+        "CF",
+        "S09"
+      ],
+      "workflow_status": "authored_not_semantically_benchmarked",
+      "automatic_legal_decision": false,
+      "external_connector": false,
+      "inputs": "Norma nova ou alterada, com fonte oficial, número, data, vigência e dispositivos.",
+      "method": "Conferir a fonte oficial, registrar status, vigência, gatilho e obrigações com dispositivo e evidência; marcar a verificação; rodar a validação do catálogo e um caso de regressão.",
+      "output": "Proposta de alteração do catálogo com fonte, versão, escopo temporal e caso de regressão.",
+      "negative_case": "Não marcar fonte secundária como oficial nem criar obrigação a partir de projeto de lei."
+    },
+    {
+      "plugin": "ab-lexzenit-project-review",
+      "id": "classificar-risco-ia",
+      "title": "Classificar risco de sistema de IA",
+      "command": "/ab-lexzenit-project-review:classificar-risco-ia",
+      "path": "ab-lexzenit-project-review/skills/classificar-risco-ia/SKILL.md",
+      "domain": "Revisão jurídica de projetos de IA e startups (N1 · N2 · N3)",
+      "origin": "br-original",
+      "source_ids": [
+        "S09",
+        "EUAIA",
+        "CDC"
+      ],
+      "workflow_status": "authored_not_semantically_benchmarked",
+      "automatic_legal_decision": false,
+      "external_connector": false,
+      "inputs": "Descrição do sistema de IA, finalidade, usuários afetados, dados e decisões.",
+      "method": "Classificar o sistema por regime (PL 2.338/2023 como radar, AI Act, leis estaduais dos EUA, LGPD art. 20) e mapear deveres de transparência, supervisão humana, documentação e avaliação de impacto.",
+      "output": "Ficha de classificação por regime com deveres, datas de aplicação e evidências esperadas.",
+      "negative_case": "Não classificar como alto risco só pelo setor nem tratar projeto de lei brasileiro de IA como lei vigente."
+    },
+    {
+      "plugin": "ab-lexzenit-project-review",
+      "id": "escolher-n2",
+      "title": "Escolher o país N2",
+      "command": "/ab-lexzenit-project-review:escolher-n2",
+      "path": "ab-lexzenit-project-review/skills/escolher-n2/SKILL.md",
+      "domain": "Revisão jurídica de projetos de IA e startups (N1 · N2 · N3)",
+      "origin": "br-original",
+      "source_ids": [
+        "EUAIA",
+        "GDPR",
+        "CCPA"
+      ],
+      "workflow_status": "authored_not_semantically_benchmarked",
+      "automatic_legal_decision": false,
+      "external_connector": false,
+      "inputs": "Países-alvo, mercado principal, estados dos EUA e indícios de público estrangeiro.",
+      "method": "Aplicar a regra N2 em ordem (fixado, mercado principal, EUA no alvo, primeiro país, sinais, padrão EUA); explicar a regra que decidiu e separar aplicável de prontidão.",
+      "output": "País N2 com motivo, pacote disponível e jurisdições em prontidão.",
+      "negative_case": "Não aplicar lei estadual americana como obrigação sem usuários declarados naquele estado; no máximo prontidão."
+    },
+    {
+      "plugin": "ab-lexzenit-project-review",
+      "id": "kit-documentos",
+      "title": "Kit de documentos do projeto",
+      "command": "/ab-lexzenit-project-review:kit-documentos",
+      "path": "ab-lexzenit-project-review/skills/kit-documentos/SKILL.md",
+      "domain": "Revisão jurídica de projetos de IA e startups (N1 · N2 · N3)",
+      "origin": "br-original",
+      "source_ids": [
+        "S09",
+        "CDC",
+        "MCI",
+        "STARTUPS"
+      ],
+      "workflow_status": "authored_not_semantically_benchmarked",
+      "automatic_legal_decision": false,
+      "external_connector": false,
+      "inputs": "Lacunas do relatório e dados da empresa para os campos das minutas.",
+      "method": "Selecionar as minutas que fecham lacunas, listar campos obrigatórios, preencher só com dados fornecidos e marcar o que falta; manter a base legal de cada minuta.",
+      "output": "Pacote de minutas com campos pendentes e aviso de revisão profissional.",
+      "negative_case": "Não inventar dados da empresa nem publicar, assinar ou enviar documento sem autorização específica."
+    },
+    {
+      "plugin": "ab-lexzenit-project-review",
+      "id": "mapa-uf",
+      "title": "Mapa estadual de normas para projetos digitais",
+      "command": "/ab-lexzenit-project-review:mapa-uf",
+      "path": "ab-lexzenit-project-review/skills/mapa-uf/SKILL.md",
+      "domain": "Revisão jurídica de projetos de IA e startups (N1 · N2 · N3)",
+      "origin": "br-original",
+      "source_ids": [
+        "CF",
+        "S09",
+        "CDC"
+      ],
+      "workflow_status": "authored_not_semantically_benchmarked",
+      "automatic_legal_decision": false,
+      "external_connector": false,
+      "inputs": "UF(s) de sede e atuação e perfil do projeto.",
+      "method": "Listar por UF as normas do catálogo por tema (IA, inovação, consumo digital, LGPD estadual), com status, fonte, verificação e alerta de competência constitucional; marcar lacunas de pesquisa.",
+      "output": "Mapa por UF com normas aplicáveis, oportunidades, radar e lacunas de pesquisa.",
+      "negative_case": "Não tratar ausência de norma no catálogo como ausência de norma, nem aplicar lei estadual de dados pessoais a particular sem alertar a competência da União."
+    },
+    {
+      "plugin": "ab-lexzenit-project-review",
+      "id": "revisar-projeto",
+      "title": "Revisar projeto · N1 Brasil · N2 país · N3 mundo",
+      "command": "/ab-lexzenit-project-review:revisar-projeto",
+      "path": "ab-lexzenit-project-review/skills/revisar-projeto/SKILL.md",
+      "domain": "Revisão jurídica de projetos de IA e startups (N1 · N2 · N3)",
+      "origin": "br-original",
+      "source_ids": [
+        "S09",
+        "MCI",
+        "CDC",
+        "CF",
+        "ANPD",
+        "STARTUPS",
+        "EUAIA",
+        "CCPA"
+      ],
+      "workflow_status": "authored_not_semantically_benchmarked",
+      "automatic_legal_decision": false,
+      "external_connector": false,
+      "inputs": "Projeto (código) e respostas do questionário: UF de sede e de atuação, países-alvo, estados dos EUA, estágio e sinais que o código não revela.",
+      "method": "Ler a política e o catálogo; levantar sinais do código; perguntar o que falta; definir N2; cruzar cada norma vigente com gatilho e evidência; classificar o estado de cada obrigação; separar radar e oportunidades; sugerir minutas.",
+      "output": "Relatório N1/N2/N3 com estado, severidade, fonte, evidência localizada, perguntas pendentes, radar regulatório, oportunidades e minutas sugeridas.",
+      "negative_case": "Não declarar conformidade porque um documento existe, nem tratar projeto de lei ou fonte secundária como obrigação firme."
+    },
     {
       "plugin": "br-agribusiness",
       "id": "agricultural-inputs",

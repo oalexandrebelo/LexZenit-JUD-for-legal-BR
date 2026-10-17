@@ -1,12 +1,18 @@
-# Catálogo de cobertura — v0.2.0
+# Catálogo de cobertura — v0.3.0
 
-39 plugins · 176 workflows. Especificações de aceitação semântica, não classificadores homologados.
+40 plugins · 182 workflows. Especificações de aceitação semântica, não classificadores homologados.
 
 ## Novidade
-Sete workflows de engenharia adicionados; as 169 skills anteriores foram preservadas. Métrica de cobertura nacional continua desconhecida.
+Seis workflows do revisor jurídico de projetos (`ab-lexzenit-project-review`) adicionados na 0.3.0; os 176 anteriores foram preservados. Na 0.2.0, sete workflows de engenharia. Métrica de cobertura nacional continua desconhecida.
 
 | Plugin | Comando | Entrega |
 |---|---|---|
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:atualizar-catalogo` | Atualizar o catálogo normativo |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:classificar-risco-ia` | Classificar risco de sistema de IA |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:escolher-n2` | Escolher o país N2 |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:kit-documentos` | Kit de documentos do projeto |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:mapa-uf` | Mapa estadual de normas para projetos digitais |
+| ab-lexzenit-project-review | `/ab-lexzenit-project-review:revisar-projeto` | Revisar projeto · N1 Brasil · N2 país · N3 mundo |
 | br-agribusiness | `/br-agribusiness:agricultural-inputs` | Defensivos e rastreabilidade agropecuária |
 | br-agribusiness | `/br-agribusiness:agro-credit` | CPR, crédito e garantias rurais |
 | br-agribusiness | `/br-agribusiness:rural-tenure` | Arrendamento, parceria e terra rural |

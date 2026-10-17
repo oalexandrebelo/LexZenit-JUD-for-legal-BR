@@ -1,0 +1,1618 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "lz-revisor",
+          "version": "0.3.0",
+          "informationUri": "https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR",
+          "rules": [
+            {
+              "id": "BR-CDC/arrependimento",
+              "name": "BR-CDC",
+              "shortDescription": {
+                "text": "Direito de arrependimento de 7 dias em contratação fora do estabelecimento, com devolução imediata dos valores"
+              },
+              "fullDescription": {
+                "text": "Lei 8.078, de 11/09/1990 (texto compilado) — art. 49"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+            },
+            {
+              "id": "BR-CDC/informacao",
+              "name": "BR-CDC",
+              "shortDescription": {
+                "text": "Informação adequada, clara e ostensiva sobre o produto ou serviço, inclusive preço, características e riscos"
+              },
+              "fullDescription": {
+                "text": "Lei 8.078, de 11/09/1990 (texto compilado) — arts. 6º, III, e 31"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+            },
+            {
+              "id": "BR-DEC-7962/identificacao",
+              "name": "BR-DEC-7962",
+              "shortDescription": {
+                "text": "Nome empresarial, CNPJ, endereço físico e eletrônico em local de destaque"
+              },
+              "fullDescription": {
+                "text": "Decreto 7.962, de 15/03/2013 — art. 2º, I e II"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+            },
+            {
+              "id": "BR-DEC-7962/meio-arrependimento",
+              "name": "BR-DEC-7962",
+              "shortDescription": {
+                "text": "Informar os meios de arrependimento e aceitá-lo pela mesma ferramenta da contratação"
+              },
+              "fullDescription": {
+                "text": "Decreto 7.962, de 15/03/2013 — art. 5º, caput e § 1º"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+            },
+            {
+              "id": "BR-LGPD/base-legal-registro",
+              "name": "BR-LGPD",
+              "shortDescription": {
+                "text": "Definir a hipótese legal de cada tratamento e manter registro das operações"
+              },
+              "fullDescription": {
+                "text": "Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026) — arts. 7º e 37"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+            },
+            {
+              "id": "BR-LGPD/direitos-titular",
+              "name": "BR-LGPD",
+              "shortDescription": {
+                "text": "Atender os direitos do titular: confirmação, acesso, correção, anonimização ou eliminação, portabilidade, informação sobre compartilhamento e revogação do consentimento"
+              },
+              "fullDescription": {
+                "text": "Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026) — art. 18"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+            },
+            {
+              "id": "BR-LGPD/seguranca-incidentes",
+              "name": "BR-LGPD",
+              "shortDescription": {
+                "text": "Adotar medidas de segurança técnicas e administrativas e comunicar à ANPD e ao titular incidente que possa acarretar risco ou dano relevante"
+              },
+              "fullDescription": {
+                "text": "Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026) — arts. 46 e 48"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+            },
+            {
+              "id": "BR-LGPD/transparencia",
+              "name": "BR-LGPD",
+              "shortDescription": {
+                "text": "Informar ao titular, de forma clara e acessível, finalidade, forma e duração do tratamento, identificação do controlador, compartilhamento e direitos"
+              },
+              "fullDescription": {
+                "text": "Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026) — art. 9º"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+            },
+            {
+              "id": "BR-MCI/guarda-registros",
+              "name": "BR-MCI",
+              "shortDescription": {
+                "text": "Pessoa jurídica que explora aplicação com fins econômicos mantém registros de acesso por 6 meses, sob sigilo e em ambiente seguro"
+              },
+              "fullDescription": {
+                "text": "Lei 12.965, de 23/04/2014 — art. 15"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm"
+            },
+            {
+              "id": "BR-MCI/informacao-dados",
+              "name": "BR-MCI",
+              "shortDescription": {
+                "text": "Informações claras e completas sobre coleta, uso, armazenamento, tratamento e proteção de dados pessoais"
+              },
+              "fullDescription": {
+                "text": "Lei 12.965, de 23/04/2014 — art. 7º, VIII"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm"
+            },
+            {
+              "id": "BR-CDC/contrato-adesao",
+              "name": "BR-CDC",
+              "shortDescription": {
+                "text": "Contrato de adesão em termos claros e legíveis; cláusulas que limitam direitos em destaque"
+              },
+              "fullDescription": {
+                "text": "Lei 8.078, de 11/09/1990 (texto compilado) — art. 54, §§ 3º e 4º"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+            },
+            {
+              "id": "BR-DEC-7962/atendimento",
+              "name": "BR-DEC-7962",
+              "shortDescription": {
+                "text": "Sumário do contrato antes da contratação, confirmação imediata e atendimento eletrônico eficaz"
+              },
+              "fullDescription": {
+                "text": "Decreto 7.962, de 15/03/2013 — art. 4º, I, III e V"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+            },
+            {
+              "id": "BR-LBI-ART63/acessibilidade",
+              "name": "BR-LBI-ART63",
+              "shortDescription": {
+                "text": "Sítio acessível conforme as melhores práticas internacionais (WCAG) e símbolo de acessibilidade em destaque"
+              },
+              "fullDescription": {
+                "text": "Lei 13.146, de 06/07/2015, art. 63 — art. 63, caput e § 1º"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm"
+            },
+            {
+              "id": "BR-ANPD-REGULAMENTOS/prazo-incidente",
+              "name": "BR-ANPD-REGULAMENTOS",
+              "shortDescription": {
+                "text": "Comunicar incidente relevante à ANPD e aos titulares no prazo do regulamento (3 dias úteis, segundo a Res. CD/ANPD 15/2024)"
+              },
+              "fullDescription": {
+                "text": "Res. CD/ANPD 2/2022, 15/2024, 18/2024 e 19/2024 — Res. CD/ANPD 15/2024"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "nao_localizado"
+              }
+            },
+            {
+              "id": "BR-ANPD-REGULAMENTOS/clausulas-padrao",
+              "name": "BR-ANPD-REGULAMENTOS",
+              "shortDescription": {
+                "text": "Usar mecanismo do regulamento de transferência internacional, como as cláusulas-padrão da ANPD"
+              },
+              "fullDescription": {
+                "text": "Res. CD/ANPD 2/2022, 15/2024, 18/2024 e 19/2024 — Res. CD/ANPD 19/2024"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "nao_localizado"
+              }
+            },
+            {
+              "id": "BR-ANPD-REGULAMENTOS/pequeno-porte",
+              "name": "BR-ANPD-REGULAMENTOS",
+              "shortDescription": {
+                "text": "Agente de pequeno porte: registro simplificado e dispensa de encarregado, mantido canal de comunicação com o titular"
+              },
+              "fullDescription": {
+                "text": "Res. CD/ANPD 2/2022, 15/2024, 18/2024 e 19/2024 — Res. CD/ANPD 2/2022"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "nao_localizado"
+              }
+            },
+            {
+              "id": "BR-LGPD/cookies",
+              "name": "BR-LGPD",
+              "shortDescription": {
+                "text": "Base legal e informação para cookies e rastreadores não essenciais"
+              },
+              "fullDescription": {
+                "text": "Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026) — arts. 7º e 9º; Guia orientativo da ANPD sobre cookies (não conferido nesta versão)"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "media",
+                "natureza": "boa_pratica",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+            },
+            {
+              "id": "BR-LGPD/operadores",
+              "name": "BR-LGPD",
+              "shortDescription": {
+                "text": "Formalizar as instruções aos operadores (nuvem, APIs de IA, analytics, pagamentos) por contrato"
+              },
+              "fullDescription": {
+                "text": "Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026) — art. 39"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "media",
+                "natureza": "boa_pratica",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+            },
+            {
+              "id": "BR-LGPD/transferencia-internacional",
+              "name": "BR-LGPD",
+              "shortDescription": {
+                "text": "Transferir dados ao exterior só nas hipóteses legais (país adequado, cláusulas, garantias)"
+              },
+              "fullDescription": {
+                "text": "Lei 13.709, de 14/08/2018 (texto compilado; alterada pelas Leis 13.853/2019 e 15.352/2026) — art. 33"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+            },
+            {
+              "id": "BR-SP-CONS-001/o3",
+              "name": "BR-SP-CONS-001",
+              "shortDescription": {
+                "text": "arts. 64-67: cancelamento de serviços contínuos pelo mesmo meio da contratação e por telefone, internet ou correio; sanções do art. 56 CDC"
+              },
+              "fullDescription": {
+                "text": "Lei 17.832, de 01/11/2023 (publ. DOE 06/11/2023); alterada pela Lei 18.014, de 05/08/2024 — arts. 64"
+              },
+              "properties": {
+                "nivel": "N1",
+                "jurisdicao": "BR-SP",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.al.sp.gov.br/repositorio/legislacao/lei/2023/compilacao-lei-17832-01.11.2023.html"
+            },
+            {
+              "id": "US-FTC-S5/alegacoes-ia",
+              "name": "US-FTC-S5",
+              "shortDescription": {
+                "text": "Não fazer alegações falsas ou não substanciadas sobre a IA (AI washing); manter dossiê de testes e limitações"
+              },
+              "fullDescription": {
+                "text": "15 U.S.C. § 45 — 15 U.S.C. § 45"
+              },
+              "properties": {
+                "nivel": "N2",
+                "jurisdicao": "US",
+                "severidade": "alta",
+                "natureza": "vedacao",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section45"
+            },
+            {
+              "id": "US-FTC-S5/promessas-privacidade",
+              "name": "US-FTC-S5",
+              "shortDescription": {
+                "text": "Cumprir o que a política de privacidade e os termos prometem, inclusive sobre usar dados de clientes para treinar modelos"
+              },
+              "fullDescription": {
+                "text": "15 U.S.C. § 45 — 15 U.S.C. § 45"
+              },
+              "properties": {
+                "nivel": "N2",
+                "jurisdicao": "US",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section45"
+            },
+            {
+              "id": "US-TX-TRAIGA/usos-vedados",
+              "name": "US-TX-TRAIGA",
+              "shortDescription": {
+                "text": "Não desenvolver nem implantar IA com intenção de incitar autolesão ou crime, discriminar ilegalmente ou gerar material sexual ilícito"
+              },
+              "fullDescription": {
+                "text": "Tex. H.B. 149 (2025)"
+              },
+              "properties": {
+                "nivel": "N2",
+                "jurisdicao": "US-TX",
+                "severidade": "alta",
+                "natureza": "vedacao",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB149"
+            },
+            {
+              "id": "US-ADA-WEB/wcag",
+              "name": "US-ADA-WEB",
+              "shortDescription": {
+                "text": "Acessibilidade WCAG 2.1 ou 2.2 nível AA como padrão de fato contra ações privadas"
+              },
+              "fullDescription": {
+                "text": "42 U.S.C. §§ 12181–12189"
+              },
+              "properties": {
+                "nivel": "N2",
+                "jurisdicao": "US",
+                "severidade": "media",
+                "natureza": "exigencia_mercado",
+                "verificacao_fonte": "nao_localizado"
+              }
+            },
+            {
+              "id": "US-TX-TRAIGA/framework",
+              "name": "US-TX-TRAIGA",
+              "shortDescription": {
+                "text": "Conformidade com NIST AI RMF ou equivalente serve de defesa afirmativa"
+              },
+              "fullDescription": {
+                "text": "Tex. H.B. 149 (2025)"
+              },
+              "properties": {
+                "nivel": "N2",
+                "jurisdicao": "US-TX",
+                "severidade": "media",
+                "natureza": "boa_pratica",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB149"
+            },
+            {
+              "id": "EU-AI-ACT/praticas-proibidas",
+              "name": "EU-AI-ACT",
+              "shortDescription": {
+                "text": "Não usar práticas proibidas (manipulação, exploração de vulnerabilidades, pontuação social, reconhecimento de emoções no trabalho e na educação, entre outras)"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2024/1689; Reg. (UE) 2026/1744 (Digital Omnibus on AI) — art. 5º"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "critica",
+                "natureza": "vedacao",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+            },
+            {
+              "id": "EU-AI-ACT/aviso-interacao",
+              "name": "EU-AI-ACT",
+              "shortDescription": {
+                "text": "Informar que a pessoa interage com um sistema de IA"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2024/1689; Reg. (UE) 2026/1744 (Digital Omnibus on AI) — art. 50(1)"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+            },
+            {
+              "id": "EU-AI-ACT/classificacao",
+              "name": "EU-AI-ACT",
+              "shortDescription": {
+                "text": "Classificar o sistema (proibido, alto risco, transparência, GPAI ou mínimo) e registrar a decisão"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2024/1689; Reg. (UE) 2026/1744 (Digital Omnibus on AI) — arts. 5º, 6º e 50"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+            },
+            {
+              "id": "EU-GDPR/base-transparencia",
+              "name": "EU-GDPR",
+              "shortDescription": {
+                "text": "Base legal e transparência"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2016/679 — arts. 6º e 12 a 14"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+            },
+            {
+              "id": "EU-GDPR/direitos",
+              "name": "EU-GDPR",
+              "shortDescription": {
+                "text": "Direitos do titular, inclusive sobre decisões exclusivamente automatizadas"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2016/679 — arts. 15 a 22"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+            },
+            {
+              "id": "EU-GDPR/violacao-72h",
+              "name": "EU-GDPR",
+              "shortDescription": {
+                "text": "Notificar violação à autoridade em até 72 horas"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2016/679 — art. 33"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "alta",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+            },
+            {
+              "id": "EU-AI-ACT/literacia",
+              "name": "EU-AI-ACT",
+              "shortDescription": {
+                "text": "Medidas de apoio à alfabetização em IA da equipe"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2024/1689; Reg. (UE) 2026/1744 (Digital Omnibus on AI) — art. 4º"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+            },
+            {
+              "id": "EU-GDPR/operadores",
+              "name": "EU-GDPR",
+              "shortDescription": {
+                "text": "Contrato com operadores com o conteúdo do art. 28"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2016/679 — art. 28"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+            },
+            {
+              "id": "EU-GDPR/registro-dpia",
+              "name": "EU-GDPR",
+              "shortDescription": {
+                "text": "Registro de atividades e avaliação de impacto para tratamento de alto risco"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2016/679 — arts. 30 e 35"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+            },
+            {
+              "id": "EU-GDPR/representante",
+              "name": "EU-GDPR",
+              "shortDescription": {
+                "text": "Controlador sem estabelecimento na UE: representante na União"
+              },
+              "fullDescription": {
+                "text": "Reg. (UE) 2016/679 — art. 27"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "EU",
+                "severidade": "media",
+                "natureza": "obrigacao_legal",
+                "verificacao_fonte": "fonte_secundaria"
+              },
+              "helpUri": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+            },
+            {
+              "id": "INT-OCDE-IA/principios",
+              "name": "INT-OCDE-IA",
+              "shortDescription": {
+                "text": "Política de IA com os cinco princípios: bem-estar, direitos humanos, transparência, robustez e responsabilização"
+              },
+              "fullDescription": {
+                "text": "Recomendação do Conselho da OCDE sobre IA"
+              },
+              "properties": {
+                "nivel": "N3",
+                "jurisdicao": "INT",
+                "severidade": "baixa",
+                "natureza": "boa_pratica",
+                "verificacao_fonte": "oficial_conferido"
+              },
+              "helpUri": "https://www.oecd.org/en/about/news/press-releases/2024/05/oecd-updates-ai-principles-to-stay-abreast-of-rapid-technological-developments.html"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "BR-CDC/arrependimento",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Direito de arrependimento de 7 dias em contratação fora do estabelecimento, com devolução imediata dos valores — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: termos-de-uso."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/checkout.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-CDC/informacao",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Informação adequada, clara e ostensiva sobre o produto ou serviço, inclusive preço, características e riscos — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: termos-de-uso."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          }
+        },
+        {
+          "ruleId": "BR-DEC-7962/identificacao",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Nome empresarial, CNPJ, endereço físico e eletrônico em local de destaque — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: termos-de-uso."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/checkout.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-DEC-7962/meio-arrependimento",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Informar os meios de arrependimento e aceitá-lo pela mesma ferramenta da contratação — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: termos-de-uso."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/checkout.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-LGPD/base-legal-registro",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Definir a hipótese legal de cada tratamento e manter registro das operações — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: registro-operacoes."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-LGPD/direitos-titular",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Atender os direitos do titular: confirmação, acesso, correção, anonimização ou eliminação, portabilidade, informação sobre compartilhamento e revogação do consentimento — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: politica-privacidade."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-LGPD/seguranca-incidentes",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Adotar medidas de segurança técnicas e administrativas e comunicar à ANPD e ao titular incidente que possa acarretar risco ou dano relevante — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: plano-incidentes."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-LGPD/transparencia",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Informar ao titular, de forma clara e acessível, finalidade, forma e duração do tratamento, identificação do controlador, compartilhamento e direitos — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: politica-privacidade."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-MCI/guarda-registros",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Pessoa jurídica que explora aplicação com fins econômicos mantém registros de acesso por 6 meses, sob sigilo e em ambiente seguro — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          }
+        },
+        {
+          "ruleId": "BR-MCI/informacao-dados",
+          "level": "error",
+          "message": {
+            "text": "[N1 · alta] Informações claras e completas sobre coleta, uso, armazenamento, tratamento e proteção de dados pessoais — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: politica-privacidade."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          }
+        },
+        {
+          "ruleId": "BR-CDC/contrato-adesao",
+          "level": "error",
+          "message": {
+            "text": "[N1 · media] Contrato de adesão em termos claros e legíveis; cláusulas que limitam direitos em destaque — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: termos-de-uso."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          }
+        },
+        {
+          "ruleId": "BR-DEC-7962/atendimento",
+          "level": "error",
+          "message": {
+            "text": "[N1 · media] Sumário do contrato antes da contratação, confirmação imediata e atendimento eletrônico eficaz — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório. Minuta: termos-de-uso."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/checkout.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-LBI-ART63/acessibilidade",
+          "level": "error",
+          "message": {
+            "text": "[N1 · media] Sítio acessível conforme as melhores práticas internacionais (WCAG) e símbolo de acessibilidade em destaque — Gatilho presente e nenhuma evidência no escopo examinado. Limitação: o documento pode existir fora do repositório."
+          },
+          "properties": {
+            "estado": "nao_conformidade_evidenciada",
+            "modo": "aplicavel"
+          }
+        },
+        {
+          "ruleId": "BR-ANPD-REGULAMENTOS/prazo-incidente",
+          "level": "warning",
+          "message": {
+            "text": "[N1 · alta] Comunicar incidente relevante à ANPD e aos titulares no prazo do regulamento (3 dias úteis, segundo a Res. CD/ANPD 15/2024) — Lacuna sem evidência; fonte ainda não conferida no texto oficial. Minuta: plano-incidentes."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-ANPD-REGULAMENTOS/clausulas-padrao",
+          "level": "warning",
+          "message": {
+            "text": "[N1 · media] Usar mecanismo do regulamento de transferência internacional, como as cláusulas-padrão da ANPD — Lacuna sem evidência; fonte ainda não conferida no texto oficial; gatilho detectado com baixa confiança. Minuta: dpa-operador."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-ANPD-REGULAMENTOS/pequeno-porte",
+          "level": "warning",
+          "message": {
+            "text": "[N1 · media] Agente de pequeno porte: registro simplificado e dispensa de encarregado, mantido canal de comunicação com o titular — Lacuna sem evidência; fonte ainda não conferida no texto oficial."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-LGPD/cookies",
+          "level": "warning",
+          "message": {
+            "text": "[N1 · media] Base legal e informação para cookies e rastreadores não essenciais — Lacuna sem evidência; boa prática ou exigência de mercado, não obrigação legal. Minuta: politica-cookies."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-LGPD/operadores",
+          "level": "warning",
+          "message": {
+            "text": "[N1 · media] Formalizar as instruções aos operadores (nuvem, APIs de IA, analytics, pagamentos) por contrato — Lacuna sem evidência; boa prática ou exigência de mercado, não obrigação legal. Minuta: dpa-operador."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-LGPD/transferencia-internacional",
+          "level": "warning",
+          "message": {
+            "text": "[N1 · media] Transferir dados ao exterior só nas hipóteses legais (país adequado, cláusulas, garantias) — Lacuna sem evidência; gatilho detectado com baixa confiança. Minuta: dpa-operador."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "BR-SP-CONS-001/o3",
+          "level": "warning",
+          "message": {
+            "text": "[N1 · media] arts. 64-67: cancelamento de serviços contínuos pelo mesmo meio da contratação e por telefone, internet ou correio; sanções do art. 56 CDC — Lacuna sem evidência; alerta de competência constitucional: Lei estadual com dever a particulares em matéria de dados pessoais, informática ou telecom tende à inconstitucionalidade formal (CF, art. 22, IV e XXX; EC 115/2022).. Minuta: termos-de-uso."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "aplicavel"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/checkout.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "US-FTC-S5/alegacoes-ia",
+          "level": "warning",
+          "message": {
+            "text": "[N2 · alta] Não fazer alegações falsas ou não substanciadas sobre a IA (AI washing); manter dossiê de testes e limitações — Vedação: a falta de documento não prova a prática proibida. Confirmar que o produto não a realiza e registrar a decisão. Minuta: inventario-ia."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/ai.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "US-FTC-S5/promessas-privacidade",
+          "level": "warning",
+          "message": {
+            "text": "[N2 · alta] Cumprir o que a política de privacidade e os termos prometem, inclusive sobre usar dados de clientes para treinar modelos — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial. Minuta: politica-privacidade."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "US-TX-TRAIGA/usos-vedados",
+          "level": "warning",
+          "message": {
+            "text": "[N2 · alta] Não desenvolver nem implantar IA com intenção de incitar autolesão ou crime, discriminar ilegalmente ou gerar material sexual ilícito — Vedação: a falta de documento não prova a prática proibida. Confirmar que o produto não a realiza e registrar a decisão. Minuta: politica-uso-aceitavel."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/ai.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "US-ADA-WEB/wcag",
+          "level": "warning",
+          "message": {
+            "text": "[N2 · media] Acessibilidade WCAG 2.1 ou 2.2 nível AA como padrão de fato contra ações privadas — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial; boa prática ou exigência de mercado, não obrigação legal; dispositivo não identificado no catálogo."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          }
+        },
+        {
+          "ruleId": "US-TX-TRAIGA/framework",
+          "level": "warning",
+          "message": {
+            "text": "[N2 · media] Conformidade com NIST AI RMF ou equivalente serve de defesa afirmativa — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial; boa prática ou exigência de mercado, não obrigação legal; dispositivo não identificado no catálogo."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/ai.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-AI-ACT/praticas-proibidas",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · critica] Não usar práticas proibidas (manipulação, exploração de vulnerabilidades, pontuação social, reconhecimento de emoções no trabalho e na educação, entre outras) — Vedação: a falta de documento não prova a prática proibida. Confirmar que o produto não a realiza e registrar a decisão. Minuta: politica-uso-aceitavel."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/ai.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-AI-ACT/aviso-interacao",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · alta] Informar que a pessoa interage com um sistema de IA — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados. Minuta: aviso-ia."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/ai.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-AI-ACT/classificacao",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · alta] Classificar o sistema (proibido, alto risco, transparência, GPAI ou mínimo) e registrar a decisão — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados. Minuta: avaliacao-impacto-ia."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/ai.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-GDPR/base-transparencia",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · alta] Base legal e transparência — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial. Minuta: politica-privacidade."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-GDPR/direitos",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · alta] Direitos do titular, inclusive sobre decisões exclusivamente automatizadas — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-GDPR/violacao-72h",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · alta] Notificar violação à autoridade em até 72 horas — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial. Minuta: plano-incidentes."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-AI-ACT/literacia",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · media] Medidas de apoio à alfabetização em IA da equipe — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/ai.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-GDPR/operadores",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · media] Contrato com operadores com o conteúdo do art. 28 — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial. Minuta: dpa-operador."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-GDPR/registro-dpia",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · media] Registro de atividades e avaliação de impacto para tratamento de alto risco — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial. Minuta: ripd."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "EU-GDPR/representante",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · media] Controlador sem estabelecimento na UE: representante na União — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; fonte ainda não conferida no texto oficial."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 3
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app/cadastro/page.tsx"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "INT-OCDE-IA/principios",
+          "level": "warning",
+          "message": {
+            "text": "[N3 · baixa] Política de IA com os cinco princípios: bem-estar, direitos humanos, transparência, robustez e responsabilização — Lacuna sem evidência; prontidão para jurisdição sem usuários declarados; boa prática ou exigência de mercado, não obrigação legal; dispositivo não identificado no catálogo. Minuta: inventario-ia."
+          },
+          "properties": {
+            "estado": "inconclusivo",
+            "modo": "prontidao"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/lib/ai.ts"
+                },
+                "region": {
+                  "startLine": 4
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "marca": "MINUTA — REVISÃO PROFISSIONAL OBRIGATÓRIA",
+        "proveniencia": {
+          "motor": "lz_revisor 0.3.0",
+          "data_de_referencia": "2026-10-16",
+          "catalogo_sha256": "8aef8f0bc765003a7c59f9fc3cd54c20cf83c6884dd3d3e10dd6b7b3b542d69c",
+          "respostas_sha256": "43f6ad9e0188e4e6fa61555e872d612738d16248c937732d074c2ea4f1107822",
+          "sinais_por_origem": {
+            "declarado": [
+              "agente_pequeno_porte",
+              "b2c_consumidor",
+              "empresa_constituida"
+            ],
+            "detectado": [
+              "assinatura_recorrente",
+              "cpf_br",
+              "dados_pessoais",
+              "dependencias_terceiros",
+              "hospedagem_exterior",
+              "ia_generativa",
+              "pagamentos",
+              "publico_brasil",
+              "rastreamento_cookies",
+              "web_publico"
+            ]
+          },
+          "regra": "Sinal desconhecido nunca vira 'não': a obrigação fica inconclusiva e gera pergunta."
+        }
+      }
+    }
+  ]
+}

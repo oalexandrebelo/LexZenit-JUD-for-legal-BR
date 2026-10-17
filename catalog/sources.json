@@ -1916,5 +1916,35 @@
     "scope": "Numeração processual unificada e dígito verificador módulo 97. Dígito válido não comprova processo existente, decisão específica, competência ou tese.",
     "full_text_bundled": false,
     "connector_implemented": false
+  },
+  {
+    "id": "EUAIA",
+    "title": "Regulamento (UE) 2024/1689 — AI Act (redação do Reg. 2026/1744)",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-16",
+    "scope": "Alcance extraterritorial e cronograma; Reg. 2026/1744 (Digital Omnibus on AI) identificado no EUR-Lex, em vigor em 27/07/2026. Texto operativo das datas não lido.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "GDPR",
+    "title": "Regulamento (UE) 2016/679 — RGPD",
+    "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+    "discovery": "official_page_identified_this_session",
+    "observed_on": "2026-10-16",
+    "scope": "Página oficial identificada (metadados); artigos não lidos nesta versão. Adequação do Brasil: Decisão de Execução (UE) 2026/179.",
+    "full_text_bundled": false,
+    "connector_implemented": false
+  },
+  {
+    "id": "CCPA",
+    "title": "California Consumer Privacy Act e regulamentos da CPPA",
+    "url": "https://cppa.ca.gov/",
+    "discovery": "catalog_seed_requires_verification",
+    "observed_on": null,
+    "scope": "Referência inicial; limiares e regulamentos de ADMT conferidos por pesquisa, não pelo integrador.",
+    "full_text_bundled": false,
+    "connector_implemented": false
   }
 ]

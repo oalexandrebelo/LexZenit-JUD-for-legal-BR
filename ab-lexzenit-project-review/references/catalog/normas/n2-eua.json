@@ -1,0 +1,773 @@
+{
+ "gerado_em": "2026-10-16",
+ "nota": "Pacote N2 padrão: EUA (federal e estados). Estado americano só é aplicável com usuários declarados em us_estados.",
+ "normas": [
+  {
+   "id": "US-FTC-S5",
+   "nivel": "N2",
+   "jurisdicao": "US",
+   "nome": "FTC Act, Seção 5 (práticas desleais ou enganosas)",
+   "citacao": "15 U.S.C. § 45",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section45",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": true,
+   "obrigacoes": [
+    {
+     "id": "alegacoes-ia",
+     "texto": "Não fazer alegações falsas ou não substanciadas sobre a IA (AI washing); manter dossiê de testes e limitações",
+     "dispositivo": "15 U.S.C. § 45",
+     "natureza": "vedacao",
+     "severidade": "alta",
+     "evidencias": [
+      "documentacao_ia"
+     ],
+     "gatilho": {
+      "algum": [
+       "ia_generativa",
+       "ia_decisao_automatizada",
+       "ia_agente",
+       "chatbot_publico",
+       "ia_treino_modelo",
+       "ia_rag_vetorial",
+       "ia_conteudo_sintetico"
+      ]
+     },
+     "modelo": "inventario-ia"
+    },
+    {
+     "id": "promessas-privacidade",
+     "texto": "Cumprir o que a política de privacidade e os termos prometem, inclusive sobre usar dados de clientes para treinar modelos",
+     "dispositivo": "15 U.S.C. § 45",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "politica_privacidade"
+     ],
+     "gatilho": "dados_pessoais",
+     "modelo": "politica-privacidade"
+    }
+   ],
+   "notas": "Aplicação a sistemas de IA reafirmada na declaração de política proposta pela FTC em 07/07/2026 (Federal Register, lida pela pesquisa). Texto do U.S.C. não reaberto."
+  },
+  {
+   "id": "US-COPPA",
+   "nivel": "N2",
+   "jurisdicao": "US",
+   "nome": "COPPA e Regra COPPA emendada (2025)",
+   "citacao": "15 U.S.C. §§ 6501–6506; 16 C.F.R. Part 312; 90 FR 16918",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "dados_criancas",
+   "obrigacoes": [
+    {
+     "id": "consentimento-parental",
+     "texto": "Aviso direto aos pais e consentimento parental verificável antes de coletar dados de menores de 13; consentimento separado para divulgação a terceiros",
+     "dispositivo": "16 C.F.R. § 312.5",
+     "natureza": "obrigacao_legal",
+     "severidade": "critica",
+     "evidencias": [
+      "consentimento_parental"
+     ]
+    },
+    {
+     "id": "retencao-seguranca",
+     "texto": "Política escrita de retenção e programa escrito de segurança da informação",
+     "dispositivo": "16 C.F.R. §§ 312.8 e 312.10",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "politica_privacidade",
+      "sgsi"
+     ]
+    }
+   ],
+   "notas": "Emendas efetivas em 23/06/2025, com conformidade obrigatória desde 22/04/2026. Alcança serviço dirigido a menores de 13 ou com conhecimento real de que coleta dados deles.",
+   "vigencia": {
+    "inicio": "2026-04-22"
+   }
+  },
+  {
+   "id": "US-TAKE-IT-DOWN",
+   "nivel": "N2",
+   "jurisdicao": "US",
+   "nome": "TAKE IT DOWN Act (imagens íntimas não consensuais, inclusive geradas por IA)",
+   "citacao": "Pub. L. 119-12",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.ftc.gov/legal-library/browse/statutes/tools-address-known-exploitation-immobilizing-technological-deepfakes-websites-networks-act-take-it",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "conteudo_usuario",
+   "obrigacoes": [
+    {
+     "id": "remocao-48h",
+     "texto": "Processo claro de notificação e remoção de imagens íntimas não consensuais, com remoção em até 48 horas, inclusive de cópias idênticas",
+     "dispositivo": "Pub. L. 119-12",
+     "natureza": "obrigacao_legal",
+     "severidade": "critica",
+     "evidencias": [
+      "moderacao_denuncia"
+     ],
+     "modelo": "termos-de-uso"
+    }
+   ],
+   "notas": "Obrigação das plataformas exigível e fiscalizada pela FTC desde 19/05/2026.",
+   "vigencia": {
+    "inicio": "2026-05-19"
+   }
+  },
+  {
+   "id": "US-PRIVACIDADE-ESTADUAL",
+   "nivel": "N2",
+   "jurisdicao": "US",
+   "nome": "Leis estaduais abrangentes de privacidade (20 estados)",
+   "citacao": "CA, VA, CO, CT, UT, TX, OR, MT, FL, DE, IA, NE, NH, NJ, TN, MN, MD, IN, KY, RI",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "dados_pessoais",
+     "limiar_privacidade_eua"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "aviso-optout",
+     "texto": "Aviso de privacidade e opt-out de venda, publicidade direcionada e perfilamento",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "politica_privacidade",
+      "canal_titular"
+     ],
+     "modelo": "politica-privacidade"
+    },
+    {
+     "id": "dados-sensiveis",
+     "texto": "Consentimento para dados sensíveis na maioria dos estados",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "ripd",
+      "registro_operacoes"
+     ]
+    },
+    {
+     "id": "avaliacao-risco",
+     "texto": "Avaliação de proteção de dados para tratamento de risco elevado (venda, publicidade direcionada, perfilamento, sensíveis)",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "ripd",
+      "avaliacao_impacto_ia"
+     ],
+     "modelo": "ripd"
+    }
+   ],
+   "notas": "Índice de memória da pesquisa: em regra, 100 mil residentes de um estado acionam a lei; TX e NE alcançam qualquer empresa que não seja pequena; DE, NH, MD, RI e CT têm limiares menores. Conferir leis de 2026."
+  },
+  {
+   "id": "US-CA-CCPA",
+   "nivel": "N2",
+   "jurisdicao": "US-CA",
+   "nome": "California Consumer Privacy Act (CCPA/CPRA)",
+   "citacao": "Cal. Civ. Code § 1798.100 et seq.; 11 C.C.R. § 7000 et seq.",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://cppa.ca.gov/",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "dados_pessoais",
+     "limiar_privacidade_eua"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "aviso-coleta",
+     "texto": "Aviso na coleta e política de privacidade com as seções da CCPA, revista a cada 12 meses",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "aviso_privacidade_california",
+      "politica_privacidade"
+     ],
+     "modelo": "politica-privacidade"
+    },
+    {
+     "id": "direitos",
+     "texto": "Direitos de saber, acessar, excluir, corrigir, portar, recusar venda ou compartilhamento (inclusive Global Privacy Control) e limitar dados sensíveis",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "canal_titular",
+      "aviso_privacidade_california"
+     ]
+    },
+    {
+     "id": "contratos",
+     "texto": "Contratos com prestadores e terceiros com as cláusulas obrigatórias",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "dpa_operadores"
+     ],
+     "modelo": "dpa-operador"
+    }
+   ],
+   "notas": "Limiares (qualquer um): receita bruta anual de US$ 26,625 milhões ou mais (corrigida desde 01/01/2025); dados de 100 mil residentes ou domicílios; ou 50% da receita com venda ou compartilhamento (FAQ da CPPA, lida pela pesquisa)."
+  },
+  {
+   "id": "US-CA-CPPA-RISCO",
+   "nivel": "N2",
+   "jurisdicao": "US-CA",
+   "nome": "Regulamentos da CPPA — avaliação de risco",
+   "citacao": "11 C.C.R. §§ 7150–7157",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://cppa.ca.gov/regulations/ccpa_updates.html",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "dados_pessoais",
+     "limiar_privacidade_eua"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "avaliacao-risco",
+     "texto": "Avaliação de risco antes de vender ou compartilhar dados, tratar sensíveis, usar ADMT em decisão significativa ou treinar certas tecnologias",
+     "dispositivo": "11 C.C.R. § 7150",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "ripd",
+      "avaliacao_impacto_ia"
+     ],
+     "modelo": "ripd"
+    }
+   ],
+   "notas": "Obrigatória desde 01/01/2026 para atividades novas; atestado à CPPA até 01/04/2028.",
+   "vigencia": {
+    "inicio": "2026-01-01"
+   }
+  },
+  {
+   "id": "US-CA-CPPA-ADMT",
+   "nivel": "N2",
+   "jurisdicao": "US-CA",
+   "nome": "Regulamentos da CPPA — decisões automatizadas (ADMT)",
+   "citacao": "11 C.C.R. §§ 7200–7222",
+   "tipo": "regulamento",
+   "status": "vigencia_futura",
+   "fonte": {
+    "url": "https://cppa.ca.gov/regulations/ccpa_updates.html",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "ia_decisao_automatizada",
+     "limiar_privacidade_eua"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "admt",
+     "texto": "ADMT em decisão significativa (crédito, moradia, educação, emprego, saúde): aviso pré-uso, opt-out e acesso à lógica e ao resultado",
+     "dispositivo": "11 C.C.R. §§ 7220–7222",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "aviso_ia",
+      "supervisao_humana"
+     ],
+     "modelo": "aviso-ia"
+    }
+   ],
+   "notas": "Conformidade exigida a partir de 01/01/2027.",
+   "vigencia": {
+    "inicio": "2027-01-01"
+   }
+  },
+  {
+   "id": "US-CO-SB26-189",
+   "nivel": "N2",
+   "jurisdicao": "US-CO",
+   "nome": "Colorado — tecnologia de decisão automatizada (SB 26-189)",
+   "citacao": "Colo. S.B. 26-189; C.R.S. § 6-1-1701 et seq.",
+   "tipo": "lei",
+   "status": "vigencia_futura",
+   "fonte": {
+    "url": "https://coag.gov/ai/",
+    "verificacao": "oficial_conferido",
+    "verificado_em": "2026-10-16"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "ia_decisao_automatizada",
+   "obrigacoes": [
+    {
+     "id": "aviso-previo",
+     "texto": "Aviso claro antes de a ADMT influenciar decisão consequencial (moradia, emprego, educação, crédito, saúde, seguro, serviços jurídicos e governamentais)",
+     "dispositivo": "S.B. 26-189 (C.R.S. § 6-1-1701 e ss.)",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "aviso_ia"
+     ],
+     "modelo": "aviso-ia"
+    },
+    {
+     "id": "resultado-adverso",
+     "texto": "Em resultado adverso: explicar em até 30 dias a decisão e o papel da ADMT, permitir corrigir dados e, quando razoável, revisão humana",
+     "dispositivo": "S.B. 26-189 (C.R.S. § 6-1-1701 e ss.)",
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "supervisao_humana",
+      "canal_titular"
+     ]
+    },
+    {
+     "id": "documentacao-desenvolvedor",
+     "texto": "Desenvolvedor: documentação técnica aos implantadores e registros por 3 anos (descrição de fonte secundária)",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "documentacao_ia"
+     ],
+     "gatilho": "modelo_ia_proprio_distribuido",
+     "modelo": "inventario-ia"
+    }
+   ],
+   "notas": "Sancionada em 14/05/2026; aplica-se a decisões a partir de 01/01/2027. Substituiu a SB 24-205, que nunca vigorou. Regras do AG em audiência em 26/10/2026. X.AI v. Weiser (D. Colo.) suspenso desde 27/04/2026. A EO 14365 (dez/2025) orienta agências a contestar leis estaduais, mas não as preempta: continuar cumprindo.",
+   "vigencia": {
+    "inicio": "2027-01-01"
+   }
+  },
+  {
+   "id": "US-CA-SB243",
+   "nivel": "N2",
+   "jurisdicao": "US-CA",
+   "nome": "Califórnia — companion chatbots (SB 243)",
+   "citacao": "Cal. S.B. 243 (2025)",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB243",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "chatbot_publico",
+   "obrigacoes": [
+    {
+     "id": "aviso-artificial",
+     "texto": "Aviso claro de que o companion chatbot é artificial",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "aviso_ia"
+     ],
+     "modelo": "aviso-ia"
+    },
+    {
+     "id": "protocolo-crise",
+     "texto": "Protocolo publicado para prevenir conteúdo de ideação suicida e autolesão e encaminhar a serviços de crise",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "critica",
+     "evidencias": [
+      "politica_uso_aceitavel"
+     ],
+     "modelo": "politica-uso-aceitavel"
+    }
+   ],
+   "notas": "Vigente desde 01/01/2026 (fonte secundária). Alcança chatbots de relação social contínua. Pacote infantil de set/2026 (SB 1119 e outras) sancionado, vigência a confirmar."
+  },
+  {
+   "id": "US-CA-AB2013",
+   "nivel": "N2",
+   "jurisdicao": "US-CA",
+   "nome": "Califórnia — transparência dos dados de treino (AB 2013)",
+   "citacao": "Cal. Civ. Code §§ 3110–3111",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB2013",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "ia_treino_modelo",
+     "modelo_ia_proprio_distribuido"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "resumo-treino",
+     "texto": "Publicar resumo de alto nível dos conjuntos de dados de treino de IA generativa oferecida ao público na Califórnia",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "documentacao_ia"
+     ],
+     "modelo": "inventario-ia"
+    }
+   ],
+   "notas": "Vigente desde 01/01/2026; liminar contra a lei negada em xAI v. Bonta (fonte secundária)."
+  },
+  {
+   "id": "US-CA-SB942",
+   "nivel": "N2",
+   "jurisdicao": "US-CA",
+   "nome": "California AI Transparency Act (SB 942)",
+   "citacao": "Cal. Bus. & Prof. Code § 22757 et seq.",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "ia_conteudo_sintetico",
+   "obrigacoes": [
+    {
+     "id": "deteccao-marcacao",
+     "texto": "Provedor com mais de 1 milhão de usuários mensais: ferramenta gratuita de detecção e marcação latente do conteúdo gerado",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "rotulagem_conteudo_sintetico"
+     ],
+     "modelo": "aviso-ia"
+    }
+   ],
+   "notas": "Operativa desde 02/08/2026 (AB 853); SB 1000 e AB 2713 (set/2026) alteram a lei, efeitos não verificados."
+  },
+  {
+   "id": "US-TX-TRAIGA",
+   "nivel": "N2",
+   "jurisdicao": "US-TX",
+   "nome": "Texas Responsible AI Governance Act (TRAIGA)",
+   "citacao": "Tex. H.B. 149 (2025)",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB149",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "ia_generativa",
+     "ia_decisao_automatizada",
+     "ia_agente",
+     "chatbot_publico",
+     "ia_treino_modelo",
+     "ia_rag_vetorial",
+     "ia_conteudo_sintetico"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "usos-vedados",
+     "texto": "Não desenvolver nem implantar IA com intenção de incitar autolesão ou crime, discriminar ilegalmente ou gerar material sexual ilícito",
+     "dispositivo": null,
+     "natureza": "vedacao",
+     "severidade": "alta",
+     "evidencias": [
+      "politica_uso_aceitavel"
+     ],
+     "modelo": "politica-uso-aceitavel"
+    },
+    {
+     "id": "framework",
+     "texto": "Conformidade com NIST AI RMF ou equivalente serve de defesa afirmativa",
+     "dispositivo": null,
+     "natureza": "boa_pratica",
+     "severidade": "media",
+     "evidencias": [
+      "sistema_gestao_ia",
+      "avaliacao_impacto_ia"
+     ]
+    }
+   ],
+   "notas": "Vigente desde 01/01/2026; enforcement exclusivo do AG com prazo de cura de 60 dias."
+  },
+  {
+   "id": "US-UT-AIPA",
+   "nivel": "N2",
+   "jurisdicao": "US-UT",
+   "nome": "Utah AI Policy Act",
+   "citacao": "Utah S.B. 149 (2024), alterada em 2025",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "chatbot_publico",
+   "obrigacoes": [
+    {
+     "id": "divulgacao",
+     "texto": "Divulgar a interação com IA generativa quando perguntado e, em ocupações reguladas, de forma proativa",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "aviso_ia"
+     ],
+     "modelo": "aviso-ia"
+    }
+   ],
+   "notas": "Emendas de 2025 e sunset de memória."
+  },
+  {
+   "id": "US-IL-BIPA",
+   "nivel": "N2",
+   "jurisdicao": "US-IL",
+   "nome": "Illinois Biometric Information Privacy Act (BIPA)",
+   "citacao": "740 ILCS 14",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "biometria",
+   "obrigacoes": [
+    {
+     "id": "consentimento-escrito",
+     "texto": "Aviso escrito, consentimento por escrito e política pública de retenção e destruição antes de coletar dado biométrico; proibido vender",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "critica",
+     "evidencias": [
+      "politica_privacidade",
+      "ripd"
+     ]
+    }
+   ],
+   "notas": "Conhecimento prévio; ação privada com dano estatutário."
+  },
+  {
+   "id": "US-NYC-LL144",
+   "nivel": "N2",
+   "jurisdicao": "US-NY",
+   "nome": "Cidade de Nova York — ferramentas automatizadas de emprego (Local Law 144)",
+   "citacao": "N.Y.C. Local Law 144/2021",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": "https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page",
+    "verificacao": "fonte_secundaria"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "setor_emprego",
+     "ia_decisao_automatizada"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "auditoria-vies",
+     "texto": "Auditoria anual de viés por auditor independente, com resumo publicado",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "alta",
+     "evidencias": [
+      "avaliacao_impacto_ia"
+     ],
+     "modelo": "avaliacao-impacto-ia"
+    },
+    {
+     "id": "aviso-candidato",
+     "texto": "Aviso a candidatos com 10 dias úteis de antecedência",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "media",
+     "evidencias": [
+      "aviso_ia"
+     ]
+    }
+   ],
+   "notas": "Fiscalizada desde 05/07/2023."
+  },
+  {
+   "id": "US-DMCA",
+   "nivel": "N2",
+   "jurisdicao": "US",
+   "nome": "DMCA — safe harbor de provedores",
+   "citacao": "17 U.S.C. § 512",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "conteudo_usuario",
+   "obrigacoes": [
+    {
+     "id": "safe-harbor",
+     "texto": "Para o safe harbor: agente designado no Copyright Office, notice-and-takedown e política contra reincidentes",
+     "dispositivo": null,
+     "natureza": "boa_pratica",
+     "severidade": "media",
+     "evidencias": [
+      "moderacao_denuncia"
+     ]
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "US-ADA-WEB",
+   "nivel": "N2",
+   "jurisdicao": "US",
+   "nome": "ADA — acessibilidade web",
+   "citacao": "42 U.S.C. §§ 12181–12189",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "algum": [
+     "web_publico",
+     "app_mobile"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "wcag",
+     "texto": "Acessibilidade WCAG 2.1 ou 2.2 nível AA como padrão de fato contra ações privadas",
+     "dispositivo": null,
+     "natureza": "exigencia_mercado",
+     "severidade": "media",
+     "evidencias": [
+      "acessibilidade"
+     ]
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "US-HIPAA",
+   "nivel": "N2",
+   "jurisdicao": "US",
+   "nome": "HIPAA — dados de saúde",
+   "citacao": "45 C.F.R. Parts 160, 162 e 164",
+   "tipo": "regulamento",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": {
+    "todos": [
+     "setor_saude",
+     "dados_saude"
+    ]
+   },
+   "obrigacoes": [
+    {
+     "id": "baa",
+     "texto": "Ao tratar PHI de entidade coberta: BAA, análise de risco, salvaguardas da Security Rule e aviso de violação em até 60 dias",
+     "dispositivo": null,
+     "natureza": "obrigacao_legal",
+     "severidade": "critica",
+     "evidencias": [
+      "dpa_operadores",
+      "plano_incidentes"
+     ]
+    }
+   ],
+   "notas": ""
+  },
+  {
+   "id": "US-STARTUP-SOCIETARIO",
+   "nivel": "N2",
+   "jurisdicao": "US",
+   "nome": "Camada societária de startup nos EUA (Delaware, SAFE, 83(b), cessão de PI)",
+   "citacao": "DGCL; Securities Act § 4(a)(2) e Rule 506; 26 U.S.C. § 83(b)",
+   "tipo": "lei",
+   "status": "vigente",
+   "fonte": {
+    "url": null,
+    "verificacao": "nao_localizado"
+   },
+   "relevancia": "obrigacao",
+   "gatilho": "capta_investimento",
+   "obrigacoes": [
+    {
+     "id": "ip-assignment",
+     "texto": "Cessão presente de PI ('hereby assigns') de fundadores, empregados e contratados, inclusive código, modelos, datasets e prompts",
+     "dispositivo": null,
+     "natureza": "exigencia_mercado",
+     "severidade": "alta",
+     "evidencias": [
+      "cessao_pi"
+     ],
+     "modelo": "cessao-pi"
+    },
+    {
+     "id": "safe-83b",
+     "texto": "SAFE é valor mobiliário (isenção da Rule 506, Form D em 15 dias); fundador com vesting protocola a eleição 83(b) em 30 dias",
+     "dispositivo": null,
+     "natureza": "exigencia_mercado",
+     "severidade": "media",
+     "evidencias": [
+      "instrumento_investimento"
+     ],
+     "modelo": "term-sheet-investimento"
+    }
+   ],
+   "notas": "Opcional, quando há investidor ou holding nos EUA. Revisar com advogado e contador nos EUA e no Brasil."
+  }
+ ]
+}

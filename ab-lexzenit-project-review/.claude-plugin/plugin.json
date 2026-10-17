@@ -1,0 +1,21 @@
+{
+  "name": "ab-lexzenit-project-review",
+  "version": "0.3.0",
+  "description": "Revisor jurídico de projetos de IA e startups: mapeia lacunas em N1 Brasil (União e 27 UFs), N2 país (EUA ou o mais coerente) e N3 mundo, com catálogo normativo versionado, minutas brasileiras e revisão profissional obrigatória.",
+  "author": {
+    "name": "AB — Alexandre Belo",
+    "url": "https://www.alexandrebelo.com.br"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "brasil",
+    "juridico",
+    "compliance",
+    "ia",
+    "startup",
+    "lgpd",
+    "pt-BR"
+  ],
+  "homepage": "https://oalexandrebelo.github.io/LexZenit-JUD-for-legal-BR/",
+  "repository": "https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR"
+}

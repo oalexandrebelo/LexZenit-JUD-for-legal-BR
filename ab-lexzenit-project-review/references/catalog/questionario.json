@@ -1,0 +1,156 @@
+{
+ "versao": "0.3.0",
+ "nota": "Perguntas que o código não responde sozinho. Responder em um JSON {\"sinais\": {id: true|false}, \"sede_uf\": \"GO\", \"ufs_atuacao\": [..], \"paises_alvo\": [..], \"us_estados\": [..], \"estagio\": \"..\", \"mercado_principal\": null, \"pais_n2\": null}. Sinal não respondido e não detectado fica desconhecido e torna inconclusivas as normas que dependem dele.",
+ "campos": [
+  {
+   "id": "sede_uf",
+   "tipo": "uf",
+   "pergunta": "Em qual UF fica (ou ficará) a sede da empresa que opera o projeto?",
+   "obrigatoria": true
+  },
+  {
+   "id": "ufs_atuacao",
+   "tipo": "lista_uf",
+   "pergunta": "Em quais UFs o produto atende clientes, vende ao governo ou tem operação física? Use [\"*\"] para o país inteiro.",
+   "obrigatoria": true
+  },
+  {
+   "id": "paises_alvo",
+   "tipo": "lista_pais",
+   "pergunta": "Em quais países fora do Brasil o produto terá usuários ou clientes (códigos ISO: US, PT, ES, DE, GB, CA, MX, AR, CL, CO...)?",
+   "obrigatoria": true
+  },
+  {
+   "id": "mercado_principal",
+   "tipo": "pais",
+   "pergunta": "Fora do Brasil, qual país concentra a maior parte da receita ou dos usuários (código ISO)? Deixe vazio se ainda não houver.",
+   "obrigatoria": false
+  },
+  {
+   "id": "us_estados",
+   "tipo": "lista_texto",
+   "pergunta": "Se houver usuários nos EUA, em quais estados (CA, CO, TX, NY, IL, UT...)? Use [\"*\"] para o país inteiro.",
+   "obrigatoria": false
+  },
+  {
+   "id": "estagio",
+   "tipo": "opcao",
+   "opcoes": [
+    "ideia",
+    "mvp",
+    "tracao",
+    "escala"
+   ],
+   "pergunta": "Em que estágio está o projeto?",
+   "obrigatoria": true
+  },
+  {
+   "id": "pais_n2",
+   "tipo": "pais",
+   "pergunta": "Quer fixar o país N2 manualmente? Deixe vazio para a regra decidir (EUA por padrão).",
+   "obrigatoria": false
+  }
+ ],
+ "sinais_perguntas": [
+  {
+   "sinal": "empresa_constituida",
+   "pergunta": "Já existe CNPJ operando o projeto?"
+  },
+  {
+   "sinal": "socios_multiplos",
+   "pergunta": "Há mais de um fundador ou sócio?"
+  },
+  {
+   "sinal": "colaboradores_externos",
+   "pergunta": "Freelancers, PJs, estagiários ou contribuidores open source escrevem código ou conteúdo do projeto?"
+  },
+  {
+   "sinal": "capta_investimento",
+   "pergunta": "O projeto capta ou vai captar investimento (anjo, seed, venture)?"
+  },
+  {
+   "sinal": "b2c_consumidor",
+   "pergunta": "O produto é oferecido a consumidor final pessoa física?"
+  },
+  {
+   "sinal": "b2b_clientes",
+   "pergunta": "O produto é vendido para empresas?"
+  },
+  {
+   "sinal": "vende_governo",
+   "pergunta": "Vende ou pretende vender ao poder público?"
+  },
+  {
+   "sinal": "clientes_enterprise_globais",
+   "pergunta": "Atende ou quer atender empresas grandes ou estrangeiras que exigem certificação e due diligence?"
+  },
+  {
+   "sinal": "codigo_aberto_publicado",
+   "pergunta": "O código é (ou será) publicado como open source?"
+  },
+  {
+   "sinal": "modelo_ia_proprio_distribuido",
+   "pergunta": "Vocês distribuem um modelo de IA próprio (pesos ou API de modelo de propósito geral) para terceiros?"
+  },
+  {
+   "sinal": "agente_pequeno_porte",
+   "pergunta": "A empresa é microempresa, empresa de pequeno porte ou startup nos termos da ANPD?"
+  },
+  {
+   "sinal": "dados_criancas",
+   "pergunta": "Crianças ou adolescentes (menores de 18) usam ou podem usar o produto?"
+  },
+  {
+   "sinal": "ia_decisao_automatizada",
+   "pergunta": "Alguma decisão sobre pessoas (crédito, vaga, preço, acesso, bloqueio, perfil) é tomada só por sistema automatizado?"
+  },
+  {
+   "sinal": "dados_saude",
+   "pergunta": "O produto trata dado de saúde (condição, exame, lesão, medicação, medida clínica)?"
+  },
+  {
+   "sinal": "setor_financeiro",
+   "pergunta": "O produto atua em crédito, pagamento, investimento ou seguro como atividade-fim?"
+  },
+  {
+   "sinal": "setor_telecom",
+   "pergunta": "O produto é serviço de telecomunicações ou de acesso à internet (operadora, provedor, serviço de valor adicionado cobrado na fatura)?"
+  },
+  {
+   "sinal": "setor_saude",
+   "pergunta": "O produto tem finalidade clínica (diagnóstico, tratamento, prescrição, telessaúde)?"
+  },
+  {
+   "sinal": "setor_emprego",
+   "pergunta": "O produto é usado para recrutar, avaliar ou gerir trabalhadores?"
+  },
+  {
+   "sinal": "setor_educacao",
+   "pergunta": "O produto é usado por escolas ou para avaliar estudantes?"
+  },
+  {
+   "sinal": "hospedagem_exterior",
+   "pergunta": "Dados pessoais são armazenados ou processados fora do Brasil (nuvem estrangeira, API de IA estrangeira)?"
+  },
+  {
+   "sinal": "acesso_provavel_menores",
+   "pergunta": "O produto é direcionado a crianças e adolescentes ou de acesso provável por eles (rede social, jogo, app de uso amplo sem barreira de idade)?"
+  },
+  {
+   "sinal": "conteudo_restrito_18",
+   "pergunta": "O produto oferece conteúdo, produto ou serviço impróprio ou proibido para menores de 18 (conteúdo adulto, apostas, bebidas)?"
+  },
+  {
+   "sinal": "limiar_privacidade_eua",
+   "pergunta": "Nos EUA, o produto atinge os limiares das leis estaduais de privacidade (em regra, dados de 100 mil residentes de um estado por ano; na Califórnia, também receita anual acima de US$ 26,6 milhões ou 50% da receita com venda de dados)?"
+  },
+  {
+   "sinal": "telemarketing_cobranca",
+   "pergunta": "A empresa liga, envia SMS ou WhatsApp ativo de oferta ou cobrança a consumidores (inclusive por terceirizada)?"
+  },
+  {
+   "sinal": "sac_telefonico",
+   "pergunta": "Há atendimento ao consumidor por telefone ou chat com fila de espera (SAC)?"
+  }
+ ]
+}

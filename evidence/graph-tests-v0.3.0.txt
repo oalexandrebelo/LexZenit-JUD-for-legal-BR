@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: node identity is unique and all views exist
+ok 1 - node identity is unique and all views exist
+  ---
+  duration_ms: 1.284626
+  type: 'test'
+  ...
+# Subtest: every displayed node and edge resolves
+ok 2 - every displayed node and edge resolves
+  ---
+  duration_ms: 0.558986
+  type: 'test'
+  ...
+# Subtest: all contracts reference existing paths or explicitly external responsibilities
+ok 3 - all contracts reference existing paths or explicitly external responsibilities
+  ---
+  duration_ms: 0.450311
+  type: 'test'
+  ...
+# Subtest: all referenced origins are in the research registry
+ok 4 - all referenced origins are in the research registry
+  ---
+  duration_ms: 0.268534
+  type: 'test'
+  ...
+# Subtest: every canonical node is visible in at least one view
+ok 5 - every canonical node is visible in at least one view
+  ---
+  duration_ms: 1.419365
+  type: 'test'
+  ...
+# Subtest: unidentified Open ECLI source is never promoted
+ok 6 - unidentified Open ECLI source is never promoted
+  ---
+  duration_ms: 0.165479
+  type: 'test'
+  ...
+# Subtest: viewer explicitly is not an operational console
+ok 7 - viewer explicitly is not an operational console
+  ---
+  duration_ms: 0.073764
+  type: 'test'
+  ...
+# Subtest: models not trained remain unimplemented
+ok 8 - models not trained remain unimplemented
+  ---
+  duration_ms: 0.226419
+  type: 'test'
+  ...
+# Subtest: HTML contains the canonical graph exactly
+ok 9 - HTML contains the canonical graph exactly
+  ---
+  duration_ms: 2.390966
+  type: 'test'
+  ...
+# Subtest: real React Flow imports and both DOM roots exist
+ok 10 - real React Flow imports and both DOM roots exist
+  ---
+  duration_ms: 0.661949
+  type: 'test'
+  ...
+# Subtest: no automatic remote scripts or fonts load from HTML
+ok 11 - no automatic remote scripts or fonts load from HTML
+  ---
+  duration_ms: 0.433866
+  type: 'test'
+  ...
+# Subtest: dependency versions are pinned without claimed install lock
+ok 12 - dependency versions are pinned without claimed install lock
+  ---
+  duration_ms: 1.800922
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 108.744201
