@@ -373,7 +373,7 @@ button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inhe
 .footer__hash{color:var(--color-rule-2)}
 .footer__lockup{display:flex;align-items:center;gap:1rem;width:max-content;max-width:100%}.footer__lockup a{color:var(--color-ink);display:block}.footer__sep{width:1px;align-self:stretch;min-height:32px;background:var(--color-rule-2)}.footer__ab{display:block;color:var(--color-ink)}
 .footer__ab svg{height:40px;width:auto;display:block}
-.levels{list-style:none;margin:0 0 2rem;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1rem}
+.usos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;counter-reset:uso}.uso{counter-increment:uso;padding:1.5rem 1.5rem 1.4rem;border-radius:var(--radius-card);border:1.5px solid var(--color-rule);background:var(--color-paper);box-shadow:var(--shadow-card);display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1.1rem;row-gap:.6rem;min-width:0;transition:transform 320ms var(--ease-spring),box-shadow 320ms,background 320ms}.uso:hover{transform:translateY(-4px);box-shadow:var(--shadow-card-hover);background:var(--lt)}.uso[data-c="mint"]{--lt:var(--tint-mint);--lc:var(--color-mint)}.uso[data-c="cyan"]{--lt:var(--tint-cyan);--lc:var(--color-cyan)}.uso[data-c="pear"]{--lt:var(--tint-pear);--lc:var(--color-pear)}.uso[data-c="coral"]{--lt:var(--tint-coral);--lc:var(--color-coral)}.uso[data-c="lav"]{--lt:var(--tint-lav);--lc:var(--color-lav)}.uso>*{grid-column:2}.uso__n{grid-column:1;grid-row:1/-1;width:2.6rem;font-family:var(--font-display);font-weight:700;font-size:2.1rem;line-height:1;letter-spacing:-.03em;color:var(--color-ink);padding-top:.1rem;position:relative}.uso__n::after{content:"";position:absolute;left:0;right:0;bottom:-.45rem;height:4px;border-radius:2px;background:var(--lc)}.uso h3{font-family:var(--font-display);font-size:1.2rem;line-height:1.25;letter-spacing:-.01em;margin:0}.uso p{margin:0;font-size:.92rem;line-height:1.55;color:var(--color-ink-2)}.uso p b{color:var(--color-ink);font-weight:600}.uso .code{margin-top:.2rem}.uso .code pre{font-size:.82rem;padding:.75rem .9rem}@media (min-width:760px){.usos{grid-template-columns:repeat(2,minmax(0,1fr))}}.usos__who{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:0 0 2rem;padding:0;list-style:none}.usos__who li{font-family:var(--font-label);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-ink-2);padding:.4rem .8rem;border:1px solid var(--color-rule);border-radius:999px;background:var(--color-paper)}.levels{list-style:none;margin:0 0 2rem;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1rem}
 @media (min-width:880px){.levels{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .levels .limit h3{font-size:1.3rem}
 .states{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 2rem;padding:0;list-style:none}
@@ -406,7 +406,7 @@ html.leaving body{animation:lz-blur-out .34s cubic-bezier(.45,0,.4,1) both}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="lz-mark" viewBox="0 0 556 345" fill="currentColor"><g><path d="M256.575 90.5011C272.957 90.0373 291.943 90.6208 308.529 90.6134L419.821 90.4154C430.242 90.377 440.659 90.4383 451.08 90.5991C457.012 90.718 466.681 91.2178 472.339 90.7359C468.259 94.1755 458.971 104.256 454.76 108.481L407.99 156.02L295.905 268.673C287.283 277.436 278.407 285.987 269.846 294.84C252.033 295.412 234.458 295.824 216.645 297.201C179.323 300.19 142.226 305.51 105.57 313.134C89.4998 316.744 73.5125 320.717 57.6205 325.046C45.9431 328.149 34.356 331.579 22.8724 335.336C15.1704 337.786 7.30619 340.044 0 343.519C49.4161 300.451 121.053 275.035 185.027 264.553C200.512 262.013 216.347 260.502 231.947 258.771C246.514 244.928 260.337 229.962 274.682 215.878C276.375 214.216 278.149 212.64 279.83 210.953L308.636 181.748C320.32 170.042 332.417 158.717 343.762 146.638C347.704 142.439 351.882 139.057 355.704 134.468C346.555 134.673 336.367 134.443 327.07 134.477L251.939 134.483C244.36 134.494 236.78 134.442 229.2 134.328C224.777 134.235 216.997 133.775 212.892 134.313C215.815 131.692 219.723 127.136 222.724 124.102L245.561 101.188C247.675 99.0507 254.417 91.9022 256.575 90.5011Z"/><path d="M123 57.2L180.5 0V249.6L123.6 261.6Z"/><path d="M331.251 259.122C336.793 259.031 358.941 262.474 365.175 263.466C410.866 270.744 465.79 287.558 506.327 310.418C523.701 320.313 540.088 331.898 555.258 345C546.269 340.536 537.407 338.127 527.869 335.081C462.107 312.357 389.39 300.466 320.181 296.25C312.403 295.779 303.863 294.927 296.137 295.167C297.576 293.832 298.92 292.398 300.253 290.955C310.3 280.06 321.065 269.88 331.251 259.122Z"/></g></symbol>
-    <symbol id="lz-lockup" viewBox="0 0 1829 345" fill="currentColor"><g>on"><path d="M256.575 90.5011C272.957 90.0373 291.943 90.6208 308.529 90.6134L419.821 90.4154C430.242 90.377 440.659 90.4383 451.08 90.5991C457.012 90.718 466.681 91.2178 472.339 90.7359C468.259 94.1755 458.971 104.256 454.76 108.481L407.99 156.02L295.905 268.673C287.283 277.436 278.407 285.987 269.846 294.84C252.033 295.412 234.458 295.824 216.645 297.201C179.323 300.19 142.226 305.51 105.57 313.134C89.4998 316.744 73.5125 320.717 57.6205 325.046C45.9431 328.149 34.356 331.579 22.8724 335.336C15.1704 337.786 7.30619 340.044 0 343.519C49.4161 300.451 121.053 275.035 185.027 264.553C200.512 262.013 216.347 260.502 231.947 258.771C246.514 244.928 260.337 229.962 274.682 215.878C276.375 214.216 278.149 212.64 279.83 210.953L308.636 181.748C320.32 170.042 332.417 158.717 343.762 146.638C347.704 142.439 351.882 139.057 355.704 134.468C346.555 134.673 336.367 134.443 327.07 134.477L251.939 134.483C244.36 134.494 236.78 134.442 229.2 134.328C224.777 134.235 216.997 133.775 212.892 134.313C215.815 131.692 219.723 127.136 222.724 124.102L245.561 101.188C247.675 99.0507 254.417 91.9022 256.575 90.5011Z"/><path d="M123 57.2L180.5 0V249.6L123.6 261.6Z"/><path d="M331.251 259.122C336.793 259.031 358.941 262.474 365.175 263.466C410.866 270.744 465.79 287.558 506.327 310.418C523.701 320.313 540.088 331.898 555.258 345C546.269 340.536 537.407 338.127 527.869 335.081C462.107 312.357 389.39 300.466 320.181 296.25C312.403 295.779 303.863 294.927 296.137 295.167C297.576 293.832 298.92 292.398 300.253 290.955C310.3 280.06 321.065 269.88 331.251 259.122Z"/></g><g transform="translate(603 85)">><path d="M544.692 8.11606C588.496 7.21837 632.673 8.46548 676.513 7.95502C691.334 7.78276 706.689 7.78207 721.479 8.40527C717.41 13.0485 711.122 22.0415 707.144 27.2897C697.887 39.5303 688.553 51.7058 679.132 63.8169L582.189 189.829C624.291 190.225 666.395 190.28 708.496 189.992C708.657 200.123 708.51 210.612 708.503 220.771L691.437 220.804L507.455 220.712C538.372 180.38 569.548 140.248 600.981 100.318C616.297 80.8268 635.225 58.5239 649.368 39.0268C611.849 37.3379 569.072 39.3251 530.739 38.5598L544.692 8.11606Z"/><path d="M804.335 64.9345C857.402 61.6105 901.975 99.5851 893.417 154.776C846.576 154.876 798.292 154.06 751.619 154.967C760.505 201.421 816.548 213.004 850.161 184.196C852.031 181.715 880.07 182.87 885.203 182.94C869.741 207.911 846.513 218.499 816.345 221.754C741.871 229.789 689.82 155.423 739.329 93.6591C754.483 74.7537 779.532 66.4119 804.335 64.9345ZM751.507 133.59C772.193 133.969 792.886 134.08 813.572 133.923L863.572 133.787C859.601 103.392 833.53 84.0422 803.362 87.9901C776.373 90.5859 756.962 106.831 751.507 133.59Z"/><path d="M241.457 65.6253C246.818 65.4285 252.186 65.577 257.529 66.0713C307.618 70.9176 336.539 104.467 331.694 154.826L189.702 154.842C197.938 199.788 254.219 213.137 286.952 185.935C287.178 185.681 287.41 185.433 287.648 185.19C291.799 181.021 316.657 182.8 323.507 182.898C298.838 224.474 237.871 231.99 197.538 210.609C155.137 188.133 145.848 130.946 176.765 95.0187C193.582 75.4761 216.362 67.6097 241.457 65.6253ZM189.978 133.979L253.415 134.009C269.022 133.995 286.072 134.282 301.556 133.844C300.801 126.936 300.159 122.921 297.184 116.457C287.893 96.2721 261.229 84.8556 239.649 88.6641C214.087 92.1498 194.745 108.212 189.978 133.979Z"/><path d="M0.0634449 0.0469956C13.0692 -0.0447341 26.0755 -0.00202043 39.0804 0.173736C39.9468 17.7746 39.3808 39.6273 39.4266 57.6518L39.4435 189.906L153.686 190.004C153.91 199.969 153.884 209.937 153.606 219.9C151.366 221.5 15.8137 220.778 0 220.738L0.0634449 0.0469956Z"/><path d="M984.103 66.272C1004.69 64.3198 1027.88 71.1806 1042.62 86.0037C1048.93 92.2882 1053.4 100.176 1055.55 108.815C1058.24 119.638 1057.37 143.326 1057.35 155.702L1057.24 220.787L1025.66 220.681C1024.99 211.551 1025.27 200.173 1025.28 190.852L1025.27 148.159C1025.31 139.274 1026.29 125.251 1024.43 117.106C1018.68 91.9941 990.917 88.9768 970.7 93.4947C964.25 95.045 958.326 98.2709 953.522 102.846C940.42 115.475 943.858 137.833 943.893 154.937C944.005 176.883 943.977 198.828 943.809 220.773L912.192 220.734C912.08 213.787 912.08 206.693 912.157 199.741C912.682 155.469 911.393 110.904 912.339 66.6662C921.793 66.1978 933.963 66.5703 943.62 66.6011C943.809 72.8205 943.886 79.042 943.851 85.2642C955.147 72.9318 967.822 68.2046 984.103 66.272Z"/><path d="M328.166 67.5603C342.154 67.365 356.145 67.3328 370.135 67.4644C386.018 84.6787 402.399 101.572 417.706 119.264C434.293 101.97 453.127 84.2712 470.248 67.435C484.473 67.2543 498.701 67.33 512.924 67.6619C503.368 76.5358 490.543 89.969 480.982 99.4668L421.837 157.889C400.694 178.079 379.145 200.032 358.646 220.914C344.171 220.553 329.028 220.703 314.502 220.63C341.148 193.504 369.01 167.189 395.52 140.112C372.833 116.148 350.38 91.9632 328.166 67.5603Z"/><path d="M1149.63 26.1333C1160.36 26.0269 1171.1 26.0185 1181.83 26.1074C1181.94 39.5293 1181.95 52.9512 1181.88 66.3739C1195.24 67.0615 1212.05 66.5433 1225.77 66.7226C1225.5 75.6715 1226.25 82.7487 1225.49 92.1471C1211.03 92.5448 1196.64 91.7627 1181.99 92.5918L1181.86 143.34C1181.86 153.849 1180.35 173.254 1185.85 182.353C1195.07 197.61 1211.72 190.558 1224.62 193.192C1226.06 194.801 1225.68 195.834 1225.93 198.409C1226.09 205.561 1225.93 213.557 1225.92 220.767C1204.29 220.746 1179.91 222.036 1163.28 205.33C1157.35 199.279 1153.18 191.733 1151.2 183.496C1148.65 173.027 1149.5 153.596 1149.55 142.036L1149.6 92.3264L1127.65 92.0596C1127.59 83.6233 1127.58 75.1869 1127.6 66.7506C1134.75 66.6113 1142.06 66.6127 1149.23 66.5468C1149.92 53.3756 1149.28 39.4901 1149.63 26.1333Z"/><path d="M1080.71 66.7104C1091.27 66.5522 1101.85 66.6138 1112.41 66.8953C1113.11 84.674 1112.64 105.079 1112.63 123.093L1112.55 220.788L1080.57 220.764L1080.71 66.7104Z"/><path d="M446.333 149.901C448.631 150.849 494.471 201.448 500.608 208.117C497.068 212.279 493.573 216.556 490.08 220.765L469.418 220.647C454.918 206.448 438.206 187.035 423.878 171.79C431.004 164.644 438.838 156.486 446.333 149.901Z"/><path d="M1094.3 9.46654C1105.36 7.95125 1115.54 15.6467 1117.11 26.6844C1118.68 37.7213 1111.03 47.9496 1100 49.5678C1088.9 51.1965 1078.58 43.4863 1077.01 32.3765C1075.43 21.2661 1083.19 10.9916 1094.3 9.46654Z"/></g></symbol>
+    <symbol id="lz-lockup" viewBox="0 0 1829 345" fill="currentColor"><g><path d="M256.575 90.5011C272.957 90.0373 291.943 90.6208 308.529 90.6134L419.821 90.4154C430.242 90.377 440.659 90.4383 451.08 90.5991C457.012 90.718 466.681 91.2178 472.339 90.7359C468.259 94.1755 458.971 104.256 454.76 108.481L407.99 156.02L295.905 268.673C287.283 277.436 278.407 285.987 269.846 294.84C252.033 295.412 234.458 295.824 216.645 297.201C179.323 300.19 142.226 305.51 105.57 313.134C89.4998 316.744 73.5125 320.717 57.6205 325.046C45.9431 328.149 34.356 331.579 22.8724 335.336C15.1704 337.786 7.30619 340.044 0 343.519C49.4161 300.451 121.053 275.035 185.027 264.553C200.512 262.013 216.347 260.502 231.947 258.771C246.514 244.928 260.337 229.962 274.682 215.878C276.375 214.216 278.149 212.64 279.83 210.953L308.636 181.748C320.32 170.042 332.417 158.717 343.762 146.638C347.704 142.439 351.882 139.057 355.704 134.468C346.555 134.673 336.367 134.443 327.07 134.477L251.939 134.483C244.36 134.494 236.78 134.442 229.2 134.328C224.777 134.235 216.997 133.775 212.892 134.313C215.815 131.692 219.723 127.136 222.724 124.102L245.561 101.188C247.675 99.0507 254.417 91.9022 256.575 90.5011Z"/><path d="M123 57.2L180.5 0V249.6L123.6 261.6Z"/><path d="M331.251 259.122C336.793 259.031 358.941 262.474 365.175 263.466C410.866 270.744 465.79 287.558 506.327 310.418C523.701 320.313 540.088 331.898 555.258 345C546.269 340.536 537.407 338.127 527.869 335.081C462.107 312.357 389.39 300.466 320.181 296.25C312.403 295.779 303.863 294.927 296.137 295.167C297.576 293.832 298.92 292.398 300.253 290.955C310.3 280.06 321.065 269.88 331.251 259.122Z"/></g><g transform="translate(603 85)">><path d="M544.692 8.11606C588.496 7.21837 632.673 8.46548 676.513 7.95502C691.334 7.78276 706.689 7.78207 721.479 8.40527C717.41 13.0485 711.122 22.0415 707.144 27.2897C697.887 39.5303 688.553 51.7058 679.132 63.8169L582.189 189.829C624.291 190.225 666.395 190.28 708.496 189.992C708.657 200.123 708.51 210.612 708.503 220.771L691.437 220.804L507.455 220.712C538.372 180.38 569.548 140.248 600.981 100.318C616.297 80.8268 635.225 58.5239 649.368 39.0268C611.849 37.3379 569.072 39.3251 530.739 38.5598L544.692 8.11606Z"/><path d="M804.335 64.9345C857.402 61.6105 901.975 99.5851 893.417 154.776C846.576 154.876 798.292 154.06 751.619 154.967C760.505 201.421 816.548 213.004 850.161 184.196C852.031 181.715 880.07 182.87 885.203 182.94C869.741 207.911 846.513 218.499 816.345 221.754C741.871 229.789 689.82 155.423 739.329 93.6591C754.483 74.7537 779.532 66.4119 804.335 64.9345ZM751.507 133.59C772.193 133.969 792.886 134.08 813.572 133.923L863.572 133.787C859.601 103.392 833.53 84.0422 803.362 87.9901C776.373 90.5859 756.962 106.831 751.507 133.59Z"/><path d="M241.457 65.6253C246.818 65.4285 252.186 65.577 257.529 66.0713C307.618 70.9176 336.539 104.467 331.694 154.826L189.702 154.842C197.938 199.788 254.219 213.137 286.952 185.935C287.178 185.681 287.41 185.433 287.648 185.19C291.799 181.021 316.657 182.8 323.507 182.898C298.838 224.474 237.871 231.99 197.538 210.609C155.137 188.133 145.848 130.946 176.765 95.0187C193.582 75.4761 216.362 67.6097 241.457 65.6253ZM189.978 133.979L253.415 134.009C269.022 133.995 286.072 134.282 301.556 133.844C300.801 126.936 300.159 122.921 297.184 116.457C287.893 96.2721 261.229 84.8556 239.649 88.6641C214.087 92.1498 194.745 108.212 189.978 133.979Z"/><path d="M0.0634449 0.0469956C13.0692 -0.0447341 26.0755 -0.00202043 39.0804 0.173736C39.9468 17.7746 39.3808 39.6273 39.4266 57.6518L39.4435 189.906L153.686 190.004C153.91 199.969 153.884 209.937 153.606 219.9C151.366 221.5 15.8137 220.778 0 220.738L0.0634449 0.0469956Z"/><path d="M984.103 66.272C1004.69 64.3198 1027.88 71.1806 1042.62 86.0037C1048.93 92.2882 1053.4 100.176 1055.55 108.815C1058.24 119.638 1057.37 143.326 1057.35 155.702L1057.24 220.787L1025.66 220.681C1024.99 211.551 1025.27 200.173 1025.28 190.852L1025.27 148.159C1025.31 139.274 1026.29 125.251 1024.43 117.106C1018.68 91.9941 990.917 88.9768 970.7 93.4947C964.25 95.045 958.326 98.2709 953.522 102.846C940.42 115.475 943.858 137.833 943.893 154.937C944.005 176.883 943.977 198.828 943.809 220.773L912.192 220.734C912.08 213.787 912.08 206.693 912.157 199.741C912.682 155.469 911.393 110.904 912.339 66.6662C921.793 66.1978 933.963 66.5703 943.62 66.6011C943.809 72.8205 943.886 79.042 943.851 85.2642C955.147 72.9318 967.822 68.2046 984.103 66.272Z"/><path d="M328.166 67.5603C342.154 67.365 356.145 67.3328 370.135 67.4644C386.018 84.6787 402.399 101.572 417.706 119.264C434.293 101.97 453.127 84.2712 470.248 67.435C484.473 67.2543 498.701 67.33 512.924 67.6619C503.368 76.5358 490.543 89.969 480.982 99.4668L421.837 157.889C400.694 178.079 379.145 200.032 358.646 220.914C344.171 220.553 329.028 220.703 314.502 220.63C341.148 193.504 369.01 167.189 395.52 140.112C372.833 116.148 350.38 91.9632 328.166 67.5603Z"/><path d="M1149.63 26.1333C1160.36 26.0269 1171.1 26.0185 1181.83 26.1074C1181.94 39.5293 1181.95 52.9512 1181.88 66.3739C1195.24 67.0615 1212.05 66.5433 1225.77 66.7226C1225.5 75.6715 1226.25 82.7487 1225.49 92.1471C1211.03 92.5448 1196.64 91.7627 1181.99 92.5918L1181.86 143.34C1181.86 153.849 1180.35 173.254 1185.85 182.353C1195.07 197.61 1211.72 190.558 1224.62 193.192C1226.06 194.801 1225.68 195.834 1225.93 198.409C1226.09 205.561 1225.93 213.557 1225.92 220.767C1204.29 220.746 1179.91 222.036 1163.28 205.33C1157.35 199.279 1153.18 191.733 1151.2 183.496C1148.65 173.027 1149.5 153.596 1149.55 142.036L1149.6 92.3264L1127.65 92.0596C1127.59 83.6233 1127.58 75.1869 1127.6 66.7506C1134.75 66.6113 1142.06 66.6127 1149.23 66.5468C1149.92 53.3756 1149.28 39.4901 1149.63 26.1333Z"/><path d="M1080.71 66.7104C1091.27 66.5522 1101.85 66.6138 1112.41 66.8953C1113.11 84.674 1112.64 105.079 1112.63 123.093L1112.55 220.788L1080.57 220.764L1080.71 66.7104Z"/><path d="M446.333 149.901C448.631 150.849 494.471 201.448 500.608 208.117C497.068 212.279 493.573 216.556 490.08 220.765L469.418 220.647C454.918 206.448 438.206 187.035 423.878 171.79C431.004 164.644 438.838 156.486 446.333 149.901Z"/><path d="M1094.3 9.46654C1105.36 7.95125 1115.54 15.6467 1117.11 26.6844C1118.68 37.7213 1111.03 47.9496 1100 49.5678C1088.9 51.1965 1078.58 43.4863 1077.01 32.3765C1075.43 21.2661 1083.19 10.9916 1094.3 9.46654Z"/></g></symbol>
   </defs>
 </svg>
 
@@ -419,6 +419,7 @@ html.leaving body{animation:lz-blur-out .34s cubic-bezier(.45,0,.4,1) both}
       <a href="#metodo">Método</a>
       <a href="#numeros">Cobertura</a>
       <a href="#revisor">Revisor</a>
+      <a href="#usos">Usos</a>
       <a href="#arquitetura">Arquitetura</a>
       <a href="#limites">Limites</a>
       <a href="#instalar">Instalar</a>
@@ -450,7 +451,7 @@ html.leaving body{animation:lz-blur-out .34s cubic-bezier(.45,0,.4,1) both}
           <a class="btn btn--lg" href="#instalar" data-burst>Instalar a skill</a>
           <a class="btn btn--outline btn--lg" href="#metodo">Ver os quatro estágios <span class="btn__arrow" aria-hidden="true">→</span></a>
         </div>
-        <p class="hero__note">Versão 0.2.0 · código aberto no GitHub · Apache-2.0 · não substitui revisão profissional</p>
+        <p class="hero__note">Versão 0.3.0 · código aberto no GitHub · Apache-2.0 · não substitui revisão profissional</p>
       </div>
 
       <div class="hero__stage">
@@ -578,11 +579,11 @@ html.leaving body{animation:lz-blur-out .34s cubic-bezier(.45,0,.4,1) both}
       <header class="section__head">
         <p class="eyebrow"><span class="dot dot--coral"></span> Novo na 0.3.0 · AB LexZenit Project Review</p>
         <h2 class="section__title" id="rev-t">O que o seu projeto precisa cumprir, em três níveis.</h2>
-        <p class="section__lede">O revisor lê o repositório de um projeto de IA, SaaS ou startup, faz as perguntas que o código não responde e cruza tudo com um catálogo de 210 normas versionadas. Cada lacuna sai com fonte, estado de verificação, evidência e a minuta brasileira que a fecha.</p>
+        <p class="section__lede">O revisor lê o repositório de um projeto de IA, SaaS ou startup, faz as perguntas que o código não responde e cruza tudo com um catálogo de 210 normas versionadas. Cada lacuna vem com fonte, estado de verificação, evidência e a minuta brasileira que a fecha.</p>
       </header>
       <ul class="levels">
         <li class="limit" data-c="mint"><p class="limit__no">N1 · Brasil</p><h3>União e as 27 UFs</h3><p>LGPD, CDC, Marco Civil, ECA Digital, comércio eletrônico, Lei do Software e Marco das Startups, mais 152 normas estaduais de 25 UFs, com alerta quando a lei estadual invade competência da União.</p></li>
-        <li class="limit" data-c="cyan"><p class="limit__no">N2 · país</p><h3>EUA por padrão, ou o país que pesa</h3><p>FTC, COPPA, TAKE IT DOWN, Califórnia e Colorado; sem usuários declarados, entra como prontidão. Se o mercado principal for outro país, ele vira o N2: Reino Unido, Canadá, México, Argentina, Chile, Colômbia ou a UE.</p></li>
+        <li class="limit" data-c="cyan"><p class="limit__no">N2 · país</p><h3>EUA por padrão, ou o país do seu mercado</h3><p>FTC, COPPA, TAKE IT DOWN, Califórnia e Colorado; sem usuários declarados, entra como prontidão. Se o mercado principal for outro país, ele vira o N2: Reino Unido, Canadá, México, Argentina, Chile, Colômbia ou a UE.</p></li>
         <li class="limit" data-c="lav"><p class="limit__no">N3 · mundo</p><h3>O que alcança de fora</h3><p>AI Act com o calendário do Reg. 2026/1744, RGPD e a adequação do Brasil, DSA, Cyber Resilience Act, princípios da OCDE e as normas ISO/IEC 42001, 42005 e 27001.</p></li>
       </ul>
       <ul class="states" aria-label="Estados possíveis de cada obrigação">
@@ -614,6 +615,91 @@ python -m lz_revisor revisar ../meu-projeto \
     </div>
   </section>
 
+  <section class="section band" id="usos" aria-labelledby="usos-t">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow"><span class="dot dot--mint"></span> Na prática</p>
+        <h2 class="section__title" id="usos-t">Dez pedidos que já funcionam, com o comando certo.</h2>
+        <p class="section__lede">Cada item diz o que você entrega, o que volta e o comando do Claude Code que faz o trabalho. Todos seguem a mesma regra: fonte citada, estado de verificação explícito e minuta para quem assina, nunca parecer.</p>
+      </header>
+      <ul class="usos__who" aria-label="Para quem">
+        <li>Advogado</li><li>DPO</li><li>Fundador</li><li>Dev</li><li>Licitação</li><li>RH</li>
+      </ul>
+      <ol class="usos">
+        <li class="uso" data-c="mint">
+          <span class="uso__n" aria-hidden="true">01</span>
+          <h3>Revisar um contrato pela sua posição</h3>
+          <p><b>Você entrega:</b> o contrato, os anexos e de que lado você está: contratante ou contratada.</p>
+          <p><b>Volta:</b> as cláusulas em ordem de risco para a sua posição, cada uma apontando o trecho, com o que negociar.</p>
+          <div class="code"><pre id="code-uso-1">/br-contracts:contract-review</pre><button class="copy" type="button" data-copy="code-uso-1">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="coral">
+          <span class="uso__n" aria-hidden="true">02</span>
+          <h3>Checar um projeto de software ou IA contra a lei</h3>
+          <p><b>Você entrega:</b> o Claude Code aberto na pasta do repositório e as respostas ao questionário (UF, mercados, estágio).</p>
+          <p><b>Volta:</b> as lacunas em N1 Brasil, N2 país e N3 mundo, com fonte, artigo, estado de verificação e a minuta que falta.</p>
+          <div class="code"><pre id="code-uso-2">/ab-lexzenit-project-review:revisar-projeto</pre><button class="copy" type="button" data-copy="code-uso-2">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="cyan">
+          <span class="uso__n" aria-hidden="true">03</span>
+          <h3>Conferir as citações de uma peça</h3>
+          <p><b>Você entrega:</b> a petição ou o parecer, o país e a data relevante.</p>
+          <p><b>Volta:</b> cada citação extraída com posição no texto, separada em resolvida, pendente de identidade e sem suporte. Nada é autenticado por palpite.</p>
+          <div class="code"><pre id="code-uso-3">/br-legal-engineering:citations-provenance</pre><button class="copy" type="button" data-copy="code-uso-3">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="lav">
+          <span class="uso__n" aria-hidden="true">04</span>
+          <h3>Pseudonimizar antes de compartilhar</h3>
+          <p><b>Você entrega:</b> o documento e uma chave HMAC sua.</p>
+          <p><b>Volta:</b> uma cópia pseudonimizada, o mapa de posições para reverter e um checklist de revisão. Nada sai da sua máquina.</p>
+          <div class="code"><pre id="code-uso-4">/br-legal-engineering:privacy-local</pre><button class="copy" type="button" data-copy="code-uso-4">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="pear">
+          <span class="uso__n" aria-hidden="true">05</span>
+          <h3>Montar o RIPD e o registro de operações</h3>
+          <p><b>Você entrega:</b> o inventário do tratamento: dados, finalidade, bases, arquitetura e transferências.</p>
+          <p><b>Volta:</b> a minuta do relatório de impacto e do registro de operações (ROPA), com as transferências internacionais analisadas.</p>
+          <div class="code"><pre id="code-uso-5">/br-data-ai:privacy-impact</pre><button class="copy" type="button" data-copy="code-uso-5">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="mint">
+          <span class="uso__n" aria-hidden="true">06</span>
+          <h3>Decidir entre PJ e CLT antes de contratar</h3>
+          <p><b>Você entrega:</b> o contrato proposto, a rotina, os controles de jornada e como se paga.</p>
+          <p><b>Volta:</b> os indícios de vínculo e de terceirização lícita, cada um com a fonte, para o advogado decidir.</p>
+          <div class="code"><pre id="code-uso-6">/br-employment:worker-classification</pre><button class="copy" type="button" data-copy="code-uso-6">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="cyan">
+          <span class="uso__n" aria-hidden="true">07</span>
+          <h3>Calcular um prazo sem errar a contagem</h3>
+          <p><b>Você entrega:</b> o tipo de ato, o rito, a data da ciência e o calendário do órgão.</p>
+          <p><b>Volta:</b> o calendário com a regra de contagem citada e os feriados considerados, para conferir no sistema do tribunal.</p>
+          <div class="code"><pre id="code-uso-7">/br-legal-core:deadline-calendar-br</pre><button class="copy" type="button" data-copy="code-uso-7">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="coral">
+          <span class="uso__n" aria-hidden="true">08</span>
+          <h3>Saber o que falta antes de escrever</h3>
+          <p><b>Você entrega:</b> a lista do que o cliente mandou e o que você pretende produzir.</p>
+          <p><b>Volta:</b> os documentos, fatos e datas que ainda faltam para a peça ou o parecer, antes de gastar uma linha.</p>
+          <div class="code"><pre id="code-uso-8">/br-legal-core:intake-sufficiency-br</pre><button class="copy" type="button" data-copy="code-uso-8">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="lav">
+          <span class="uso__n" aria-hidden="true">09</span>
+          <h3>Atacar a própria tese antes do adversário</h3>
+          <p><b>Você entrega:</b> a tese consolidada, as evidências e os riscos que você já conhece.</p>
+          <p><b>Volta:</b> os pontos frágeis na voz da parte contrária, em ordem de dano, com o que reforçar ou cortar.</p>
+          <div class="code"><pre id="code-uso-9">/br-legal-core:adversarial-legal-review-br</pre><button class="copy" type="button" data-copy="code-uso-9">Copiar</button></div>
+        </li>
+        <li class="uso" data-c="pear">
+          <span class="uso__n" aria-hidden="true">10</span>
+          <h3>Cruzar edital, termo de referência e contrato</h3>
+          <p><b>Você entrega:</b> o edital, o ETP, o TR, as planilhas, o contrato e as retificações, com as versões.</p>
+          <p><b>Volta:</b> as contradições entre os documentos da licitação, com o trecho de cada lado e a versão em que apareceram.</p>
+          <div class="code"><pre id="code-uso-10">/br-legal-core:cross-document-consistency-br</pre><button class="copy" type="button" data-copy="code-uso-10">Copiar</button></div>
+        </li>
+      </ol>
+      <p class="footnote">Instale uma vez e os comandos ficam disponíveis em qualquer pasta. Fora do Claude Code, o mesmo workflow serve de instrução para um Projeto no app do Claude: anexe o SKILL.md e a pasta references do plugin. Em todos os casos, a saída é minuta para revisão profissional.</p>
+    </div>
+  </section>
   <section class="section" id="arquitetura" aria-labelledby="arq-t">
     <div class="wrap">
       <header class="section__head">
@@ -639,7 +725,7 @@ python -m lz_revisor revisar ../meu-projeto \
       <header class="section__head">
         <p class="eyebrow"><span class="dot dot--lav"></span> Fronteira de privacidade</p>
         <h2 class="section__title" id="fr-t">O caso não sai da sua máquina.</h2>
-        <p class="section__lede">Tudo começa e termina localmente. Detector, revisão declarada ou pseudônimo nenhum torna um upload automaticamente lícito.</p>
+        <p class="section__lede">Tudo começa e termina localmente. Nenhum detector, revisão declarada ou pseudônimo torna um upload lícito por si só.</p>
       </header>
       <figure class="figure">
         <div class="figure__scroll">
@@ -791,7 +877,7 @@ python -m lz_revisor revisar ../meu-projeto \
 cd LexZenit-JUD-for-legal-BR/runtime
 python -m legal_br.engine citations \
   --file examples/engineering/citations.txt</pre><button class="copy" type="button" data-copy="code-cli">Copiar</button></div>
-          <ul class="plan__list"><li>Saída JSON com hash da fonte e offsets</li><li>Pseudonimização exige chave privada sua</li></ul>
+          <ul class="plan__list"><li>Saída JSON com hash da fonte e offsets</li><li>Pseudonimização exige uma chave HMAC sua</li></ul>
         </article>
       </div>
       <div class="hero__cta install__links">
@@ -823,7 +909,7 @@ python -m legal_br.engine citations \
     <path d="M814 129.65C852.5 130.5 884.5 134.5 907.5 145.25L900.3 155.4C878 140.15 847 133.05 814 129.65Z"/>
     <circle cx="930" cy="169" r="22.25"/></g></svg></a><span class="footer__sep" aria-hidden="true"></span><a class="footer__lz" href="#topo" aria-label="LexZenit, voltar ao topo"><svg viewBox="0 0 1829 345" aria-hidden="true"><use href="#lz-lockup"/></svg></a></div>
       <p class="footer__col"><span>LexZenit · skill jurídica</span><span>Uma solução AB ED&amp;IA Soluções em Tecnologia Ltda.</span><span>CNPJ 57.531.384/0001-96</span><a href="https://www.alexandrebelo.com.br" target="_blank" rel="noopener noreferrer">alexandrebelo.com.br ↗</a><span>claude-for-legal-br 0.3.0 · Apache-2.0</span></p>
-      <p class="footer__col"><a href="#metodo">Método</a><a href="#revisor">Revisor de projetos</a><a href="#arquitetura">Arquitetura</a><a href="#limites">Limites</a><a href="#instalar">Instalar</a><a href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+      <p class="footer__col"><a href="#metodo">Método</a><a href="#numeros">Cobertura</a><a href="#revisor">Revisor de projetos</a><a href="#usos">Dez usos</a><a href="#arquitetura">Arquitetura</a><a href="#limites">Limites</a><a href="#instalar">Instalar</a><a href="https://github.com/oalexandrebelo/LexZenit-JUD-for-legal-BR" target="_blank" rel="noopener noreferrer">GitHub</a></p>
       <p class="footer__col">Adaptação independente.<br>Não é produto oficial da Anthropic.<br><span class="footer__hash">evidência · estrutura · privacidade · revisão</span></p>
     </div>
   </div>
